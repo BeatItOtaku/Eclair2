@@ -1,0 +1,305 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Belt_Thigh
+    m_Weight: 0
+  - m_Path: Belt_Thigh/transform16
+    m_Weight: 0
+  - m_Path: Belt_Thigh1
+    m_Weight: 0
+  - m_Path: Belt_Thigh1/Pants
+    m_Weight: 0
+  - m_Path: Belt_Thigh1/polySurface79
+    m_Weight: 0
+  - m_Path: Belt_Thigh1/transform17
+    m_Weight: 0
+  - m_Path: Boot_L
+    m_Weight: 0
+  - m_Path: Boot_R
+    m_Weight: 0
+  - m_Path: Eclair_Hips
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_LeftUpLeg
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot/Eclair_LeftToeBase
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_RightUpLeg
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot/Eclair_RightToeBase
+    m_Weight: 0
+  - m_Path: Eclair_Hips/Eclair_Spine
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3/Eclair_LeftHandIndex4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3/Eclair_LeftHandMiddle4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3/Eclair_LeftHandPinky4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3/Eclair_LeftHandRing4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3/Eclair_LeftHandThumb4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3/L_SideHanged_4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4/L_Twintail_5
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3/R_SideHanged_4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4/R_Twintail_5
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3/Eclair_RightHandIndex4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3/Eclair_RightHandMiddle4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3/Eclair_RightHandPinky4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3/Eclair_RightHandRing4
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3
+    m_Weight: 1
+  - m_Path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3/Eclair_RightHandThumb4
+    m_Weight: 1
+  - m_Path: Eclair_Reference
+    m_Weight: 1
+  - m_Path: Eyes1
+    m_Weight: 1
+  - m_Path: gun_2:polySurface16
+    m_Weight: 1
+  - m_Path: Hair_front
+    m_Weight: 1
+  - m_Path: ikHandle1
+    m_Weight: 1
+  - m_Path: imagePlane2
+    m_Weight: 1
+  - m_Path: imagePlane3
+    m_Weight: 1
+  - m_Path: L_Twintail
+    m_Weight: 1
+  - m_Path: pCube3
+    m_Weight: 1
+  - m_Path: pCube3/LeftKnee
+    m_Weight: 1
+  - m_Path: pCube3/polySurface39
+    m_Weight: 1
+  - m_Path: pCube3/polySurface39/Belt
+    m_Weight: 1
+  - m_Path: pCube3/polySurface39/Pants 1
+    m_Weight: 1
+  - m_Path: pCube3/polySurface39/Pants 1/transform15
+    m_Weight: 1
+  - m_Path: polySurface3
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/Face
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/UpperBody
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/Shirt
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface21
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L/pSolid5
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R
+    m_Weight: 1
+  - m_Path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R/pSolid5
+      1
+    m_Weight: 1
+  - m_Path: polySurface67
+    m_Weight: 1
+  - m_Path: polySurface67/Hair_middleBack
+    m_Weight: 1
+  - m_Path: polySurface67/L_SideHanged
+    m_Weight: 1
+  - m_Path: polySurface67/R_SideHanged
+    m_Weight: 1
+  - m_Path: pSphere5
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface44
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface44/polySurface45
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface44/polySurface45/transform10
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface44/polySurface62
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface44/polySurface62/transform9
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface44/transform11
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface78
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface78/polySurface45 1
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface78/polySurface45 1/transform13
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface78/polySurface62 1
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface78/polySurface62 1/transform12
+    m_Weight: 1
+  - m_Path: pSphere5/polySurface78/transform14
+    m_Weight: 1
+  - m_Path: pSphere6
+    m_Weight: 1
+  - m_Path: pSphere6/Head
+    m_Weight: 1
+  - m_Path: pSphere6/Head/AHO_Hair
+    m_Weight: 1
+  - m_Path: R_Twintail
+    m_Weight: 1
