@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Bolt
+  - ThunderSwitch
+  - EclairKeepOut
+  - Boss
+  - BossTail
+  - NoMoveBolt
+  - ETOEclair
+  - Plane
+  - Objects
+  - TutorialUI
+  - BreakWall
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Bolt
+  - Objects
+  - NoMoveBolt
+  - EclairKeepOut
+  - Boss
+  - Enemy
+  - Event7Pass
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

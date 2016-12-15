@@ -1,0 +1,2134 @@
+fileFormatVersion: 2
+guid: 82f4ed682e47d46d482be53fbbe0e929
+timeCreated: 1476952648
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: a
+    100002: AHO_Hair
+    100004: Belt
+    100006: Belt_Thigh
+    100008: Belt_Thigh1
+    100010: Boot_L
+    100012: Boot_R
+    100014: curve1
+    100016: curve2
+    100018: curve3
+    100020: Eclair_Ctrl_ChestEndEffector
+    100022: Eclair_Ctrl_ChestOriginEffector
+    100024: Eclair_Ctrl_Head
+    100026: Eclair_Ctrl_HeadEffector
+    100028: Eclair_Ctrl_Hips
+    100030: Eclair_Ctrl_HipsEffector
+    100032: Eclair_Ctrl_LeftAnkleEffector
+    100034: Eclair_Ctrl_LeftArm
+    100036: Eclair_Ctrl_LeftElbowEffector
+    100038: Eclair_Ctrl_LeftFoot
+    100040: Eclair_Ctrl_LeftFootEffector
+    100042: Eclair_Ctrl_LeftForeArm
+    100044: Eclair_Ctrl_LeftForeArmRoll
+    100046: Eclair_Ctrl_LeftHand
+    100048: Eclair_Ctrl_LeftHandIndex1
+    100050: Eclair_Ctrl_LeftHandIndex2
+    100052: Eclair_Ctrl_LeftHandIndex3
+    100054: Eclair_Ctrl_LeftHandIndex4
+    100056: Eclair_Ctrl_LeftHandIndexEffector
+    100058: Eclair_Ctrl_LeftHandMiddle1
+    100060: Eclair_Ctrl_LeftHandMiddle2
+    100062: Eclair_Ctrl_LeftHandMiddle3
+    100064: Eclair_Ctrl_LeftHandMiddle4
+    100066: Eclair_Ctrl_LeftHandMiddleEffector
+    100068: Eclair_Ctrl_LeftHandPinky1
+    100070: Eclair_Ctrl_LeftHandPinky2
+    100072: Eclair_Ctrl_LeftHandPinky3
+    100074: Eclair_Ctrl_LeftHandPinky4
+    100076: Eclair_Ctrl_LeftHandPinkyEffector
+    100078: Eclair_Ctrl_LeftHandRing1
+    100080: Eclair_Ctrl_LeftHandRing2
+    100082: Eclair_Ctrl_LeftHandRing3
+    100084: Eclair_Ctrl_LeftHandRing4
+    100086: Eclair_Ctrl_LeftHandRingEffector
+    100088: Eclair_Ctrl_LeftHandThumb1
+    100090: Eclair_Ctrl_LeftHandThumb2
+    100092: Eclair_Ctrl_LeftHandThumb3
+    100094: Eclair_Ctrl_LeftHandThumb4
+    100096: Eclair_Ctrl_LeftHandThumbEffector
+    100098: Eclair_Ctrl_LeftHipEffector
+    100100: Eclair_Ctrl_LeftKneeEffector
+    100102: Eclair_Ctrl_LeftLeg
+    100104: Eclair_Ctrl_LeftShoulder
+    100106: Eclair_Ctrl_LeftShoulderEffector
+    100108: Eclair_Ctrl_LeftToeBase
+    100110: Eclair_Ctrl_LeftUpLeg
+    100112: Eclair_Ctrl_LeftWristEffector
+    100114: Eclair_Ctrl_Neck
+    100116: Eclair_Ctrl_Neck1
+    100118: Eclair_Ctrl_Reference
+    100120: Eclair_Ctrl_RightAnkleEffector
+    100122: Eclair_Ctrl_RightArm
+    100124: Eclair_Ctrl_RightElbowEffector
+    100126: Eclair_Ctrl_RightFoot
+    100128: Eclair_Ctrl_RightFootEffector
+    100130: Eclair_Ctrl_RightForeArm
+    100132: Eclair_Ctrl_RightForeArmRoll
+    100134: Eclair_Ctrl_RightHand
+    100136: Eclair_Ctrl_RightHandIndex1
+    100138: Eclair_Ctrl_RightHandIndex2
+    100140: Eclair_Ctrl_RightHandIndex3
+    100142: Eclair_Ctrl_RightHandIndex4
+    100144: Eclair_Ctrl_RightHandIndexEffector
+    100146: Eclair_Ctrl_RightHandMiddle1
+    100148: Eclair_Ctrl_RightHandMiddle2
+    100150: Eclair_Ctrl_RightHandMiddle3
+    100152: Eclair_Ctrl_RightHandMiddle4
+    100154: Eclair_Ctrl_RightHandMiddleEffector
+    100156: Eclair_Ctrl_RightHandPinky1
+    100158: Eclair_Ctrl_RightHandPinky2
+    100160: Eclair_Ctrl_RightHandPinky3
+    100162: Eclair_Ctrl_RightHandPinky4
+    100164: Eclair_Ctrl_RightHandPinkyEffector
+    100166: Eclair_Ctrl_RightHandRing1
+    100168: Eclair_Ctrl_RightHandRing2
+    100170: Eclair_Ctrl_RightHandRing3
+    100172: Eclair_Ctrl_RightHandRing4
+    100174: Eclair_Ctrl_RightHandRingEffector
+    100176: Eclair_Ctrl_RightHandThumb1
+    100178: Eclair_Ctrl_RightHandThumb2
+    100180: Eclair_Ctrl_RightHandThumb3
+    100182: Eclair_Ctrl_RightHandThumb4
+    100184: Eclair_Ctrl_RightHandThumbEffector
+    100186: Eclair_Ctrl_RightHipEffector
+    100188: Eclair_Ctrl_RightKneeEffector
+    100190: Eclair_Ctrl_RightLeg
+    100192: Eclair_Ctrl_RightShoulder
+    100194: Eclair_Ctrl_RightShoulderEffector
+    100196: Eclair_Ctrl_RightToeBase
+    100198: Eclair_Ctrl_RightUpLeg
+    100200: Eclair_Ctrl_RightWristEffector
+    100202: Eclair_Ctrl_Spine
+    100204: Eclair_Ctrl_Spine1
+    100206: Eclair_Ctrl_Spine2
+    100208: Eclair_Head
+    100210: Eclair_Hips
+    100212: Eclair_LeftArm
+    100214: Eclair_LeftFoot
+    100216: Eclair_LeftForeArm
+    100218: Eclair_LeftForeArmRoll
+    100220: Eclair_LeftHand
+    100222: Eclair_LeftHandIndex1
+    100224: Eclair_LeftHandIndex2
+    100226: Eclair_LeftHandIndex3
+    100228: Eclair_LeftHandIndex4
+    100230: Eclair_LeftHandMiddle1
+    100232: Eclair_LeftHandMiddle2
+    100234: Eclair_LeftHandMiddle3
+    100236: Eclair_LeftHandMiddle4
+    100238: Eclair_LeftHandPinky1
+    100240: Eclair_LeftHandPinky2
+    100242: Eclair_LeftHandPinky3
+    100244: Eclair_LeftHandPinky4
+    100246: Eclair_LeftHandRing1
+    100248: Eclair_LeftHandRing2
+    100250: Eclair_LeftHandRing3
+    100252: Eclair_LeftHandRing4
+    100254: Eclair_LeftHandThumb1
+    100256: Eclair_LeftHandThumb2
+    100258: Eclair_LeftHandThumb3
+    100260: Eclair_LeftHandThumb4
+    100262: Eclair_LeftLeg
+    100264: Eclair_LeftShoulder
+    100266: Eclair_LeftToeBase
+    100268: Eclair_LeftUpLeg
+    100270: Eclair_Neck
+    100272: Eclair_Neck1
+    100274: Eclair_Reference
+    100276: Eclair_RightArm
+    100278: Eclair_RightFoot
+    100280: Eclair_RightForeArm
+    100282: Eclair_RightForeArmRoll
+    100284: Eclair_RightHand
+    100286: Eclair_RightHandIndex1
+    100288: Eclair_RightHandIndex2
+    100290: Eclair_RightHandIndex3
+    100292: Eclair_RightHandIndex4
+    100294: Eclair_RightHandMiddle1
+    100296: Eclair_RightHandMiddle2
+    100298: Eclair_RightHandMiddle3
+    100300: Eclair_RightHandMiddle4
+    100302: Eclair_RightHandPinky1
+    100304: Eclair_RightHandPinky2
+    100306: Eclair_RightHandPinky3
+    100308: Eclair_RightHandPinky4
+    100310: Eclair_RightHandRing1
+    100312: Eclair_RightHandRing2
+    100314: Eclair_RightHandRing3
+    100316: Eclair_RightHandRing4
+    100318: Eclair_RightHandThumb1
+    100320: Eclair_RightHandThumb2
+    100322: Eclair_RightHandThumb3
+    100324: Eclair_RightHandThumb4
+    100326: Eclair_RightLeg
+    100328: Eclair_RightShoulder
+    100330: Eclair_RightToeBase
+    100332: Eclair_RightUpLeg
+    100334: Eclair_Spine
+    100336: Eclair_Spine1
+    100338: Eclair_Spine2
+    100340: Eyes1
+    100342: Face
+    100344: Globe_L
+    100346: Globe_R
+    100348: gun_2:polySurface16
+    100350: Hair_front
+    100352: Hair_middleBack
+    100354: Head
+    100356: ikHandle1
+    100358: imagePlane2
+    100360: imagePlane3
+    100362: L_SideHanged
+    100364: L_SideHanged_1
+    100366: L_SideHanged_2
+    100368: L_SideHanged_3
+    100370: L_SideHanged_4
+    100372: L_Twintail
+    100374: L_Twintail_1
+    100376: L_Twintail_2
+    100378: L_Twintail_3
+    100380: L_Twintail_4
+    100382: L_Twintail_5
+    100384: LeftKnee
+    100386: Pants
+    100388: Pants 1
+    100390: pCube3
+    100392: polySurface18
+    100394: polySurface20
+    100396: polySurface21
+    100398: polySurface25
+    100400: polySurface3
+    100402: polySurface38
+    100404: polySurface39
+    100406: polySurface4
+    100408: polySurface44
+    100410: polySurface45
+    100412: polySurface45 1
+    100414: polySurface62
+    100416: polySurface62 1
+    100418: polySurface67
+    100420: polySurface75
+    100422: polySurface78
+    100424: polySurface79
+    100426: pSolid5
+    100428: pSolid5 1
+    100430: pSphere5
+    100432: pSphere6
+    100434: R_SideHanged
+    100436: R_SideHanged_1
+    100438: R_SideHanged_2
+    100440: R_SideHanged_3
+    100442: R_SideHanged_4
+    100444: R_Twintail
+    100446: R_Twintail_1
+    100448: R_Twintail_2
+    100450: R_Twintail_3
+    100452: R_Twintail_4
+    100454: R_Twintail_5
+    100456: s
+    100458: Shirt
+    100460: transform10
+    100462: transform11
+    100464: transform12
+    100466: transform13
+    100468: transform14
+    100470: transform15
+    100472: transform16
+    100474: transform17
+    100476: transform9
+    100478: UpperBody
+    100480: //RootNode
+    400000: a
+    400002: AHO_Hair
+    400004: Belt
+    400006: Belt_Thigh
+    400008: Belt_Thigh1
+    400010: Boot_L
+    400012: Boot_R
+    400014: curve1
+    400016: curve2
+    400018: curve3
+    400020: Eclair_Ctrl_ChestEndEffector
+    400022: Eclair_Ctrl_ChestOriginEffector
+    400024: Eclair_Ctrl_Head
+    400026: Eclair_Ctrl_HeadEffector
+    400028: Eclair_Ctrl_Hips
+    400030: Eclair_Ctrl_HipsEffector
+    400032: Eclair_Ctrl_LeftAnkleEffector
+    400034: Eclair_Ctrl_LeftArm
+    400036: Eclair_Ctrl_LeftElbowEffector
+    400038: Eclair_Ctrl_LeftFoot
+    400040: Eclair_Ctrl_LeftFootEffector
+    400042: Eclair_Ctrl_LeftForeArm
+    400044: Eclair_Ctrl_LeftForeArmRoll
+    400046: Eclair_Ctrl_LeftHand
+    400048: Eclair_Ctrl_LeftHandIndex1
+    400050: Eclair_Ctrl_LeftHandIndex2
+    400052: Eclair_Ctrl_LeftHandIndex3
+    400054: Eclair_Ctrl_LeftHandIndex4
+    400056: Eclair_Ctrl_LeftHandIndexEffector
+    400058: Eclair_Ctrl_LeftHandMiddle1
+    400060: Eclair_Ctrl_LeftHandMiddle2
+    400062: Eclair_Ctrl_LeftHandMiddle3
+    400064: Eclair_Ctrl_LeftHandMiddle4
+    400066: Eclair_Ctrl_LeftHandMiddleEffector
+    400068: Eclair_Ctrl_LeftHandPinky1
+    400070: Eclair_Ctrl_LeftHandPinky2
+    400072: Eclair_Ctrl_LeftHandPinky3
+    400074: Eclair_Ctrl_LeftHandPinky4
+    400076: Eclair_Ctrl_LeftHandPinkyEffector
+    400078: Eclair_Ctrl_LeftHandRing1
+    400080: Eclair_Ctrl_LeftHandRing2
+    400082: Eclair_Ctrl_LeftHandRing3
+    400084: Eclair_Ctrl_LeftHandRing4
+    400086: Eclair_Ctrl_LeftHandRingEffector
+    400088: Eclair_Ctrl_LeftHandThumb1
+    400090: Eclair_Ctrl_LeftHandThumb2
+    400092: Eclair_Ctrl_LeftHandThumb3
+    400094: Eclair_Ctrl_LeftHandThumb4
+    400096: Eclair_Ctrl_LeftHandThumbEffector
+    400098: Eclair_Ctrl_LeftHipEffector
+    400100: Eclair_Ctrl_LeftKneeEffector
+    400102: Eclair_Ctrl_LeftLeg
+    400104: Eclair_Ctrl_LeftShoulder
+    400106: Eclair_Ctrl_LeftShoulderEffector
+    400108: Eclair_Ctrl_LeftToeBase
+    400110: Eclair_Ctrl_LeftUpLeg
+    400112: Eclair_Ctrl_LeftWristEffector
+    400114: Eclair_Ctrl_Neck
+    400116: Eclair_Ctrl_Neck1
+    400118: Eclair_Ctrl_Reference
+    400120: Eclair_Ctrl_RightAnkleEffector
+    400122: Eclair_Ctrl_RightArm
+    400124: Eclair_Ctrl_RightElbowEffector
+    400126: Eclair_Ctrl_RightFoot
+    400128: Eclair_Ctrl_RightFootEffector
+    400130: Eclair_Ctrl_RightForeArm
+    400132: Eclair_Ctrl_RightForeArmRoll
+    400134: Eclair_Ctrl_RightHand
+    400136: Eclair_Ctrl_RightHandIndex1
+    400138: Eclair_Ctrl_RightHandIndex2
+    400140: Eclair_Ctrl_RightHandIndex3
+    400142: Eclair_Ctrl_RightHandIndex4
+    400144: Eclair_Ctrl_RightHandIndexEffector
+    400146: Eclair_Ctrl_RightHandMiddle1
+    400148: Eclair_Ctrl_RightHandMiddle2
+    400150: Eclair_Ctrl_RightHandMiddle3
+    400152: Eclair_Ctrl_RightHandMiddle4
+    400154: Eclair_Ctrl_RightHandMiddleEffector
+    400156: Eclair_Ctrl_RightHandPinky1
+    400158: Eclair_Ctrl_RightHandPinky2
+    400160: Eclair_Ctrl_RightHandPinky3
+    400162: Eclair_Ctrl_RightHandPinky4
+    400164: Eclair_Ctrl_RightHandPinkyEffector
+    400166: Eclair_Ctrl_RightHandRing1
+    400168: Eclair_Ctrl_RightHandRing2
+    400170: Eclair_Ctrl_RightHandRing3
+    400172: Eclair_Ctrl_RightHandRing4
+    400174: Eclair_Ctrl_RightHandRingEffector
+    400176: Eclair_Ctrl_RightHandThumb1
+    400178: Eclair_Ctrl_RightHandThumb2
+    400180: Eclair_Ctrl_RightHandThumb3
+    400182: Eclair_Ctrl_RightHandThumb4
+    400184: Eclair_Ctrl_RightHandThumbEffector
+    400186: Eclair_Ctrl_RightHipEffector
+    400188: Eclair_Ctrl_RightKneeEffector
+    400190: Eclair_Ctrl_RightLeg
+    400192: Eclair_Ctrl_RightShoulder
+    400194: Eclair_Ctrl_RightShoulderEffector
+    400196: Eclair_Ctrl_RightToeBase
+    400198: Eclair_Ctrl_RightUpLeg
+    400200: Eclair_Ctrl_RightWristEffector
+    400202: Eclair_Ctrl_Spine
+    400204: Eclair_Ctrl_Spine1
+    400206: Eclair_Ctrl_Spine2
+    400208: Eclair_Head
+    400210: Eclair_Hips
+    400212: Eclair_LeftArm
+    400214: Eclair_LeftFoot
+    400216: Eclair_LeftForeArm
+    400218: Eclair_LeftForeArmRoll
+    400220: Eclair_LeftHand
+    400222: Eclair_LeftHandIndex1
+    400224: Eclair_LeftHandIndex2
+    400226: Eclair_LeftHandIndex3
+    400228: Eclair_LeftHandIndex4
+    400230: Eclair_LeftHandMiddle1
+    400232: Eclair_LeftHandMiddle2
+    400234: Eclair_LeftHandMiddle3
+    400236: Eclair_LeftHandMiddle4
+    400238: Eclair_LeftHandPinky1
+    400240: Eclair_LeftHandPinky2
+    400242: Eclair_LeftHandPinky3
+    400244: Eclair_LeftHandPinky4
+    400246: Eclair_LeftHandRing1
+    400248: Eclair_LeftHandRing2
+    400250: Eclair_LeftHandRing3
+    400252: Eclair_LeftHandRing4
+    400254: Eclair_LeftHandThumb1
+    400256: Eclair_LeftHandThumb2
+    400258: Eclair_LeftHandThumb3
+    400260: Eclair_LeftHandThumb4
+    400262: Eclair_LeftLeg
+    400264: Eclair_LeftShoulder
+    400266: Eclair_LeftToeBase
+    400268: Eclair_LeftUpLeg
+    400270: Eclair_Neck
+    400272: Eclair_Neck1
+    400274: Eclair_Reference
+    400276: Eclair_RightArm
+    400278: Eclair_RightFoot
+    400280: Eclair_RightForeArm
+    400282: Eclair_RightForeArmRoll
+    400284: Eclair_RightHand
+    400286: Eclair_RightHandIndex1
+    400288: Eclair_RightHandIndex2
+    400290: Eclair_RightHandIndex3
+    400292: Eclair_RightHandIndex4
+    400294: Eclair_RightHandMiddle1
+    400296: Eclair_RightHandMiddle2
+    400298: Eclair_RightHandMiddle3
+    400300: Eclair_RightHandMiddle4
+    400302: Eclair_RightHandPinky1
+    400304: Eclair_RightHandPinky2
+    400306: Eclair_RightHandPinky3
+    400308: Eclair_RightHandPinky4
+    400310: Eclair_RightHandRing1
+    400312: Eclair_RightHandRing2
+    400314: Eclair_RightHandRing3
+    400316: Eclair_RightHandRing4
+    400318: Eclair_RightHandThumb1
+    400320: Eclair_RightHandThumb2
+    400322: Eclair_RightHandThumb3
+    400324: Eclair_RightHandThumb4
+    400326: Eclair_RightLeg
+    400328: Eclair_RightShoulder
+    400330: Eclair_RightToeBase
+    400332: Eclair_RightUpLeg
+    400334: Eclair_Spine
+    400336: Eclair_Spine1
+    400338: Eclair_Spine2
+    400340: Eyes1
+    400342: Face
+    400344: Globe_L
+    400346: Globe_R
+    400348: gun_2:polySurface16
+    400350: Hair_front
+    400352: Hair_middleBack
+    400354: Head
+    400356: ikHandle1
+    400358: imagePlane2
+    400360: imagePlane3
+    400362: L_SideHanged
+    400364: L_SideHanged_1
+    400366: L_SideHanged_2
+    400368: L_SideHanged_3
+    400370: L_SideHanged_4
+    400372: L_Twintail
+    400374: L_Twintail_1
+    400376: L_Twintail_2
+    400378: L_Twintail_3
+    400380: L_Twintail_4
+    400382: L_Twintail_5
+    400384: LeftKnee
+    400386: Pants
+    400388: Pants 1
+    400390: pCube3
+    400392: polySurface18
+    400394: polySurface20
+    400396: polySurface21
+    400398: polySurface25
+    400400: polySurface3
+    400402: polySurface38
+    400404: polySurface39
+    400406: polySurface4
+    400408: polySurface44
+    400410: polySurface45
+    400412: polySurface45 1
+    400414: polySurface62
+    400416: polySurface62 1
+    400418: polySurface67
+    400420: polySurface75
+    400422: polySurface78
+    400424: polySurface79
+    400426: pSolid5
+    400428: pSolid5 1
+    400430: pSphere5
+    400432: pSphere6
+    400434: R_SideHanged
+    400436: R_SideHanged_1
+    400438: R_SideHanged_2
+    400440: R_SideHanged_3
+    400442: R_SideHanged_4
+    400444: R_Twintail
+    400446: R_Twintail_1
+    400448: R_Twintail_2
+    400450: R_Twintail_3
+    400452: R_Twintail_4
+    400454: R_Twintail_5
+    400456: s
+    400458: Shirt
+    400460: transform10
+    400462: transform11
+    400464: transform12
+    400466: transform13
+    400468: transform14
+    400470: transform15
+    400472: transform16
+    400474: transform17
+    400476: transform9
+    400478: UpperBody
+    400480: //RootNode
+    4300000: Face
+    4300002: UpperBody
+    4300004: Shirt
+    4300006: Globe_L
+    4300008: pSolid5
+    4300010: Globe_R
+    4300012: pSolid5
+    4300014: Belt
+    4300016: LeftKnee
+    4300018: AHO_Hair
+    4300020: R_Twintail
+    4300022: Hair_front
+    4300024: L_Twintail
+    4300026: Hair_middleBack
+    4300028: L_SideHanged
+    4300030: R_SideHanged
+    4300032: Eyes1
+    4300034: Boot_R
+    4300036: Boot_L
+    4300038: Pants
+    4300040: gun_2:polySurface16
+    7400000: BigAttacked
+    7400002: SmallAttacked
+    7400004: NewRun
+    9500000: //RootNode
+    13700000: AHO_Hair
+    13700002: Belt
+    13700004: Boot_L
+    13700006: Boot_R
+    13700008: Eyes1
+    13700010: Face
+    13700012: Globe_L
+    13700014: Globe_R
+    13700016: gun_2:polySurface16
+    13700018: Hair_front
+    13700020: Hair_middleBack
+    13700022: L_SideHanged
+    13700024: L_Twintail
+    13700026: LeftKnee
+    13700028: Pants
+    13700030: pSolid5
+    13700032: pSolid5 1
+    13700034: R_SideHanged
+    13700036: R_Twintail
+    13700038: Shirt
+    13700040: UpperBody
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: Eclair_Hips
+    animationImportErrors: "\nImported file '\u30A8\u30AF\u30EC\u30A2\uFF08\u30C6\u30B9\uFF17\uFF09'
+      conversion failed: Required human bone 'Hips' not found\n\n"
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: BigAttacked
+      takeName: Take 001
+      firstFrame: 901
+      lastFrame: 998
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belt_Thigh
+        weight: 0
+      - path: Belt_Thigh/transform16
+        weight: 0
+      - path: Belt_Thigh1
+        weight: 0
+      - path: Belt_Thigh1/Pants
+        weight: 0
+      - path: Belt_Thigh1/polySurface79
+        weight: 0
+      - path: Belt_Thigh1/transform17
+        weight: 0
+      - path: Boot_L
+        weight: 0
+      - path: Boot_R
+        weight: 0
+      - path: Eclair_Ctrl_Reference
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_ChestEndEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_ChestOriginEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_HeadEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg/Eclair_Ctrl_LeftFoot
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg/Eclair_Ctrl_LeftFoot/Eclair_Ctrl_LeftToeBase
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg/Eclair_Ctrl_RightFoot
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg/Eclair_Ctrl_RightFoot/Eclair_Ctrl_RightToeBase
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2/Eclair_Ctrl_LeftHandIndex3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2/Eclair_Ctrl_LeftHandIndex3/Eclair_Ctrl_LeftHandIndex4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2/Eclair_Ctrl_LeftHandMiddle3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2/Eclair_Ctrl_LeftHandMiddle3/Eclair_Ctrl_LeftHandMiddle4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2/Eclair_Ctrl_LeftHandPinky3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2/Eclair_Ctrl_LeftHandPinky3/Eclair_Ctrl_LeftHandPinky4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2/Eclair_Ctrl_LeftHandRing3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2/Eclair_Ctrl_LeftHandRing3/Eclair_Ctrl_LeftHandRing4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2/Eclair_Ctrl_LeftHandThumb3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2/Eclair_Ctrl_LeftHandThumb3/Eclair_Ctrl_LeftHandThumb4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck/Eclair_Ctrl_Neck1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck/Eclair_Ctrl_Neck1/Eclair_Ctrl_Head
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2/Eclair_Ctrl_RightHandIndex3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2/Eclair_Ctrl_RightHandIndex3/Eclair_Ctrl_RightHandIndex4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2/Eclair_Ctrl_RightHandMiddle3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2/Eclair_Ctrl_RightHandMiddle3/Eclair_Ctrl_RightHandMiddle4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2/Eclair_Ctrl_RightHandPinky3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2/Eclair_Ctrl_RightHandPinky3/Eclair_Ctrl_RightHandPinky4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2/Eclair_Ctrl_RightHandRing3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2/Eclair_Ctrl_RightHandRing3/Eclair_Ctrl_RightHandRing4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2/Eclair_Ctrl_RightHandThumb3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2/Eclair_Ctrl_RightHandThumb3/Eclair_Ctrl_RightHandThumb4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_HipsEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftAnkleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftElbowEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftFootEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandIndexEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandMiddleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandPinkyEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandRingEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandThumbEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHipEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftKneeEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftShoulderEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftWristEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightAnkleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightElbowEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightFootEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandIndexEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandMiddleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandPinkyEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandRingEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandThumbEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHipEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightKneeEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightShoulderEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightWristEffector
+        weight: 0
+      - path: Eclair_Hips
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot/Eclair_LeftToeBase
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot/Eclair_RightToeBase
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3/Eclair_LeftHandIndex4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3/Eclair_LeftHandMiddle4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3/Eclair_LeftHandPinky4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3/Eclair_LeftHandRing4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3/Eclair_LeftHandThumb4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3/L_SideHanged_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4/L_Twintail_5
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3/R_SideHanged_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4/R_Twintail_5
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3/Eclair_RightHandIndex4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3/Eclair_RightHandMiddle4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3/Eclair_RightHandPinky4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3/Eclair_RightHandRing4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3/Eclair_RightHandThumb4
+        weight: 0
+      - path: Eclair_Reference
+        weight: 0
+      - path: Eyes1
+        weight: 0
+      - path: gun_2:polySurface16
+        weight: 0
+      - path: Hair_front
+        weight: 0
+      - path: ikHandle1
+        weight: 0
+      - path: imagePlane2
+        weight: 0
+      - path: imagePlane3
+        weight: 0
+      - path: L_Twintail
+        weight: 0
+      - path: pCube3
+        weight: 0
+      - path: pCube3/LeftKnee
+        weight: 0
+      - path: pCube3/polySurface39
+        weight: 0
+      - path: pCube3/polySurface39/Belt
+        weight: 0
+      - path: pCube3/polySurface39/Pants 1
+        weight: 0
+      - path: pCube3/polySurface39/Pants 1/transform15
+        weight: 0
+      - path: polySurface3
+        weight: 0
+      - path: polySurface3/polySurface4
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/Face
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/UpperBody
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/Shirt
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L/pSolid5
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R/pSolid5
+          1
+        weight: 0
+      - path: polySurface67
+        weight: 0
+      - path: polySurface67/Hair_middleBack
+        weight: 0
+      - path: polySurface67/L_SideHanged
+        weight: 0
+      - path: polySurface67/R_SideHanged
+        weight: 0
+      - path: pSphere5
+        weight: 0
+      - path: pSphere5/polySurface44
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface45
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface45/transform10
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface62
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface62/transform9
+        weight: 0
+      - path: pSphere5/polySurface44/transform11
+        weight: 0
+      - path: pSphere5/polySurface78
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface45 1
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface45 1/transform13
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface62 1
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface62 1/transform12
+        weight: 0
+      - path: pSphere5/polySurface78/transform14
+        weight: 0
+      - path: pSphere6
+        weight: 0
+      - path: pSphere6/Head
+        weight: 0
+      - path: pSphere6/Head/AHO_Hair
+        weight: 0
+      - path: R_Twintail
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SmallAttacked
+      takeName: Take 001
+      firstFrame: 1001
+      lastFrame: 1020
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belt_Thigh
+        weight: 0
+      - path: Belt_Thigh/transform16
+        weight: 0
+      - path: Belt_Thigh1
+        weight: 0
+      - path: Belt_Thigh1/Pants
+        weight: 0
+      - path: Belt_Thigh1/polySurface79
+        weight: 0
+      - path: Belt_Thigh1/transform17
+        weight: 0
+      - path: Boot_L
+        weight: 0
+      - path: Boot_R
+        weight: 0
+      - path: Eclair_Ctrl_Reference
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_ChestEndEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_ChestOriginEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_HeadEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg/Eclair_Ctrl_LeftFoot
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg/Eclair_Ctrl_LeftFoot/Eclair_Ctrl_LeftToeBase
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg/Eclair_Ctrl_RightFoot
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg/Eclair_Ctrl_RightFoot/Eclair_Ctrl_RightToeBase
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2/Eclair_Ctrl_LeftHandIndex3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2/Eclair_Ctrl_LeftHandIndex3/Eclair_Ctrl_LeftHandIndex4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2/Eclair_Ctrl_LeftHandMiddle3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2/Eclair_Ctrl_LeftHandMiddle3/Eclair_Ctrl_LeftHandMiddle4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2/Eclair_Ctrl_LeftHandPinky3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2/Eclair_Ctrl_LeftHandPinky3/Eclair_Ctrl_LeftHandPinky4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2/Eclair_Ctrl_LeftHandRing3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2/Eclair_Ctrl_LeftHandRing3/Eclair_Ctrl_LeftHandRing4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2/Eclair_Ctrl_LeftHandThumb3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2/Eclair_Ctrl_LeftHandThumb3/Eclair_Ctrl_LeftHandThumb4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck/Eclair_Ctrl_Neck1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck/Eclair_Ctrl_Neck1/Eclair_Ctrl_Head
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2/Eclair_Ctrl_RightHandIndex3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2/Eclair_Ctrl_RightHandIndex3/Eclair_Ctrl_RightHandIndex4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2/Eclair_Ctrl_RightHandMiddle3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2/Eclair_Ctrl_RightHandMiddle3/Eclair_Ctrl_RightHandMiddle4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2/Eclair_Ctrl_RightHandPinky3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2/Eclair_Ctrl_RightHandPinky3/Eclair_Ctrl_RightHandPinky4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2/Eclair_Ctrl_RightHandRing3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2/Eclair_Ctrl_RightHandRing3/Eclair_Ctrl_RightHandRing4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2/Eclair_Ctrl_RightHandThumb3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2/Eclair_Ctrl_RightHandThumb3/Eclair_Ctrl_RightHandThumb4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_HipsEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftAnkleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftElbowEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftFootEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandIndexEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandMiddleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandPinkyEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandRingEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandThumbEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHipEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftKneeEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftShoulderEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftWristEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightAnkleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightElbowEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightFootEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandIndexEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandMiddleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandPinkyEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandRingEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandThumbEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHipEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightKneeEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightShoulderEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightWristEffector
+        weight: 0
+      - path: Eclair_Hips
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot/Eclair_LeftToeBase
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot/Eclair_RightToeBase
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3/Eclair_LeftHandIndex4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3/Eclair_LeftHandMiddle4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3/Eclair_LeftHandPinky4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3/Eclair_LeftHandRing4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3/Eclair_LeftHandThumb4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3/L_SideHanged_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4/L_Twintail_5
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3/R_SideHanged_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4/R_Twintail_5
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3/Eclair_RightHandIndex4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3/Eclair_RightHandMiddle4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3/Eclair_RightHandPinky4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3/Eclair_RightHandRing4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3/Eclair_RightHandThumb4
+        weight: 0
+      - path: Eclair_Reference
+        weight: 0
+      - path: Eyes1
+        weight: 0
+      - path: gun_2:polySurface16
+        weight: 0
+      - path: Hair_front
+        weight: 0
+      - path: ikHandle1
+        weight: 0
+      - path: imagePlane2
+        weight: 0
+      - path: imagePlane3
+        weight: 0
+      - path: L_Twintail
+        weight: 0
+      - path: pCube3
+        weight: 0
+      - path: pCube3/LeftKnee
+        weight: 0
+      - path: pCube3/polySurface39
+        weight: 0
+      - path: pCube3/polySurface39/Belt
+        weight: 0
+      - path: pCube3/polySurface39/Pants 1
+        weight: 0
+      - path: pCube3/polySurface39/Pants 1/transform15
+        weight: 0
+      - path: polySurface3
+        weight: 0
+      - path: polySurface3/polySurface4
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/Face
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/UpperBody
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/Shirt
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L/pSolid5
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R/pSolid5
+          1
+        weight: 0
+      - path: polySurface67
+        weight: 0
+      - path: polySurface67/Hair_middleBack
+        weight: 0
+      - path: polySurface67/L_SideHanged
+        weight: 0
+      - path: polySurface67/R_SideHanged
+        weight: 0
+      - path: pSphere5
+        weight: 0
+      - path: pSphere5/polySurface44
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface45
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface45/transform10
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface62
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface62/transform9
+        weight: 0
+      - path: pSphere5/polySurface44/transform11
+        weight: 0
+      - path: pSphere5/polySurface78
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface45 1
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface45 1/transform13
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface62 1
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface62 1/transform12
+        weight: 0
+      - path: pSphere5/polySurface78/transform14
+        weight: 0
+      - path: pSphere6
+        weight: 0
+      - path: pSphere6/Head
+        weight: 0
+      - path: pSphere6/Head/AHO_Hair
+        weight: 0
+      - path: R_Twintail
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NewRun
+      takeName: Take 001
+      firstFrame: 1030
+      lastFrame: 1069
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belt_Thigh
+        weight: 0
+      - path: Belt_Thigh/transform16
+        weight: 0
+      - path: Belt_Thigh1
+        weight: 0
+      - path: Belt_Thigh1/Pants
+        weight: 0
+      - path: Belt_Thigh1/polySurface79
+        weight: 0
+      - path: Belt_Thigh1/transform17
+        weight: 0
+      - path: Boot_L
+        weight: 0
+      - path: Boot_R
+        weight: 0
+      - path: Eclair_Ctrl_Reference
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_ChestEndEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_ChestOriginEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_HeadEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg/Eclair_Ctrl_LeftFoot
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_LeftUpLeg/Eclair_Ctrl_LeftLeg/Eclair_Ctrl_LeftFoot/Eclair_Ctrl_LeftToeBase
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg/Eclair_Ctrl_RightFoot
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_RightUpLeg/Eclair_Ctrl_RightLeg/Eclair_Ctrl_RightFoot/Eclair_Ctrl_RightToeBase
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2/Eclair_Ctrl_LeftHandIndex3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandIndex1/Eclair_Ctrl_LeftHandIndex2/Eclair_Ctrl_LeftHandIndex3/Eclair_Ctrl_LeftHandIndex4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2/Eclair_Ctrl_LeftHandMiddle3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandMiddle1/Eclair_Ctrl_LeftHandMiddle2/Eclair_Ctrl_LeftHandMiddle3/Eclair_Ctrl_LeftHandMiddle4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2/Eclair_Ctrl_LeftHandPinky3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandPinky1/Eclair_Ctrl_LeftHandPinky2/Eclair_Ctrl_LeftHandPinky3/Eclair_Ctrl_LeftHandPinky4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2/Eclair_Ctrl_LeftHandRing3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandRing1/Eclair_Ctrl_LeftHandRing2/Eclair_Ctrl_LeftHandRing3/Eclair_Ctrl_LeftHandRing4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2/Eclair_Ctrl_LeftHandThumb3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_LeftShoulder/Eclair_Ctrl_LeftArm/Eclair_Ctrl_LeftForeArm/Eclair_Ctrl_LeftForeArmRoll/Eclair_Ctrl_LeftHand/Eclair_Ctrl_LeftHandThumb1/Eclair_Ctrl_LeftHandThumb2/Eclair_Ctrl_LeftHandThumb3/Eclair_Ctrl_LeftHandThumb4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck/Eclair_Ctrl_Neck1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_Neck/Eclair_Ctrl_Neck1/Eclair_Ctrl_Head
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2/Eclair_Ctrl_RightHandIndex3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandIndex1/Eclair_Ctrl_RightHandIndex2/Eclair_Ctrl_RightHandIndex3/Eclair_Ctrl_RightHandIndex4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2/Eclair_Ctrl_RightHandMiddle3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandMiddle1/Eclair_Ctrl_RightHandMiddle2/Eclair_Ctrl_RightHandMiddle3/Eclair_Ctrl_RightHandMiddle4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2/Eclair_Ctrl_RightHandPinky3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandPinky1/Eclair_Ctrl_RightHandPinky2/Eclair_Ctrl_RightHandPinky3/Eclair_Ctrl_RightHandPinky4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2/Eclair_Ctrl_RightHandRing3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandRing1/Eclair_Ctrl_RightHandRing2/Eclair_Ctrl_RightHandRing3/Eclair_Ctrl_RightHandRing4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2/Eclair_Ctrl_RightHandThumb3
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_Hips/Eclair_Ctrl_Spine/Eclair_Ctrl_Spine1/Eclair_Ctrl_Spine2/Eclair_Ctrl_RightShoulder/Eclair_Ctrl_RightArm/Eclair_Ctrl_RightForeArm/Eclair_Ctrl_RightForeArmRoll/Eclair_Ctrl_RightHand/Eclair_Ctrl_RightHandThumb1/Eclair_Ctrl_RightHandThumb2/Eclair_Ctrl_RightHandThumb3/Eclair_Ctrl_RightHandThumb4
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_HipsEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftAnkleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftElbowEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftFootEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandIndexEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandMiddleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandPinkyEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandRingEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHandThumbEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftHipEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftKneeEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftShoulderEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_LeftWristEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightAnkleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightElbowEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightFootEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandIndexEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandMiddleEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandPinkyEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandRingEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHandThumbEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightHipEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightKneeEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightShoulderEffector
+        weight: 0
+      - path: Eclair_Ctrl_Reference/Eclair_Ctrl_RightWristEffector
+        weight: 0
+      - path: Eclair_Hips
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot
+        weight: 1
+      - path: Eclair_Hips/Eclair_LeftUpLeg/Eclair_LeftLeg/Eclair_LeftFoot/Eclair_LeftToeBase
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot
+        weight: 1
+      - path: Eclair_Hips/Eclair_RightUpLeg/Eclair_RightLeg/Eclair_RightFoot/Eclair_RightToeBase
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandIndex1/Eclair_LeftHandIndex2/Eclair_LeftHandIndex3/Eclair_LeftHandIndex4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandMiddle1/Eclair_LeftHandMiddle2/Eclair_LeftHandMiddle3/Eclair_LeftHandMiddle4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandPinky1/Eclair_LeftHandPinky2/Eclair_LeftHandPinky3/Eclair_LeftHandPinky4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandRing1/Eclair_LeftHandRing2/Eclair_LeftHandRing3/Eclair_LeftHandRing4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_LeftShoulder/Eclair_LeftArm/Eclair_LeftForeArm/Eclair_LeftForeArmRoll/Eclair_LeftHand/Eclair_LeftHandThumb1/Eclair_LeftHandThumb2/Eclair_LeftHandThumb3/Eclair_LeftHandThumb4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/curve3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_SideHanged_1/L_SideHanged_2/L_SideHanged_3/L_SideHanged_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/L_Twintail_1/L_Twintail_2/L_Twintail_3/L_Twintail_4/L_Twintail_5
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_SideHanged_1/R_SideHanged_2/R_SideHanged_3/R_SideHanged_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_Neck/Eclair_Neck1/Eclair_Head/R_Twintail_1/R_Twintail_2/R_Twintail_3/R_Twintail_4/R_Twintail_5
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandIndex1/Eclair_RightHandIndex2/Eclair_RightHandIndex3/Eclair_RightHandIndex4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandMiddle1/Eclair_RightHandMiddle2/Eclair_RightHandMiddle3/Eclair_RightHandMiddle4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandPinky1/Eclair_RightHandPinky2/Eclair_RightHandPinky3/Eclair_RightHandPinky4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandRing1/Eclair_RightHandRing2/Eclair_RightHandRing3/Eclair_RightHandRing4
+        weight: 0
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3
+        weight: 1
+      - path: Eclair_Hips/Eclair_Spine/Eclair_Spine1/Eclair_Spine2/Eclair_RightShoulder/Eclair_RightArm/Eclair_RightForeArm/Eclair_RightForeArmRoll/Eclair_RightHand/Eclair_RightHandThumb1/Eclair_RightHandThumb2/Eclair_RightHandThumb3/Eclair_RightHandThumb4
+        weight: 0
+      - path: Eclair_Reference
+        weight: 0
+      - path: Eyes1
+        weight: 0
+      - path: gun_2:polySurface16
+        weight: 0
+      - path: Hair_front
+        weight: 0
+      - path: ikHandle1
+        weight: 0
+      - path: imagePlane2
+        weight: 0
+      - path: imagePlane3
+        weight: 0
+      - path: L_Twintail
+        weight: 0
+      - path: pCube3
+        weight: 0
+      - path: pCube3/LeftKnee
+        weight: 0
+      - path: pCube3/polySurface39
+        weight: 0
+      - path: pCube3/polySurface39/Belt
+        weight: 0
+      - path: pCube3/polySurface39/Pants 1
+        weight: 0
+      - path: pCube3/polySurface39/Pants 1/transform15
+        weight: 0
+      - path: polySurface3
+        weight: 0
+      - path: polySurface3/polySurface4
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/Face
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/s/polySurface75/UpperBody
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface20/polySurface25/polySurface38/a/Shirt
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_L/pSolid5
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R
+        weight: 0
+      - path: polySurface3/polySurface4/polySurface18/polySurface21/Globe_R/pSolid5
+          1
+        weight: 0
+      - path: polySurface67
+        weight: 0
+      - path: polySurface67/Hair_middleBack
+        weight: 0
+      - path: polySurface67/L_SideHanged
+        weight: 0
+      - path: polySurface67/R_SideHanged
+        weight: 0
+      - path: pSphere5
+        weight: 0
+      - path: pSphere5/polySurface44
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface45
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface45/transform10
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface62
+        weight: 0
+      - path: pSphere5/polySurface44/polySurface62/transform9
+        weight: 0
+      - path: pSphere5/polySurface44/transform11
+        weight: 0
+      - path: pSphere5/polySurface78
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface45 1
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface45 1/transform13
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface62 1
+        weight: 0
+      - path: pSphere5/polySurface78/polySurface62 1/transform12
+        weight: 0
+      - path: pSphere5/polySurface78/transform14
+        weight: 0
+      - path: pSphere6
+        weight: 0
+      - path: pSphere6/Head
+        weight: 0
+      - path: pSphere6/Head/AHO_Hair
+        weight: 0
+      - path: R_Twintail
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1107995bc8cb9401c9d0ada0e08fd3c5,
+    type: 3}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

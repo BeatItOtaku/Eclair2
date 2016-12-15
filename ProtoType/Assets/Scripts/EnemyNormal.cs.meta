@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9923123e156db479eba1d517b749e381
+timeCreated: 1479420399
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - effectWhenDied: {instanceID: 0}
+  - player: {instanceID: 0}
+  - damaged: {fileID: 8300000, guid: 10974d60df0f90a4daa33bb41d3876d9, type: 3}
+  - death: {fileID: 8300000, guid: 373cd5baaa4f74d48ae95e90ef44e2ec, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
