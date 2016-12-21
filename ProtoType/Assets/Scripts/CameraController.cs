@@ -27,9 +27,9 @@ public class CameraController : MonoBehaviour
 
     public float lockOnFOV = 50;
 
-	public Texture2D tex;
+	/*public Texture2D tex;
 	private CursorMode cursorMode = CursorMode.Auto;
-	private Vector2 hotSpot = Vector2.zero;
+	private Vector2 hotSpot = Vector2.zero;*/
 
     //読み取り専用プロパティ群
     /// <summary>
@@ -81,7 +81,7 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-		Cursor.SetCursor (tex, hotSpot, cursorMode);
+		//Cursor.SetCursor (tex, hotSpot, cursorMode);
 
 		BossMoveManager.BossAttackedCount = 1;//TODO:
 		lookAt = player;

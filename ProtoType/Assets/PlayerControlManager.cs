@@ -52,14 +52,10 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Fire
+	//Fireに関しては、別のFireManagerに詳細が記述されている。
 
 	public static bool isFire = true; //falseでエクレアは通常攻撃ができなくなる。
-	public static bool isShot = true; //falseでエクレアは射撃ができなくなる。
-	public static bool isAttack = true; //falseでエクレアは近接攻撃ができなくなる。
-
-	private bool fire = false;
-
-	private int fireCount = 0; //攻撃した回数
+	private FireManager fm;
 
 
 	//Bolt
@@ -111,6 +107,9 @@ public class PlayerControlManager : MonoBehaviour {
 		vFloat = Animator.StringToHash("V");
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
+
+		//Fire
+		fm.GetComponent<FireManager>();
 	
 	}
 
@@ -143,6 +142,11 @@ public class PlayerControlManager : MonoBehaviour {
 			anim.SetBool ("NewGrounded", false);
 		}
 	
+		//Fire
+		if (isFire) 
+		{
+			fm.FireManagement ();
+		}
 	}
 
 
@@ -188,44 +192,10 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
-
-	//Fire
-	void FireManagement(){
-		if (isFire) {
-			StartCoroutine (fireCountCoroutine ());
-			switch (fireCount) {
-				
-			case 1:
-				anim.SetTrigger ("Fire1");
-				break;
-			case 2:
-				anim.SetTrigger ("Fire2");
-				break;
-			case 3:
-				anim.SetTrigger ("Fire3");
-				break;
-			case 4:
-				anim.SetTrigger ("Fire4");
-				break;
-			}
-		}
-	}
-
-	IEnumerator fireCountCoroutine(){
-		if (Input.GetButtonDown ("Fire")) {
-			if(!fire)
-			anim.SetTrigger ("Fire");
-			fireCount++;
-			fire = true;
-			yield return new WaitForSeconds (1);
-			fire = false;
-		}
-	}
-
-
 	//Bolt
 	void BoltManagement(){
 		if (isBolt) {
+			playerState_ = PlayerStates.Bolt;
 			if (Input.GetButtonDown ("Bolt")) {
 
 			}
@@ -235,6 +205,7 @@ public class PlayerControlManager : MonoBehaviour {
 	//Avoid
 	void AvoidManagement(){
 		if(isAvoid){
+			playerState_ = PlayerStates.Avoid;
 			if(Input.GetButtonDown("Avoid")){
 				if (isMoving) {
 					
@@ -249,9 +220,11 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Eto
 	void EtoManagement(){
-		if(isEto){
-			
-			if(Input.GetButtonDown("Eto")){
+		if (isEto) {
+			if (playerState_ == PlayerStates.Bolt) {
+				playerState_ = PlayerStates.Eto;
+				if (Input.GetButtonDown ("Eto")) {
+				}
 			}
 		}
 	}
@@ -259,12 +232,13 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Damage&HP
 	void DamageManagement(){
-
+		playerState_ = PlayerStates.Damaging;
 	}
 
 
 	//Death
 	void DeathManagement(){
+		playerState_ = PlayerStates.Death;
 
 	}
 

@@ -147,7 +147,7 @@ public class PlayerControl : MonoBehaviour
 		StopManagament ();
         mutekiManagement();
         DeathManagement();
-		ClostManagament ();
+		//ClostManagament ();
 
 
 
@@ -259,9 +259,9 @@ public class PlayerControl : MonoBehaviour
 	void ShotManagament()
 	{
 		if(InputManager.boltLaunch == true ){
-			Ray pointRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			/*Ray pointRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 			transform.rotation = Quaternion.LookRotation(pointRay.direction);
-			transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
+			transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);*/
 			shotPause = true;
 			anim.SetBool ("Shot", true);
 			anim.SetFloat(angleId,angleUsing);
@@ -291,7 +291,7 @@ public class PlayerControl : MonoBehaviour
 		}
 	}*/
 
-	void ClostManagament()
+	/*void ClostManagament()
 	{
 		if(InputManager.close == true && EclairImmobile == false){
 			EclairImmobile = true;
@@ -304,11 +304,10 @@ public class PlayerControl : MonoBehaviour
 			EclairImmobile = false;
 			anim.SetBool ("SBT", false);
 		}
-	}
+	}*/
 	void HPManagament()
 	{
-        //if (isMuteki) return;//ñ≥ìGèÛë‘Ç»ÇÁâΩÇ‡ÇµÇ»°…
-		if (BossFootCollider.bossFootAttack == true) { 
+        //if (isMuteki) return;//ñ≥ìGèÛë‘Ç»ÇÁâΩÇ‡ÇµÇ»»…		if (BossFootCollider.bossFootAttack == true) { 
 			//GameObject bossFoot = GameObject.FindGameObjectWithTag ("Boss");
 			//transform.LookAt (bossFoot.transform);
 			attackedTime += Time.deltaTime;
@@ -320,7 +319,7 @@ public class PlayerControl : MonoBehaviour
 				attackedTime = 0;
                 //if(!isMuteki) startMuteki();
             }
-        }
+        
 		if (BossBarret.bossShotAttack == true) {
 			attackedTime += Time.deltaTime;
 			//anim.SetBool ("SmallAttacked",true);
