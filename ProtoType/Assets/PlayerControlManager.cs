@@ -62,6 +62,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public static bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
 
+	float shotInterval = 0;
+	public float shotIntervalMin = 1F;
+
 	//Avoid
 
 	public static bool isAvoid = true; //falseでエクレアは回避ができなくなる。
@@ -147,6 +150,11 @@ public class PlayerControlManager : MonoBehaviour {
 		{
 			fm.FireManagement ();
 		}
+
+		//Bolt
+
+		//発射間隔を設定する
+		shotInterval += Time.deltaTime;
 	}
 
 
@@ -193,11 +201,42 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 
 	//Bolt
-	void BoltManagement(){
-		if (isBolt) {
-			playerState_ = PlayerStates.Bolt;
-			if (Input.GetButtonDown ("Bolt")) {
 
+	public void LaunchBolt(Vector3 target)
+	{
+		LaunchBolt(target, Quaternion.Euler(0,0,0));
+	}
+
+	void BoltManagement(){
+		if (isBolt) {			
+			if (Input.GetButtonDown ("Bolt")) {
+				playerState_ = PlayerStates.Bolt;
+			}
+		}
+		Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
+		RaycastHit hit;
+		Vector3 hitPosition;
+		Quaternion hitQuaternion = Quaternion.Euler (0, 0, 0);
+		int layerMask = ~(1 << 8);//レイヤー8(Player)を除く全部
+
+		if (Physics.Raycast (ray, out hit, layerMask)) {
+			//Debug.Log ("ahoaho");
+			hitPosition = hit.point;
+			hitQuaternion = Quaternion.LookRotation (hit.normal);
+		} else {
+			hitPosition = Camera.main.transform.position + (Camera.main.transform.forward * DefaultShotDistance);
+		}
+		if (player.GetComponent<PlayerShot> ().LaunchBolt (hitPosition, hitQuaternion)) {
+			audioSource.PlayOneShot (boltLaunchSound);
+
+		}
+
+		GameObject bolt = GameObject.FindGameObjectWithTag("Bolt");
+		if (bolt != null)
+		{
+			if (boltLaunch == true) {
+				Quaternion rot = Quaternion.LookRotation (hitPosition - player.transform.position);
+				player.transform.rotation = Quaternion.Euler (0, rot.eulerAngles.y, 0);
 			}
 		}
 	}
