@@ -21,8 +21,8 @@ public class FireManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		Debug.Log ("Fire");
-		Debug.Log ("fireCount");
+		Debug.Log (fire);
+		Debug.Log (fireCount);
 
 	}
 	//Fire

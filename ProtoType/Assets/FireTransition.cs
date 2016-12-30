@@ -7,8 +7,8 @@ public class FireTransition : StateMachineBehaviour {
 	public FireManager fm;
 
 	void Start(){
-		player.FindGameObjectWithTag ("Player");
-		fm = player.GetComponent<FireManager> ();
+		//player. FindGameObjectWithTag ("Player");
+		//fm = player.GetComponent<FireManager> ();
 
 	}
 

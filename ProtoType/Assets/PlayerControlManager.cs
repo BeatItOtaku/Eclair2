@@ -17,9 +17,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//汎用系
 	public GameObject player;
-	public GameObject muzzle;
-	public GameObject bolt;
-	public GameObject eto;
+	public GameObject muzzle = null;
+	public GameObject bolt = null;
+	public GameObject eto = null;
 
 	public static bool EclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
 	public static bool EclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
@@ -104,6 +104,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void Awake(){
 
+		anim= player.GetComponent<Animator> ();
+
 		//アニメーション関係
 		//Move
 		hFloat = Animator.StringToHash("H");
@@ -112,7 +114,7 @@ public class PlayerControlManager : MonoBehaviour {
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 
 		//Fire
-		fm.GetComponent<FireManager>();
+		//fm.GetComponent<FireManager>();
 	
 	}
 
@@ -125,16 +127,18 @@ public class PlayerControlManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		Debug.Log (h);
+		Debug.Log (v);
 		//Move
-		h = Input.GetAxis("Horizontal"); //マウスの左右方向の移動
-		v = Input.GetAxis("Vertical"); //マウスの前後方向の移動
+		h = Input.GetAxis("Horizontal"); //左右方向の移動
+		v = Input.GetAxis("Vertical"); //前後方向の移動
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
 		//設置判定
@@ -144,11 +148,11 @@ public class PlayerControlManager : MonoBehaviour {
 		} else {
 			anim.SetBool ("NewGrounded", false);
 		}
-	
+
 		//Fire
 		if (isFire) 
 		{
-			fm.FireManagement ();
+			//fm.FireManagement ();
 		}
 
 		//Bolt
@@ -202,7 +206,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Bolt
 
-	public void LaunchBolt(Vector3 target)
+	/*public void LaunchBolt(Vector3 target)
 	{
 		LaunchBolt(target, Quaternion.Euler(0,0,0));
 	}
@@ -239,7 +243,7 @@ public class PlayerControlManager : MonoBehaviour {
 				player.transform.rotation = Quaternion.Euler (0, rot.eulerAngles.y, 0);
 			}
 		}
-	}
+	}*/
 
 	//Avoid
 	void AvoidManagement(){
