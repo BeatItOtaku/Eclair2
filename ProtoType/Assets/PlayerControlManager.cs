@@ -134,12 +134,11 @@ public class PlayerControlManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log (h);
-		Debug.Log (v);
 		//Move
 		h = Input.GetAxis("Horizontal"); //左右方向の移動
 		v = Input.GetAxis("Vertical"); //前後方向の移動
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+
 
 		//設置判定
 		if (IsGrounded())
@@ -154,21 +153,22 @@ public class PlayerControlManager : MonoBehaviour {
 		{
 			//fm.FireManagement ();
 		}
-
-		//Bolt
-
-		//発射間隔を設定する
-		shotInterval += Time.deltaTime;
 	}
 
+	void FixedUpdate()
+	{
+		MoveManagement (h,v);
+	}
 
 	//Move
 	void MoveManagement(float horizontal, float vertical)
 	{
 		Rotating (horizontal, vertical);
-		if (isMoving) {
+		if (isMoving && EclairImmobile == false && EclairStopping == false) {
+			anim.SetBool ("Run", true);
 			transform.position += transform.forward * Time.deltaTime * 5;
 		} else {
+			anim.SetBool ("Run", false);
 			transform.position += transform.forward * Time.deltaTime * 0;
 		}
 	}
@@ -178,22 +178,37 @@ public class PlayerControlManager : MonoBehaviour {
 	Vector3 Rotating(float horizontal, float vertical)
 	{
 		Vector3 forward = cameraTransform.TransformDirection (Vector3.forward);
+			forward.y = 0.0f;
 		forward = forward.normalized;
+
 		Vector3 right = new Vector3 (forward.z, 0, -forward.x);
 
-		if ((isMoving && targetDirection != Vector3.zero)) {
+		Vector3 targetDirection;
+
+		float finalTurnSmoothing;
+
+			targetDirection = forward * vertical + right * horizontal;
+			finalTurnSmoothing = turnSmoothing;
+
+		if ((isMoving && targetDirection != Vector3.zero) ){
 			Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
+
 			Quaternion newRotation = Quaternion.Slerp (GetComponent<Rigidbody> ().rotation, targetRotation, finalTurnSmoothing * Time.deltaTime*20);
 			GetComponent<Rigidbody> ().MoveRotation (newRotation);
+			//lastDirection = targetDirection;
 		}
+		//idle - fly or grounded
 		if (!(Mathf.Abs (h) > 0.9 || Mathf.Abs (v) > 0.9)) {
 			Repositioning ();
 		}
+
 		return targetDirection;
+
 	}
 
 	private void Repositioning()
 	{
+		
 		Vector3 repositioning = lastDirection;
 		if(repositioning != Vector3.zero)
 		{
@@ -204,46 +219,17 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
+
 	//Bolt
 
-	/*public void LaunchBolt(Vector3 target)
+	void BoltManagement()
 	{
-		LaunchBolt(target, Quaternion.Euler(0,0,0));
+		if (isBolt)
+		{
+
+		}
 	}
 
-	void BoltManagement(){
-		if (isBolt) {			
-			if (Input.GetButtonDown ("Bolt")) {
-				playerState_ = PlayerStates.Bolt;
-			}
-		}
-		Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
-		RaycastHit hit;
-		Vector3 hitPosition;
-		Quaternion hitQuaternion = Quaternion.Euler (0, 0, 0);
-		int layerMask = ~(1 << 8);//レイヤー8(Player)を除く全部
-
-		if (Physics.Raycast (ray, out hit, layerMask)) {
-			//Debug.Log ("ahoaho");
-			hitPosition = hit.point;
-			hitQuaternion = Quaternion.LookRotation (hit.normal);
-		} else {
-			hitPosition = Camera.main.transform.position + (Camera.main.transform.forward * DefaultShotDistance);
-		}
-		if (player.GetComponent<PlayerShot> ().LaunchBolt (hitPosition, hitQuaternion)) {
-			audioSource.PlayOneShot (boltLaunchSound);
-
-		}
-
-		GameObject bolt = GameObject.FindGameObjectWithTag("Bolt");
-		if (bolt != null)
-		{
-			if (boltLaunch == true) {
-				Quaternion rot = Quaternion.LookRotation (hitPosition - player.transform.position);
-				player.transform.rotation = Quaternion.Euler (0, rot.eulerAngles.y, 0);
-			}
-		}
-	}*/
 
 	//Avoid
 	void AvoidManagement(){

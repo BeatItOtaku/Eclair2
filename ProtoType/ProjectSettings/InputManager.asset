@@ -262,7 +262,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Bolt
+    m_Name: LaunchBolt
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

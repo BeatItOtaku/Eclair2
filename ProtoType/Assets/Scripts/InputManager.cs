@@ -145,7 +145,7 @@ public class InputManager : MonoBehaviour {
 	void Update ()
 	{
 		//近接攻撃
-		StartCoroutine("closeAttackCoroutine");
+		//StartCoroutine("closeAttackCoroutine");
 
 		//右クリック
 		if (EventManager.eventCount >= 7 ) {
@@ -341,10 +341,10 @@ public class InputManager : MonoBehaviour {
 		return st;
 	}
 
-	IEnumerator closeAttackCoroutine(){
+	//IEnumerator closeAttackCoroutine(){
 		
 		//左クリックで近接攻撃
-		if (Input.GetButtonDown ("Close")) {
+		/*if (Input.GetButtonDown ("Close")) {
 			//closeMuzzle.SetActive (true);
 			if (!close) {
 				Instantiate (closeThunder, closeMuzzle.transform.position, closeMuzzle.transform.rotation);
@@ -354,7 +354,6 @@ public class InputManager : MonoBehaviour {
 			yield return new WaitForSeconds (0.7f);
 			//closeMuzzle.SetActive (false);
 			close = false;
-		}
+		}*/
 }
-
-}
+	
