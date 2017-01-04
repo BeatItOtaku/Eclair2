@@ -4,7 +4,7 @@ using System.Collections;
 public class FireManager : MonoBehaviour {
 
 	public static bool isShot = true; //falseでエクレアは射撃ができなくなる。
-	public static bool isAttack = true; //falseでエクレアは近接攻撃ができなくなる。
+	public static bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
 	private bool fire = false; //攻撃を繰り出したかどうか
 
@@ -12,6 +12,10 @@ public class FireManager : MonoBehaviour {
 
 	private Animator anim;
 
+	//デバッグ用
+	public GameObject bullet;
+	public GameObject close;
+	public Transform muzzle;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +24,18 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-		Debug.Log (fire);
-		Debug.Log (fireCount);
+		if(Input.GetButtonDown("Fire")){
+			if (isShot) {
+				GameObject bullet_	= (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
+				bullet_.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.VelocityChange);
+			}
+			if (isAttack) 
+			{
+				Instantiate (close, muzzle.position, muzzle.rotation);
+			}
+				
 
+	}
 	}
 	//Fire
 	public void FireManagement(){
@@ -59,4 +71,15 @@ public class FireManager : MonoBehaviour {
 			fire = false;
 		}
 	}
+
+	private void OnTriggerStay(Collider col){
+		if (col.gameObject.tag == "Enemy") {
+			isShot = false;
+			isAttack = true;
+		} else {
+			isShot = true;
+			isAttack = false;
+		}
+	}
+
 }

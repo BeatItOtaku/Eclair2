@@ -68,7 +68,8 @@ public class CameraController : MonoBehaviour
 		set
 		{
 			Cursor.visible = !value;
-			if (value) Cursor.lockState = CursorLockMode.Locked;
+			if (value)
+				Cursor.lockState = CursorLockMode.Confined;//Locked;
 			else Cursor.lockState = CursorLockMode.None;
 		}
 	}
@@ -139,7 +140,7 @@ public class CameraController : MonoBehaviour
 				//Debug.Log("targetY = " + targetY + ", targetAngle = " + targetAngle);
 			} else {
 				
-				if (PlayerControl.EclairImmobile == false) {
+			if (PointerManagement.pointOnEdge == true) {
 					float deltaY = Input.GetAxis ("Camera X") * Time.deltaTime * mouseSensitivity;
 					float deltaAngle = Input.GetAxis ("Camera Y") * Time.deltaTime * mouseSensitivity;
 					//Debug.Log(deltaY + "," + deltaAngle);
