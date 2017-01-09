@@ -17,9 +17,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//汎用系
 	public GameObject player;
-	public GameObject muzzle = null;
-	public GameObject bolt = null;
-	public GameObject eto = null;
+	public GameObject muzzle;
+	public GameObject bolt;
+	public GameObject eto;
 
 	public static bool EclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
 	public static bool EclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
