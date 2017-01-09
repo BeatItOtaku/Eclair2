@@ -24,6 +24,7 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (isShot);
 		if(Input.GetButtonDown("Fire")){
 			if (isShot) {
 				GameObject bullet_	= (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
@@ -33,7 +34,7 @@ public class FireManager : MonoBehaviour {
 			{
 				Instantiate (close, muzzle.position, muzzle.rotation);
 			}
-				
+
 
 	}
 	}
@@ -76,7 +77,8 @@ public class FireManager : MonoBehaviour {
 		if (col.gameObject.tag == "Enemy") {
 			isShot = false;
 			isAttack = true;
-		} else {
+		}
+		if(col.gameObject.tag == null){
 			isShot = true;
 			isAttack = false;
 		}

@@ -69,8 +69,8 @@ public class CameraController : MonoBehaviour
 		{
 			Cursor.visible = !value;
 			if (value)
-				Cursor.lockState = CursorLockMode.Confined;//Locked;
-			else Cursor.lockState = CursorLockMode.None;
+				Cursor.lockState = CursorLockMode.Confined;
+			else Cursor.lockState = CursorLockMode.Confined;
 		}
 	}
 
@@ -118,7 +118,7 @@ public class CameraController : MonoBehaviour
 	void LateUpdate()
 	{
 		//カーソル関連
-		/*if (Input.GetButtonUp("Fire1"))
+		if (Input.GetButtonUp("Fire"))
 		{
 			cursorIsLocked = true;
 		}
@@ -126,7 +126,7 @@ public class CameraController : MonoBehaviour
 		if (Input.GetKeyDown("escape"))
 		{
 			cursorIsLocked = false;
-		}*/
+		}
 
         //float scroll = Input.GetAxis("Mouse ScrollWheel");
         //distance += scroll * 4;
