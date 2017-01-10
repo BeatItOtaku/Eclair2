@@ -25,10 +25,10 @@ public class FireManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (isShot);
-		if(Input.GetButtonDown("Fire")){
+		if(Input.GetButton("Fire")){
 			if (isShot) {
-				GameObject bullet_	= (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
-				bullet_.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.VelocityChange);
+				Instantiate (bullet, muzzle.position, muzzle.rotation);
+
 			}
 			if (isAttack) 
 			{

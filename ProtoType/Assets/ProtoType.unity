@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154fa94d0affb4f3abf57cc9d8b38e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
 --- !u!96 &184650115
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -1745,7 +1746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70426c7113044402ab266c4228c0e37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100002, guid: a7b8ee6da7be247998726d01e224f0b2, type: 3}
+  bullet: {fileID: 184650113}
   close: {fileID: 100006, guid: ec6e75a3654374c7f9c1007063dcd249, type: 2}
   muzzle: {fileID: 2002196125}
 --- !u!143 &1066020483

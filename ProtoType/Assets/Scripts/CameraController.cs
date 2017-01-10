@@ -120,7 +120,7 @@ public class CameraController : MonoBehaviour
 		//カーソル関連
 		if (Input.GetButtonUp("Fire"))
 		{
-			cursorIsLocked = true;
+			//cursorIsLocked = true;
 		}
 
 		if (Input.GetKeyDown("escape"))
