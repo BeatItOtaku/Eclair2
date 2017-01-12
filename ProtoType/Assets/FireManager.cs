@@ -6,7 +6,11 @@ public class FireManager : MonoBehaviour {
 	public static bool isShot = true; //falseでエクレアは射撃ができなくなる。
 	public static bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
+	private bool shotContinue = false;//射撃している間、近接攻撃にならない
+
 	private bool fire = false; //攻撃を繰り出したかどうか
+
+	private bool shotOn;
 
 	private int fireCount = 0; //攻撃した回数
 
@@ -24,20 +28,24 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (isShot);
+		Debug.Log (shotOn);
 		if(Input.GetButton("Fire")){
 			if (isShot) {
-				Instantiate (bullet, muzzle.position, muzzle.rotation);
+				shotContinue = true;
+				StartCoroutine (ShotCoroutine ());
 
 			}
 			if (isAttack) 
 			{
 				Instantiate (close, muzzle.position, muzzle.rotation);
 			}
-
-
 	}
+		if (Input.GetButtonUp ("Fire")) 
+		{
+			shotContinue = false;
+		}
 	}
+
 	//Fire
 	public void FireManagement(){
 			StartCoroutine (fireCountCoroutine ());
@@ -73,12 +81,32 @@ public class FireManager : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerStay(Collider col){
-		if (col.gameObject.tag == "Enemy") {
-			isShot = false;
-			isAttack = true;
+	IEnumerator ShotCoroutine()
+	{
+		shotOn = true;
+		if (shotOn) {
+			Instantiate (bullet, muzzle.position, muzzle.rotation);
+			shotOn = false;
 		}
-		if(col.gameObject.tag == null){
+		yield return new WaitForSeconds (60f);
+		shotOn = true;
+	}
+		
+		
+
+	private void OnTriggerStay(Collider col){
+
+		if (shotContinue == true) {
+			if (col.gameObject.tag == "Enemy") {
+				isShot = false;
+				isAttack = true;
+			}
+		}
+	}
+
+	private void OnTriggerExit(Collider col){
+		
+		if(col.gameObject.tag == "Enemy"){
 			isShot = true;
 			isAttack = false;
 		}
