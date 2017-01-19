@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// PlayerControlManagerに書かれることは、エクレアの動作全般。アニメーションも含む。
@@ -12,6 +13,7 @@ using System.Collections;
 /// ・Eto（電撃移動）
 /// ・ダメージとHPと無敵と死亡
 /// </summary>
+/// 
 
 public class PlayerControlManager : MonoBehaviour {
 
@@ -68,6 +70,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 	float shotInterval = 0;
 	public float shotIntervalMin = 1F;
+
+	public float force = 10;
+	private Quaternion boltQuaternionOffset;
 
 	GameObject lastShot = null; //最後に打ち出したボルト
 
@@ -215,7 +220,6 @@ public class PlayerControlManager : MonoBehaviour {
 			GetComponent<Rigidbody> ().MoveRotation (newRotation);
 			//lastDirection = targetDirection;
 		}
-		//idle - fly or grounded
 		if (!(Mathf.Abs (h) > 0.9 || Mathf.Abs (v) > 0.9)) {
 			Repositioning ();
 		}
@@ -272,20 +276,22 @@ public class PlayerControlManager : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown ("LockOn")) {
+		//if (Input.GetButtonDown ("LockOn")) {
 			Debug.Log ("lockOn");
 			GameObject go;
-			if (playerState_ == PlayerStates.Idle) {
+			if (playerState_ == PlayerStates.Bolt) {
 				go =startLockOn ();//アイドル状態であればロックオンを開始
 				if (go != null) {
 					onLockOnSwitched (go);
-				}
+					}
 			}
-	} else if (Input.GetButtonUp ("LockOn")) {//Eキー離したらロックオンやめる
+	//} else if (Input.GetButtonUp ("LockOn")){//Eキー離したらロックオンやめる
+			if(playerState_ == PlayerStates.Eto){
 		endLockOn ();
 	}
 		}
-	}
+}
+
 	public bool LaunchBolt(Vector3 target, Quaternion targetQuaternion){
 
 		if (lastShot != null && shotInterval < shotIntervalMin) {
@@ -355,13 +361,10 @@ public class PlayerControlManager : MonoBehaviour {
 
 				Ray toTargetRay = new Ray(Camera.main.transform.position, go.transform.Find(boltHeadName).position - Camera.main.transform.position);
 				RaycastHit hit;
-				if (Physics.Raycast(toTargetRay, out hit, maxDistance,layerMask))
-				{
-					if (hit.collider.tag == "Bolt")
-						targetList.Add(new KeyValuePair<float, GameObject>(getAnglularDistance(go), go));
-					//else
-					//targetList.Add(new KeyValuePair<float, GameObject>(getAnglularDistance(hit.collider.gameObject), hit.collider.gameObject));//Instantiate(//Debug.Log(hit.collider.transform.position);
-				}
+					if (Physics.Raycast (toTargetRay, out hit, maxDistance, layerMask)) {
+						if (hit.collider.tag == "Bolt")
+							targetList.Add (new KeyValuePair<float, GameObject> (getAnglularDistance (go), go));
+					}
 				}
 				}
 				}
@@ -426,6 +429,7 @@ public class PlayerControlManager : MonoBehaviour {
 			if (playerState_ == PlayerStates.Bolt) {
 				playerState_ = PlayerStates.Eto;
 				if (Input.GetButtonDown ("Eto")) {
+								
 				}
 			}
 		}
