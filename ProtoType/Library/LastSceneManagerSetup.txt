@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ProtoType.unity
+- path: Assets/Scenes/tougou.unity
   isLoaded: 1
   isActive: 1

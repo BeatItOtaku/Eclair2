@@ -427,13 +427,26 @@ public class PlayerControlManager : MonoBehaviour {
 	void EtoManagement(){
 		if (isEto) {
 			if (playerState_ == PlayerStates.Bolt) {
-				playerState_ = PlayerStates.Eto;
+				
 				if (Input.GetButtonDown ("Eto")) {
-								
+								if (playerState_ == PlayerStates.Bolt) {
+									playerState_ = PlayerStates.Eto;
+										//audioSource.PlayOneShot (etoileSound);				
+										eto_ = eto;
+										eto_.transform.position = player.transform.position;
+										eto.SetActive (true);
+										GameObject lockonTarget = lockOn.getCurrentTarget ();
+										EtoScript.target = lockonTarget;
+						player.SetActive (false);
+									}
+							}
 				}
 			}
 		}
-	}
+
+				public void startEtoile(GameObject go){
+					target = go;
+				}
 
 
 	//Damage&HP
