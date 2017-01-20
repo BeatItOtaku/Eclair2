@@ -1732,15 +1732,18 @@ MonoBehaviour:
   player: {fileID: 1066020480}
   muzzle: {fileID: 2002196124}
   cameraTransform: {fileID: 338940115}
-  bolt: {fileID: 0, guid: 27e61d77ce08c4e6f9661f0a5b0426c8, type: 2}
+  bolt: {fileID: 1000012028248400, guid: 27e61d77ce08c4e6f9661f0a5b0426c8, type: 2}
   usePhysics: 0
   shotIntervalMin: 1
+  boltTime: 0
   force: 10
-  boltHeadName: pCylinder2
   maxDistance: 24
+  defaultSpeed: 1
+  boltHeadName: pCylinder2
   crossHair: {fileID: 0}
   camControl: {fileID: 0}
   eto: {fileID: 100002, guid: a7b8ee6da7be247998726d01e224f0b2, type: 3}
+  playerState_: 0
 --- !u!114 &1066020482
 MonoBehaviour:
   m_ObjectHideFlags: 0

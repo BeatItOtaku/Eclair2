@@ -68,6 +68,17 @@ public class PlayerControlManager : MonoBehaviour {
 	private bool boltLaunch; //ボルトが着弾したかどうか。
 
 	private Vector3 screenMiddle; //画面の中央
+	private Vector3 delta = new Vector3(0,0,0);
+	private Vector3 direction = new Vector3(0,0,0);
+	public Vector3 Direction {
+		get{
+			return direction;
+		}
+		set{
+			direction = value;
+			calcDelta();
+		}
+	}
 
 	const float DefaultShotDistance = 10;
 	public float shotIntervalMin = 1F;
@@ -75,6 +86,15 @@ public class PlayerControlManager : MonoBehaviour {
 	private float shotInterval = 0;
 	public float force = 10;
 	public float maxDistance = 24;//24メートル以上離れてる対象にはロックオンしない
+	public float defaultSpeed = 1;
+	private float speed = 1;
+	public float Speed{
+		get{ return speed; }
+		set{
+			speed = value;
+			calcDelta ();
+		}
+	}
 
 	private Quaternion boltQuaternionOffset;
 
@@ -96,6 +116,7 @@ public class PlayerControlManager : MonoBehaviour {
 	public static bool etoOn = false;
 	public GameObject eto;
 	private GameObject eto_;
+
 	//Damage
 
 
@@ -172,6 +193,8 @@ public class PlayerControlManager : MonoBehaviour {
 		
 		//bolt
 		screenMiddle = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
+		speed = defaultSpeed;
+		calcDelta();
 	}
 	
 	// Update is called once per frame
@@ -181,6 +204,10 @@ public class PlayerControlManager : MonoBehaviour {
 		h = Input.GetAxis("Horizontal"); //左右方向の移動
 		v = Input.GetAxis("Vertical"); //前後方向の移動
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+
+		//Bolt
+		BoltManagement();
+
 
 
 		//設置判定
@@ -268,6 +295,7 @@ public class PlayerControlManager : MonoBehaviour {
 	{
 		if (isBolt){	
 	if (Input.GetButtonDown ("LaunchBolt")) {
+				Debug.Log ("hi");
 			playerState_ = PlayerStates.Bolt;
 			Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
 			RaycastHit hit;
@@ -281,7 +309,7 @@ public class PlayerControlManager : MonoBehaviour {
 			} else {
 				hitPosition = Camera.main.transform.position + (Camera.main.transform.forward * DefaultShotDistance);
 			}
-			if (player.GetComponent<PlayerShot> ().LaunchBolt (hitPosition, hitQuaternion)) {
+			if (LaunchBolt (hitPosition, hitQuaternion)) {
 				//audioSource.PlayOneShot (boltLaunchSound);
 
 			}
@@ -335,7 +363,7 @@ public class PlayerControlManager : MonoBehaviour {
 			go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
 			go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget*/ * force, ForceMode.VelocityChange);
         }
-        else go.GetComponent<LinearMovement>().Direction = playerToTarget;
+        else //go.GetComponent<LinearMovement>().Direction = playerToTarget;  //直線移動できる
 		go.GetComponent<BoltScript> ().Target = target;
         go.GetComponent<BoltScript>().TargetQuaternion = targetQuaternion;
 
@@ -425,6 +453,10 @@ public class PlayerControlManager : MonoBehaviour {
 					return Vector3.Angle (camera, toTarget);
 				}
 
+				private void calcDelta(){
+					delta = direction.normalized * speed;
+				}
+
 
 	//Avoid
 	void AvoidManagement(){
@@ -448,7 +480,7 @@ public class PlayerControlManager : MonoBehaviour {
 				if (Input.GetButtonDown ("Eto")) {
 								if (playerState_ == PlayerStates.Bolt) {
 									playerState_ = PlayerStates.Eto;
-					etoOn = true;
+								        etoOn = true;
 										//audioSource.PlayOneShot (etoileSound);				
 										eto_ = eto;
 										eto_.transform.position = player.transform.position;
