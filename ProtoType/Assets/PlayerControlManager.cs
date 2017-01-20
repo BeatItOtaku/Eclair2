@@ -61,25 +61,26 @@ public class PlayerControlManager : MonoBehaviour {
 	//Bolt
 
 	public GameObject bolt;
+	private GameObject lastShot = null; //最後に打ち出したボルト
 
 	public static bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public bool usePhysics = false;
 	private bool boltLaunch; //ボルトが着弾したかどうか。
+
 	private Vector3 screenMiddle; //画面の中央
+
 	const float DefaultShotDistance = 10;
-
-	float shotInterval = 0;
 	public float shotIntervalMin = 1F;
-
+	public float boltTime = 0;
+	private float shotInterval = 0;
 	public float force = 10;
-	private Quaternion boltQuaternionOffset;
+	public float maxDistance = 24;//24メートル以上離れてる対象にはロックオンしない
 
-	GameObject lastShot = null; //最後に打ち出したボルト
+	private Quaternion boltQuaternionOffset;
 
 	List<KeyValuePair<float, GameObject>> targetList = new List<KeyValuePair<float, GameObject>>();
 	public string boltHeadName = "pCylinder2";
 	private int cursor = 0;
-	public float maxDistance = 24;//24メートル以上離れてる対象にはロックオンしない
 
 	public CrossHairController crossHair;
 	public CameraController camControl;
@@ -91,10 +92,10 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Eto
 
-	public GameObject eto;
-
 	public static bool isEto = true; //falseでエクレアはETOができなくなる。
-
+	public static bool etoOn = false;
+	public GameObject eto;
+	private GameObject eto_;
 	//Damage
 
 
@@ -122,7 +123,7 @@ public class PlayerControlManager : MonoBehaviour {
 		Damaging,
 		Death
 	}
-	private PlayerStates playerState_ = PlayerStates.Idle;
+	public PlayerStates playerState_ = PlayerStates.Idle;
 
 	void Awake(){
 
@@ -144,6 +145,25 @@ public class PlayerControlManager : MonoBehaviour {
 	bool IsGrounded() 
 	{
 		return Physics.Raycast(transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.15f);
+	}
+
+
+	/// <summary>
+	/// ロックオン、ボルト射出、SBT、エトワールが終了した時に呼ばれるメソッド
+	/// </summary>
+	public void Idle ()
+	{
+		player.SetActive (true);
+		Debug.Log (playerState_.ToString ());
+		if (playerState_ == PlayerStates.Eto) {
+			etoOn = false;
+			CameraController.lookAt = camControl.player;
+			eto.SetActive (false);
+		}
+		playerState_ = PlayerStates.Idle;
+		player.GetComponent<LockOn> ().endLockOn ();
+		crossHair.isLockOn = false;
+		camControl.StopLockOn ();
 	}
 
 
@@ -277,7 +297,6 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 
 		//if (Input.GetButtonDown ("LockOn")) {
-			Debug.Log ("lockOn");
 			GameObject go;
 			if (playerState_ == PlayerStates.Bolt) {
 				go =startLockOn ();//アイドル状態であればロックオンを開始
@@ -309,8 +328,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 		playerToTarget.Normalize ();
 		GameObject go = (GameObject)Instantiate (bolt, muzzle.transform.position, Quaternion.LookRotation(pointRay.direction/*playerToTarget*/) * boltQuaternionOffset);
-		InputManager.boltLaunch = true;
-		InputManager.boltTime = 0;
+		boltLaunch = true;
+		boltTime = 0;
 		if (usePhysics)
 		{
 			go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
@@ -409,9 +428,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Avoid
 	void AvoidManagement(){
-		if(isAvoid){
-			playerState_ = PlayerStates.Avoid;
+		if(isAvoid){		
 			if(Input.GetButtonDown("Avoid")){
+							playerState_ = PlayerStates.Avoid;
 				if (isMoving) {
 					
 				} else {
@@ -425,27 +444,26 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Eto
 	void EtoManagement(){
-		if (isEto) {
-			if (playerState_ == PlayerStates.Bolt) {
-				
+		if (isEto) {				
 				if (Input.GetButtonDown ("Eto")) {
 								if (playerState_ == PlayerStates.Bolt) {
 									playerState_ = PlayerStates.Eto;
+					etoOn = true;
 										//audioSource.PlayOneShot (etoileSound);				
 										eto_ = eto;
 										eto_.transform.position = player.transform.position;
 										eto.SetActive (true);
-										GameObject lockonTarget = lockOn.getCurrentTarget ();
-										EtoScript.target = lockonTarget;
+										GameObject lockonTarget = getCurrentTarget ();
+										//EtoScript.target = lockonTarget;
 						player.SetActive (false);
 									}
 							}
-				}
+				
 			}
 		}
-
+		
 				public void startEtoile(GameObject go){
-					target = go;
+					//target = go;
 				}
 
 
