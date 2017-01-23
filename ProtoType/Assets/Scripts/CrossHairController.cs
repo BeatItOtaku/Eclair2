@@ -18,7 +18,7 @@ public class CrossHairController : MonoBehaviour {
 		}
 		set{
 			isLockOn_ = value;
-			anim.SetBool ("isLockOn", isLockOn_);
+			//anim.SetBool ("isLockOn", isLockOn_);
 		}
 	}
 
@@ -40,7 +40,7 @@ public class CrossHairController : MonoBehaviour {
 	//targetを画面上の二次元座標に変換したやつ
 	private Vector2 targetOnScreen;
 
-	private Animator anim;
+	//private Animator anim;
 	private RectTransform rt;
 
 	private Vector2 middleScreen = new Vector2(0,0);
@@ -48,7 +48,7 @@ public class CrossHairController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		anim = gameObject.GetComponent<Animator> ();	
+		//anim = gameObject.GetComponent<Animator> ();	
 		rt = gameObject.GetComponent<RectTransform> ();
 	}
 	

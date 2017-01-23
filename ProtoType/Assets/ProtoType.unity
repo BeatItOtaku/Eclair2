@@ -1740,8 +1740,8 @@ MonoBehaviour:
   maxDistance: 24
   defaultSpeed: 1
   boltHeadName: pCylinder2
-  crossHair: {fileID: 0}
-  camControl: {fileID: 0}
+  crossHair: {fileID: 1633070188}
+  camControl: {fileID: 338940116}
   eto: {fileID: 100002, guid: a7b8ee6da7be247998726d01e224f0b2, type: 3}
   playerState_: 0
 --- !u!114 &1066020482
@@ -2151,6 +2151,7 @@ GameObject:
   - 223: {fileID: 1633070186}
   - 114: {fileID: 1633070185}
   - 114: {fileID: 1633070184}
+  - 114: {fileID: 1633070188}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2232,6 +2233,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1633070188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633070183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd0d1ea038c94163a95c98f372b0d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothFactor: 0.5
 --- !u!1 &1672019164
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,7 +2425,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2002196124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.738, z: 0.715}
+  m_LocalPosition: {x: 0, y: 0.738, z: 1.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

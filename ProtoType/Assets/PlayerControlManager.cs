@@ -199,7 +199,6 @@ public class PlayerControlManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		//Move
 		h = Input.GetAxis("Horizontal"); //左右方向の移動
 		v = Input.GetAxis("Vertical"); //前後方向の移動
@@ -207,7 +206,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 		//Bolt
 		BoltManagement();
-
+		//発射間隔を設定する
+		shotInterval += Time.deltaTime;
 
 
 		//設置判定
@@ -295,15 +295,15 @@ public class PlayerControlManager : MonoBehaviour {
 	{
 		if (isBolt){	
 	if (Input.GetButtonDown ("LaunchBolt")) {
-				Debug.Log ("hi");
 			playerState_ = PlayerStates.Bolt;
 			Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
 			RaycastHit hit;
 			Vector3 hitPosition;
 			Quaternion hitQuaternion = Quaternion.Euler (0, 0, 0);
 			int layerMask = ~(1 << 8);//レイヤー8(Player)を除く全部
+				Debug.Log(Physics.Raycast (ray, out hit, layerMask));
 
-				if (Physics.Raycast (ray, out hit, layerMask)) {
+				if (Physics.Raycast (ray, out hit, layerMask)) {					
 				hitPosition = hit.point;
 				hitQuaternion = Quaternion.LookRotation (hit.normal);
 			} else {
@@ -323,17 +323,14 @@ public class PlayerControlManager : MonoBehaviour {
 				}
 			}
 		}
-
-		//if (Input.GetButtonDown ("LockOn")) {
 			GameObject go;
-			if (playerState_ == PlayerStates.Bolt) {
-				go =startLockOn ();//アイドル状態であればロックオンを開始
+			if (playerState_ == PlayerStates.Bolt) {//ボルトを撃った時点でいわゆるロックオン状態
+				go =startLockOn ();
 				if (go != null) {
 					onLockOnSwitched (go);
 					}
 			}
-	//} else if (Input.GetButtonUp ("LockOn")){//Eキー離したらロックオンやめる
-			if(playerState_ == PlayerStates.Eto){
+			if(playerState_ == PlayerStates.Eto){//Etoが終了するとロックオン終了
 		endLockOn ();
 	}
 		}
@@ -346,7 +343,7 @@ public class PlayerControlManager : MonoBehaviour {
 				} else{
 			shotInterval = 0;
 	}
-		if (lastShot != null) Destroy(lastShot);//直前のShotを消す(ShotPauseを使わない仕組みに変わったからこういうことができる)
+		if (lastShot != null) Destroy(lastShot);//直前のShotを消す
 
 		Vector3 playerToTarget = target - muzzle.transform.position;
 
@@ -358,16 +355,16 @@ public class PlayerControlManager : MonoBehaviour {
 		GameObject go = (GameObject)Instantiate (bolt, muzzle.transform.position, Quaternion.LookRotation(pointRay.direction/*playerToTarget*/) * boltQuaternionOffset);
 		boltLaunch = true;
 		boltTime = 0;
-		if (usePhysics)
-		{
-			go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
-			go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget*/ * force, ForceMode.VelocityChange);
-        }
-        else //go.GetComponent<LinearMovement>().Direction = playerToTarget;  //直線移動できる
+		//if (usePhysics)
+		//{
+			//go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
+			//go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget*/ * force, ForceMode.VelocityChange);
+        //}
+        go.GetComponent<LinearMovement>().Direction = playerToTarget;  //直線移動できる
 		go.GetComponent<BoltScript> ().Target = target;
         go.GetComponent<BoltScript>().TargetQuaternion = targetQuaternion;
 
-        lastShot = go;//直前のShotとして指定z
+        lastShot = go;//直前のShotとして指定
         return true;
 	}
 
