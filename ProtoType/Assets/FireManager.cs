@@ -28,7 +28,6 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (shotOn);
 		if(Input.GetButton("Fire")){
 			if (isShot) {
 				shotContinue = true;

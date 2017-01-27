@@ -22,9 +22,9 @@ public class LinearMovement : MonoBehaviour {
 		}
 	}
 
-	public float defaultSpeed = 1;
+	public float defaultSpeed = 100;
 
-	private float speed = 1;
+	private float speed = 100;
 	public float Speed{
 		get{ return speed; }
 		set{
@@ -45,6 +45,6 @@ public class LinearMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.transform.position += delta * Time.deltaTime;
+		gameObject.transform.position += delta * Time.deltaTime*20;
 	}
 }

@@ -63,8 +63,8 @@ public class BoltScript : MonoBehaviour {
 					GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
 					isLanded = true;
 
-					if (Target == null)
-						return;
+					//if (Target == null)
+						//return;
 
 					//gameObject.transform.position = Target;
 					//Debug.Log(TargetQuaternion.eulerAngles);
