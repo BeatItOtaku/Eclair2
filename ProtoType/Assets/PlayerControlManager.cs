@@ -25,7 +25,6 @@ public class PlayerControlManager : MonoBehaviour {
 	public static bool EclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
 	//Move
-
 	private float h;
 	private float v;
 	private float distToGround;
@@ -37,10 +36,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private bool isMoving = false; // trueでエクレアが動いている、falseで止まっている。
 
 
-
-
 	//Rotate
-
 	public Transform cameraTransform;   // 操作するカメラ
 
 	private float turnSmoothing = 3.0f;
@@ -53,13 +49,11 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Fire
 	//Fireに関しては、別のFireManagerに詳細が記述されている。
-
 	public static bool isFire = true; //falseでエクレアは通常攻撃ができなくなる。
 	private FireManager fm;
 
 
 	//Bolt
-
 	public GameObject bolt;
 	private GameObject lastShot = null; //最後に打ち出したボルト
 
@@ -87,27 +81,45 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Avoid
-
 	public static bool isAvoid = true; //falseでエクレアは回避ができなくなる。
 
-	//Eto
 
+	//Eto
 	public static bool isEto = true; //falseでエクレアはETOができなくなる。
 	public static bool etoOn = false;
 	public GameObject eto;
 	private GameObject eto_;
 
+
+	//Jump
+	public float jumpHeight = 5.0f;
+	public float jumpCooldown = 1.0f;
+	private float timeToNextJump = 0;
+
+
 	//Damage
 
 
 	//HP
+	public HPGaugeController HPGauge;
 
+	private int hp_ = MaxHP;
+	public int HP{
+		get{
+			return hp_;
+		}
+		set{
+			hp_ = value;
+			HPGauge.currentHP = value;
+		}
+	}
+	const int MaxHP = 100;
 
 	//無敵
 
 
 	//死亡
-
+	private bool death = false;
 
 	//アニメーション
 	private Animator anim;
@@ -121,6 +133,7 @@ public class PlayerControlManager : MonoBehaviour {
 		Bolt,
 		Avoid,
 		Eto,
+		Jump,
 		Damaging,
 		Death
 	}
@@ -193,6 +206,14 @@ public class PlayerControlManager : MonoBehaviour {
 		//Avoid
 		AvoidManagement();
 
+		//Damage
+		DamageManagement();
+
+		//Death
+		if (death) {
+			DeathManagement ();
+			death = false;
+		}
 		//設置判定
 		if (IsGrounded())
 		{
@@ -439,8 +460,8 @@ public class PlayerControlManager : MonoBehaviour {
 	//Eto
 	void EtoManagement(){
 		if (isEto) {				
-				if (Input.GetButtonDown ("Etoile")) {
-								if (playerState_ == PlayerStates.Bolt) {
+				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押すとETO
+								if (playerState_ == PlayerStates.Bolt) {//エクレアはETOをする
 									playerState_ = PlayerStates.Eto;
 								        etoOn = true;
 										//audioSource.PlayOneShot (etoileSound);				
@@ -451,11 +472,22 @@ public class PlayerControlManager : MonoBehaviour {
 				                        endLockOn ();//ロックオン状態終了
 										//EtoScript.target = lockonTarget;
 						player.SetActive (false);
-									}
-							}
-				
 			}
 		}
+	}
+	}
+	void JumpManagement()
+	{
+		if (Input.GetButtonDown ("Space"))
+		{
+			if (GetComponent<Rigidbody>().velocity.y >= 10) 
+			{
+				playerState_ = PlayerStates.Jump;
+				GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
+				timeToNextJump = jumpCooldown;		
+		}
+	}
+	}
 		
 				public void startEtoile(GameObject go){
 					//target = go;
