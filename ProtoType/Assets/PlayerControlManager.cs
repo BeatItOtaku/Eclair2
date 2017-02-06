@@ -11,6 +11,7 @@ using System.Collections.Generic;
 /// ・Bolt（ボルト射出）
 /// ・Avoid（回避）
 /// ・Eto（電撃移動）
+/// ・Jump（ジャンプ）
 /// ・ダメージとHPと無敵と死亡
 /// </summary>
 /// 
@@ -25,6 +26,7 @@ public class PlayerControlManager : MonoBehaviour {
 	public static bool EclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
 	//Move
+	private float speed;
 	private float h;
 	private float v;
 	private float distToGround;
@@ -34,6 +36,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private int groundedBool;
 
 	private bool isMoving = false; // trueでエクレアが動いている、falseで止まっている。
+	private bool runAnim;
 
 
 	//Rotate
@@ -116,7 +119,10 @@ public class PlayerControlManager : MonoBehaviour {
 	const int MaxHP = 100;
 
 	//無敵
+	private float mutekiTime = 2.0f;
+	private float mutekiTimeCursor = 0;
 
+	private bool isMuteki = false;
 
 	//死亡
 	private bool death = false;
@@ -141,9 +147,11 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void Awake(){
 
-		anim= player.GetComponent<Animator> ();
+		if (!EclairStopping) {
+			//アニメーション関係
+			anim = player.GetComponent<Animator> ();
+		}
 
-		//アニメーション関係
 		//Move
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
@@ -159,11 +167,12 @@ public class PlayerControlManager : MonoBehaviour {
 	bool IsGrounded() 
 	{
 		return Physics.Raycast(transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.15f);
+
 	}
 
 
 	/// <summary>
-	/// ロックオン、ボルト射出、SBT、エトワールが終了した時に呼ばれるメソッド
+	/// ボルト射出、エトワールが終了した時に呼ばれるメソッド
 	/// </summary>
 	public void Idle ()
 	{
@@ -195,20 +204,26 @@ public class PlayerControlManager : MonoBehaviour {
 		v = Input.GetAxis("Vertical"); //前後方向の移動
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
-		//Bolt
-		BoltManagement();
-		//発射間隔を設定する
-		shotInterval += Time.deltaTime;
+		if (!EclairStopping) {
+			if (!EclairImmobile) {
+				//Bolt
+				BoltManagement ();
+				//発射間隔を設定する
+				shotInterval += Time.deltaTime;
 
-		//Eto
-		EtoManagement();
+				//Eto
+				EtoManagement ();
 
-		//Avoid
-		AvoidManagement();
+				//Avoid
+				AvoidManagement ();
+			}
+			//Damage
+			DamageManagement ();
 
-		//Damage
-		DamageManagement();
+			//Muteki
+			mutekiManagement ();
 
+		}
 		//Death
 		if (death) {
 			DeathManagement ();
@@ -218,6 +233,9 @@ public class PlayerControlManager : MonoBehaviour {
 		if (IsGrounded())
 		{
 			anim.SetBool ("NewGrounded", true);
+			if (playerState_ == PlayerStates.Jump) {
+				playerState_ = PlayerStates.Idle;
+			}
 		} else {
 			anim.SetBool ("NewGrounded", false);
 		}
@@ -231,20 +249,28 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		MoveManagement (h,v);
+		if (!EclairImmobile && !EclairStopping) {
+			//Move
+			MoveManagement (h, v);
+
+			//Jump
+			JumpManagement ();
+		}
 	}
 
 	//Move
 	void MoveManagement(float horizontal, float vertical)
 	{
-		Rotating (horizontal, vertical);
-		if (isMoving && EclairImmobile == false && EclairStopping == false) {
-			anim.SetBool ("Run", true);
-			transform.position += transform.forward * Time.deltaTime * 5;
+		if (isMoving) {
+			speed = 5;
+			runAnim = true;
 		} else {
-			anim.SetBool ("Run", false);
-			transform.position += transform.forward * Time.deltaTime * 0;
+			speed = 0;
+			runAnim = false;
 		}
+			Rotating (horizontal, vertical);
+			transform.position += transform.forward * Time.deltaTime * speed;
+			anim.SetBool ("Run",runAnim);
 	}
 
 
@@ -459,9 +485,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Eto
 	void EtoManagement(){
-		if (isEto) {				
-				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押すとETO
-								if (playerState_ == PlayerStates.Bolt) {//エクレアはETOをする
+		if (isEto) {			
+			if (playerState_ == PlayerStates.Bolt) {//エクレアはETOをする	
+				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押すとETO							
 									playerState_ = PlayerStates.Eto;
 								        etoOn = true;
 										//audioSource.PlayOneShot (etoileSound);				
@@ -476,27 +502,82 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 	}
+		
 	void JumpManagement()
 	{
+		if(playerState_ == PlayerStates.Idle){
 		if (Input.GetButtonDown ("Space"))
 		{
-			if (GetComponent<Rigidbody>().velocity.y >= 10) 
+			if (GetComponent<Rigidbody>().velocity.y >= 10) //ジャンプしていない
 			{
-				playerState_ = PlayerStates.Jump;
-				GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
-				timeToNextJump = jumpCooldown;		
-		}
+				if(timeToNextJump <= 0)
+				{
+					playerState_ = PlayerStates.Jump;
+					GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
+					timeToNextJump = jumpCooldown;
+					}
+
+			}else{//ジャンプしている
+					if(timeToNextJump > 0)
+						timeToNextJump -= Time.deltaTime;					
+				}
+			}
 	}
 	}
 		
-				public void startEtoile(GameObject go){
-					//target = go;
-				}
+				
 
 
 	//Damage&HP
 	void DamageManagement(){
 		playerState_ = PlayerStates.Damaging;
+	}
+
+	public void Damage(int damage)
+	{
+		Damage(damage, new Vector3(0, 0, 0));
+	}
+
+	public void Damage(int damage,Vector3 direction){
+		if (isMuteki)
+		{
+		}
+		else
+		{
+			if(!direction.Equals(new Vector3(0,0,0))) transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Quaternion.LookRotation(-direction).eulerAngles.y, transform.rotation.eulerAngles.z);
+			HP -= damage;
+		}
+	}
+
+	IEnumerator whenAttacked(string parameter,float time)
+	{
+		startMuteki();
+		//PlayerControl.EclairImmobile = true;
+		anim.SetBool(parameter, true);
+		yield return new WaitForSeconds(time);
+		anim.SetBool(parameter, false);
+		//PlayerControl.EclairImmobile = false;
+	}
+
+
+	void startMuteki()
+	{
+		ObjectBlinker.Instance.Blink(gameObject, mutekiTime);
+		isMuteki = true;
+		mutekiTimeCursor = 0;
+	}
+
+
+	private void mutekiManagement()
+	{
+		if (isMuteki) {
+			mutekiTimeCursor += Time.deltaTime;
+			if(mutekiTimeCursor > mutekiTime)
+			{
+				isMuteki = false;
+				mutekiTimeCursor = 0;
+			}
+		}
 	}
 
 
