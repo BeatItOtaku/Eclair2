@@ -96,8 +96,6 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Jump
 	public float jumpHeight = 5.0f;
-	public float jumpCooldown = 1.0f;
-	private float timeToNextJump = 0;
 
 
 	//Damage
@@ -199,6 +197,8 @@ public class PlayerControlManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (playerState_);
+
 		//Move
 		h = Input.GetAxis("Horizontal"); //左右方向の移動
 		v = Input.GetAxis("Vertical"); //前後方向の移動
@@ -212,18 +212,21 @@ public class PlayerControlManager : MonoBehaviour {
 				shotInterval += Time.deltaTime;
 
 				//Eto
-				EtoManagement ();
+				//EtoManagement ();
 
 				//Avoid
 				AvoidManagement ();
+
+
 			}
 			//Damage
-			DamageManagement ();
+			//DamageManagement ();
 
 			//Muteki
 			mutekiManagement ();
 
 		}
+			
 		//Death
 		if (death) {
 			DeathManagement ();
@@ -505,22 +508,12 @@ public class PlayerControlManager : MonoBehaviour {
 		
 	void JumpManagement()
 	{
+		
 		if(playerState_ == PlayerStates.Idle){
 		if (Input.GetButtonDown ("Space"))
-		{
-			if (GetComponent<Rigidbody>().velocity.y >= 10) //ジャンプしていない
-			{
-				if(timeToNextJump <= 0)
-				{
+		{				
 					playerState_ = PlayerStates.Jump;
 					GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
-					timeToNextJump = jumpCooldown;
-					}
-
-			}else{//ジャンプしている
-					if(timeToNextJump > 0)
-						timeToNextJump -= Time.deltaTime;					
-				}
 			}
 	}
 	}
