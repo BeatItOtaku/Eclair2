@@ -22,8 +22,8 @@ public class PlayerControlManager : MonoBehaviour {
 	public GameObject player;
 	public GameObject muzzle;
 
-	public static bool EclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
-	public static bool EclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
+	public static bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
+	public static bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
 	//Move
 	private float speed;
@@ -120,10 +120,10 @@ public class PlayerControlManager : MonoBehaviour {
 	private float mutekiTime = 2.0f;
 	private float mutekiTimeCursor = 0;
 
-	private bool isMuteki = false;
+	private bool isMuteki = false;//無敵かどうか
 
 	//死亡
-	private bool death = false;
+	private bool death = false;//死んだかどうか
 
 	//アニメーション
 	private Animator anim;
@@ -145,10 +145,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void Awake(){
 
-		if (!EclairStopping) {
 			//アニメーション関係
 			anim = player.GetComponent<Animator> ();
-		}
 
 		//Move
 		hFloat = Animator.StringToHash("H");
@@ -204,8 +202,8 @@ public class PlayerControlManager : MonoBehaviour {
 		v = Input.GetAxis("Vertical"); //前後方向の移動
 		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
-		if (!EclairStopping) {
-			if (!EclairImmobile) {
+		if (!eclairStopping) {
+			if (!eclairImmobile) {
 				//Bolt
 				BoltManagement ();
 				//発射間隔を設定する
@@ -232,6 +230,11 @@ public class PlayerControlManager : MonoBehaviour {
 			DeathManagement ();
 			death = false;
 		}
+
+		//Animation関係
+		if (eclairStopping) {
+			anim = null;
+		}
 		//設置判定
 		if (IsGrounded())
 		{
@@ -252,7 +255,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if (!EclairImmobile && !EclairStopping) {
+		if (!eclairImmobile && !eclairStopping) {
 			//Move
 			MoveManagement (h, v);
 
@@ -539,17 +542,18 @@ public class PlayerControlManager : MonoBehaviour {
 		{
 			if(!direction.Equals(new Vector3(0,0,0))) transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Quaternion.LookRotation(-direction).eulerAngles.y, transform.rotation.eulerAngles.z);
 			HP -= damage;
+			StartCoroutine(whenAttacked("BigAttacked", 1.3f));
 		}
 	}
 
 	IEnumerator whenAttacked(string parameter,float time)
 	{
 		startMuteki();
-		//PlayerControl.EclairImmobile = true;
+		eclairImmobile = true;
 		anim.SetBool(parameter, true);
 		yield return new WaitForSeconds(time);
 		anim.SetBool(parameter, false);
-		//PlayerControl.EclairImmobile = false;
+		eclairImmobile = false;
 	}
 
 
@@ -576,8 +580,12 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Death
 	void DeathManagement(){
-		playerState_ = PlayerStates.Death;
 
+		if (HP <= 0) {
+			playerState_ = PlayerStates.Death;
+			eclairImmobile = true;
+
+		}
 	}
 
 }

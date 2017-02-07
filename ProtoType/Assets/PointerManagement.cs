@@ -8,17 +8,22 @@ public class PointerManagement : MonoBehaviour {
 	public static bool pointOnEdge = true;
 	private bool edge = false;
 
+	private bool upEdge = false;
+	private bool downEdge = false;
+	private bool leftEdge = false;
+	private bool rightEdge = false;
+
 	public RectTransform cursor;
 	private Vector3 coursorPosition;
 	private float edgePositionX;
 	private float edgePositionY;
 	//public Texture2D cursorTexture;
-	private CursorMode cursorMode = CursorMode.ForceSoftware;
-	private Vector2 hotSpot;
+	//private CursorMode cursorMode = CursorMode.ForceSoftware;
+	//private Vector2 hotSpot;
 
 	// Use this for initialization
 	void Start () {
-		hotSpot = new Vector2 (0, 0);
+		//hotSpot = new Vector2 (0, 0);
 	
 	}
 
@@ -27,26 +32,51 @@ public class PointerManagement : MonoBehaviour {
 		mousePosition = Input.mousePosition;
 		//Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
 
-		if (mousePosition.x <= Screen.width / 10 || mousePosition.x >= Screen.width * 9 / 10) {
+		if (mousePosition.x <= Screen.width / 10) {
 			pointOnEdge = true;
-			if (!edge) {
+			if (!leftEdge) {
 				edgePositionX = cursor.position.x;
-				edge = true;
+				leftEdge = true;
+			}
+			coursorPosition = new Vector3 (edgePositionX, mousePosition.y, mousePosition.z);
+			cursor.position = coursorPosition;
+		}
+
+			else if (mousePosition.x >= Screen.width * 9 / 10) {
+			pointOnEdge = true;
+			if (!rightEdge) {
+				edgePositionX = cursor.position.x;
+				rightEdge = true;
 			}
 			coursorPosition = new Vector3(edgePositionX,mousePosition.y,mousePosition.z);
 			cursor.position = coursorPosition;
-
 			}
-		else if(mousePosition.y <= Screen.height/ 10 || mousePosition.y >= Screen.height * 9 / 10) {
+
+
+		else if (mousePosition.y <= Screen.height / 10) {
 			pointOnEdge = true;
-			if (!edge) {
+			if (!downEdge) {
 				edgePositionY = cursor.position.y;
-				edge = true;
+				downEdge = true;
+			}
+			coursorPosition = new Vector3 (mousePosition.x, edgePositionY, mousePosition.z);
+			cursor.position = coursorPosition;
+		}
+
+			else if( mousePosition.y >= Screen.height * 9 / 10) {
+			pointOnEdge = true;
+			if (!upEdge) {
+				edgePositionY = cursor.position.y;
+				upEdge = true;
 			}
 			coursorPosition = new Vector3(mousePosition.x,edgePositionY,mousePosition.z);
 			cursor.position = coursorPosition;
 	}else{
-			edge = false;
+			upEdge = false;
+			downEdge = false;
+			leftEdge = false;
+			rightEdge = false;
+
 			pointOnEdge = false;
 			cursor.position = Input.mousePosition;
 		}
