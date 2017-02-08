@@ -68,14 +68,12 @@ public class PlayerControlManager : MonoBehaviour {
 
 	const float DefaultShotDistance = 10;
 	public float shotIntervalMin = 1F;
-	public float boltTime = 0;
 	private float shotInterval = 0;
-	public float force = 10;
+	public float force = 100;
 	public float maxDistance = 24;//24メートル以上離れてる対象にはロックオンしない
 
 	private Quaternion boltQuaternionOffset;
 
-	List<KeyValuePair<float, GameObject>> targetList = new List<KeyValuePair<float, GameObject>>();
 	public string boltHeadName = "pCylinder2";
 	private int cursor = 0;
 
@@ -226,9 +224,9 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 			
 		//Death
-		if (death) {
+		if (HP <= 0) {
 			DeathManagement ();
-			death = false;
+			death = true;
 		}
 
 		//Animation関係
@@ -350,7 +348,7 @@ public class PlayerControlManager : MonoBehaviour {
 				}
 
 				GameObject bolt = GameObject.FindGameObjectWithTag ("Bolt");
-				bolt =startLockOn ();
+				//bolt =startLockOn ();
 				if (bolt != null) {
 					onLockOnSwitched (bolt);
 				}
@@ -367,22 +365,23 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 		if (lastShot != null) Destroy(lastShot);//直前のShotを消す
 
-		Vector3 playerToTarget = target - muzzle.transform.position;//ボルトの着弾点とエクレアを結ぶベクトル
-
+		target = Input.mousePosition - player.transform.position;
 		Ray pointRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+		Vector3 playerToTarget = target - muzzle.transform.position;//マウスポインタの位置とエクレアを結ぶベクトル
+
 		transform.rotation = Quaternion.LookRotation(pointRay.direction);//マウスポインタがある方向にエクレアが回転
 		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
 		playerToTarget.Normalize ();
-		GameObject go = (GameObject)Instantiate (bolt, muzzle.transform.position, Quaternion.LookRotation(pointRay.direction/*playerToTarget*/) /* boltQuaternionOffset*/);
+		GameObject go = (GameObject)Instantiate (bolt, muzzle.transform.position, Quaternion.LookRotation (playerToTarget));/*pointRay.direction/*layerToTarget*/ /* boltQuaternionOffset*/
 		boltLaunch = true;
-		boltTime = 0;
 		//if (usePhysics)
 		//{
-			//go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
-			//go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget*/ * force, ForceMode.VelocityChange); //ボルトが放物線を描く
+			go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
+			go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget*/ * force, ForceMode.VelocityChange); //ボルトが放物線を描く
         //}
-        go.GetComponent<LinearMovement>().Direction = playerToTarget;  //直線移動できる
+        //go.GetComponent<LinearMovement>().Direction = playerToTarget;  //直線移動できる
 		go.GetComponent<BoltScript> ().Target = target;
         go.GetComponent<BoltScript>().TargetQuaternion = targetQuaternion;
 
@@ -401,68 +400,42 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
-			public GameObject getCurrentTarget(){
-		if (cursor == -1)
-			return null;
-		else
-			return targetList [cursor].Value;
-	}
-
-	public GameObject startLockOn(){
+	/*public  GameObject startLockOn(){
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Bolt") ) {
 			if (go != null) {
                 if (go.GetComponent<BoltScript>().isLanded)
                 {
                     //float distance = Vector3.Distance (player.transform.position, go.transform.position);
                     /*if (distance > maxDistance)
-                        continue;//遠すぎたらtargetListに追加することなくforの1ループをおわる*/
+                        continue;//遠すぎたらtargetListに追加することなくforの1ループをおわる
 
 				int layerMask = 0;
 				/*layerMask += 1 << 8;//Player
                     //layerMask += 1 << 9;//Bolt
                     layerMask += 1 << 13;//Boss
                     layerMask += 1 << 14;//Enemy
-                    layerMask = ~layerMask;//最後に論理否定することにより、上記のLayer以外のすべてのレイヤーを指し示すことになる*/
+                    layerMask = ~layerMask;//最後に論理否定することにより、上記のLayer以外のすべてのレイヤーを指し示すことになる
 				layerMask += (1 << 0) + (1 << 9);//DefaultとBolt
 
 				Ray toTargetRay = new Ray(Camera.main.transform.position, go.transform.Find(boltHeadName).position - Camera.main.transform.position);
 				RaycastHit hit;
 					if (Physics.Raycast (toTargetRay, out hit, maxDistance, layerMask)) {
-						if (hit.collider.tag == "Bolt")
-							targetList.Add (new KeyValuePair<float, GameObject> (getAnglularDistance (go), go));
+							
 					}
 				}
 				}
 				}
-				targetList.Sort (CompareKeyValuePair);
-				cursor = 0;
-				if (targetList.Count == 0)
-				{
-					endLockOn();
-					return null;
-				}
-				else return targetList[cursor].Value;
-				}
-
+			}*/
+				
+				
+				
 				public void endLockOn(){
 					cursor = -1;
-					targetList.Clear();
+					
 					return;
 				}
-
-				public GameObject Switch(){
-					cursor++;
-					if (cursor >= targetList.Count) cursor = 0;
-					return targetList [cursor].Value;
-				}
-
-				// 二つのKeyValuePair<string, int>を比較するためのメソッド
-				static int CompareKeyValuePair(KeyValuePair<float, GameObject> x, KeyValuePair<float, GameObject> y)
-				{
-					// Keyで比較した結果を返す
-					return (int)((x.Key - y.Key) * 100);
-				}
-
+				
+							
 				private float getAnglularDistance(GameObject target){
 					Vector3 camera = Camera.main.transform.rotation * Vector3.forward;
 					Vector3 toTarget = target.transform.position - player.transform.position;
@@ -500,7 +473,7 @@ public class PlayerControlManager : MonoBehaviour {
 										eto_ = eto;
 										eto_.transform.position = player.transform.position;
 										eto.SetActive (true);
-										GameObject lockonTarget = getCurrentTarget ();
+										//GameObject lockonTarget = getCurrentTarget ();
 				                        endLockOn ();//ロックオン状態終了
 										//EtoScript.target = lockonTarget;
 						player.SetActive (false);
@@ -581,10 +554,10 @@ public class PlayerControlManager : MonoBehaviour {
 	//Death
 	void DeathManagement(){
 
-		if (HP <= 0) {
+		if (death) {
 			playerState_ = PlayerStates.Death;
 			eclairImmobile = true;
-
+			death = false;
 		}
 	}
 
