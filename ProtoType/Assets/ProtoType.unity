@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79a46be49782441e85a9d228a375080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 0}
+  cursorPosition: {fileID: 0}
 --- !u!1 &493411110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,7 +1801,6 @@ MonoBehaviour:
   bolt: {fileID: 1000012028248400, guid: 27e61d77ce08c4e6f9661f0a5b0426c8, type: 2}
   usePhysics: 0
   shotIntervalMin: 1
-  boltTime: 0
   force: 10
   maxDistance: 24
   boltHeadName: pCylinder2
@@ -2325,7 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79a46be49782441e85a9d228a375080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 856887848}
+  cursorPosition: {fileID: 856887848}
 --- !u!1 &1672019164
 GameObject:
   m_ObjectHideFlags: 0

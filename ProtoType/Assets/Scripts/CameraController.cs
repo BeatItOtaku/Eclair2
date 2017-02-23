@@ -70,7 +70,7 @@ public class CameraController : MonoBehaviour
 			Cursor.visible = !value;
 			if (value)
 				Cursor.lockState = CursorLockMode.Confined;
-			else Cursor.lockState = CursorLockMode.Confined;
+			else Cursor.lockState = CursorLockMode.Locked;
 		}
 	}
 
@@ -120,7 +120,7 @@ public class CameraController : MonoBehaviour
 		//カーソル関連
 		if (Input.GetButtonUp("Fire"))
 		{
-			//cursorIsLocked = true;
+			cursorIsLocked = true;
 		}
 
 		if (Input.GetKeyDown("escape"))

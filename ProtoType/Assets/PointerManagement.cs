@@ -3,9 +3,36 @@ using System.Collections;
 
 public class PointerManagement : MonoBehaviour {
 
-	private Vector3 mousePosition;
+	private Vector3 cursor;
+	private Vector3 cursor_;
+	public RectTransform cursorPosition;
+
+	private float mouseX {
+		get{
+			Mathf.Clamp (cursor.x, leftEdge, rightEdge);
+			return cursor.x;
+		}
+	}
+	private float mouseY{
+		get{
+			Mathf.Clamp (cursor.y, bottomEdge, topEdge);
+			return cursor.y;
+		}
+	}
+			
+			
+	private float sensitivity = 1000f;
+
+	private float leftEdge = Screen.width / 10;
+	private float rightEdge = Screen.width * 9 / 10;
+	private float topEdge = Screen.height * 9 / 10;
+	private float bottomEdge = Screen.height / 10;
 
 	public static bool pointOnEdge = true;
+
+	/*private Vector3 mousePosition;
+
+	
 	private bool edge = false;
 
 	private bool isTopEdge = false;
@@ -25,32 +52,53 @@ public class PointerManagement : MonoBehaviour {
 	private Vector3 leftBottomPosition;
 	private Vector3 rightTopPosition;
 	private Vector3 rightBottomPosition;
+*/
 
-	private float leftEdge;
-	private float rightEdge;
-	private float topEdge;
-	private float bottomEdge;
-
+	/*
 	private float edgePositionX;
 	private float edgePositionY;
 	//public Texture2D cursorTexture;
 	//private CursorMode cursorMode = CursorMode.ForceSoftware;
 	//private Vector2 hotSpot;
+*/
 
 
 	// Use this for initialization
 	void Start () {
+		cursor.x = Screen.width / 2;
+		cursor.y = Screen.height / 2;
+
+
+
+
+		/*
 		mousePosition = Input.mousePosition;
 		leftEdge = Screen.width / 10;
 		rightEdge = Screen.width * 9 / 10;
 		topEdge = Screen.height / 10;
 		bottomEdge = Screen.height * 9 / 10;
+		*/
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
+		cursor.x += Input.GetAxis ("Camera X")* Time.deltaTime * sensitivity;
+		cursor.y += Input.GetAxis ("Camera Y")* Time.deltaTime * sensitivity;
+		cursor_ = new Vector3 (mouseX, mouseY, cursor.z);
+		cursorPosition.position = cursor_;
+		if (cursor.x <= leftEdge || cursor.x >= rightEdge || cursor.y <= bottomEdge || cursor.y >= topEdge)
+		{
+			pointOnEdge = true;
+		}else 
+		{
+	        pointOnEdge = false;
+     } 
 		
+
+	}
+}
+		/*
 
 		leftTopPosition = new Vector3 (leftEdge, topEdge, mousePosition.z);
 		leftBottomPosition = new Vector3 (leftEdge, bottomEdge, mousePosition.z);
