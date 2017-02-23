@@ -9,13 +9,13 @@ public class PointerManagement : MonoBehaviour {
 
 	private float mouseX {
 		get{
-			Mathf.Clamp (cursor.x, leftEdge, rightEdge);
+			cursor.x = Mathf.Clamp (cursor.x, leftEdge, rightEdge);
 			return cursor.x;
 		}
 	}
 	private float mouseY{
 		get{
-			Mathf.Clamp (cursor.y, bottomEdge, topEdge);
+			cursor.y = Mathf.Clamp (cursor.y, bottomEdge, topEdge);
 			return cursor.y;
 		}
 	}
