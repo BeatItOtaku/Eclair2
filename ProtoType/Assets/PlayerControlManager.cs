@@ -27,8 +27,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Move
 	private float speed;
-	private float h;
-	private float v;
+	private float horizontal;
+	private float vertical;
 	private float distToGround;
 
 	private int hFloat;
@@ -196,9 +196,9 @@ public class PlayerControlManager : MonoBehaviour {
 		Debug.Log (playerState_);
 
 		//Move
-		h = Input.GetAxis("Horizontal"); //左右方向の移動
-		v = Input.GetAxis("Vertical"); //前後方向の移動
-		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+		horizontal = Input.GetAxis("Horizontal"); //左右方向の移動
+		vertical = Input.GetAxis("Vertical"); //前後方向の移動
+		isMoving = Mathf.Abs(horizontal) > 0.1 || Mathf.Abs(vertical) > 0.1;
 
 		if (!eclairStopping) {
 			if (!eclairImmobile) {
@@ -255,7 +255,7 @@ public class PlayerControlManager : MonoBehaviour {
 	{
 		if (!eclairImmobile && !eclairStopping) {
 			//Move
-			MoveManagement (h, v);
+			MoveManagement (horizontal, vertical);
 
 			//Jump
 			JumpManagement ();
@@ -301,7 +301,7 @@ public class PlayerControlManager : MonoBehaviour {
 			GetComponent<Rigidbody> ().MoveRotation (newRotation);
 			//lastDirection = targetDirection;
 		}
-		if (!(Mathf.Abs (h) > 0.9 || Mathf.Abs (v) > 0.9)) {
+		if (!(Mathf.Abs (horizontal) > 0.9 || Mathf.Abs (vertical) > 0.9)) {
 			Repositioning ();
 		}
 
@@ -452,8 +452,10 @@ public class PlayerControlManager : MonoBehaviour {
 			if(Input.GetButtonDown("Avoid")){
 							playerState_ = PlayerStates.Avoid;
 				if (isMoving) {
-					
+					anim.SetFloat ("Horizontal", horizontal);
+					anim.SetFloat ("Vertical", vertical);
 				} else {
+					anim.SetTrigger ("IdleAvoid");
 					
 				}
 
@@ -490,6 +492,7 @@ public class PlayerControlManager : MonoBehaviour {
 		{				
 					playerState_ = PlayerStates.Jump;
 					GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
+				anim.SetTrigger ("Jump");
 			}
 	}
 	}
@@ -556,6 +559,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 		if (death) {
 			playerState_ = PlayerStates.Death;
+			anim.SetTrigger ("Death");
 			eclairImmobile = true;
 			death = false;
 		}
