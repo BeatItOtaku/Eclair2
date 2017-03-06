@@ -22,7 +22,7 @@ public class EtoScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (PlayerControlManager.etoOn == true) {
+		//if (PlayerControlManager.etoOn == true) {
 			//target = player.GetComponent<LockOn> ().getCurrentTarget ();
 			if (target != null) {
 
@@ -53,7 +53,7 @@ public class EtoScript : MonoBehaviour {
 				//im.Idle ();//targetが居なくなったらEtoile終了だぜ
 			}
 		}
-	}
+	//}
 
 	private void OnHit (Collider collider)
 	{

@@ -20,7 +20,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//汎用系
 	public GameObject player;
-	public GameObject muzzle;
+
+	public GameObject cursor;
 
 	public static bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
 	public static bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
@@ -58,15 +59,33 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Bolt
 	public GameObject bolt;
+	public Transform muzzle;
+	public GameObject boltDirectionGo; //boltDirectionはboltより先にmuzzleから撃ち出される透明のsphereで、トレイルレンダラーがついておりボルトの軌跡を表示する。
+	private GameObject preShot = null;
 	private GameObject lastShot = null; //最後に打ち出したボルト
 
 	public static bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
-	public bool usePhysics = false;
-	private bool boltLaunch; //ボルトが着弾したかどうか。
 
-	private Vector3 screenMiddle; //画面の中央
+	private Ray boltRay;
+	private Vector3 boltDirection;
+	public Vector3 BoltDirection{
+		get{
+			return  boltDirection;
+		}
+		set{
+			boltDirection = boltRay.direction;
+		}
+	}
+	private Vector3 cursorV;
 
-	const float DefaultShotDistance = 10;
+	public Bolt boltmanager;
+
+	//public bool usePhysics = false;
+	//private bool boltLaunch; //ボルトが着弾したかどうか。
+
+	//private Vector3 screenMiddle; //画面の中央
+
+	/*const float DefaultShotDistance = 10;
 	public float shotIntervalMin = 1F;
 	private float shotInterval = 0;
 	public float force = 100;
@@ -78,7 +97,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private int cursor = 0;
 
 	public CrossHairController crossHair;
-	public CameraController camControl;
+	public CameraController camControl;*/
 
 
 	//Avoid
@@ -87,9 +106,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Eto
 	public static bool isEto = true; //falseでエクレアはETOができなくなる。
-	public static bool etoOn = false;
+	public  bool etoOn = false;
 	public GameObject eto;
-	private GameObject eto_;
 
 
 	//Jump
@@ -174,13 +192,13 @@ public class PlayerControlManager : MonoBehaviour {
 		Debug.Log (playerState_.ToString ());
 		if (playerState_ == PlayerStates.Eto) {
 			etoOn = false;
-			CameraController.lookAt = camControl.player;
+			//CameraController.lookAt = camControl.player;
 			eto.SetActive (false);
 		}
 		playerState_ = PlayerStates.Idle;
 		player.GetComponent<LockOn> ().endLockOn ();
-		crossHair.isLockOn = false;
-		camControl.StopLockOn ();
+		//crossHair.isLockOn = false;
+		//camControl.StopLockOn ();
 	}
 
 
@@ -188,7 +206,7 @@ public class PlayerControlManager : MonoBehaviour {
 	void Start () {
 		
 		//bolt
-		screenMiddle = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
+		//screenMiddle = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
 	}
 	
 	// Update is called once per frame
@@ -205,7 +223,7 @@ public class PlayerControlManager : MonoBehaviour {
 				//Bolt
 				BoltManagement ();
 				//発射間隔を設定する
-				shotInterval += Time.deltaTime;
+				//shotInterval += Time.deltaTime;
 
 				//Eto
 				//EtoManagement ();
@@ -324,13 +342,33 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Bolt
-
 	void BoltManagement()
 	{
 		if (isBolt) {	
 			if (Input.GetButtonDown ("LaunchBolt")) {
 				playerState_ = PlayerStates.Bolt;
-				Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
+				cursorV = cursor.transform.position;
+				boltRay = new Ray (transform.position, cursorV);//プレイヤーからカーソルに向かうRay
+
+				transform.rotation = Quaternion.LookRotation (BoltDirection);//マウスポインタがある方向にエクレアが回転
+				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+
+				GameObject bd = (GameObject)Instantiate (boltDirectionGo, muzzle.position, muzzle.rotation);//boltの軌跡を表示する
+
+				//ボルトの複製と前に撃ったボルトの消去
+				if(preShot != null)Destroy (preShot);
+
+				lastShot = (GameObject) Instantiate (bolt, muzzle.position, muzzle.rotation);//boltを打ち出す
+				preShot = lastShot;
+
+				if (boltmanager.launchBolt == true) //boltが着弾した
+				{
+					isEto = true;
+					//ボルトまでの距離を表示するようなUIを出す？
+				}
+
+			
+				/*Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
 				RaycastHit hit;
 				Vector3 hitPosition;
 				Quaternion hitQuaternion = Quaternion.Euler (0, 0, 0);
@@ -351,12 +389,12 @@ public class PlayerControlManager : MonoBehaviour {
 				//bolt =startLockOn ();
 				if (bolt != null) {
 					onLockOnSwitched (bolt);
-				}
+				}*/
 			}
 		}
 	}
 
-	public bool LaunchBolt(Vector3 target, Quaternion targetQuaternion){
+	/*public bool LaunchBolt(Vector3 target, Quaternion targetQuaternion){
 
 		if (lastShot != null && shotInterval < shotIntervalMin) {
 			return false;//前回のLaunchBoltからあんまり時間経ってない時は何もしない
@@ -374,12 +412,12 @@ public class PlayerControlManager : MonoBehaviour {
 		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
 		playerToTarget.Normalize ();
-		GameObject go = (GameObject)Instantiate (bolt, muzzle.transform.position, Quaternion.LookRotation (playerToTarget));/*pointRay.direction/*layerToTarget*/ /* boltQuaternionOffset*/
+		GameObject go = (GameObject)Instantiate (bolt, muzzle.transform.position, Quaternion.LookRotation (playerToTarget));/*pointRay.direction/*layerToTarget*/ /* boltQuaternionOffset
 		boltLaunch = true;
 		//if (usePhysics)
 		//{
 			go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
-			go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget*/ * force, ForceMode.VelocityChange); //ボルトが放物線を描く
+			go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget * force, ForceMode.VelocityChange); //ボルトが放物線を描く
         //}
         //go.GetComponent<LinearMovement>().Direction = playerToTarget;  //直線移動できる
 		go.GetComponent<BoltScript> ().Target = target;
@@ -400,7 +438,7 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
-	/*public  GameObject startLockOn(){
+	public  GameObject startLockOn(){
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Bolt") ) {
 			if (go != null) {
                 if (go.GetComponent<BoltScript>().isLanded)
@@ -425,7 +463,7 @@ public class PlayerControlManager : MonoBehaviour {
 				}
 				}
 				}
-			}*/
+			}
 				
 				
 				
@@ -444,7 +482,7 @@ public class PlayerControlManager : MonoBehaviour {
 					toTarget.y = 0;
 
 					return Vector3.Angle (camera, toTarget);
-				}
+				}*/
 
 	//Avoid
 	void AvoidManagement(){
@@ -467,19 +505,12 @@ public class PlayerControlManager : MonoBehaviour {
 	//Eto
 	void EtoManagement(){
 		if (isEto) {			
-			if (playerState_ == PlayerStates.Bolt) {//エクレアはETOをする	
-				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押すとETO							
+				if (Input.GetButton ("Space")) {//ボルトを撃った状態でスペースキーを押し続けると、ETO待機状態となる							
 									playerState_ = PlayerStates.Eto;
-								        etoOn = true;
-										//audioSource.PlayOneShot (etoileSound);				
-										eto_ = eto;
-										eto_.transform.position = player.transform.position;
+										eto.transform.position = player.transform.position;
 										eto.SetActive (true);
-										//GameObject lockonTarget = getCurrentTarget ();
-				                        endLockOn ();//ロックオン状態終了
-										//EtoScript.target = lockonTarget;
-						player.SetActive (false);
-			}
+				                        etoOn = true;
+						                player.SetActive (false);
 		}
 	}
 	}
