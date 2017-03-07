@@ -21,6 +21,8 @@ public class FireManager : MonoBehaviour {
 	public GameObject close;
 	public Transform muzzle;
 
+
+	public static bool pointOnEdge = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -30,6 +32,7 @@ public class FireManager : MonoBehaviour {
 	void Update () {
 		if(Input.GetButton("Fire")){
 			if (isShot) {
+				pointOnEdge = true;
 				shotContinue = true;
 				StartCoroutine (ShotCoroutine ());
 
@@ -42,6 +45,7 @@ public class FireManager : MonoBehaviour {
 		if (Input.GetButtonUp ("Fire")) 
 		{
 			shotContinue = false;
+			pointOnEdge = false;
 		}
 	}
 

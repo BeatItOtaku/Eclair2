@@ -80,6 +80,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public Bolt boltmanager;
 
+	private Quaternion boltQuaternion;
+
 	//public bool usePhysics = false;
 	//private bool boltLaunch; //ボルトが着弾したかどうか。
 
@@ -224,6 +226,7 @@ public class PlayerControlManager : MonoBehaviour {
 				BoltManagement ();
 				//発射間隔を設定する
 				//shotInterval += Time.deltaTime;
+				Debug.DrawRay(transform.position,cursorV,Color.blue,100f,false);
 
 				//Eto
 				//EtoManagement ();
@@ -348,17 +351,17 @@ public class PlayerControlManager : MonoBehaviour {
 			if (Input.GetButtonDown ("LaunchBolt")) {
 				playerState_ = PlayerStates.Bolt;
 				cursorV = cursor.transform.position;
-				boltRay = new Ray (transform.position, cursorV);//プレイヤーからカーソルに向かうRay
+				boltRay= new Ray (transform.position, cursorV);//プレイヤーからカーソルに向かうRay
 
-				transform.rotation = Quaternion.LookRotation (BoltDirection);//マウスポインタがある方向にエクレアが回転
+				transform.rotation = Quaternion.LookRotation (boltRay.direction);//マウスポインタがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
 				GameObject bd = (GameObject)Instantiate (boltDirectionGo, muzzle.position, muzzle.rotation);//boltの軌跡を表示する
 
 				//ボルトの複製と前に撃ったボルトの消去
 				if(preShot != null)Destroy (preShot);
-
-				lastShot = (GameObject) Instantiate (bolt, muzzle.position, muzzle.rotation);//boltを打ち出す
+				boltQuaternion.eulerAngles = boltRay.direction - muzzle.forward;
+				lastShot = (GameObject) Instantiate (bolt, muzzle.position, boltQuaternion);//boltを打ち出す
 				preShot = lastShot;
 
 				if (boltmanager.launchBolt == true) //boltが着弾した

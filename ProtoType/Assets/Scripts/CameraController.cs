@@ -136,7 +136,7 @@ public class CameraController : MonoBehaviour
 				//Debug.Log("targetY = " + targetY + ", targetAngle = " + targetAngle);
 			} else {
 				
-			if (PointerManagement.pointOnEdge == true) {
+			if (FireManager.pointOnEdge == false) {
 					float deltaY = Input.GetAxis ("Camera X") * Time.deltaTime * mouseSensitivity;
 					float deltaAngle = Input.GetAxis ("Camera Y") * Time.deltaTime * mouseSensitivity;
 					//Debug.Log(deltaY + "," + deltaAngle);
