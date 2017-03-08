@@ -215,7 +215,7 @@ AudioSource:
   DopplerLevel: 0
   MinDistance: 9.2
   MaxDistance: 103.34
-  Pan2D: 0
+  Pan2D: 0.3
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -326,8 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320fb35bff28c47798bf6a89309128d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pcm: {fileID: 0}
-  rb: {fileID: 0}
   launchBolt: 0
 --- !u!136 &136000013827786442
 CapsuleCollider:
