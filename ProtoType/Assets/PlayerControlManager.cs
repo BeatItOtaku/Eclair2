@@ -60,11 +60,11 @@ public class PlayerControlManager : MonoBehaviour {
 	//Bolt
 	public GameObject bolt;
 	public Transform muzzle;//ボルトが出る位置。銃口
-	public GameObject boltDirectionGo; //boltDirectionはboltより先にmuzzleから撃ち出される透明のsphereで、トレイルレンダラーがついておりボルトの軌跡を表示する。
 	private GameObject preShot = null;//既に打ち出したボルト
 	private GameObject lastShot = null; //最後に打ち出したボルト
 
 	public static bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
+	public static bool shot = false; //ボルトを打ち出したことを判定する
 
 	private Ray cursorRay;
 	private RaycastHit boltHit;
@@ -357,33 +357,35 @@ public class PlayerControlManager : MonoBehaviour {
 	void BoltManagement()
 	{
 		if (isBolt) {	
-			if (Input.GetButtonDown ("LaunchBolt")) {
+			if (Input.GetButton ("LaunchBolt")) 
+			{
 				playerState_ = PlayerStates.Bolt;
+				FireManager.pointOnEdge = true;
 
 				cursorV = cursor.transform.position;
 				cursorRay = Camera.main.ScreenPointToRay (cursorV);
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//マウスポインタがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-				if(Physics.Raycast(cursorRay, out boltHit,layerMask)){
-					hitPosition = boltHit.point;
-				}
-					//GameObject bd = (GameObject)Instantiate (boltDirectionGo, muzzle.position, Quaternion.Euler(hitPosition - muzzle.position) * BoltQuaternionOffset);//boltの軌跡を表示する
-
 
 				//ボルトの複製と前に撃ったボルトの消去
-				if(preShot != null)Destroy (preShot);
-				//boltQuaternion.eulerAngles = cursorRay.direction - muzzle.forward;
-					lastShot = (GameObject) Instantiate (bolt, muzzle.position,Quaternion.Euler(hitPosition - muzzle.position) * BoltQuaternionOffset);//boltを打ち出す
+				if (preShot != null)
+					Destroy (preShot);
+				lastShot = (GameObject)Instantiate (bolt, muzzle.position, player.transform.rotation);//boltを打ち出す
 				preShot = lastShot;
+			}
 
-				if (boltmanager.launchBolt == true) //boltが着弾した
+			if(Input.GetButtonUp("LaunchBolt")){
+				shot = true; //打ち出したことを判定する変数
+				FireManager.pointOnEdge = false;
+			}
+		
+				if (boltmanager.launchBolt == true) //boltが着弾したことを判定する変数
 				{
 					isEto = true;
 					//ボルトまでの距離を表示するようなUIを出す？
 				}
 			}
 		}
-	}
 
 
 	//Eto
@@ -392,8 +394,10 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	void EtoManagement(){
 		if (isEto) {			
-				if (Input.GetButton ("Space")) {//ボルトを撃った状態でスペースキーを押し続けると、ETO待機状態となる							
+				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押し続けると、ETO待機状態となる							
 									playerState_ = PlayerStates.Eto;
+				transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
+				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 										eto.transform.position = player.transform.position;
 										eto.SetActive (true);
 				                        etoOn = true;
