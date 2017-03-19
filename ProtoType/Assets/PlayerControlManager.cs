@@ -66,21 +66,8 @@ public class PlayerControlManager : MonoBehaviour {
 	public static bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public static bool shot = false; //ボルトを打ち出したことを判定する
 
-	private Ray cursorRay;
-	private RaycastHit boltHit;
-	private Vector3 boltDirection;
-	public Vector3 BoltDirection{
-		get{
-			return  boltDirection;
-		}
-		set{
-			boltDirection = cursorRay.direction;
-		}
-	}
 	private Vector3 cursorV;//カーソルの位置ベクトル
-	private Vector3 hitPosition;
-	private int layerMask = ~(1 << 8);//レイヤー8(Player)を除く全部。Rayがプレイヤーを無視して貫通するようにする。
-
+	public Ray cursorRay;
 
 	public Bolt boltmanager;//Boltオブジェクト内のBoltというスクリプト
 
@@ -94,8 +81,6 @@ public class PlayerControlManager : MonoBehaviour {
 			boltQuaternionOffset = Quaternion.Euler (boltRotationOffset);
 		}
 	}
-
-
 
 
 	//Avoid
@@ -364,7 +349,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 				cursorV = cursor.transform.position;
 				cursorRay = Camera.main.ScreenPointToRay (cursorV);
-				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//マウスポインタがある方向にエクレアが回転
+				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
 				//ボルトの複製と前に撃ったボルトの消去
