@@ -62,7 +62,6 @@ public class PlayerShot : MonoBehaviour {
             go.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
 			go.GetComponent<Rigidbody>().AddForce(pointRay.direction/*playerToTarget*/ * force, ForceMode.VelocityChange);
         }
-        else go.GetComponent<LinearMovement>().Direction = playerToTarget;
 		go.GetComponent<BoltScript> ().Target = target;
         go.GetComponent<BoltScript>().TargetQuaternion = targetQuaternion;
 

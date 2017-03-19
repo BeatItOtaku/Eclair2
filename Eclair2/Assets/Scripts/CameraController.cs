@@ -94,7 +94,6 @@ public class CameraController : MonoBehaviour
 	{
 		//Cursor.SetCursor (tex, hotSpot, cursorMode);
 
-		BossMoveManager.BossAttackedCount = 1;//TODO:
 		targetY = defaultY;
 		targetAngle = defaultAngle;
 		distance = defaultDistance;

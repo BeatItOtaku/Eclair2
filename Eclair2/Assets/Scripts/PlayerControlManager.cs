@@ -444,7 +444,6 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void startMuteki()
 	{
-		ObjectBlinker.Instance.Blink(gameObject, mutekiTime);
 		isMuteki = true;
 		mutekiTimeCursor = 0;
 	}

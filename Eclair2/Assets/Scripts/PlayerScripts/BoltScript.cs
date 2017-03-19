@@ -54,11 +54,7 @@ public class BoltScript : MonoBehaviour {
 				} else {//敵じゃなかった時
 
 					//Debug.Log ("hoge");
-					try {
-						gameObject.GetComponent<LinearMovement> ().Speed = 0;
-					} catch {
-						gameObject.GetComponent<Rigidbody> ().isKinematic = true;
-					}
+					gameObject.GetComponent<Rigidbody> ().isKinematic = true;
 
 					GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
 					isLanded = true;

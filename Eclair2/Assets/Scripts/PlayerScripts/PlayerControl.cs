@@ -213,7 +213,7 @@ public class PlayerControl : MonoBehaviour
 
 	void MovementManagement(float horizontal, float vertical, bool running, bool sprinting)
 	{
-		if (isMuteki || (BossFootCollider.bossFootAttack == false && BossBarret.bossShotAttack == false && EclairImmobile == false && shotPause ==false)) {
+		if (isMuteki || (EclairImmobile == false && shotPause ==false)) {
 			Rotating (horizontal, vertical);
 		}
 
@@ -230,7 +230,7 @@ public class PlayerControl : MonoBehaviour
 
 			}
 
-			if (isMuteki || (BossFootCollider.bossFootAttack == false && BossBarret.bossShotAttack == false && EclairImmobile == false && shotPause ==false)) {
+			if (isMuteki || (EclairImmobile == false && shotPause ==false)) {
 				anim.SetFloat (speedFloat, speed, speedDampTime, Time.deltaTime);
 				transform.position += transform.forward * Time.deltaTime * 5;
 			}
@@ -307,30 +307,17 @@ public class PlayerControl : MonoBehaviour
 	}*/
 	void HPManagament()
 	{
-        //if (isMuteki) return;//–³“Gó‘Ô‚È‚ç‰½‚à‚µ‚ÈÈÉ		if (BossFootCollider.bossFootAttack == true) { 
+        //if (isMuteki) return;//–³“Gó‘Ô‚Èç‰½‚à‚µ‚ÈÈÈÈ	if (BossFootCollider.bossFootAttack == true) { 
 			//GameObject bossFoot = GameObject.FindGameObjectWithTag ("Boss");
 			//transform.LookAt (bossFoot.transform);
 			attackedTime += Time.deltaTime;
 			//anim.SetBool ("BigAttacked",true);
 
             if (attackedTime > 1.3f) {
-				BossFootCollider.bossFootAttack = false;
 				//anim.SetBool ("BigAttacked",false);
 				attackedTime = 0;
                 //if(!isMuteki) startMuteki();
             }
-        
-		if (BossBarret.bossShotAttack == true) {
-			attackedTime += Time.deltaTime;
-			//anim.SetBool ("SmallAttacked",true);
-
-            if (attackedTime > 0.4f) {
-				BossBarret.bossShotAttack = false;
-				//anim.SetBool ("SmallAttacked",false);
-				attackedTime = 0;
-                //if (!isMuteki) startMuteki();
-            }
-        }
 
 	}
 
@@ -453,7 +440,6 @@ public class PlayerControl : MonoBehaviour
 
     void startMuteki()
     {
-        ObjectBlinker.Instance.Blink(gameObject, mutekiTime);
         isMuteki = true;
         mutekiTimeCursor = 0;
     }

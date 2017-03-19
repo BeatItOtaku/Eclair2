@@ -89,7 +89,6 @@ public class InputManager : MonoBehaviour {
 		set {
 			isgamepad_ = value;
 			foreach (GameObject go in GameObject.FindGameObjectsWithTag("TutorialUI")) {
-				go.GetComponent<AnimationQueue_Tutorial> ().onControllerChanged (value);
 			}
 		}
 	}
@@ -123,7 +122,6 @@ public class InputManager : MonoBehaviour {
 	{
 		
 		//closeMuzzle.SetActive (false);
-		EventManager.eventCount = 11;
 		em = GameObject.Find ("EventManager");
 		//mySceneManager.MapAsync.allowSceneActivation = true;
 		anim = player.GetComponent<Animator> ();
@@ -135,8 +133,6 @@ public class InputManager : MonoBehaviour {
 		width = Screen.width;
 		screenMiddle = new Vector3 (width / 2, height / 2, 0);
 
-        GameObject.Find("FadeInPanel").GetComponent<AnimationQueueBase>().Queue();
-
 		CameraChanger.CurrentCamera = Camera.main;//インスタンスを作っとく
 	}
 
@@ -147,83 +143,77 @@ public class InputManager : MonoBehaviour {
 		//StartCoroutine("closeAttackCoroutine");
 
 		//右クリック
-		if (EventManager.eventCount >= 7 ) {
-			if (Input.GetButtonDown ("LaunchBolt")) {
-				//Debug.Log ("MouseLeft");
+		if (Input.GetButtonDown ("LaunchBolt")) {
+			//Debug.Log ("MouseLeft");
 
-				if (playerState == PlayerStates.LockOn) {//ロックオン状態の時は対象切り替え
-					GameObject go = player.GetComponent<LockOn> ().Switch ();//ロックオン状態であれば次の対象へ
-					onLockOnSwitched (go);
-				} else if (playerState == PlayerStates.Idle) {//ロックオン状態じゃないときはボルト射出
-					/*GameObject bolt = GameObject.FindGameObjectWithTag ("Bolt");
+			if (playerState == PlayerStates.LockOn) {//ロックオン状態の時は対象切り替え
+				GameObject go = player.GetComponent<LockOn> ().Switch ();//ロックオン状態であれば次の対象へ
+				onLockOnSwitched (go);
+			} else if (playerState == PlayerStates.Idle) {//ロックオン状態じゃないときはボルト射出
+				/*GameObject bolt = GameObject.FindGameObjectWithTag ("Bolt");
 					if (bolt != null) {
 						player.transform.LookAt (bolt.transform);
 						player.transform.rotation = new Quaternion (0, player.transform.rotation.y, 0, player.transform.rotation.w);
 					}*/
-					playerState_ = PlayerStates.Bolt;
-					Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
-					RaycastHit hit;
-					Vector3 hitPosition;
-					Quaternion hitQuaternion = Quaternion.Euler (0, 0, 0);
-					int layerMask = ~(1 << 8);//レイヤー8(Player)を除く全部
+				playerState_ = PlayerStates.Bolt;
+				Ray ray = Camera.main.ScreenPointToRay (screenMiddle);
+				RaycastHit hit;
+				Vector3 hitPosition;
+				Quaternion hitQuaternion = Quaternion.Euler (0, 0, 0);
+				int layerMask = ~(1 << 8);//レイヤー8(Player)を除く全部
 
-					if (Physics.Raycast (ray, out hit, layerMask)) {
-						//Debug.Log ("ahoaho");
-						hitPosition = hit.point;
-						hitQuaternion = Quaternion.LookRotation (hit.normal);
-					} else {
-						hitPosition = Camera.main.transform.position + (Camera.main.transform.forward * DefaultShotDistance);
+				if (Physics.Raycast (ray, out hit, layerMask)) {
+					//Debug.Log ("ahoaho");
+					hitPosition = hit.point;
+					hitQuaternion = Quaternion.LookRotation (hit.normal);
+				} else {
+					hitPosition = Camera.main.transform.position + (Camera.main.transform.forward * DefaultShotDistance);
+				}
+				if (player.GetComponent<PlayerShot> ().LaunchBolt (hitPosition, hitQuaternion)) {
+					audioSource.PlayOneShot (boltLaunchSound);
+
+				}
+
+				GameObject bolt = GameObject.FindGameObjectWithTag ("Bolt");
+				if (bolt != null) {
+					if (boltLaunch == true) {
+						Quaternion rot = Quaternion.LookRotation (hitPosition - player.transform.position);
+						player.transform.rotation = Quaternion.Euler (0, rot.eulerAngles.y, 0);
 					}
-					if (player.GetComponent<PlayerShot> ().LaunchBolt (hitPosition, hitQuaternion)) {
-						audioSource.PlayOneShot (boltLaunchSound);
-
-					}
-
-                    GameObject bolt = GameObject.FindGameObjectWithTag("Bolt");
-                    if (bolt != null)
-                    {
-						if (boltLaunch == true) {
-							Quaternion rot = Quaternion.LookRotation (hitPosition - player.transform.position);
-							player.transform.rotation = Quaternion.Euler (0, rot.eulerAngles.y, 0);
-						}
-                    }
-
-                }
+				}
 
 			}
-			if (playerState_ == PlayerStates.Bolt) {
+
+		}
+		if (playerState_ == PlayerStates.Bolt) {
 				
-				boltTime += Time.deltaTime;
-				if (boltTime >= 0.3f) {
-					playerState_ = PlayerStates.Idle;
-					boltLaunch = false;
-				}
-			} else {
+			boltTime += Time.deltaTime;
+			if (boltTime >= 0.3f) {
+				playerState_ = PlayerStates.Idle;
 				boltLaunch = false;
 			}
+		} else {
+			boltLaunch = false;
 		}
+		
 					
 		//Debug.Log ("hoghoe");
 		//Shiftキーでロックオン
-		if (EventManager.eventCount >= 1) {
-			if (Input.GetButtonDown ("LockOn")) {
-				Debug.Log ("lockOn");
-				GameObject go;
-				if (playerState_ == PlayerStates.Idle) {
-					go = player.GetComponent<LockOn> ().startLockOn ();//アイドル状態であればロックオンを開始
-					if (go != null) {
-						playerState_ = PlayerStates.LockOn;
-						onLockOnSwitched (go);
-						if (EventManager.eventCount == 1) {
-							em.GetComponent<EventManager> ().EventCount ();
-						}
-					}
+		if (Input.GetButtonDown ("LockOn")) {
+			Debug.Log ("lockOn");
+			GameObject go;
+			if (playerState_ == PlayerStates.Idle) {
+				go = player.GetComponent<LockOn> ().startLockOn ();//アイドル状態であればロックオンを開始
+				if (go != null) {
+					playerState_ = PlayerStates.LockOn;
+					onLockOnSwitched (go);
 				}
-			} else if (Input.GetButtonUp ("LockOn")) {//Eキー離したらロックオンやめる
-				player.GetComponent<LockOn> ().endLockOn ();
-				if (playerState_ != PlayerStates.Etoile)
-					Idle ();
 			}
+		} else if (Input.GetButtonUp ("LockOn")) {//Eキー離したらロックオンやめる
+			player.GetComponent<LockOn> ().endLockOn ();
+			if (playerState_ != PlayerStates.Etoile)
+				Idle ();
+		}
 
 
 
@@ -253,7 +243,7 @@ public class InputManager : MonoBehaviour {
 */
 
 			//エトワールボタン
-			if (PlayerControl.EclairImmobile == false && EventManager.eventCount >= 4) {
+			if (PlayerControl.EclairImmobile == false) {
 				if (Input.GetButtonDown ("Etoile")) {
 					if (playerState_ == PlayerStates.LockOn) {
 						audioSource.PlayOneShot (etoileSound);				
@@ -269,7 +259,6 @@ public class InputManager : MonoBehaviour {
 					}
 				}
 			}
-		}
 
 		//カメラ感度
 		if (Input.GetButtonDown ("Plus")) {

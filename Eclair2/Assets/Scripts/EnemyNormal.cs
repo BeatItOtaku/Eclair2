@@ -72,10 +72,6 @@ public class EnemyNormal : EnemyBase {
 			GetComponent<Rigidbody> ().constraints = new RigidbodyConstraints ();
 			GetComponent<Rigidbody> ().velocity += transform.up * dieReaction;
             StartCoroutine(Death());
-			if (EventManager.eventCount == 3) {
-				em = GameObject.Find ("EventManager");
-				em.GetComponent<EventManager> ().EventCount ();
-			}
             ScoreCounter.EnemyBeated();
         }
         else
