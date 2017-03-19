@@ -61,7 +61,7 @@ public class PlayerControlManager : MonoBehaviour {
 	public GameObject bolt;
 	public Transform muzzle;//ボルトが出る位置。銃口
 	private GameObject preShot = null;//既に打ち出したボルト
-	private GameObject lastShot = null; //最後に打ち出したボルト
+	public GameObject lastShot = null; //最後に打ち出したボルト
 
 	public static bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public static bool shot = false; //ボルトを打ち出したことを判定する
@@ -166,20 +166,6 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 
 
-	/// <summary>
-	/// ボルト射出、エトワールが終了した時に呼ばれるメソッド
-	/// </summary>
-	/*public void Idle ()
-	{
-		player.SetActive (true);
-		if (playerState_ == PlayerStates.Eto) {
-			etoOn = false;
-			eto.SetActive (false);
-		}
-		playerState_ = PlayerStates.Idle;
-	}*/
-
-
 	// Use this for initialization
 	void Start () {
 		
@@ -202,7 +188,7 @@ public class PlayerControlManager : MonoBehaviour {
 				//shotInterval += Time.deltaTime;
 
 				//Eto
-				//EtoManagement ();
+				EtoManagement ();
 
 				//Avoid
 				AvoidManagement ();
@@ -384,8 +370,8 @@ public class PlayerControlManager : MonoBehaviour {
 				transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 										eto.transform.position = player.transform.position;
-										eto.SetActive (true);
 				                        etoOn = true;
+										eto.SetActive (true);				                       
 						                player.SetActive (false);
 		}
 	}

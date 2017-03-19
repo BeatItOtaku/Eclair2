@@ -7,7 +7,7 @@ public class Bolt : MonoBehaviour {
 
 	public float speed = 30;
 
-	private PlayerControlManager pcm;
+	private PlayerControlManager pcm = null;
 	private GameObject player;
 
 	private Ray direction;
@@ -24,6 +24,7 @@ public class Bolt : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		player = GameObject.FindGameObjectWithTag ("Player");
+		if(pcm == null)
 		pcm = player.GetComponent<PlayerControlManager> ();
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
 
