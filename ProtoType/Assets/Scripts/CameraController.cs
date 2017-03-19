@@ -7,8 +7,18 @@ using System.Collections;
 /// </summary>
 public class CameraController : MonoBehaviour
 {
-	public static GameObject lookAt;
+	public PlayerControlManager pcm;
 	public GameObject player;
+
+	public  GameObject LookAt {
+		get {
+			if (pcm.etoOn == true) {
+				return pcm.eto;
+			} else {
+				return player;
+			}
+		}
+	}
 
 
 	public Transform cameraTransform;   // 操作するカメラ
@@ -69,7 +79,7 @@ public class CameraController : MonoBehaviour
 		{
 			Cursor.visible = !value;
 			if (value)
-				Cursor.lockState = CursorLockMode.Confined;
+				Cursor.lockState = CursorLockMode.Locked;
 			else Cursor.lockState = CursorLockMode.Locked;
 		}
 	}
@@ -85,7 +95,6 @@ public class CameraController : MonoBehaviour
 		//Cursor.SetCursor (tex, hotSpot, cursorMode);
 
 		BossMoveManager.BossAttackedCount = 1;//TODO:
-		lookAt = player;
 		targetY = defaultY;
 		targetAngle = defaultAngle;
 		distance = defaultDistance;
@@ -98,20 +107,7 @@ public class CameraController : MonoBehaviour
 
 	void Update()
 	{
-		if (InputManager.etoile == true) {	
-			lookAt = InputManager.eto_;
-			//Debug.Log ("eiei");
-		}
-		if (Event2CameraChanger.cameraSet == false) {
-			if (InputManager.etoile == false) {
-				lookAt = player;
-			}
-		}
-		if (/*BossMoveManager.BossAttackedCount == 2 || */EventManager.eventCount == 2) {
-			//lookAt = CameraChanger.mainCamera_;
-			//ロックオンチュートリアルのカメラ移動はInputManaterに移動したよ
-		}
-
+		
 	}
 
 	// 全ての処理が終わったあとにカメラの位置を調整するためにLateUpdateにする
@@ -140,7 +136,7 @@ public class CameraController : MonoBehaviour
 				//Debug.Log("targetY = " + targetY + ", targetAngle = " + targetAngle);
 			} else {
 				
-			if (PointerManagement.pointOnEdge == true) {
+			if (FireManager.pointOnEdge == false) {
 					float deltaY = Input.GetAxis ("Camera X") * Time.deltaTime * mouseSensitivity;
 					float deltaAngle = Input.GetAxis ("Camera Y") * Time.deltaTime * mouseSensitivity;
 					//Debug.Log(deltaY + "," + deltaAngle);
@@ -182,7 +178,7 @@ public class CameraController : MonoBehaviour
 		cameraOffset = new Vector3(0, 0, -1);
 		cameraOffset = Quaternion.Euler(angle, y, 0) * cameraOffset;
 
-        Transform lookAtTransform = lookAt.GetComponent<Transform>();
+        Transform lookAtTransform = LookAt.GetComponent<Transform>();
 
 		int layerMask = ~((1 << 8) | (1 << 9) | (1 << 14) | (1 << 16));//PlayerとBoltとEnemyとGroundを除くすべて
 
@@ -197,7 +193,7 @@ public class CameraController : MonoBehaviour
 		cameraTransform.position = lookAtTransform.position + cameraOffset;
 
         //カメラはLookAtに指定したオブジェクトよりちょっと上を向く
-		cameraTransform.LookAt(lookAt.GetComponent<Transform>().position);
+		cameraTransform.LookAt(LookAt.GetComponent<Transform>().position);
 		cameraTransform.RotateAround (cameraTransform.position, cameraTransform.right, -cameraVerticalAngleOffset);
 	}
 
@@ -222,7 +218,7 @@ public class CameraController : MonoBehaviour
 	}
 
 	private Vector2 CaliculateTargetRotation(Vector3 target){
-		Quaternion qu =  Quaternion.LookRotation (target - lookAt.transform.position);
+		Quaternion qu =  Quaternion.LookRotation (target - LookAt.transform.position);
         float y = qu.eulerAngles.y;
         //Debug.Log(qu.eulerAngles);
         //qu *= Quaternion.Euler(0, -y, 0);

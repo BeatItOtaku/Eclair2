@@ -42,6 +42,7 @@ GameObject:
   - 136: {fileID: 136000013827786442}
   - 82: {fileID: 82000013155597818}
   - 114: {fileID: 114000010620971218}
+  - 114: {fileID: 114000013717847910}
   m_Layer: 9
   m_Name: BoltPrefab
   m_TagString: Bolt
@@ -200,7 +201,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012028248400}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -214,7 +215,7 @@ AudioSource:
   DopplerLevel: 0
   MinDistance: 9.2
   MaxDistance: 103.34
-  Pan2D: 0
+  Pan2D: 0.3
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012028248400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 595358fcc755c4ca691ca6f517249d51, type: 3}
   m_Name: 
@@ -308,12 +309,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012028248400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 533f920fdc2164254a3c0b0a3fad95c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 1
+--- !u!114 &114000013717847910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012028248400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320fb35bff28c47798bf6a89309128d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchBolt: 0
+  speed: 30
 --- !u!136 &136000013827786442
 CapsuleCollider:
   m_ObjectHideFlags: 1

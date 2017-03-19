@@ -107,7 +107,6 @@ public class InputManager : MonoBehaviour {
 			etoile = false;
 			audioSource.Stop ();
 			audioSource.PlayOneShot (etoileEndSound);
-			CameraController.lookAt = camControl.player;
 			eto.SetActive (false);
 		}
 		playerState_ = PlayerStates.Idle;
