@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 35b37b7bb2937479e91a35eaaf379208
+timeCreated: 1476368566
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - player: {instanceID: 0}
+  - eto: {instanceID: 0}
+  - thunderEffect: {instanceID: 0}
+  - test: {instanceID: 0}
+  - crossHair: {instanceID: 0}
+  - camControl: {instanceID: 0}
+  - lockOn: {instanceID: 0}
+  - boltLaunchSound: {fileID: 8300000, guid: afe45737abd92e54e81f2c4c132e1b4c, type: 3}
+  - SBTSound: {fileID: 8300000, guid: 5cf221a22b26aa04795940fd2209b157, type: 3}
+  - lockOnSound: {fileID: 8300000, guid: 6aa89c80313a98543a5da717b5081689, type: 3}
+  - etoileSound: {fileID: 8300000, guid: f6f82f460603c1349879c683862ef991, type: 3}
+  - etoileEndSound: {fileID: 8300000, guid: aabd5ac4b0946d74497d754c6e0ebd18, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
