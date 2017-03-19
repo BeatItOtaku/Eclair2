@@ -374,6 +374,7 @@ public class PlayerControlManager : MonoBehaviour {
 										eto.SetActive (true);				                       
 						                player.SetActive (false);
 		}
+
 	}
 	}
 
