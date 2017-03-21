@@ -5,18 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bolt
-  - ThunderSwitch
   - EclairKeepOut
-  - Boss
-  - BossTail
-  - NoMoveBolt
   - ETOEclair
-  - Plane
-  - Objects
   - TutorialUI
-  - BreakWall
-  - Enemy
-  - Pointer
+  - RedMonument
+  - BlueMonument
+  - GreenMonument
+  - Sword
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -28,14 +24,14 @@ TagManager:
   - 
   - Player
   - Bolt
-  - Objects
-  - NoMoveBolt
+  - RedMonument
+  - BlueMonument
+  - GreenMonument
   - EclairKeepOut
-  - Boss
-  - Enemy
-  - Event7Pass
   - Ground
-  - Egdes
+  - 
+  - 
+  - 
   - 
   - 
   - 

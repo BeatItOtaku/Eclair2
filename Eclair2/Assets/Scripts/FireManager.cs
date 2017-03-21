@@ -48,7 +48,7 @@ public class FireManager : MonoBehaviour {
 			pointOnEdge = false;
 		}
 	}
-
+	/*
 	//Fire
 	public void FireManagement(){
 			StartCoroutine (fireCountCoroutine ());
@@ -82,7 +82,7 @@ public class FireManager : MonoBehaviour {
 			yield return new WaitForSeconds (1);
 			fire = false;
 		}
-	}
+	}*/
 
 	IEnumerator ShotCoroutine()
 	{
@@ -99,7 +99,7 @@ public class FireManager : MonoBehaviour {
 
 	private void OnTriggerStay(Collider col){
 
-		if (shotContinue == true) {
+		if (shotContinue == false) {
 			if (col.gameObject.tag == "Enemy") {
 				isShot = false;
 				isAttack = true;
