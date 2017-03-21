@@ -3,8 +3,8 @@ using System.Collections;
 
 public class FireManager : MonoBehaviour {
 
-	public static bool isShot = true; //falseでエクレアは射撃ができなくなる。
-	public static bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
+	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
+	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
 	private bool shotContinue = false;//射撃している間、近接攻撃にならない
 

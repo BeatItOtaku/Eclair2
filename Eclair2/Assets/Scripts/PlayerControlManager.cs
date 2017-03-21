@@ -23,8 +23,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public GameObject cursor;//画面上に現れるカーソル
 
-	public static bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
-	public static bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
+	public  bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
+	public  bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
 	//Move
 	private float speed;
@@ -53,7 +53,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Fire
 	//Fireに関しては、別のFireManagerに詳細が記述されている。
-	public static bool isFire = true; //falseでエクレアは通常攻撃ができなくなる。
+	public  bool isFire = true; //falseでエクレアは通常攻撃ができなくなる。
 	private FireManager fm;
 
 
@@ -63,7 +63,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private GameObject preShot = null;//既に打ち出したボルト
 	public GameObject lastShot = null; //最後に打ち出したボルト
 
-	public static bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
+	public  bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public static bool shot = false; //ボルトを打ち出したことを判定する
 
 	private Vector3 cursorV;//カーソルの位置ベクトル
@@ -84,11 +84,11 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Avoid
-	public static bool isAvoid = true; //falseでエクレアは回避ができなくなる。
+	public  bool isAvoid = true; //falseでエクレアは回避ができなくなる。
 
 
 	//Eto
-	public static bool isEto = true; //falseでエクレアはETOができなくなる。
+	public  bool isEto = true; //falseでエクレアはETOができなくなる。
 	public  bool etoOn = false;
 	public GameObject eto;
 

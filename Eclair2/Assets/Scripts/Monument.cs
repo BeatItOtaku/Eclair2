@@ -4,37 +4,38 @@ using System.Collections;
 public class Monument : MonoBehaviour {
 
 	private int hp;
+	public int redHp = 10;
+	public int blueHp = 50;
+	public int greenHp = 100;
+
 	private int score;
+	public int redScore = 10;
+	public int blueScore = 30;
+	public int greenScore = 50;
 
 	public GameManager gm;
 
-	private enum Color
-	{
-		Red,
-		Blue,
-		Green
-	}
-	private Color color_;
 
 	// Use this for initialization
 	void Start () {
 
-		gm = GetComponent<GameManager> ();
-
 		if (gameObject.tag == "RedMonument") {
-			hp = 10;
-			score = 10;
-			color_ = Color.Red;
+			
+			hp = redHp;
+			score = redScore;
+
 		}
 		if (gameObject.tag == "BlueMonument") {
-			hp = 50;
-			score = 30;
-			color_ = Color.Blue;
+			
+			hp = blueHp;
+			score = blueScore;
+
 		}
 		if (gameObject.tag == "GreenMonument") {
-			hp = 100;
-			score = 50;
-			color_ = Color.Green;
+			
+			hp = greenHp;
+			score = greenScore;
+
 		}
 	}
 	
@@ -42,15 +43,7 @@ public class Monument : MonoBehaviour {
 	void Update () {
 
 		if (hp <= 0) {
-			if (color_ == Color.Red) {
-				gm.score += 10;
-			}
-			if (color_ == Color.Blue) {
-				gm.score += 30;
-			}
-			if (color_ == Color.Green) {
-				gm.score += 50;
-			}
+			gm.score += score;
 			gm.monumentCount++;
 			Destroy (gameObject);
 		}
