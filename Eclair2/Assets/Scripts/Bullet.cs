@@ -3,19 +3,28 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-	private Ray directionRay;
-	public float speed = 20f;
+	private GameObject cursor; //画面上のカーソル
+	private Vector3 cursorV;
+	private Ray cursorRay;
+	public float speed = 20f; //弾の速度
+
+	public float lifeTime = 5; //弾の生存時間
 
 	// Use this for initialization
 	void Start () {
-		
-		directionRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+		cursor = GameObject.Find ("Cursor");
+		cursorV = cursor.transform.position;
+		cursorRay = Camera.main.ScreenPointToRay (cursorV);
 	}
 	// Update is called once per frame
 	void Update () {
 		
-		gameObject.transform.position += directionRay.direction * Time.deltaTime * speed;
+		lifeTime -= Time.deltaTime;
+		gameObject.transform.position += cursorRay.direction * Time.deltaTime * speed;
 	
+		if (lifeTime <= 0) {
+			Destroy (gameObject);
+		}
 	}
 
 	private void OnCollisionEnter(Collider c)

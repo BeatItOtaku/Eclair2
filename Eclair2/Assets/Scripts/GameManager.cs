@@ -28,14 +28,15 @@ public class GameManager : MonoBehaviour {
 				time -= Time.deltaTime;
 				time = Mathf.Max (time, 0.0f);	
 			} else {
+				totalScore = score;
 				//ゲーム終了
 			}
 		}
 
-		if (monumentCount == allMonument) {
-			//ゲーム終了
+		if (monumentCount == allMonument) {			
 			remainingTime = time;
 			totalScore = score + remainingTime * 10;
+			//ゲーム終了
 		}
 	}
 }
