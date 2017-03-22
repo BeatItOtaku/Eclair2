@@ -18,11 +18,14 @@ public class TutorialManager : MonoBehaviour {
 
 	public PlayerControlManager pcm;
 	public FireManager fm;
-	private int tutorialCount = 0;
+
+	public int tutorialCount = 1;
+	public int passCount = 0;
 
 	// Use this for initialization
 	void Start () {
-		pcm.eclairImmobile= true; //エクレアは動けない。
+		
+		pcm.eclairImmobile= false; //エクレアは動けない。
 		fm.isShot = false; //エクレアは射撃ができない。
 		fm.isAttack = false; //エクレアは打撃ができない。
 		pcm.isBolt = false; //エクレアはボルト射出ができない。
@@ -32,14 +35,21 @@ public class TutorialManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyDown("escape")){
+			//チュートリアルを終了するかどうかの確認ウィンドウが出た後、チュートリアル終了できる
+		}
+
+		Debug.Log (tutorialCount);
 	
 	}
 
-	private void TurotialCount(){
+	public void TurotialCount(){
+		tutorialCount++;
 		switch (tutorialCount) {
 
 		case 0:
 			//電撃少女エクレア（ミニゲーム名）へようこそ！
+					
 			break;
 
 		case 1:
@@ -49,7 +59,7 @@ public class TutorialManager : MonoBehaviour {
 
 		case 2:
 			//モニュメントの説明（エクレアは動けない）
-			pcm.eclairImmobile = true;
+			pcm.eclairStopping = true;
 			break;
 
 		case 3:

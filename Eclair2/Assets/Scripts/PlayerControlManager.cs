@@ -209,10 +209,7 @@ public class PlayerControlManager : MonoBehaviour {
 			death = true;
 		}
 
-		//Animation関係
-		if (eclairStopping) {
-			anim = null;
-		}
+
 		//設置判定
 		if (IsGrounded())
 		{
@@ -233,28 +230,33 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if (!eclairImmobile && !eclairStopping) {
+		
 			//Move
 			MoveManagement (horizontal, vertical);
 
 			//Jump
 			JumpManagement ();
-		}
+
 	}
 
 	//Move
 	void MoveManagement(float horizontal, float vertical)
 	{
-		if (isMoving) {
-			speed = 5;
-			runAnim = true;
-		} else {
-			speed = 0;
-			runAnim = false;
+		if (eclairImmobile || eclairStopping) {
+			isMoving = false;
 		}
+			if (isMoving) {
+				speed = 5;
+				runAnim = true;
+			} else {
+				speed = 0;
+				runAnim = false;
+			}
+		
 			Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
 			anim.SetBool ("Run",runAnim);
+
 	}
 
 
