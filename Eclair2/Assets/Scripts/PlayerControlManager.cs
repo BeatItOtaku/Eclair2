@@ -366,17 +366,18 @@ public class PlayerControlManager : MonoBehaviour {
 	/// 最終的にエクレアのPlayerControlManagerスクリプトとEtoエクレアのEtoスクリプトで完結するようにする。
 	/// </summary>
 	void EtoManagement(){
-		if (isEto) {			
+		if (isEto) {
+			if (playerState_ == PlayerStates.Bolt) {
 				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押し続けると、ETO待機状態となる							
-									playerState_ = PlayerStates.Eto;
-				transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
-				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-										eto.transform.position = player.transform.position;
-				                        etoOn = true;
-										eto.SetActive (true);				                       
-						                player.SetActive (false);
-		}
-
+					playerState_ = PlayerStates.Eto;
+					transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
+					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+					eto.transform.position = player.transform.position;
+					etoOn = true;
+					eto.SetActive (true);				                       
+					player.SetActive (false);
+				}
+			}
 	}
 	}
 
