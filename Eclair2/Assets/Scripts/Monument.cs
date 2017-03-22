@@ -3,17 +3,18 @@ using System.Collections;
 
 public class Monument : MonoBehaviour {
 
-	private int hp;
+	private int hp; //モニュメントの耐久力
 	public int redHp = 10;
 	public int blueHp = 50;
 	public int greenHp = 100;
 
-	private int score;
+	private int score; //モニュメントを壊して得られる得点
 	public int redScore = 10;
 	public int blueScore = 30;
 	public int greenScore = 50;
 
-	public GameManager gm;
+	private GameObject gm_ = null; //ミニゲームのルールが書かれたスクリプトを格納しているオブジェクト
+	public GameManager gm = null; //ミニゲームのルールが書かれたクラス。
 
 
 	// Use this for initialization
@@ -38,15 +39,29 @@ public class Monument : MonoBehaviour {
 
 		}
 	}
+
+	void Awake(){
+		
+		if (gm == null) {
+			gm_ = GameObject.Find ("GameManager");
+			if (gm_ != null) {
+				gm = gm_.GetComponent<GameManager> ();
+			}
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (hp <= 0) {
-			gm.score += score;
-			gm.monumentCount++;
-			Destroy (gameObject);
-		}
+			if (hp <= 0) {
+			if (gm != null) {
+				//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
+				gm.score += score;
+				gm.monumentCount++;
+			}
+				Destroy (gameObject);
+			}
+
 	}
 
 	private void OnCollisionEnter(Collider col){

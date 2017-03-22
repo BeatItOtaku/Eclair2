@@ -16,11 +16,17 @@ using System.Collections;
 /// </summary>
 public class TutorialManager : MonoBehaviour {
 
-	public PlayerControlManager pcm;
-	public FireManager fm;
+	public PlayerControlManager pcm; //エクレアの操作が記述されたクラス。
+	public FireManager fm; //エクレアの攻撃操作が記述されたクラス。
 
-	public int tutorialCount = 1;
-	public int passCount = 0;
+	public int tutorialCount = 1; //チュートリアルの進行を表す。
+	public int passCount = 0;  //チュートリアル1番の通過地点をどれくらい通過したか。
+
+	//チュートリアルで破壊するモニュメント。番号はチュートリアルカウントの値。
+	public GameObject monument2to3; 
+	public GameObject monument4;
+	public GameObject monument6;
+	public GameObject monument7;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +36,14 @@ public class TutorialManager : MonoBehaviour {
 		fm.isAttack = false; //エクレアは打撃ができない。
 		pcm.isBolt = false; //エクレアはボルト射出ができない。
 		pcm.isEto = false; //エクレアはETOができない。
+		pcm.isAvoid = false; //エクレアは回避ができない。
+
+
+		//モニュメント非表示
+		monument2to3.SetActive(false);
+		monument4.SetActive(false);
+		monument6.SetActive(false);
+		monument7.SetActive(false);
 	
 	}
 	
@@ -60,10 +74,11 @@ public class TutorialManager : MonoBehaviour {
 		case 2:
 			//モニュメントの説明（エクレアは動けない）
 			pcm.eclairStopping = true;
+			monument2to3.SetActive(true);
 			break;
 
 		case 3:
-			//(モニュメントの説明がすんだら）モニュメントを破壊してみよう
+			//(モニュメントの説明がすんだら）モニュメントを破壊してみよう(近接攻撃で数個）
 			pcm.eclairImmobile = false;
 			fm.isAttack = true;
 			break;
@@ -71,6 +86,7 @@ public class TutorialManager : MonoBehaviour {
 		case 4:
 			//一定距離離れていると射撃攻撃、近いと近接攻撃になります。
 			fm.isShot = true;
+			monument4.SetActive(true);
 			break;
 
 		case 5:
@@ -81,10 +97,12 @@ public class TutorialManager : MonoBehaviour {
 		case 6:
 			//エトワールをしてみましょう。
 			pcm.isEto = true;
+			monument6.SetActive(true);
 			break;
 
 		case 7:
 			//エトワールでモニュメントを一気に3つ破壊してみよう。
+			monument7.SetActive(true);
 			break;
 
 		case 8:
