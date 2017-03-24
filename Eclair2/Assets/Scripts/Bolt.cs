@@ -7,7 +7,7 @@ public class Bolt : MonoBehaviour {
 
 	public float speed = 30;
 
-	private PlayerControlManager pcm = null;
+	private PlayerControlManager pcm;
 	private GameObject player;
 
 	private Ray direction;
@@ -18,16 +18,17 @@ public class Bolt : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		//プイレヤーオブジェクトを取得、PlayerControlManagerクラスを取得
+		player = GameObject.FindGameObjectWithTag ("Player");
+			pcm = player.GetComponent<PlayerControlManager> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		player = GameObject.FindGameObjectWithTag ("Player");
-		if(pcm == null)
-		pcm = player.GetComponent<PlayerControlManager> ();
+
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
 
+		
 		if (PlayerControlManager.shot == true) {
 			direction = new Ray (transform.position, transform.forward);
 			if(Physics.Raycast(direction,out hit)){

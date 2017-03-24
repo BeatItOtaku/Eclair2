@@ -69,7 +69,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private Vector3 cursorV;//カーソルの位置ベクトル
 	public Ray cursorRay;
 
-	public Bolt boltmanager;//Boltオブジェクト内のBoltというスクリプト
+	private Bolt boltmanager;//Boltオブジェクト内のBoltというスクリプト
 
 	public Vector3 boltRotationOffset;//unityのインスペクタ上で編集できる。
 	private Quaternion boltQuaternionOffset;//ボルトの角度を補正する。
@@ -88,7 +88,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Eto
-	public  bool isEto = true; //falseでエクレアはETOができなくなる。
+	public  bool isEto = false; //falseでエクレアはETOができなくなる。
 	public  bool etoOn = false;
 	public GameObject eto;
 
@@ -345,6 +345,7 @@ public class PlayerControlManager : MonoBehaviour {
 					Destroy (preShot);
 				lastShot = (GameObject)Instantiate (bolt, muzzle.position, player.transform.rotation);//boltを打ち出す
 				preShot = lastShot;
+				boltmanager = lastShot.GetComponent<Bolt> ();
 			}
 
 			if(Input.GetButtonUp("LaunchBolt")){
@@ -352,11 +353,12 @@ public class PlayerControlManager : MonoBehaviour {
 				FireManager.pointOnEdge = false;
 			}
 		
-				if (boltmanager.launchBolt == true) //boltが着弾したことを判定する変数
-				{
+			if (boltmanager != null) {
+				if (boltmanager.launchBolt == true) { //boltが着弾したことを判定する変数
 					isEto = true;
 					//ボルトまでの距離を表示するようなUIを出す？
 				}
+			}
 			}
 		}
 
