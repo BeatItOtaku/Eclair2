@@ -21,8 +21,6 @@ public class FireManager : MonoBehaviour {
 	public GameObject close;
 	public Transform muzzle;
 
-
-	public static bool pointOnEdge = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -32,7 +30,7 @@ public class FireManager : MonoBehaviour {
 	void Update () {
 		if(Input.GetButton("Fire")){
 			if (isShot) {
-				pointOnEdge = true;
+				CameraController.setCursor = true;
 				shotContinue = true;
 				StartCoroutine (ShotCoroutine ());
 
@@ -45,7 +43,7 @@ public class FireManager : MonoBehaviour {
 		if (Input.GetButtonUp ("Fire")) 
 		{
 			shotContinue = false;
-			pointOnEdge = false;
+			CameraController.setCursor = false;
 		}
 	}
 	/*
@@ -91,7 +89,7 @@ public class FireManager : MonoBehaviour {
 			Instantiate (bullet, muzzle.position, muzzle.rotation);
 			shotOn = false;
 		}
-		yield return new WaitForSeconds (60f);
+		yield return new WaitForSeconds (2000f);
 		shotOn = true;
 	}
 		

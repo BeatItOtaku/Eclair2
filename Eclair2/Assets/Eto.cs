@@ -33,6 +33,7 @@ public class Eto : MonoBehaviour {
 			pcm.etoOn = false;
 			player.transform.position = gameObject.transform.position;
 			Destroy (pcm.lastShot);//ボルトを消去
+
 			player.SetActive (true);
 			gameObject.SetActive (false);
 
@@ -42,11 +43,11 @@ public class Eto : MonoBehaviour {
 
 	private void OnCollisitonEnter(Collider col){
 		if (col.gameObject.tag == ("Bolt")) {
-			bolt = null;
-			boltManager = null;
-			boltManager.launchBolt = false;
-			pcm.isEto = false;
-			pcm.etoOn = false;
+			bolt = null;  //ETOの目標となるボルトを消す
+			boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
+			boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
+			pcm.isEto = false; //ボルトが消えたため、ETOをできない状態に戻す
+			pcm.etoOn = false; //
 			player.SetActive (true);
 			gameObject.SetActive (false);
 

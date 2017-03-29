@@ -18,16 +18,15 @@ public class Bullet : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		
-		lifeTime -= Time.deltaTime;
-		gameObject.transform.position += cursorRay.direction * Time.deltaTime * speed;
-	
+
 		if (lifeTime <= 0) {
 			Destroy (gameObject);
 		}
+			lifeTime -= Time.deltaTime;
+			gameObject.transform.position += cursorRay.direction * Time.deltaTime * speed;
 	}
 
-	private void OnCollisionEnter(Collider c)
+	private void OnCollisionEnter(Collision c)
 	{
 		Destroy (gameObject);
 	}

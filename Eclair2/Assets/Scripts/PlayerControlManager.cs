@@ -318,6 +318,7 @@ public class PlayerControlManager : MonoBehaviour {
 				} else {
 					anim.SetTrigger ("IdleAvoid");
 				}
+				playerState_ = PlayerStates.Idle;
 			}
 		}
 	}
@@ -333,7 +334,7 @@ public class PlayerControlManager : MonoBehaviour {
 			if (Input.GetButton ("LaunchBolt")) 
 			{
 				playerState_ = PlayerStates.Bolt;
-				FireManager.pointOnEdge = true;
+				CameraController.setCursor = true; 
 
 				cursorV = cursor.transform.position;
 				cursorRay = Camera.main.ScreenPointToRay (cursorV);
@@ -350,7 +351,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 			if(Input.GetButtonUp("LaunchBolt")){
 				shot = true; //打ち出したことを判定する変数
-				FireManager.pointOnEdge = false;
+				CameraController.setCursor = false;
 			}
 		
 			if (boltmanager != null) {
@@ -369,7 +370,6 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	void EtoManagement(){
 		if (isEto) {
-			if (playerState_ == PlayerStates.Bolt) {
 				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押し続けると、ETO待機状態となる							
 					playerState_ = PlayerStates.Eto;
 					transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
@@ -379,7 +379,6 @@ public class PlayerControlManager : MonoBehaviour {
 					eto.SetActive (true);				                       
 					player.SetActive (false);
 				}
-			}
 	}
 	}
 
