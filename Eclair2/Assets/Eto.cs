@@ -47,7 +47,7 @@ public class Eto : MonoBehaviour {
 			boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
 			boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
 			pcm.isEto = false; //ボルトが消えたため、ETOをできない状態に戻す
-			pcm.etoOn = false; //
+			pcm.etoOn = false; //ETOが終了した
 			player.SetActive (true);
 			gameObject.SetActive (false);
 

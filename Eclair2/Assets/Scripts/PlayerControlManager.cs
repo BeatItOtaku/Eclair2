@@ -355,10 +355,10 @@ public class PlayerControlManager : MonoBehaviour {
 			}
 		
 			if (boltmanager != null) {
-				if (boltmanager.launchBolt == true) { //boltが着弾したことを判定する変数
+				//if (boltmanager.launchBolt == true) { //boltが着弾したことを判定する変数
 					isEto = true;
 					//ボルトまでの距離を表示するようなUIを出す？
-				}
+				//}
 			}
 			}
 		}
@@ -370,6 +370,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	void EtoManagement(){
 		if (isEto) {
+			if (boltmanager.launchBolt == true) {
 				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押し続けると、ETO待機状態となる							
 					playerState_ = PlayerStates.Eto;
 					transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
@@ -379,6 +380,7 @@ public class PlayerControlManager : MonoBehaviour {
 					eto.SetActive (true);				                       
 					player.SetActive (false);
 				}
+			}
 	}
 	}
 

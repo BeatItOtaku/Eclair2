@@ -20,6 +20,9 @@ public class Monument : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Animation anim = gameObject.GetComponent<Animation> ();
+		anim.Play ();
+
 		if (gameObject.tag == "RedMonument") {
 			
 			hp = redHp;

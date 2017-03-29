@@ -89,7 +89,7 @@ public class FireManager : MonoBehaviour {
 			Instantiate (bullet, muzzle.position, muzzle.rotation);
 			shotOn = false;
 		}
-		yield return new WaitForSeconds (2000f);
+		yield return new WaitForSeconds (60f);
 		shotOn = true;
 	}
 		
