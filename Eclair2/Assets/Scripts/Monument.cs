@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Monument : MonoBehaviour {
 
-	private int hp; //モニュメントの耐久力
+	public int hp; //モニュメントの耐久力
 	public int redHp = 10;
 	public int blueHp = 50;
 	public int greenHp = 100;
 
-	private int score; //モニュメントを壊して得られる得点
+	public int score; //モニュメントを壊して得られる得点
 	public int redScore = 10;
 	public int blueScore = 30;
 	public int greenScore = 50;
