@@ -191,6 +191,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 181363316}
   - 114: {fileID: 181363315}
+  - 114: {fileID: 181363317}
   m_Layer: 0
   m_Name: TutorialManager
   m_TagString: Untagged
@@ -204,7 +205,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 181363314}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 576750320f71d4beea76de4554ef5f52, type: 3}
   m_Name: 
@@ -230,6 +231,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &181363317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 181363314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861d0d71e8440ae458f2dc580331d815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cueScene: {fileID: 11400000, guid: 04560176f05684910bfb7bb8d8d0246c, type: 2}
+  playOnAwake: 1
+  loop: 0
 --- !u!1 &184650113
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  lifeTime: 5
 --- !u!96 &184650115
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -1970,9 +1986,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afc420170fba47a0b602747a35e4749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
   redHp: 10
   blueHp: 50
   greenHp: 100
+  score: 0
   redScore: 10
   blueScore: 30
   greenScore: 50

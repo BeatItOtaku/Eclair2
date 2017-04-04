@@ -23,7 +23,7 @@ GameObject:
   - 23: {fileID: 23000013806722560}
   m_Layer: 9
   m_Name: pCylinder1
-  m_TagString: Untagged
+  m_TagString: Bolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,6 @@ GameObject:
   - 54: {fileID: 54000012009027000}
   - 136: {fileID: 136000013827786442}
   - 82: {fileID: 82000013155597818}
-  - 114: {fileID: 114000010620971218}
   - 114: {fileID: 114000013717847910}
   m_Layer: 9
   m_Name: BoltPrefab
@@ -62,7 +61,7 @@ GameObject:
   - 23: {fileID: 23000012869510452}
   m_Layer: 9
   m_Name: pCylinder2
-  m_TagString: Untagged
+  m_TagString: Bolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,18 +302,6 @@ MonoBehaviour:
   isLanded: 0
   isFixed: 0
   head: {fileID: 1000013881382308}
---- !u!114 &114000010620971218
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012028248400}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 533f920fdc2164254a3c0b0a3fad95c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSpeed: 1
 --- !u!114 &114000013717847910
 MonoBehaviour:
   m_ObjectHideFlags: 1

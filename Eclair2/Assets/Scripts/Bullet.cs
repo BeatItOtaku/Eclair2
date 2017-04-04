@@ -10,6 +10,9 @@ public class Bullet : MonoBehaviour {
 
 	public float lifeTime = 5; //弾の生存時間
 
+	private GameObject hitObject = null;
+	private Monument mon;
+
 	// Use this for initialization
 	void Start () {
 		cursor = GameObject.Find ("Cursor");
@@ -28,6 +31,7 @@ public class Bullet : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision c)
 	{
+		
 		Destroy (gameObject);
 	}
 }
