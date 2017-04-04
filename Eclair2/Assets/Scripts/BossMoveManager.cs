@@ -48,7 +48,7 @@ public class BossMoveManager : MonoBehaviour {
     public AudioClip soundShot;
     public AudioClip soundWalk;
     public AudioClip soundExplosion;
-    public AudioClip soundSBTSwitch;
+    //public AudioClip soundSBTSwitch;
 
     private Vector3 playerV;
 	private Vector3 playerHeightV;
@@ -336,7 +336,7 @@ public class BossMoveManager : MonoBehaviour {
     public void SBTSwitchPopOnAwake()
     {
         haloGreen.SetActive(true);
-        audio.PlayOneShot(soundSBTSwitch);
+       // audio.PlayOneShot(soundSBTSwitch);
     }
     public void BossAwaken()
     {
