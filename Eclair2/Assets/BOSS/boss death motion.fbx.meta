@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: f7d68e274005e4f71a7092b263b8a20f
+timeCreated: 1479372253
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: barrel
+    100002: bolt
+    100004: bolt1
+    100006: bolt2
+    100008: bolt3
+    100010: //RootNode
+    100012: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    100014: boss3_0001deleted:pCube1
+    100016: boss3_0001deleted:pCube2
+    100018: boss3_0001deleted:pCube3
+    100020: boss3_0001deleted:pSphere1
+    100022: boss3_0001deleted:transform3
+    100024: boss3_0001deleted:transform4
+    100026: boss3_0001deleted:transform5
+    100028: boss3_0001deleted:transform6
+    100030: boss_0003:ago
+    100032: boss_0003:ankle_l
+    100034: boss_0003:ankre_r
+    100036: boss_0003:antenna
+    100038: boss_0003:barrel
+    100040: boss_0003:body1
+    100042: boss_0003:elbow_l
+    100044: boss_0003:erbow_r
+    100046: boss_0003:eye
+    100048: boss_0003:eye_gear3
+    100050: boss_0003:finger_l
+    100052: boss_0003:finger_l 1
+    100054: boss_0003:finger_r
+    100056: boss_0003:finger_r 1
+    100058: boss_0003:foot_l
+    100060: boss_0003:foot_l 1
+    100062: boss_0003:foot_r
+    100064: boss_0003:foot_r 1
+    100066: boss_0003:head
+    100068: boss_0003:head1
+    100070: boss_0003:jaw
+    100072: boss_0003:joint11_l
+    100074: boss_0003:joint11_r
+    100076: boss_0003:joint12
+    100078: boss_0003:joint12 1
+    100080: boss_0003:joint19
+    100082: boss_0003:ke
+    100084: boss_0003:ke1
+    100086: boss_0003:ke2
+    100088: boss_0003:leg_l
+    100090: boss_0003:leg_r
+    100092: boss_0003:lower_arm_l
+    100094: boss_0003:lower_arm_r
+    100096: boss_0003:mirroredCutMesh3
+    100098: boss_0003:neck
+    100100: boss_0003:neck 1
+    100102: boss_0003:neck 2
+    100104: boss_0003:nee_l
+    100106: boss_0003:nee_r
+    100108: boss_0003:pelvis
+    100110: boss_0003:pPipe1
+    100112: boss_0003:pPipe2
+    100114: boss_0003:shin_l
+    100116: boss_0003:shin_r
+    100118: boss_0003:tail
+    100120: boss_0003:tail 1
+    100122: boss_0003:tail1
+    100124: boss_0003:tail2
+    100126: boss_0003:tail3
+    100128: boss_0003:tail4
+    100130: boss_0003:thigh_l
+    100132: boss_0003:thigh_r
+    100134: boss_0003:upper_arm_l
+    100136: boss_0003:upper_arm_l 1
+    100138: boss_0003:upper_arm_r
+    100140: boss_0003:upper_arm_r 1
+    100142: boss_0003:wrist_l
+    100144: boss_0003:wrist_r
+    100146: eye
+    100148: foot_l
+    100150: foot_r
+    100152: gear
+    100154: gear 1
+    100156: gear1
+    100158: group2
+    100160: hair
+    100162: hair1
+    100164: hair2
+    100166: hand_l
+    100168: hand_r
+    100170: heel_l
+    100172: heel_r
+    100174: ikHandle13
+    100176: joint11
+    100178: joint12
+    100180: joint13
+    100182: joint14
+    100184: joint15
+    100186: joint16
+    100188: joint18
+    100190: joint19
+    100192: joint2
+    100194: joint20
+    100196: joint21
+    100198: joint22
+    100200: joint3
+    100202: joint4
+    100204: joint5
+    100206: joint6
+    100208: joint7
+    100210: joint8
+    100212: joint9
+    100214: ke
+    100216: ke2
+    100218: ke3
+    100220: leg_l
+    100222: nannka
+    100224: pCube1
+    100226: pCube2
+    100228: pCube3
+    100230: pCylinder1
+    100232: pCylinder2
+    100234: pHelix1
+    100236: polySurface1
+    100238: polySurface3
+    100240: pSphere1
+    100242: pSphere2
+    100244: pTorus1
+    100246: pTorus1 1
+    100248: pTorus2
+    100250: pTorus3
+    100252: pTorus4
+    100254: pTorus5
+    100256: pTorus6
+    100258: pTorus7
+    100260: toe_l
+    100262: transform1
+    100264: transform10
+    100266: transform11
+    100268: transform12
+    100270: transform2
+    100272: transform3
+    100274: transform4
+    100276: transform5
+    100278: transform6
+    100280: transform7
+    100282: transform8
+    100284: transform9
+    400000: barrel
+    400002: bolt
+    400004: bolt1
+    400006: bolt2
+    400008: bolt3
+    400010: //RootNode
+    400012: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    400014: boss3_0001deleted:pCube1
+    400016: boss3_0001deleted:pCube2
+    400018: boss3_0001deleted:pCube3
+    400020: boss3_0001deleted:pSphere1
+    400022: boss3_0001deleted:transform3
+    400024: boss3_0001deleted:transform4
+    400026: boss3_0001deleted:transform5
+    400028: boss3_0001deleted:transform6
+    400030: boss_0003:ago
+    400032: boss_0003:ankle_l
+    400034: boss_0003:ankre_r
+    400036: boss_0003:antenna
+    400038: boss_0003:barrel
+    400040: boss_0003:body1
+    400042: boss_0003:elbow_l
+    400044: boss_0003:erbow_r
+    400046: boss_0003:eye
+    400048: boss_0003:eye_gear3
+    400050: boss_0003:finger_l
+    400052: boss_0003:finger_l 1
+    400054: boss_0003:finger_r
+    400056: boss_0003:finger_r 1
+    400058: boss_0003:foot_l
+    400060: boss_0003:foot_l 1
+    400062: boss_0003:foot_r
+    400064: boss_0003:foot_r 1
+    400066: boss_0003:head
+    400068: boss_0003:head1
+    400070: boss_0003:jaw
+    400072: boss_0003:joint11_l
+    400074: boss_0003:joint11_r
+    400076: boss_0003:joint12
+    400078: boss_0003:joint12 1
+    400080: boss_0003:joint19
+    400082: boss_0003:ke
+    400084: boss_0003:ke1
+    400086: boss_0003:ke2
+    400088: boss_0003:leg_l
+    400090: boss_0003:leg_r
+    400092: boss_0003:lower_arm_l
+    400094: boss_0003:lower_arm_r
+    400096: boss_0003:mirroredCutMesh3
+    400098: boss_0003:neck
+    400100: boss_0003:neck 1
+    400102: boss_0003:neck 2
+    400104: boss_0003:nee_l
+    400106: boss_0003:nee_r
+    400108: boss_0003:pelvis
+    400110: boss_0003:pPipe1
+    400112: boss_0003:pPipe2
+    400114: boss_0003:shin_l
+    400116: boss_0003:shin_r
+    400118: boss_0003:tail
+    400120: boss_0003:tail 1
+    400122: boss_0003:tail1
+    400124: boss_0003:tail2
+    400126: boss_0003:tail3
+    400128: boss_0003:tail4
+    400130: boss_0003:thigh_l
+    400132: boss_0003:thigh_r
+    400134: boss_0003:upper_arm_l
+    400136: boss_0003:upper_arm_l 1
+    400138: boss_0003:upper_arm_r
+    400140: boss_0003:upper_arm_r 1
+    400142: boss_0003:wrist_l
+    400144: boss_0003:wrist_r
+    400146: eye
+    400148: foot_l
+    400150: foot_r
+    400152: gear
+    400154: gear 1
+    400156: gear1
+    400158: group2
+    400160: hair
+    400162: hair1
+    400164: hair2
+    400166: hand_l
+    400168: hand_r
+    400170: heel_l
+    400172: heel_r
+    400174: ikHandle13
+    400176: joint11
+    400178: joint12
+    400180: joint13
+    400182: joint14
+    400184: joint15
+    400186: joint16
+    400188: joint18
+    400190: joint19
+    400192: joint2
+    400194: joint20
+    400196: joint21
+    400198: joint22
+    400200: joint3
+    400202: joint4
+    400204: joint5
+    400206: joint6
+    400208: joint7
+    400210: joint8
+    400212: joint9
+    400214: ke
+    400216: ke2
+    400218: ke3
+    400220: leg_l
+    400222: nannka
+    400224: pCube1
+    400226: pCube2
+    400228: pCube3
+    400230: pCylinder1
+    400232: pCylinder2
+    400234: pHelix1
+    400236: polySurface1
+    400238: polySurface3
+    400240: pSphere1
+    400242: pSphere2
+    400244: pTorus1
+    400246: pTorus1 1
+    400248: pTorus2
+    400250: pTorus3
+    400252: pTorus4
+    400254: pTorus5
+    400256: pTorus6
+    400258: pTorus7
+    400260: toe_l
+    400262: transform1
+    400264: transform10
+    400266: transform11
+    400268: transform12
+    400270: transform2
+    400272: transform3
+    400274: transform4
+    400276: transform5
+    400278: transform6
+    400280: transform7
+    400282: transform8
+    400284: transform9
+    2300000: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    2300002: boss_0003:mirroredCutMesh3
+    3300000: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    3300002: boss_0003:mirroredCutMesh3
+    4300000: boss_0003:mirroredCutMesh3
+    4300002: boss_0003:neck
+    4300004: polySurface3
+    4300006: boss_0003:lower_arm_l
+    4300008: boss_0003:foot_r
+    4300010: boss_0003:shin_r
+    4300012: boss_0003:lower_arm_r
+    4300014: boss_0003:ke2
+    4300016: boss_0003:ke1
+    4300018: boss_0003:ke
+    4300020: boss_0003:shin_l
+    4300022: boss_0003:foot_l
+    4300024: boss_0003:pPipe1
+    4300026: boss_0003:pPipe2
+    4300028: boss_0003:body1
+    4300030: boss_0003:antenna
+    4300032: boss_0003:ago
+    4300034: bolt
+    4300036: bolt1
+    4300038: bolt2
+    4300040: bolt3
+    4300042: boss_0003:head
+    4300044: boss_0003:eye
+    4300046: boss_0003:eye_gear3
+    4300048: boss_0003:leg_l
+    4300050: boss_0003:upper_arm_l
+    4300052: boss_0003:upper_arm_r
+    4300054: gear1
+    4300056: leg_l
+    4300058: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    4300060: pCylinder2
+    4300062: pSphere2
+    4300064: pTorus7
+    4300066: pTorus1
+    4300068: pHelix1
+    7400000: BossKilled
+    9500000: //RootNode
+    13700000: bolt
+    13700002: bolt1
+    13700004: bolt2
+    13700006: bolt3
+    13700008: boss_0003:ago
+    13700010: boss_0003:antenna
+    13700012: boss_0003:body1
+    13700014: boss_0003:eye
+    13700016: boss_0003:eye_gear3
+    13700018: boss_0003:foot_l
+    13700020: boss_0003:foot_r
+    13700022: boss_0003:head
+    13700024: boss_0003:ke
+    13700026: boss_0003:ke1
+    13700028: boss_0003:ke2
+    13700030: boss_0003:leg_l
+    13700032: boss_0003:lower_arm_l
+    13700034: boss_0003:lower_arm_r
+    13700036: boss_0003:neck
+    13700038: boss_0003:pPipe1
+    13700040: boss_0003:pPipe2
+    13700042: boss_0003:shin_l
+    13700044: boss_0003:shin_r
+    13700046: boss_0003:upper_arm_l
+    13700048: boss_0003:upper_arm_r
+    13700050: gear1
+    13700052: leg_l
+    13700054: pCylinder2
+    13700056: pHelix1
+    13700058: polySurface3
+    13700060: pSphere2
+    13700062: pTorus1
+    13700064: pTorus7
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: BossKilled
+      takeName: Take 001
+      firstFrame: 531
+      lastFrame: 890
+      wrapMode: 0
+      orientationOffsetY: -90
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boss3_0001deleted:boss_0003:mirroredCutMesh3
+        weight: 1
+      - path: boss3_0001deleted:pCube1
+        weight: 1
+      - path: boss3_0001deleted:pCube1/boss3_0001deleted:transform3
+        weight: 1
+      - path: boss3_0001deleted:pCube2
+        weight: 1
+      - path: boss3_0001deleted:pCube2/boss3_0001deleted:transform4
+        weight: 1
+      - path: boss3_0001deleted:pCube3
+        weight: 1
+      - path: boss3_0001deleted:pCube3/boss3_0001deleted:transform5
+        weight: 1
+      - path: boss3_0001deleted:pSphere1
+        weight: 1
+      - path: boss3_0001deleted:pSphere1/boss3_0001deleted:transform6
+        weight: 1
+      - path: boss_0003:ago
+        weight: 1
+      - path: boss_0003:ago/bolt
+        weight: 1
+      - path: boss_0003:ago/bolt1
+        weight: 1
+      - path: boss_0003:ago/bolt2
+        weight: 1
+      - path: boss_0003:ago/bolt3
+        weight: 1
+      - path: boss_0003:barrel
+        weight: 1
+      - path: boss_0003:barrel/boss_0003:pPipe1
+        weight: 1
+      - path: boss_0003:barrel/boss_0003:pPipe2
+        weight: 1
+      - path: boss_0003:body1
+        weight: 1
+      - path: boss_0003:body1/boss_0003:antenna
+        weight: 1
+      - path: boss_0003:foot_r
+        weight: 1
+      - path: boss_0003:foot_r/boss_0003:shin_r
+        weight: 1
+      - path: boss_0003:head
+        weight: 1
+      - path: boss_0003:head/boss_0003:eye
+        weight: 1
+      - path: boss_0003:head/boss_0003:eye_gear3
+        weight: 1
+      - path: boss_0003:ke
+        weight: 1
+      - path: boss_0003:ke1
+        weight: 1
+      - path: boss_0003:ke2
+        weight: 1
+      - path: boss_0003:leg_l
+        weight: 1
+      - path: boss_0003:leg_r
+        weight: 1
+      - path: boss_0003:lower_arm_l
+        weight: 1
+      - path: boss_0003:lower_arm_r
+        weight: 1
+      - path: boss_0003:mirroredCutMesh3
+        weight: 1
+      - path: boss_0003:neck
+        weight: 1
+      - path: boss_0003:pelvis
+        weight: 1
+      - path: boss_0003:pelvis/barrel
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/eye
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2/joint3
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2/joint3/joint4
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2/joint3/joint4/joint5/joint6/joint7/joint8
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair/joint2/joint3/joint4/joint5/joint6/joint7/joint8/joint9
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair1/joint11
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair1/joint11/joint12
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair1/joint11/joint12/joint13
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair1/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair1/joint11/joint12/joint13/joint14/joint15
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair1/joint11/joint12/joint13/joint14/joint15/joint16
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair2
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair2/joint18
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair2/joint18/joint19
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair2/joint18/joint19/joint20
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair2/joint18/joint19/joint20/joint21
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:head1/nannka/hair2/joint18/joint19/joint20/joint21/joint22
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:jaw
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:neck 2/boss_0003:jaw/boss_0003:joint19
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_l 1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_l 1/boss_0003:elbow_l
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_l 1/boss_0003:elbow_l/boss_0003:wrist_l
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_l 1/boss_0003:elbow_l/boss_0003:wrist_l/boss_0003:finger_l
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_l 1/boss_0003:elbow_l/boss_0003:wrist_l/boss_0003:finger_l/boss_0003:finger_l
+          1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_r 1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_r 1/boss_0003:erbow_r
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_r 1/boss_0003:erbow_r/boss_0003:wrist_r
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_r 1/boss_0003:erbow_r/boss_0003:wrist_r/boss_0003:finger_r
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:neck 1/boss_0003:upper_arm_r 1/boss_0003:erbow_r/boss_0003:wrist_r/boss_0003:finger_r/boss_0003:finger_r
+          1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:tail 1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:tail 1/boss_0003:tail1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:tail 1/boss_0003:tail1/boss_0003:tail2
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:tail 1/boss_0003:tail1/boss_0003:tail2/boss_0003:tail3
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:tail 1/boss_0003:tail1/boss_0003:tail2/boss_0003:tail3/boss_0003:tail4
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_l
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_l/boss_0003:nee_l
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_l/boss_0003:nee_l/boss_0003:ankle_l
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_l/boss_0003:nee_l/boss_0003:ankle_l/boss_0003:foot_l
+          1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_l/boss_0003:nee_l/boss_0003:ankle_l/boss_0003:foot_l
+          1/boss_0003:joint11_l
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_l/boss_0003:nee_l/boss_0003:ankle_l/boss_0003:foot_l
+          1/boss_0003:joint11_l/boss_0003:joint12
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_r
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_r/boss_0003:nee_r
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_r/boss_0003:nee_r/boss_0003:ankre_r
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_r/boss_0003:nee_r/boss_0003:ankre_r/boss_0003:foot_r
+          1
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_r/boss_0003:nee_r/boss_0003:ankre_r/boss_0003:foot_r
+          1/boss_0003:joint11_r
+        weight: 1
+      - path: boss_0003:pelvis/boss_0003:thigh_r/boss_0003:nee_r/boss_0003:ankre_r/boss_0003:foot_r
+          1/boss_0003:joint11_r/boss_0003:joint12 1
+        weight: 1
+      - path: boss_0003:pelvis/gear 1
+        weight: 1
+      - path: boss_0003:shin_l
+        weight: 1
+      - path: boss_0003:shin_l/boss_0003:foot_l
+        weight: 1
+      - path: boss_0003:tail
+        weight: 1
+      - path: boss_0003:tail/polySurface3
+        weight: 1
+      - path: boss_0003:upper_arm_l
+        weight: 1
+      - path: boss_0003:upper_arm_r
+        weight: 1
+      - path: foot_l
+        weight: 1
+      - path: foot_r
+        weight: 1
+      - path: gear
+        weight: 1
+      - path: gear/pCylinder1
+        weight: 1
+      - path: gear/pCylinder1/transform2
+        weight: 1
+      - path: gear/polySurface1
+        weight: 1
+      - path: gear/polySurface1/transform1
+        weight: 1
+      - path: gear1
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pCylinder2
+        weight: 1
+      - path: group2/pSphere2
+        weight: 1
+      - path: group2/pTorus1 1
+        weight: 1
+      - path: group2/pTorus1 1/transform12
+        weight: 1
+      - path: group2/pTorus2
+        weight: 1
+      - path: group2/pTorus2/transform11
+        weight: 1
+      - path: group2/pTorus3
+        weight: 1
+      - path: group2/pTorus3/transform10
+        weight: 1
+      - path: group2/pTorus4
+        weight: 1
+      - path: group2/pTorus4/transform9
+        weight: 1
+      - path: group2/pTorus5
+        weight: 1
+      - path: group2/pTorus5/transform8
+        weight: 1
+      - path: group2/pTorus6
+        weight: 1
+      - path: group2/pTorus6/transform7
+        weight: 1
+      - path: group2/pTorus7
+        weight: 1
+      - path: hand_l
+        weight: 1
+      - path: hand_r
+        weight: 1
+      - path: heel_l
+        weight: 1
+      - path: heel_r
+        weight: 1
+      - path: ikHandle13
+        weight: 1
+      - path: ke
+        weight: 1
+      - path: ke2
+        weight: 1
+      - path: ke3
+        weight: 1
+      - path: leg_l
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/transform3
+        weight: 1
+      - path: pCube2
+        weight: 1
+      - path: pCube2/transform4
+        weight: 1
+      - path: pCube3
+        weight: 1
+      - path: pCube3/transform5
+        weight: 1
+      - path: pHelix1
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform6
+        weight: 1
+      - path: pTorus1
+        weight: 1
+      - path: toe_l
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: boss_0003:pelvis
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3b193465ff20644d392e4fe434dba32f,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

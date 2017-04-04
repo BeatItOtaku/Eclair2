@@ -1,0 +1,398 @@
+fileFormatVersion: 2
+guid: 9551cb1e2e08b4d5c8eb3e34fb626fc3
+timeCreated: 1478805528
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: barrel
+    100002: bolt
+    100004: bolt1
+    100006: bolt2
+    100008: bolt3
+    100010: //RootNode
+    100012: boss3_0001deleted:boss_0003:mirrorCutPlane1
+    100014: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    100016: boss3_0001deleted:pCube1
+    100018: boss3_0001deleted:pCube2
+    100020: boss3_0001deleted:pCube3
+    100022: boss3_0001deleted:pSphere1
+    100024: boss3_0001deleted:transform3
+    100026: boss3_0001deleted:transform4
+    100028: boss3_0001deleted:transform5
+    100030: boss3_0001deleted:transform6
+    100032: boss_0003:ago
+    100034: boss_0003:ankle_l
+    100036: boss_0003:ankre_r
+    100038: boss_0003:antenna
+    100040: boss_0003:barrel
+    100042: boss_0003:body1
+    100044: boss_0003:elbow_l
+    100046: boss_0003:erbow_r
+    100048: boss_0003:eye
+    100050: boss_0003:eye_gear3
+    100052: boss_0003:fan
+    100054: boss_0003:finger_l
+    100056: boss_0003:finger_l 1
+    100058: boss_0003:finger_r
+    100060: boss_0003:finger_r 1
+    100062: boss_0003:foot_l
+    100064: boss_0003:foot_l 1
+    100066: boss_0003:foot_r
+    100068: boss_0003:foot_r 1
+    100070: boss_0003:head
+    100072: boss_0003:head1
+    100074: boss_0003:jaw
+    100076: boss_0003:joint11_l
+    100078: boss_0003:joint11_r
+    100080: boss_0003:joint12
+    100082: boss_0003:joint12 1
+    100084: boss_0003:joint19
+    100086: boss_0003:ke
+    100088: boss_0003:ke1
+    100090: boss_0003:ke2
+    100092: boss_0003:leg_l
+    100094: boss_0003:leg_r
+    100096: boss_0003:lower_arm_l
+    100098: boss_0003:lower_arm_r
+    100100: boss_0003:mirrorCutPlane1
+    100102: boss_0003:mirroredCutMesh3
+    100104: boss_0003:neck
+    100106: boss_0003:neck 1
+    100108: boss_0003:neck 2
+    100110: boss_0003:nee_l
+    100112: boss_0003:nee_r
+    100114: boss_0003:pelvis
+    100116: boss_0003:pPipe1
+    100118: boss_0003:pPipe2
+    100120: boss_0003:shin_l
+    100122: boss_0003:shin_r
+    100124: boss_0003:tail
+    100126: boss_0003:tail 1
+    100128: boss_0003:tail1
+    100130: boss_0003:tail2
+    100132: boss_0003:tail3
+    100134: boss_0003:tail4
+    100136: boss_0003:thigh_l
+    100138: boss_0003:thigh_r
+    100140: boss_0003:upper_arm_l
+    100142: boss_0003:upper_arm_l 1
+    100144: boss_0003:upper_arm_r
+    100146: boss_0003:upper_arm_r 1
+    100148: boss_0003:wrist_l
+    100150: boss_0003:wrist_r
+    100152: eye
+    100154: foot_l
+    100156: foot_r
+    100158: gear
+    100160: gear 1
+    100162: gear1
+    100164: hair
+    100166: hair1
+    100168: hair2
+    100170: hand_l
+    100172: hand_r
+    100174: heel_l
+    100176: heel_r
+    100178: ikHandle13
+    100180: joint11
+    100182: joint12
+    100184: joint13
+    100186: joint14
+    100188: joint15
+    100190: joint16
+    100192: joint18
+    100194: joint19
+    100196: joint2
+    100198: joint20
+    100200: joint21
+    100202: joint22
+    100204: joint3
+    100206: joint4
+    100208: joint5
+    100210: joint6
+    100212: joint7
+    100214: joint8
+    100216: joint9
+    100218: ke
+    100220: ke2
+    100222: ke3
+    100224: leg_l
+    100226: nannka
+    100228: pCube1
+    100230: pCube2
+    100232: pCube3
+    100234: pCylinder1
+    100236: polySurface1
+    100238: polySurface2
+    100240: polySurface3
+    100242: pSphere1
+    100244: toe_l
+    100246: transform1
+    100248: transform2
+    100250: transform3
+    100252: transform4
+    100254: transform5
+    100256: transform6
+    400000: barrel
+    400002: bolt
+    400004: bolt1
+    400006: bolt2
+    400008: bolt3
+    400010: //RootNode
+    400012: boss3_0001deleted:boss_0003:mirrorCutPlane1
+    400014: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    400016: boss3_0001deleted:pCube1
+    400018: boss3_0001deleted:pCube2
+    400020: boss3_0001deleted:pCube3
+    400022: boss3_0001deleted:pSphere1
+    400024: boss3_0001deleted:transform3
+    400026: boss3_0001deleted:transform4
+    400028: boss3_0001deleted:transform5
+    400030: boss3_0001deleted:transform6
+    400032: boss_0003:ago
+    400034: boss_0003:ankle_l
+    400036: boss_0003:ankre_r
+    400038: boss_0003:antenna
+    400040: boss_0003:barrel
+    400042: boss_0003:body1
+    400044: boss_0003:elbow_l
+    400046: boss_0003:erbow_r
+    400048: boss_0003:eye
+    400050: boss_0003:eye_gear3
+    400052: boss_0003:fan
+    400054: boss_0003:finger_l
+    400056: boss_0003:finger_l 1
+    400058: boss_0003:finger_r
+    400060: boss_0003:finger_r 1
+    400062: boss_0003:foot_l
+    400064: boss_0003:foot_l 1
+    400066: boss_0003:foot_r
+    400068: boss_0003:foot_r 1
+    400070: boss_0003:head
+    400072: boss_0003:head1
+    400074: boss_0003:jaw
+    400076: boss_0003:joint11_l
+    400078: boss_0003:joint11_r
+    400080: boss_0003:joint12
+    400082: boss_0003:joint12 1
+    400084: boss_0003:joint19
+    400086: boss_0003:ke
+    400088: boss_0003:ke1
+    400090: boss_0003:ke2
+    400092: boss_0003:leg_l
+    400094: boss_0003:leg_r
+    400096: boss_0003:lower_arm_l
+    400098: boss_0003:lower_arm_r
+    400100: boss_0003:mirrorCutPlane1
+    400102: boss_0003:mirroredCutMesh3
+    400104: boss_0003:neck
+    400106: boss_0003:neck 1
+    400108: boss_0003:neck 2
+    400110: boss_0003:nee_l
+    400112: boss_0003:nee_r
+    400114: boss_0003:pelvis
+    400116: boss_0003:pPipe1
+    400118: boss_0003:pPipe2
+    400120: boss_0003:shin_l
+    400122: boss_0003:shin_r
+    400124: boss_0003:tail
+    400126: boss_0003:tail 1
+    400128: boss_0003:tail1
+    400130: boss_0003:tail2
+    400132: boss_0003:tail3
+    400134: boss_0003:tail4
+    400136: boss_0003:thigh_l
+    400138: boss_0003:thigh_r
+    400140: boss_0003:upper_arm_l
+    400142: boss_0003:upper_arm_l 1
+    400144: boss_0003:upper_arm_r
+    400146: boss_0003:upper_arm_r 1
+    400148: boss_0003:wrist_l
+    400150: boss_0003:wrist_r
+    400152: eye
+    400154: foot_l
+    400156: foot_r
+    400158: gear
+    400160: gear 1
+    400162: gear1
+    400164: hair
+    400166: hair1
+    400168: hair2
+    400170: hand_l
+    400172: hand_r
+    400174: heel_l
+    400176: heel_r
+    400178: ikHandle13
+    400180: joint11
+    400182: joint12
+    400184: joint13
+    400186: joint14
+    400188: joint15
+    400190: joint16
+    400192: joint18
+    400194: joint19
+    400196: joint2
+    400198: joint20
+    400200: joint21
+    400202: joint22
+    400204: joint3
+    400206: joint4
+    400208: joint5
+    400210: joint6
+    400212: joint7
+    400214: joint8
+    400216: joint9
+    400218: ke
+    400220: ke2
+    400222: ke3
+    400224: leg_l
+    400226: nannka
+    400228: pCube1
+    400230: pCube2
+    400232: pCube3
+    400234: pCylinder1
+    400236: polySurface1
+    400238: polySurface2
+    400240: polySurface3
+    400242: pSphere1
+    400244: toe_l
+    400246: transform1
+    400248: transform2
+    400250: transform3
+    400252: transform4
+    400254: transform5
+    400256: transform6
+    2300000: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    2300002: boss_0003:mirroredCutMesh3
+    3300000: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    3300002: boss_0003:mirroredCutMesh3
+    4300000: boss_0003:mirroredCutMesh3
+    4300002: boss_0003:neck
+    4300004: polySurface2
+    4300006: polySurface3
+    4300008: boss_0003:lower_arm_l
+    4300010: boss_0003:foot_r
+    4300012: boss_0003:shin_r
+    4300014: boss_0003:lower_arm_r
+    4300016: boss_0003:ke2
+    4300018: boss_0003:ke1
+    4300020: boss_0003:ke
+    4300022: boss_0003:shin_l
+    4300024: boss_0003:foot_l
+    4300026: boss_0003:pPipe1
+    4300028: boss_0003:pPipe2
+    4300030: boss_0003:body1
+    4300032: boss_0003:antenna
+    4300034: boss_0003:fan
+    4300036: boss_0003:ago
+    4300038: bolt
+    4300040: bolt1
+    4300042: bolt2
+    4300044: bolt3
+    4300046: boss_0003:head
+    4300048: boss_0003:eye
+    4300050: boss_0003:eye_gear3
+    4300052: boss_0003:leg_l
+    4300054: boss_0003:upper_arm_l
+    4300056: boss_0003:upper_arm_r
+    4300058: gear1
+    4300060: leg_l
+    4300062: boss3_0001deleted:boss_0003:mirroredCutMesh3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: bolt
+    13700002: bolt1
+    13700004: bolt2
+    13700006: bolt3
+    13700008: boss_0003:ago
+    13700010: boss_0003:antenna
+    13700012: boss_0003:body1
+    13700014: boss_0003:eye
+    13700016: boss_0003:eye_gear3
+    13700018: boss_0003:fan
+    13700020: boss_0003:foot_l
+    13700022: boss_0003:foot_r
+    13700024: boss_0003:head
+    13700026: boss_0003:ke
+    13700028: boss_0003:ke1
+    13700030: boss_0003:ke2
+    13700032: boss_0003:leg_l
+    13700034: boss_0003:lower_arm_l
+    13700036: boss_0003:lower_arm_r
+    13700038: boss_0003:neck
+    13700040: boss_0003:pPipe1
+    13700042: boss_0003:pPipe2
+    13700044: boss_0003:shin_l
+    13700046: boss_0003:shin_r
+    13700048: boss_0003:upper_arm_l
+    13700050: boss_0003:upper_arm_r
+    13700052: gear1
+    13700054: leg_l
+    13700056: polySurface2
+    13700058: polySurface3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 87871b02e209c4156a1dbfb35cbeb72a,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
