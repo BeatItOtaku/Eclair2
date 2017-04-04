@@ -331,11 +331,9 @@ public class PlayerControlManager : MonoBehaviour {
 	void BoltManagement()
 	{
 		if (isBolt) {	
-			if (Input.GetButton ("LaunchBolt")) 
+			if (Input.GetButtonDown ("LaunchBolt")) 
 			{
 				playerState_ = PlayerStates.Bolt;
-				CameraController.setCursor = true; 
-
 				cursorV = cursor.transform.position;
 				cursorRay = Camera.main.ScreenPointToRay (cursorV);
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
@@ -347,18 +345,12 @@ public class PlayerControlManager : MonoBehaviour {
 				lastShot = (GameObject)Instantiate (bolt, muzzle.position, player.transform.rotation);//boltを打ち出す
 				preShot = lastShot;
 				boltmanager = lastShot.GetComponent<Bolt> ();
-			}
-
-			if(Input.GetButtonUp("LaunchBolt")){
 				shot = true; //打ち出したことを判定する変数
-				CameraController.setCursor = false;
 			}
 		
-			if (boltmanager != null) {
-				//if (boltmanager.launchBolt == true) { //boltが着弾したことを判定する変数
+			if (boltmanager != null) {				
 					isEto = true;
 					//ボルトまでの距離を表示するようなUIを出す？
-				//}
 			}
 			}
 		}
@@ -370,8 +362,8 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	void EtoManagement(){
 		if (isEto) {
-			if (boltmanager.launchBolt == true) {
-				if (Input.GetButtonDown ("Space")) {//ボルトを撃った状態でスペースキーを押し続けると、ETO待機状態となる							
+			if (boltmanager.launchBolt == true) {//ボルトが着弾している状態
+				if (Input.GetButtonDown ("Space")) {						
 					playerState_ = PlayerStates.Eto;
 					transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正

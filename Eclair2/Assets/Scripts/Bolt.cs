@@ -35,9 +35,9 @@ public class Bolt : MonoBehaviour {
 				hitPosition = hit.point;
 			}
 			transform.position += transform.forward * Time.deltaTime * speed;
-		}else{
+		}/*else{
 			transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
-		}
+		}*/
 
 		if (launchBolt) {
 			transform.position = hitPosition;
