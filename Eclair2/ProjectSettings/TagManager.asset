@@ -13,6 +13,7 @@ TagManager:
   - GreenMonument
   - Sword
   - Bullet
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - GreenMonument
   - EclairKeepOut
   - Ground
-  - 
+  - ETOEclair
   - 
   - 
   - 
