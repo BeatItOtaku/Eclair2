@@ -67,7 +67,7 @@ public class Monument : MonoBehaviour {
 
 	}
 
-	private void OnCollisionEnter(Collider col){
+	private void OnCollisionEnter(Collision col){
 		if (hp > 0) {
 			if (col.gameObject.tag == "Sword") {
 				hp -= 10;
