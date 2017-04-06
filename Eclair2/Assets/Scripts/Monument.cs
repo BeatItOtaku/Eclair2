@@ -10,12 +10,11 @@ public class Monument : MonoBehaviour {
 
 	public int score; //モニュメントを壊して得られる得点
 	public int redScore = 10;
-	public int blueScore = 30;
-	public int greenScore = 50;
+	public int blueScore = 20;
+	public int greenScore = 30;
 
 	private GameObject gm_ = null; //ミニゲームのルールが書かれたスクリプトを格納しているオブジェクト
 	public GameManager gm = null; //ミニゲームのルールが書かれたクラス。
-
 
 	// Use this for initialization
 	void Start () {
