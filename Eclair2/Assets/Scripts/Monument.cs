@@ -73,7 +73,7 @@ public class Monument : MonoBehaviour {
 				hp -= 10;
 			}
 			if (col.gameObject.tag == "Bullet") {
-				hp -= 4;
+				hp -= 1;
 			}
 			if (col.gameObject.tag == "Bolt") {
 				hp -= 25;

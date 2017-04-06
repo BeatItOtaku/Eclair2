@@ -36,7 +36,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private int vFloat;
 	private int groundedBool;
 
-	private bool isMoving = false; // trueでエクレアが動いている、falseで止まっている。
+	private bool isMoving = false; //trueでエクレアが動いている、falseで止まっている。
 	private bool runAnim;
 
 
