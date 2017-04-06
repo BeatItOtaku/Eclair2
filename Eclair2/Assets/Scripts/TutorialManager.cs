@@ -5,11 +5,12 @@ using System.Collections;
 /// チュートリアルについて記述。
 /// 内容は、 
 /// 1・WASDキーで目的地まで移動してみよう。
-/// 2・モニュメントの説明
+/// 2・ターゲットの説明
 /// 3・遠距離攻撃でモニュメントを破壊しよう。
 /// 4・ボルトを打ち出してみよう。
 /// 5・ETOをしてみよう。
-/// 6・ETOを使って3個一気にモニュメントを破壊してみよう。
+/// 6・ETOで目的地まで移動
+/// 7・ETOを使って3個一気にターゲットを破壊してみよう。
 /// 
 /// escキーを押すことでいつでもチュートリアルを終了してミニゲームに入ることができる。
 /// </summary>
@@ -21,11 +22,9 @@ public class TutorialManager : MonoBehaviour {
 	public int tutorialCount = 1; //チュートリアルの進行を表す。
 	public int passCount = 0;  //チュートリアル1番の通過地点をどれくらい通過したか。
 
-	//チュートリアルで破壊するモニュメント。番号はチュートリアルカウントの値。
-	public GameObject monument2to3; 
-	public GameObject monument4;
-	public GameObject monument6;
-	public GameObject monument7;
+	//チュートリアルで破壊するターゲット。
+	public GameObject gideTarget; //ターゲット説明時に出てくるターゲット。その後壊す。
+	public GameObject etoTarget; //ETOを使って3個一気に破壊するターゲット。
 
 	// Use this for initialization
 	void Start () {
@@ -37,13 +36,9 @@ public class TutorialManager : MonoBehaviour {
 		pcm.isEto = false; //エクレアはETOができない。
 		pcm.isAvoid = false; //エクレアは回避ができない。
 
+		gideTarget.SetActive (false);
+		etoTarget.SetActive (false);
 
-		//モニュメント非表示
-		monument2to3.SetActive(false);
-		monument4.SetActive(false);
-		monument6.SetActive(false);
-		monument7.SetActive(false);
-	
 	}
 	
 	// Update is called once per frame
@@ -62,50 +57,72 @@ public class TutorialManager : MonoBehaviour {
 
 		case 0:
 			//電撃少女エクレア（ミニゲーム名）へようこそ！
+			//これからチュートリアルを行います。
 					
 			break;
 
 		case 1:
-			//光っている地点まで歩いてみましょう。
+			//光っている地点まで歩いてみましょう。(WASDキー・・・移動。マウス操作・・・カメラ移動。スペースキー・・・ジャンプ）
 			pcm.eclairImmobile = false;
 			break;
 
 		case 2:
-			//モニュメントの説明（エクレアは動けない）
+			//(移動が終了したら、ターゲットの説明。）
+			//よくできました！
+			//次に、ミニゲームの説明をします。
+			//このミニゲームでは、制限時間内にターゲットを全て破壊すればクリアとなります。
+			//ターゲットは、次の3種類です。
+			//赤のターゲットは、10点。（ここで赤のモニュメントが登場）
+			//青のターゲットは、30点。（ここで青のモニュメントが登場）
+			//緑のターゲットは、50点、スコアに加算されます。（ここで緑のモニュメントが登場）
+			//得点の高いターゲットほど、破壊するのに時間がかかります。
+
 			pcm.eclairStopping = true;
-			monument2to3.SetActive(true);
 			break;
 
 		case 3:
-			//(モニュメントの説明がすんだら）モニュメントを破壊してみよう(近接攻撃で数個）
+			//(ターゲットの説明がすんだら）ターゲットを破壊してみましょう！(ここで、遠距離攻撃解禁）
+			//左クリック・・・遠距離攻撃
 			pcm.eclairImmobile = false;
-			fm.isAttack = true;
+			fm.isShot = true;
 			break;
+
 
 		case 4:
-			//一定距離離れていると射撃攻撃、近いと近接攻撃になります。
-			fm.isShot = true;
-			monument4.SetActive(true);
-			break;
-
-		case 5:
-			//エトワールの紹介、まずはボルトを撃ってみましょう。
+			//(ターゲットをすべて破壊したら）
+			//よくできました！
+			//次に、『エトワール』という技を紹介します。
+			//『エトワール』は、エクレアが高速移動できる技です。
+			//まずは、エトワールをするために使う道具『ボルト』を出してみましょう。
+			//(ここでボルトが撃てるようになる）
+			//右クリック・・・ボルト射出
 			pcm.isBolt = true;
 			break;
 
-		case 6:
-			//エトワールをしてみましょう。
+		case 5:
+			//よくできました！
+			//次に、エトワールをしてみましょう。
+			//スペースキー・・・エトワール
 			pcm.isEto = true;
-			monument6.SetActive(true);
+			break;
+
+		case 6:
+			//よくできました！
+			//エトワールを使えば、ジャンプで行けない場所や遠い場所に行けます。
+			//エトワールを使って、光っている地点まで行ってみましょう。
 			break;
 
 		case 7:
-			//エトワールでモニュメントを一気に3つ破壊してみよう。
-			monument7.SetActive(true);
+			//よくできました！
+			//今度は、ETOを使ってターゲットを一気に3つ破壊してみましょう。
+			//（ここで、青ターゲットが3つ出る、3つ一気に壊せない場合、復活する）
 			break;
+		
 
 		case 8:
-			//チュートリアル終了、ミニゲームに移る。
+		    //よくできました！
+		    //これでチュートリアルは終了です。
+		    //光っている地点まで移動すると、ミニゲームが開始されます。
 			break;
 		}
 	}
