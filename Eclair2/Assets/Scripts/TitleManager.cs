@@ -7,7 +7,7 @@ public class TitleManager : MonoBehaviour {
 
     public AudioClip select;
 
-	public GameObject dontDestroy;
+	//public GameObject dontDestroy;
     //public Text loadingText;
 
 	public bool loadMapInEditor = false;
@@ -18,7 +18,7 @@ public class TitleManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		DontDestroyOnLoad (dontDestroy);
+		//DontDestroyOnLoad (dontDestroy);
         CameraController.cursorIsLocked = false;
         scene = MapLoader.Instance;
         //scene.startMapLoad();
