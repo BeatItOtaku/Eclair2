@@ -17,6 +17,8 @@ public class Monument : MonoBehaviour {
 	public GameManager gm = null; //ミニゲームのルールが書かれたクラス。
 
 	public GameObject effect;
+	private bool isEffect = false;//エフェクトを再生したかどうか
+
 	// Use this for initialization
 	void Start () {
 
@@ -57,14 +59,16 @@ public class Monument : MonoBehaviour {
 	void Update () {
 
 			if (hp <= 0) {
-			Instantiate (effect, transform.position, transform.rotation);
-
+			if (!isEffect) {
+				Instantiate (effect, transform.position, transform.rotation);
+				isEffect = true;
+			}
 			if (gm != null) {
 				//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
 				gm.score += score;
 				gm.monumentCount++;
 			}
-				Destroy (gameObject);
+				Destroy (gameObject,0.1f);
 			}
 
 	}

@@ -9,12 +9,15 @@ public class Naraku : MonoBehaviour {
 
 	private GameObject[] restartPosition;
 
-	private List<float> position = new List<float>();
+	private List<Vector3> position = new List<Vector3>();
 
 	// Use this for initialization
 	void Start () {
 
 		restartPosition = GameObject.FindGameObjectsWithTag ("RestartPosition");
+		foreach (GameObject rp in restartPosition) {
+			position.Add (rp.transform.position);
+		}
 	}
 	
 	// Update is called once per frame
@@ -25,14 +28,12 @@ public class Naraku : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider col){
-		if(col.gameObject.tag == "Player")
+		if(col.gameObject.tag == "Player" || col.gameObject.tag == "ETOEclair")
 		{
 			Anten.antenStart = true;
 
-			foreach (GameObject rp in restartPosition) {
-				position.Add (Vector3.Distance(playerPosition , rp.transform.position));
-				position.Sort ();
-			}
+			position.Sort ();
+
 		}
 
 

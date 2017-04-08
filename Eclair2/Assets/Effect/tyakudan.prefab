@@ -9,59 +9,59 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000010912842456}
+  m_RootGameObject: {fileID: 1000011762932896}
   m_IsPrefabParent: 1
---- !u!1 &1000010912842456
+--- !u!1 &1000011762932896
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000010690381350}
-  - 114: {fileID: 114000010898902472}
-  - 114: {fileID: 114000010962981478}
+  - 4: {fileID: 4000010795429574}
+  - 114: {fileID: 114000010489310336}
+  - 114: {fileID: 114000013247665802}
   m_Layer: 0
-  m_Name: hakai
+  m_Name: tyakudan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000010690381350
+--- !u!4 &4000010795429574
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010912842456}
+  m_GameObject: {fileID: 1000011762932896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 234.1, y: 103.6, z: 67.5}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_LocalPosition: {x: 228.3, y: 106.48, z: 56.13}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000010898902472
+--- !u!114 &114000010489310336
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010912842456}
+  m_GameObject: {fileID: 1000011762932896}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50091075b6bce714bbcd73abc4eee722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: hakai
+  effectName: tyakudann
   playOnStart: 1
   loop: 0
---- !u!114 &114000010962981478
+--- !u!114 &114000013247665802
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010912842456}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1000011762932896}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4263772ee557a4816b3f262e9db67354, type: 3}
   m_Name: 

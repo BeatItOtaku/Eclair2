@@ -50,9 +50,6 @@ public class CameraController : MonoBehaviour
 
     public float lockOnFOV = 50;
 
-	/*public Texture2D tex;
-	private CursorMode cursorMode = CursorMode.Auto;
-	private Vector2 hotSpot = Vector2.zero;*/
 
     //読み取り専用プロパティ群
     /// <summary>
@@ -105,8 +102,6 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-		//Cursor.SetCursor (tex, hotSpot, cursorMode);
-
 		targetY = defaultY;
 		targetAngle = defaultAngle;
 		distance = defaultDistance;
@@ -197,8 +192,8 @@ public class CameraController : MonoBehaviour
 
         float mDist = distance;//プレイヤーとカメラの間に物体があった時はmDistが小さくなる
         
-
-		cameraOffset = new Vector3(0, 0, -1);
+		Debug.Log (mDist);
+		cameraOffset = new Vector3(0, 0, -mDist);
 		cameraOffset = Quaternion.Euler(angle, y, 0) * cameraOffset;
 
         Transform lookAtTransform = LookAt.GetComponent<Transform>();

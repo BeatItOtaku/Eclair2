@@ -10,8 +10,7 @@ public class Bullet : MonoBehaviour {
 
 	public float lifeTime = 5; //弾の生存時間
 
-	private GameObject hitObject = null;
-	private Monument mon;
+	public GameObject effect;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +30,7 @@ public class Bullet : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision c)
 	{
+		Instantiate (effect, transform.position, transform.rotation);
 		
 		Destroy (gameObject);
 	}
