@@ -363,14 +363,18 @@ public class PlayerControlManager : MonoBehaviour {
 	void EtoManagement(){
 		if (isEto) {
 			if (boltmanager.launchBolt == true) {//ボルトが着弾している状態
-				if (Input.GetButtonDown ("Space")) {						
-					playerState_ = PlayerStates.Eto;
-					transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
-					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-					eto.transform.position = player.transform.position;
-					etoOn = true;
-					eto.SetActive (true);				                       
-					player.SetActive (false);
+				if (lastShot != null) {
+					if (Input.GetButtonDown ("Space")) {						
+						playerState_ = PlayerStates.Eto;
+						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
+						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+						eto.transform.position = player.transform.position;
+						etoOn = true;
+						eto.SetActive (true);				                       
+						player.SetActive (false);
+					}
+				} else {
+					playerState_ = PlayerStates.Idle;
 				}
 			}
 	}
