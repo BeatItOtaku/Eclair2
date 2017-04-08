@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Anten : MonoBehaviour {
 
-	private float antenSpeed = 0.05f;
+	private float antenSpeed = 0.1f;
 	private float alfa;
 
 	private bool black = false;
@@ -18,6 +18,7 @@ public class Anten : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (alfa);
 		if (antenStart) {
 			StartCoroutine (AntenCoroutine ());
 		}
