@@ -3658,9 +3658,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 168410769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 476186a999041456eaa8ccc553410c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1066020480}
 --- !u!65 &168410771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6392,7 +6393,7 @@ GameObject:
   - 4: {fileID: 261840856}
   - 218: {fileID: 261840855}
   - 154: {fileID: 261840854}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11142,9 +11143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 449524853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 476186a999041456eaa8ccc553410c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1066020480}
 --- !u!65 &449524855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13618,9 +13620,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 745245453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 730067d6b567f4442a3e53b24e9e0149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDying: 0
+  halo1: {fileID: 0}
+  halo2: {fileID: 0}
 --- !u!135 &745245456
 SphereCollider:
   m_ObjectHideFlags: 0

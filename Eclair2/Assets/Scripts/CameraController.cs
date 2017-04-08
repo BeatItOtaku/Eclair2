@@ -20,6 +20,18 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
+	//Terrainの上を歩いてるときにカメラが地中に埋まらないようにするための記述。
+	bool IsGrounded() 
+	{
+		return Physics.Raycast(transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.15f);
+	}
+	private Ray ground;
+	private RaycastHit hit;
+	private Vector3 hitPoint;
+	private Vector3 cameraPosition;
+	private float height = 0.5f;
+
+
 	public static bool setCursor = false; //ボルト射出準備か、遠距離攻撃をしたときのみtrueを返す。trueで動的カーソルになる。
 
 	public Transform cameraTransform;   // 操作するカメラ
@@ -107,6 +119,17 @@ public class CameraController : MonoBehaviour
 
 	void Update()
 	{
+		if (IsGrounded ()) {
+			ground =   new Ray (transform.position, Vector3.down);
+			cameraPosition =  gameObject.transform.position;
+			
+			if (Physics.Raycast (ground, out hit, Mathf.Infinity, 16)) {
+				hitPoint = hit.point;
+			}
+			cameraPosition.y = hitPoint.y + height;
+			gameObject.transform.position = cameraPosition;
+
+		}
 		
 	}
 
