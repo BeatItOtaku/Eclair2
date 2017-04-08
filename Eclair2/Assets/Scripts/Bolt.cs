@@ -14,7 +14,7 @@ public class Bolt : MonoBehaviour {
 	private RaycastHit hit;
 	private Vector3 hitPosition;
 
-	private GameObject parent;
+	private GameObject parent = null;
 
 	// Use this for initialization
 	void Start () {
@@ -40,19 +40,24 @@ public class Bolt : MonoBehaviour {
 		}*/
 
 		if (launchBolt) {
-			transform.position = hitPosition;
-			transform.SetParent(parent.transform,true);
+			if (parent != null) {
+				transform.position = hitPosition;
+				transform.SetParent (parent.transform, true);
+			}
 		}
 	}
 
 	private void OnCollisionEnter(Collision col){
-		if (col.gameObject.tag == ("Enemy")) {//敵にぶつかった場合、boltは跳ね返って消える。
+		if (col.gameObject.tag == "Enemy") {//敵にぶつかった場合、boltは跳ね返って消える。
 			Destroy (gameObject, 1);
 		} else {
-			launchBolt = true;
-			parent = col.gameObject;
+			if (col.gameObject.tag != "RedMonument") {
+				launchBolt = true;
+				parent = col.gameObject;
+				PlayerControlManager.shot = false;
+
+			}
 		}
-		PlayerControlManager.shot = false;
 
 }
 }

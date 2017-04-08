@@ -16,6 +16,7 @@ public class Monument : MonoBehaviour {
 	private GameObject gm_ = null; //ミニゲームのルールが書かれたスクリプトを格納しているオブジェクト
 	public GameManager gm = null; //ミニゲームのルールが書かれたクラス。
 
+	public GameObject effect;
 	// Use this for initialization
 	void Start () {
 
@@ -56,6 +57,8 @@ public class Monument : MonoBehaviour {
 	void Update () {
 
 			if (hp <= 0) {
+			Instantiate (effect, transform.position, transform.rotation);
+
 			if (gm != null) {
 				//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
 				gm.score += score;

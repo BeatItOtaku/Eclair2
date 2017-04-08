@@ -3,8 +3,6 @@ using System.Collections;
 
 public class EffectAutoDestroy : MonoBehaviour {
 
-	public float playbackSpeed = 10;
-
 	// Use this for initialization
 	void Start () {
 		
