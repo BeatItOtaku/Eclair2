@@ -6,7 +6,7 @@ public class FireManager : MonoBehaviour {
 	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
 	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
-	private bool shotContinue = false;//射撃している間、近接攻撃にならない
+	public bool shotContinue = false;//射撃している間、近接攻撃にならない
 
 	private bool fire = false; //攻撃を繰り出したかどうか
 
@@ -30,7 +30,7 @@ public class FireManager : MonoBehaviour {
 	void Update () {
 		if(Input.GetButton("Fire")){
 			if (isShot) {
-				CameraController.setCursor = true;
+				//CameraController.setCursor = true;
 				shotContinue = true;
 				StartCoroutine (ShotCoroutine ());
 
@@ -43,7 +43,7 @@ public class FireManager : MonoBehaviour {
 		if (Input.GetButtonUp ("Fire")) 
 		{
 			shotContinue = false;
-			CameraController.setCursor = false;
+			//CameraController.setCursor = false;
 		}
 	}
 	/*
@@ -87,6 +87,9 @@ public class FireManager : MonoBehaviour {
 		shotOn = true;
 		if (shotOn) {
 			Instantiate (bullet, muzzle.position, muzzle.rotation);
+			Vector3 cameraDirection = Camera.main.transform.forward;
+			//transform.rotation = Quaternion.LookRotation (cameraDirection);//カーソルがある方向にエクレアが回転
+			//transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 			shotOn = false;
 		}
 		yield return new WaitForSeconds (60f);

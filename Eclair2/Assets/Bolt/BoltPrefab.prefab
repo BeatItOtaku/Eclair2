@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchBolt: 0
-  speed: 30
+  speed: 50
 --- !u!136 &136000013827786442
 CapsuleCollider:
   m_ObjectHideFlags: 1

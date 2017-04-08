@@ -154,7 +154,7 @@ public class CameraController : MonoBehaviour
 				//Debug.Log("targetY = " + targetY + ", targetAngle = " + targetAngle);
 			} else {
 				
-			if (setCursor == false) {
+			//if (setCursor == false) {
 					float deltaY = Input.GetAxis ("Camera X") * Time.deltaTime * mouseSensitivity;
 					float deltaAngle = Input.GetAxis ("Camera Y") * Time.deltaTime * mouseSensitivity;
 					//Debug.Log(deltaY + "," + deltaAngle);
@@ -164,7 +164,7 @@ public class CameraController : MonoBehaviour
 						targetY += deltaY;
 					if (0.1 < deltaAngleAbs && deltaAngleAbs < 90)
 						targetAngle -= deltaAngle;
-				}
+				//}
 			}
 		//}
 

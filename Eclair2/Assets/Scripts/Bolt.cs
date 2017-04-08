@@ -5,7 +5,7 @@ public class Bolt : MonoBehaviour {
 
 	public bool launchBolt = false; //ボルトが着弾したことを判定する変数
 
-	public float speed = 30;
+	public float speed = 50;
 
 	private PlayerControlManager pcm;
 	private GameObject player;
@@ -35,10 +35,8 @@ public class Bolt : MonoBehaviour {
 				hitPosition = hit.point;
 			}
 			transform.position += transform.forward * Time.deltaTime * speed;
-		}/*else{
-			transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
-		}*/
 
+		}
 		if (launchBolt) {
 			if (parent != null) {
 				transform.position = hitPosition;

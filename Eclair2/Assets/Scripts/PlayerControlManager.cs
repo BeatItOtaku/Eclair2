@@ -53,8 +53,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Fire
 	//Fireに関しては、別のFireManagerに詳細が記述されている。
-	public  bool isFire = true; //falseでエクレアは通常攻撃ができなくなる。
-	private FireManager fm;
+	public FireManager fm;
 
 
 	//Bolt
@@ -152,9 +151,6 @@ public class PlayerControlManager : MonoBehaviour {
 		vFloat = Animator.StringToHash("V");
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
-
-		//Fire
-		//fm.GetComponent<FireManager>();
 	
 	}
 
@@ -220,17 +216,11 @@ public class PlayerControlManager : MonoBehaviour {
 		} else {
 			anim.SetBool ("NewGrounded", false);
 		}
-
-		//Fire
-		if (isFire) 
-		{
-			//fm.FireManagement ();
-		}
+			
 	}
 
 	void FixedUpdate()
 	{
-		
 			//Move
 			MoveManagement (horizontal, vertical);
 
@@ -252,7 +242,6 @@ public class PlayerControlManager : MonoBehaviour {
 				speed = 0;
 				runAnim = false;
 			}
-		
 			Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
 			anim.SetBool ("Run",runAnim);
@@ -284,11 +273,11 @@ public class PlayerControlManager : MonoBehaviour {
 			//lastDirection = targetDirection;
 		}
 		if (!(Mathf.Abs (horizontal) > 0.9 || Mathf.Abs (vertical) > 0.9)) {
-			Repositioning ();
+			if (!fm.shotContinue) {
+				Repositioning ();
+			}
 		}
-
 		return targetDirection;
-
 	}
 
 	private void Repositioning()

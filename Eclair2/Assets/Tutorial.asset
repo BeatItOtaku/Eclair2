@@ -12,11 +12,5 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   attachedSceneGUID: 
-  cueList:
-  - time: 0
-    gameObjectName: EventWay
-    cueEventID: 
-    parameter: 
-    paramObject: {fileID: 0}
-    UUID: 
+  cueList: []
   Version: 1
