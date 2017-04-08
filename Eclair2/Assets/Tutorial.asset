@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   attachedSceneGUID: 
-  cueList: []
+  cueList:
+  - time: 0
+    gameObjectName: Canvas/Texts/Text
+    cueEventID: 8g0d8dshdnfhgjs9h90h60909
+    parameter: 
+    paramObject: {fileID: 0}
+    UUID: 
   Version: 1

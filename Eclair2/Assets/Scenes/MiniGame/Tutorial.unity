@@ -2137,7 +2137,6 @@ GameObject:
   - 224: {fileID: 880237060}
   - 222: {fileID: 880237062}
   - 114: {fileID: 880237061}
-  - 114: {fileID: 880237063}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2202,17 +2201,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 880237059}
---- !u!114 &880237063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 880237059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bd210ae4c9a408899d0c6a91ad8ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &907907274
 GameObject:
   m_ObjectHideFlags: 0
