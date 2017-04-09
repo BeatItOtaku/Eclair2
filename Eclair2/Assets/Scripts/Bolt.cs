@@ -16,6 +16,9 @@ public class Bolt : MonoBehaviour {
 
 	private GameObject parent = null;//ボルトが当たったオブジェクトを親オブジェクトとし、親オブジェクトが動いてもボルトも同期して動くようにする
 
+
+	public AudioClip boltLandSound;
+
 	// Use this for initialization
 	void Start () {
 		//プイレヤーオブジェクトを取得、PlayerControlManagerクラスを取得
@@ -47,6 +50,7 @@ public class Bolt : MonoBehaviour {
 	private void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag != "RedMonument") {
 			launchBolt = true;
+			GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
 			parent = col.gameObject;
 			PlayerControlManager.shot = false;
 		}

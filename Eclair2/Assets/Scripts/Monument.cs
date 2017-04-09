@@ -61,12 +61,12 @@ public class Monument : MonoBehaviour {
 			if (hp <= 0) {
 			if (!isEffect) {
 				Instantiate (effect, transform.position, transform.rotation);
+				if (gm != null) {
+					//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
+					gm.score += score;
+					gm.monumentCount++;
+				}
 				isEffect = true;
-			}
-			if (gm != null) {
-				//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
-				gm.score += score;
-				gm.monumentCount++;
 			}
 				Destroy (gameObject,0.1f);
 			}

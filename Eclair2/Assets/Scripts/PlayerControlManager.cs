@@ -126,6 +126,13 @@ public class PlayerControlManager : MonoBehaviour {
 	//アニメーション
 	private Animator anim;
 
+	//SE
+	public AudioSource audioSource;
+
+	public AudioClip boltLaunchSound;
+	public AudioClip etoileSound;
+
+
 
 	//エクレアのプレイヤーステイト
 	public enum PlayerStates
@@ -222,13 +229,18 @@ public class PlayerControlManager : MonoBehaviour {
 	void FixedUpdate()
 	{
 			//Move
+		if (fm.shotContinue == false) {
 			MoveManagement (horizontal, vertical);
+		} else {
+			ShotMoveManagement (horizontal, vertical);
+		}
+
 
 			//Jump
 			JumpManagement ();
 
 	}
-
+		
 	//Move
 	void MoveManagement(float horizontal, float vertical)
 	{
@@ -245,6 +257,15 @@ public class PlayerControlManager : MonoBehaviour {
 			Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
 			anim.SetBool ("Run",runAnim);
+
+	}
+
+	void ShotMoveManagement(float horizontal, float vertical){
+		Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
+		float speed = 0.5f;
+		direction *= speed;
+
+		transform.position += Time.deltaTime*direction * speed;
 
 	}
 
@@ -325,8 +346,6 @@ public class PlayerControlManager : MonoBehaviour {
 				playerState_ = PlayerStates.Bolt;
 				//cursorV = cursor.transform.position;
 				cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-				RaycastHit hit;
-
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
@@ -337,6 +356,7 @@ public class PlayerControlManager : MonoBehaviour {
 				preShot = lastShot;
 				boltmanager = lastShot.GetComponent<Bolt> ();
 				shot = true; //打ち出したことを判定する変数
+				audioSource.PlayOneShot (boltLaunchSound);
 			}
 		
 			if (boltmanager != null) {				
@@ -360,6 +380,7 @@ public class PlayerControlManager : MonoBehaviour {
 						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 						eto.transform.position = player.transform.position;
+						audioSource.PlayOneShot (etoileSound);
 						etoOn = true;
 						eto.SetActive (true);				                       
 						player.SetActive (false);

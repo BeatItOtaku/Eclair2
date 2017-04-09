@@ -12,6 +12,9 @@ public class Eto : MonoBehaviour {
 	private float distance;//etoエクレアからボルトまでの距離
 	private float abs = 0.5f;//etoエクレアからボルトまでの距離で、ETOが解除される距離
 	public float etoSpeed = 100;
+
+	public AudioClip etoileEndSound;
+
 	// Use this for initialization
 	void Start () {
 		gameObject.SetActive (false);
@@ -48,6 +51,7 @@ public class Eto : MonoBehaviour {
 			boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
 			pcm.isEto = false; //ボルトが消えたため、ETOをできない状態に戻す
 			pcm.etoOn = false; //ETOが終了した
+			GetComponent<AudioSource> ().PlayOneShot (etoileEndSound);
 			player.SetActive (true);
 			gameObject.SetActive (false);
 

@@ -15,7 +15,19 @@ MonoBehaviour:
   cueList:
   - time: 0
     gameObjectName: Canvas/Texts/Text
-    cueEventID: 8g0d8dshdnfhgjs9h90h60909
+    cueEventID: wefosbdvzfcysvei
+    parameter: 
+    paramObject: {fileID: 0}
+    UUID: 
+  - time: 2
+    gameObjectName: Canvas/Texts/Text2s
+    cueEventID: wefosbdvzfcysvei
+    parameter: 
+    paramObject: {fileID: 0}
+    UUID: 
+  - time: -1
+    gameObjectName: Canvas/Texts/Text (4)
+    cueEventID: foaiuscborubr
     parameter: 
     paramObject: {fileID: 0}
     UUID: 
