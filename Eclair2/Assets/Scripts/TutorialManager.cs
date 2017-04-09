@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using wararyo.EclairCueMaker;
 /// <summary>
 /// チュートリアルについて記述。
 /// 内容は、 
@@ -26,7 +26,7 @@ public class TutorialManager : MonoBehaviour {
 	public GameObject gideTarget; //ターゲット説明時に出てくるターゲット。その後壊す。
 	public GameObject etoTarget; //ETOを使って3個一気に破壊するターゲット。
 
-	public static bool uiClear = false;
+	public CueScenePlayer csp;
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +40,7 @@ public class TutorialManager : MonoBehaviour {
 
 		gideTarget.SetActive (false);
 		etoTarget.SetActive (false);
-
+		csp = gameObject.GetComponent<CueScenePlayer> ();
 	}
 	
 	// Update is called once per frame
@@ -65,6 +65,7 @@ public class TutorialManager : MonoBehaviour {
 
 		case 1:
 			//光っている地点まで歩いてみましょう。(WASDキー・・・移動。マウス操作・・・カメラ移動。スペースキー・・・ジャンプ）
+			//csp.Pause();
 			pcm.eclairImmobile = false;
 			break;
 
@@ -77,8 +78,9 @@ public class TutorialManager : MonoBehaviour {
 			//青のターゲットは、30点。（ここで青のモニュメントが登場）
 			//緑のターゲットは、50点、スコアに加算されます。（ここで緑のモニュメントが登場）
 			//得点の高いターゲットほど、破壊するのに時間がかかります。
-			uiClear = true;
+			csp.Play ();
 			pcm.eclairStopping = true;
+
 			break;
 
 		case 3:

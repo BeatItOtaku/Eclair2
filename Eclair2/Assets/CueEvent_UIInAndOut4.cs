@@ -16,13 +16,6 @@ public class CueEvent_UIInAndOut4 : CueEventBase {
 
 	}
 
-
-	void Update(){
-		if (TutorialManager.uiClear == true) {
-			GetComponent<Animator>().Play("In");
-		}
-	}
-
 	private bool ChildIsEnabled {
 		set{
 			foreach (MaskableGraphic g in gameObject.GetComponentsInChildren<MaskableGraphic>()) {

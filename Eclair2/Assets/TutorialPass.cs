@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using wararyo.EclairCueMaker;
 public class TutorialPass : MonoBehaviour {
 
 	public TutorialManager tm;
+
+	public CueScenePlayer csp;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,8 @@ public class TutorialPass : MonoBehaviour {
 			tm.passCount++;
 			if (tm.passCount == 3) {
 				tm.TurotialCount ();
+				//csp.Play ();
+				csp.Invoke();
 			}
 			Destroy (gameObject);
 		}

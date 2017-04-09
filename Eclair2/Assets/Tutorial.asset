@@ -14,21 +14,105 @@ MonoBehaviour:
   attachedSceneGUID: 
   cueList:
   - time: 0
+    gameObjectName: Canvas/Texts/Text2s/Text (1)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text2s/Text (2)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text (4)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text (5)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text (6)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: c3be953d-d433-4287-af94-5ed710e936cf
+  - time: 0
     gameObjectName: Canvas/Texts/Text
-    cueEventID: wefosbdvzfcysvei
-    parameter: 
+    cueEventID: zldifgseniccgisg
+    parameter: True
     paramObject: {fileID: 0}
     UUID: 
   - time: 2
-    gameObjectName: Canvas/Texts/Text2s
-    cueEventID: wefosbdvzfcysvei
-    parameter: 
+    gameObjectName: Canvas/Texts/Text
+    cueEventID: zldifgseniccgisg
+    parameter: False
     paramObject: {fileID: 0}
     UUID: 
+  - time: 0
+    gameObjectName: Canvas/Texts/Text2s/Text (1)
+    cueEventID: zldifgseniccgisg
+    parameter: True
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text2s/Text (2)
+    cueEventID: zldifgseniccgisg
+    parameter: True
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
   - time: -1
     gameObjectName: Canvas/Texts/Text (4)
-    cueEventID: foaiuscborubr
-    parameter: 
+    cueEventID: zldifgseniccgisg
+    parameter: True
     paramObject: {fileID: 0}
-    UUID: 
+    UUID: 31b013f6-071e-48dc-8fc7-12a2221c58b7
+  - time: 0
+    gameObjectName: Canvas/Texts/Text2s/Text (1)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text2s/Text (2)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text (4)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 31b013f6-071e-48dc-8fc7-12a2221c58b7
+  - time: 2
+    gameObjectName: Canvas/Texts/Text (5)
+    cueEventID: zldifgseniccgisg
+    parameter: True
+    paramObject: {fileID: 0}
+    UUID: bd29bb12-05da-4ee4-b2ac-863bc87d9f85
+  - time: 2
+    gameObjectName: Canvas/Texts/Text (5)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 5dd1bb4d-7074-4847-a502-a9ba256d5247
+  - time: 0
+    gameObjectName: Canvas/Texts/Text (6)
+    cueEventID: zldifgseniccgisg
+    parameter: True
+    paramObject: {fileID: 0}
+    UUID: c3be953d-d433-4287-af94-5ed710e936cf
+  - time: 2
+    gameObjectName: Canvas/Texts/Text (6)
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: c3be953d-d433-4287-af94-5ed710e936cf
   Version: 1

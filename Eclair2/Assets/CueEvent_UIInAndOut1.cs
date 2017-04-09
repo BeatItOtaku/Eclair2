@@ -16,14 +16,6 @@ public class CueEvent_UIInAndOut1 : CueEventBase {
 
 	}
 
-
-	void Update(){
-		if (TutorialManager.uiClear == true) {
-			gameObject.SetActive (false);
-			TutorialManager.uiClear = false;
-		}
-	}
-
 	private bool ChildIsEnabled {
 		set{
 			foreach (MaskableGraphic g in gameObject.GetComponentsInChildren<MaskableGraphic>()) {
