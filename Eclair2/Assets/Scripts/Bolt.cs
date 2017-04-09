@@ -40,8 +40,8 @@ public class Bolt : MonoBehaviour {
 
 		}
 		if (launchBolt) {
+			transform.position = hitPosition;
 			if (parent != null) {
-				transform.position = hitPosition;
 				transform.SetParent (parent.transform, true);
 			}
 		}
@@ -51,7 +51,9 @@ public class Bolt : MonoBehaviour {
 		if (col.gameObject.tag != "RedMonument") {
 			launchBolt = true;
 			GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
-			parent = col.gameObject;
+			if (col.gameObject.tag == "BlueMonument" || col.gameObject.tag == "GreenMonument") {
+				parent = col.gameObject;
+			} 
 			PlayerControlManager.shot = false;
 		}
 	}

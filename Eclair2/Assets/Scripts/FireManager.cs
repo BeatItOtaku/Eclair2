@@ -23,7 +23,7 @@ public class FireManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +31,7 @@ public class FireManager : MonoBehaviour {
 		if(Input.GetButton("Fire")){
 			if (isShot) {
 				//CameraController.setCursor = true;
+				anim.SetBool ("Shot",true);
 				shotContinue = true;
 				StartCoroutine (ShotCoroutine ());
 
@@ -43,6 +44,7 @@ public class FireManager : MonoBehaviour {
 		if (Input.GetButtonUp ("Fire")) 
 		{
 			shotContinue = false;
+			anim.SetBool ("Shot",false);
 			//CameraController.setCursor = false;
 		}
 	}

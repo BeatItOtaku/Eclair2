@@ -93,7 +93,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Jump
-	public float jumpHeight = 5.0f;
+	public float jumpHeight = 50.0f;
 
 
 	//Damage
@@ -154,8 +154,8 @@ public class PlayerControlManager : MonoBehaviour {
 			anim = player.GetComponent<Animator> ();
 
 		//Move
-		hFloat = Animator.StringToHash("H");
-		vFloat = Animator.StringToHash("V");
+		//hFloat = Animator.StringToHash("H");
+		//vFloat = Animator.StringToHash("V");
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 	
@@ -356,6 +356,7 @@ public class PlayerControlManager : MonoBehaviour {
 				preShot = lastShot;
 				boltmanager = lastShot.GetComponent<Bolt> ();
 				shot = true; //打ち出したことを判定する変数
+				anim.SetTrigger("Bolt");
 				audioSource.PlayOneShot (boltLaunchSound);
 			}
 		

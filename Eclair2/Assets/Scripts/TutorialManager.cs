@@ -48,10 +48,6 @@ public class TutorialManager : MonoBehaviour {
 			//チュートリアルを終了するかどうかの確認ウィンドウが出た後、チュートリアル終了できる
 		}
 
-		if (tutorialCount == 3 && GameObject.Find ("RedTarget") == null && GameObject.Find ("BlueTarget")== null && GameObject.Find ("GreenTarget") == null) {
-			TurotialCount ();
-		}
-
 		Debug.Log (tutorialCount);
 	
 	}
@@ -102,29 +98,20 @@ public class TutorialManager : MonoBehaviour {
 			//(ここでボルトが撃てるようになる）
 			//右クリック・・・ボルト射出
 			pcm.isBolt = true;
-			csp.Invoke ();
+			csp.Play ();
 			break;
 
 		case 5:
 			//次に、エトワールをしてみましょう。
 			//スペースキー・・・エトワール
 			pcm.isEto = true;
-			break;
-
-		case 6:
-			//エトワールを使えば、ジャンプで行けない場所や遠い場所に行けます。
-			//エトワールを使って、光っている地点まで行ってみましょう。
-			break;
-
-		case 7:
-			//今度は、ETOを使ってターゲットを一気に3つ破壊してみましょう。
-			//（ここで、青ターゲットが3つ出る、3つ一気に壊せない場合、復活する）
+			csp.Invoke ();
 			break;
 		
-
-		case 8:
+		case 6:
 		    //これでチュートリアルは終了です。
 		    //光っている地点まで移動すると、ミニゲームが開始されます。
+			csp.Invoke();
 			break;
 		}
 	}
