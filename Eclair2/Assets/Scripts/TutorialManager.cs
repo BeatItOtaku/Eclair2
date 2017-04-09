@@ -37,8 +37,7 @@ public class TutorialManager : MonoBehaviour {
 		pcm.isBolt = false; //エクレアはボルト射出ができない。
 		pcm.isEto = false; //エクレアはETOができない。
 		pcm.isAvoid = false; //エクレアは回避ができない。
-
-		gideTarget.SetActive (false);
+	
 		etoTarget.SetActive (false);
 		csp = gameObject.GetComponent<CueScenePlayer> ();
 	}
@@ -47,6 +46,10 @@ public class TutorialManager : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown("escape")){
 			//チュートリアルを終了するかどうかの確認ウィンドウが出た後、チュートリアル終了できる
+		}
+
+		if (tutorialCount == 3 && GameObject.Find ("RedTarget") == null && GameObject.Find ("BlueTarget")== null && GameObject.Find ("GreenTarget") == null) {
+			TurotialCount ();
 		}
 
 		Debug.Log (tutorialCount);
@@ -86,7 +89,7 @@ public class TutorialManager : MonoBehaviour {
 		case 3:
 			//(ターゲットの説明がすんだら）ターゲットを破壊してみましょう！(ここで、遠距離攻撃解禁）
 			//左クリック・・・遠距離攻撃
-			pcm.eclairImmobile = false;
+			pcm.eclairStopping = false;
 			fm.isShot = true;
 			break;
 
@@ -99,6 +102,7 @@ public class TutorialManager : MonoBehaviour {
 			//(ここでボルトが撃てるようになる）
 			//右クリック・・・ボルト射出
 			pcm.isBolt = true;
+			csp.Invoke ();
 			break;
 
 		case 5:
