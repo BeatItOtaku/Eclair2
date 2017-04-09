@@ -273,7 +273,7 @@ MonoBehaviour:
   isShot: 1
   isAttack: 0
   shotContinue: 0
-  bullet: {fileID: 1000012191460256, guid: 066009ff4498a4986bd43e39070f76a0, type: 2}
+  bullet: {fileID: 1000010109845950, guid: 5ad3d96b8446c452db70bca8f5c73900, type: 2}
   close: {fileID: 100006, guid: ec6e75a3654374c7f9c1007063dcd249, type: 2}
   muzzle: {fileID: 1706133492}
 --- !u!114 &191934529
