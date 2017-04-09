@@ -79,12 +79,18 @@ public class Monument : MonoBehaviour {
 				hp -= 10;
 			}
 			if (col.gameObject.tag == "Bullet") {
-				hp -= 1;
+				hp -= 4;
 			}
 			if (col.gameObject.tag == "Bolt") {
 				hp -= 25;
 			}
-			if (col.gameObject.tag == "ETOEclair") {
+
+		}
+	}
+
+	private void OnColliderEnter(Collider coll){
+		if (hp > 0) {
+			if (coll.gameObject.tag == "ETOEclair") {
 				hp -= 100;
 			}
 		}

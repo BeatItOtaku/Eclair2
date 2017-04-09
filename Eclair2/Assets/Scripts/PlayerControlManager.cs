@@ -323,15 +323,17 @@ public class PlayerControlManager : MonoBehaviour {
 			if (Input.GetButtonDown ("LaunchBolt")) 
 			{
 				playerState_ = PlayerStates.Bolt;
-				cursorV = cursor.transform.position;
-				cursorRay = Camera.main.ScreenPointToRay (cursorV);
+				//cursorV = cursor.transform.position;
+				cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+				RaycastHit hit;
+
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
 				//ボルトの複製と前に撃ったボルトの消去
 				if (preShot != null)
 					Destroy (preShot);
-				lastShot = (GameObject)Instantiate (bolt, muzzle.position, player.transform.rotation);//boltを打ち出す
+				lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
 				preShot = lastShot;
 				boltmanager = lastShot.GetComponent<Bolt> ();
 				shot = true; //打ち出したことを判定する変数

@@ -14,9 +14,9 @@ public class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		cursor = GameObject.Find ("Cursor");
-		cursorV = cursor.transform.position;
-		cursorRay = Camera.main.ScreenPointToRay (cursorV);
+		//cursor = GameObject.Find ("Cursor");
+		//cursorV = cursor.transform.position;
+		cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 	}
 	// Update is called once per frame
 	void Update () {
@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 			lifeTime -= Time.deltaTime;
-			gameObject.transform.position += cursorRay.direction * Time.deltaTime * speed;
+		gameObject.transform.position +=  cursorRay.direction * Time.deltaTime * speed;
 	}
 
 	private void OnCollisionEnter(Collision c)

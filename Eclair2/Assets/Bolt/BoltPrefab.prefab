@@ -315,6 +315,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchBolt: 0
   speed: 50
+  head: {fileID: 1000013881382308}
+  collidedRotateOffset: {x: 0, y: 0, z: 0}
+  scaleWhenCollided: 1
 --- !u!136 &136000013827786442
 CapsuleCollider:
   m_ObjectHideFlags: 1

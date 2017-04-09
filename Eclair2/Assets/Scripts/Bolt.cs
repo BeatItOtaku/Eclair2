@@ -14,21 +14,20 @@ public class Bolt : MonoBehaviour {
 	private RaycastHit hit;
 	private Vector3 hitPosition;
 
-	private GameObject parent = null;
+	private GameObject parent = null;//ボルトが当たったオブジェクトを親オブジェクトとし、親オブジェクトが動いてもボルトも同期して動くようにする
 
 	// Use this for initialization
 	void Start () {
 		//プイレヤーオブジェクトを取得、PlayerControlManagerクラスを取得
 		player = GameObject.FindGameObjectWithTag ("Player");
-			pcm = player.GetComponent<PlayerControlManager> ();
+		pcm = player.GetComponent<PlayerControlManager> ();
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
 
-		
 		if (PlayerControlManager.shot == true) {
 			direction = new Ray (transform.position, transform.forward);
 			if(Physics.Raycast(direction,out hit)){
@@ -46,16 +45,10 @@ public class Bolt : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter(Collision col){
-		if (col.gameObject.tag == "Enemy") {//敵にぶつかった場合、boltは跳ね返って消える。
-			Destroy (gameObject, 1);
-		} else {
-			if (col.gameObject.tag != "RedMonument") {
-				launchBolt = true;
-				parent = col.gameObject;
-				PlayerControlManager.shot = false;
-
-			}
+		if (col.gameObject.tag != "RedMonument") {
+			launchBolt = true;
+			parent = col.gameObject;
+			PlayerControlManager.shot = false;
 		}
-
-}
+	}
 }
