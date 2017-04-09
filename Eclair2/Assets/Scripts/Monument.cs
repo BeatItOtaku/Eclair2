@@ -5,8 +5,8 @@ public class Monument : MonoBehaviour {
 
 	public int hp; //モニュメントの耐久力
 	public int redHp = 10;
-	public int blueHp = 50;
-	public int greenHp = 100;
+	public int blueHp = 30;
+	public int greenHp = 50;
 
 	public int score; //モニュメントを壊して得られる得点
 	public int redScore = 10;
@@ -79,7 +79,7 @@ public class Monument : MonoBehaviour {
 				hp -= 10;
 			}
 			if (col.gameObject.tag == "Bullet") {
-				hp -= 4;
+				hp -= 5;
 			}
 			if (col.gameObject.tag == "Bolt") {
 				hp -= 25;

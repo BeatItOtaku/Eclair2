@@ -10,7 +10,9 @@ public class FireManager : MonoBehaviour {
 
 	private bool fire = false; //攻撃を繰り出したかどうか
 
-	private bool shotOn;
+	private bool shotOn = true;
+	private float shotCoolTime = 0.25f;
+	private float shotCoolTime_;
 
 	private int fireCount = 0; //攻撃した回数
 
@@ -24,6 +26,7 @@ public class FireManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		shotCoolTime_ = shotCoolTime;
 	}
 	
 	// Update is called once per frame
@@ -33,8 +36,17 @@ public class FireManager : MonoBehaviour {
 				//CameraController.setCursor = true;
 				anim.SetBool ("Shot",true);
 				shotContinue = true;
-				StartCoroutine (ShotCoroutine ());
-
+				if (shotOn == true) {
+					//StartCoroutine (ShotCoroutine ());
+					Instantiate (bullet, muzzle.position, muzzle.rotation);
+					Vector3 cameraDirection = Camera.main.transform.forward;
+					shotOn = false;
+				}
+				shotCoolTime_ -= Time.deltaTime;
+				if (shotCoolTime_ <= 0) {
+					shotOn = true;
+					shotCoolTime_ = shotCoolTime;
+				}
 			}
 			if (isAttack) 
 			{
@@ -86,14 +98,13 @@ public class FireManager : MonoBehaviour {
 
 	IEnumerator ShotCoroutine()
 	{
-		shotOn = true;
-		if (shotOn) {
+		shotOn = false;
 			Instantiate (bullet, muzzle.position, muzzle.rotation);
 			Vector3 cameraDirection = Camera.main.transform.forward;
 			//transform.rotation = Quaternion.LookRotation (cameraDirection);//カーソルがある方向にエクレアが回転
 			//transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-			shotOn = false;
-		}
+			
+
 		yield return new WaitForSeconds (60f);
 		shotOn = true;
 	}
