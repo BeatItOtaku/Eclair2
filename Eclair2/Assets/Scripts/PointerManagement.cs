@@ -40,10 +40,7 @@ public class PointerManagement : MonoBehaviour {
 	private float topEdge = Screen.height * 9 / 10;
 	private float bottomEdge = Screen.height / 10;
 
-	//public static bool pointOnEdge = true;
-
-
-
+	private bool cursorSenter = true; //カーソルが画面中央にあるかどうか
 
 	// Use this for initialization
 	void Start () {
@@ -54,22 +51,18 @@ public class PointerManagement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		cursor.x += Input.GetAxis ("Camera X")* Time.deltaTime * sensitivity;
-		cursor.y += Input.GetAxis ("Camera Y")* Time.deltaTime * sensitivity;
-		cursor_ = new Vector3 (mouseX, mouseY, cursor.z);
-		cursorPosition.position = cursor_;
-		/*if (cursor.x <= leftEdge || cursor.x >= rightEdge || cursor.y <= bottomEdge || cursor.y >= topEdge)
-		{
-			pointOnEdge = true;
-		}else 
-		{
-	        pointOnEdge = false;
-     } */
 		
-		if (FireManager.pointOnEdge == false) {
-			cursor.x = Screen.width / 2;
-			cursor.y = Screen.height / 2;
+		if (CameraController.setCursor == true) {//動的カーソル
+			cursor.x += Input.GetAxis ("Camera X") * Time.deltaTime * sensitivity;
+			cursor.y += Input.GetAxis ("Camera Y") * Time.deltaTime * sensitivity;
+			cursor_ = new Vector3 (mouseX, mouseY, cursor.z);
+			cursorPosition.position = cursor_;
+			cursorSenter = false;
+		} else {			
+				cursor.x = Screen.width / 2;
+				cursor.y = Screen.height / 2;				
 		}
-	}
 }
+}
+
 		

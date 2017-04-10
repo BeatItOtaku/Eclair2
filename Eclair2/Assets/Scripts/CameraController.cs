@@ -20,6 +20,19 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
+	//Terrainの上を歩いてるときにカメラが地中に埋まらないようにするための記述。
+	bool IsGrounded() 
+	{
+		return Physics.Raycast(transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.15f);
+	}
+	private Ray ground;
+	private RaycastHit hit;
+	private Vector3 hitPoint;
+	private Vector3 cameraPosition;
+	private float height = 0.5f;
+
+
+	public static bool setCursor = false; //ボルト射出準備か、遠距離攻撃をしたときのみtrueを返す。trueで動的カーソルになる。
 
 	public Transform cameraTransform;   // 操作するカメラ
 	public float mouseSensitivity = 300.0f;  // マウス感度
@@ -37,9 +50,6 @@ public class CameraController : MonoBehaviour
 
     public float lockOnFOV = 50;
 
-	/*public Texture2D tex;
-	private CursorMode cursorMode = CursorMode.Auto;
-	private Vector2 hotSpot = Vector2.zero;*/
 
     //読み取り専用プロパティ群
     /// <summary>
@@ -92,8 +102,6 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-		//Cursor.SetCursor (tex, hotSpot, cursorMode);
-
 		targetY = defaultY;
 		targetAngle = defaultAngle;
 		distance = defaultDistance;
@@ -106,6 +114,17 @@ public class CameraController : MonoBehaviour
 
 	void Update()
 	{
+		if (IsGrounded ()) {//カメラがTerrainに埋まらないようにする
+			ground =   new Ray (transform.position, Vector3.down);
+			cameraPosition =  gameObject.transform.position;
+			
+			if (Physics.Raycast (ground, out hit, Mathf.Infinity, 16)) {//レイヤー16はTerrain
+				hitPoint = hit.point;
+			}
+			cameraPosition.y = hitPoint.y + height;
+			gameObject.transform.position = cameraPosition;
+
+		}
 		
 	}
 
@@ -135,7 +154,7 @@ public class CameraController : MonoBehaviour
 				//Debug.Log("targetY = " + targetY + ", targetAngle = " + targetAngle);
 			} else {
 				
-			if (FireManager.pointOnEdge == false) {
+			//if (setCursor == false) {
 					float deltaY = Input.GetAxis ("Camera X") * Time.deltaTime * mouseSensitivity;
 					float deltaAngle = Input.GetAxis ("Camera Y") * Time.deltaTime * mouseSensitivity;
 					//Debug.Log(deltaY + "," + deltaAngle);
@@ -145,7 +164,7 @@ public class CameraController : MonoBehaviour
 						targetY += deltaY;
 					if (0.1 < deltaAngleAbs && deltaAngleAbs < 90)
 						targetAngle -= deltaAngle;
-				}
+				//}
 			}
 		//}
 
@@ -173,8 +192,8 @@ public class CameraController : MonoBehaviour
 
         float mDist = distance;//プレイヤーとカメラの間に物体があった時はmDistが小さくなる
         
-
-		cameraOffset = new Vector3(0, 0, -1);
+		Debug.Log (mDist);
+		cameraOffset = new Vector3(0, 0, -mDist);
 		cameraOffset = Quaternion.Euler(angle, y, 0) * cameraOffset;
 
         Transform lookAtTransform = LookAt.GetComponent<Transform>();

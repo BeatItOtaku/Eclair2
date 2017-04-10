@@ -1,0 +1,510 @@
+fileFormatVersion: 2
+guid: ab33f419669ad4150910eaec397f44f4
+timeCreated: 1491661505
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: body
+    100002: body 1
+    100004: bolts_1
+    100006: bolts_2
+    100008: bolts_3
+    100010: bolts_4
+    100012: bolts_5
+    100014: bolts_6
+    100016: //RootNode
+    100018: contena6_door_bolts_1
+    100020: door
+    100022: group1
+    100024: group2
+    100026: kanagu
+    100028: kanagu1
+    100030: kanagu2
+    100032: kanagu3
+    100034: kanagu4
+    100036: kanagu5
+    100038: mirrorCutPlane2
+    100040: mirroredCutMesh3
+    100042: mirroredCutMesh4
+    100044: pCube10
+    100046: pCube3
+    100048: pCube3 1
+    100050: pCube3 2
+    100052: pCube3 3
+    100054: pCube3 4
+    100056: pCube3 5
+    100058: pCube4
+    100060: pCube4 1
+    100062: pCube5
+    100064: pCube5 1
+    100066: pCube7
+    100068: pCube8
+    100070: pCube9
+    100072: pCylinder1
+    100074: pCylinder11
+    100076: pCylinder12
+    100078: pCylinder13
+    100080: pCylinder14
+    100082: pCylinder3
+    100084: pCylinder3 1
+    100086: pCylinder3 2
+    100088: pCylinder3 3
+    100090: pCylinder3 4
+    100092: pCylinder3 5
+    100094: pCylinder4
+    100096: pCylinder4 1
+    100098: pCylinder4 2
+    100100: pCylinder4 3
+    100102: pCylinder4 4
+    100104: pCylinder4 5
+    100106: pCylinder5
+    100108: pCylinder5 1
+    100110: pCylinder5 2
+    100112: pCylinder5 3
+    100114: pCylinder6
+    100116: pCylinder6 1
+    100118: pCylinder6 2
+    100120: pCylinder6 3
+    100122: pCylinder6 4
+    100124: pCylinder6 5
+    100126: pCylinder7
+    100128: pCylinder7 1
+    100130: pCylinder7 2
+    100132: pCylinder7 3
+    100134: pCylinder8
+    100136: polySurface10
+    100138: polySurface11
+    100140: polySurface12
+    100142: polySurface13
+    100144: polySurface14
+    100146: polySurface15
+    100148: polySurface16
+    100150: polySurface17
+    100152: polySurface18
+    100154: polySurface19
+    100156: polySurface20
+    100158: polySurface21
+    100160: polySurface22
+    100162: polySurface23
+    100164: polySurface24
+    100166: polySurface25
+    100168: polySurface26
+    100170: polySurface27
+    100172: polySurface28
+    100174: polySurface29
+    100176: polySurface30
+    100178: polySurface31
+    100180: polySurface32
+    100182: polySurface33
+    100184: polySurface34
+    100186: polySurface35
+    100188: polySurface36
+    100190: polySurface37
+    100192: polySurface38
+    100194: polySurface39
+    100196: polySurface4
+    100198: polySurface40
+    100200: polySurface41
+    100202: polySurface42
+    100204: polySurface43
+    100206: polySurface44
+    100208: polySurface45
+    100210: polySurface46
+    100212: polySurface47
+    100214: polySurface48
+    100216: polySurface49
+    100218: polySurface5
+    100220: polySurface50
+    100222: polySurface51
+    100224: polySurface6
+    100226: polySurface7
+    100228: polySurface8
+    100230: polySurface9
+    100232: transform100
+    100234: transform101
+    100236: transform102
+    100238: transform103
+    100240: transform104
+    100242: transform105
+    100244: transform106
+    100246: transform107
+    100248: transform108
+    100250: transform109
+    100252: transform110
+    100254: transform111
+    100256: transform112
+    100258: transform113
+    100260: transform114
+    100262: transform115
+    100264: transform116
+    100266: transform117
+    100268: transform118
+    100270: transform119
+    100272: transform120
+    100274: transform121
+    100276: transform122
+    100278: transform123
+    100280: transform124
+    100282: transform125
+    100284: transform126
+    100286: transform127
+    100288: transform128
+    100290: transform129
+    100292: transform130
+    100294: transform35
+    100296: transform36
+    100298: transform37
+    100300: transform38
+    100302: transform39
+    100304: transform40
+    100306: transform41
+    100308: transform42
+    100310: transform43
+    100312: transform44
+    100314: transform45
+    100316: transform46
+    100318: transform47
+    100320: transform48
+    100322: transform49
+    100324: transform50
+    100326: transform51
+    100328: transform52
+    100330: transform53
+    100332: transform54
+    100334: transform55
+    100336: transform56
+    100338: transform57
+    100340: transform58
+    100342: transform59
+    100344: transform60
+    100346: transform61
+    100348: transform62
+    100350: transform63
+    100352: transform64
+    100354: transform65
+    100356: transform66
+    100358: transform67
+    100360: transform68
+    100362: transform69
+    100364: transform70
+    100366: transform71
+    100368: transform72
+    100370: transform73
+    100372: transform74
+    100374: transform75
+    100376: transform76
+    100378: transform77
+    100380: transform78
+    100382: transform79
+    100384: transform80
+    100386: transform81
+    100388: transform82
+    100390: transform82 1
+    100392: transform83
+    100394: transform84
+    100396: transform85
+    100398: transform86
+    100400: transform87
+    100402: transform88
+    100404: transform89
+    100406: transform90
+    100408: transform91
+    100410: transform92
+    100412: transform93
+    100414: transform94
+    100416: transform95
+    100418: transform96
+    100420: transform97
+    100422: transform98
+    100424: transform99
+    400000: body
+    400002: body 1
+    400004: bolts_1
+    400006: bolts_2
+    400008: bolts_3
+    400010: bolts_4
+    400012: bolts_5
+    400014: bolts_6
+    400016: //RootNode
+    400018: contena6_door_bolts_1
+    400020: door
+    400022: group1
+    400024: group2
+    400026: kanagu
+    400028: kanagu1
+    400030: kanagu2
+    400032: kanagu3
+    400034: kanagu4
+    400036: kanagu5
+    400038: mirrorCutPlane2
+    400040: mirroredCutMesh3
+    400042: mirroredCutMesh4
+    400044: pCube10
+    400046: pCube3
+    400048: pCube3 1
+    400050: pCube3 2
+    400052: pCube3 3
+    400054: pCube3 4
+    400056: pCube3 5
+    400058: pCube4
+    400060: pCube4 1
+    400062: pCube5
+    400064: pCube5 1
+    400066: pCube7
+    400068: pCube8
+    400070: pCube9
+    400072: pCylinder1
+    400074: pCylinder11
+    400076: pCylinder12
+    400078: pCylinder13
+    400080: pCylinder14
+    400082: pCylinder3
+    400084: pCylinder3 1
+    400086: pCylinder3 2
+    400088: pCylinder3 3
+    400090: pCylinder3 4
+    400092: pCylinder3 5
+    400094: pCylinder4
+    400096: pCylinder4 1
+    400098: pCylinder4 2
+    400100: pCylinder4 3
+    400102: pCylinder4 4
+    400104: pCylinder4 5
+    400106: pCylinder5
+    400108: pCylinder5 1
+    400110: pCylinder5 2
+    400112: pCylinder5 3
+    400114: pCylinder6
+    400116: pCylinder6 1
+    400118: pCylinder6 2
+    400120: pCylinder6 3
+    400122: pCylinder6 4
+    400124: pCylinder6 5
+    400126: pCylinder7
+    400128: pCylinder7 1
+    400130: pCylinder7 2
+    400132: pCylinder7 3
+    400134: pCylinder8
+    400136: polySurface10
+    400138: polySurface11
+    400140: polySurface12
+    400142: polySurface13
+    400144: polySurface14
+    400146: polySurface15
+    400148: polySurface16
+    400150: polySurface17
+    400152: polySurface18
+    400154: polySurface19
+    400156: polySurface20
+    400158: polySurface21
+    400160: polySurface22
+    400162: polySurface23
+    400164: polySurface24
+    400166: polySurface25
+    400168: polySurface26
+    400170: polySurface27
+    400172: polySurface28
+    400174: polySurface29
+    400176: polySurface30
+    400178: polySurface31
+    400180: polySurface32
+    400182: polySurface33
+    400184: polySurface34
+    400186: polySurface35
+    400188: polySurface36
+    400190: polySurface37
+    400192: polySurface38
+    400194: polySurface39
+    400196: polySurface4
+    400198: polySurface40
+    400200: polySurface41
+    400202: polySurface42
+    400204: polySurface43
+    400206: polySurface44
+    400208: polySurface45
+    400210: polySurface46
+    400212: polySurface47
+    400214: polySurface48
+    400216: polySurface49
+    400218: polySurface5
+    400220: polySurface50
+    400222: polySurface51
+    400224: polySurface6
+    400226: polySurface7
+    400228: polySurface8
+    400230: polySurface9
+    400232: transform100
+    400234: transform101
+    400236: transform102
+    400238: transform103
+    400240: transform104
+    400242: transform105
+    400244: transform106
+    400246: transform107
+    400248: transform108
+    400250: transform109
+    400252: transform110
+    400254: transform111
+    400256: transform112
+    400258: transform113
+    400260: transform114
+    400262: transform115
+    400264: transform116
+    400266: transform117
+    400268: transform118
+    400270: transform119
+    400272: transform120
+    400274: transform121
+    400276: transform122
+    400278: transform123
+    400280: transform124
+    400282: transform125
+    400284: transform126
+    400286: transform127
+    400288: transform128
+    400290: transform129
+    400292: transform130
+    400294: transform35
+    400296: transform36
+    400298: transform37
+    400300: transform38
+    400302: transform39
+    400304: transform40
+    400306: transform41
+    400308: transform42
+    400310: transform43
+    400312: transform44
+    400314: transform45
+    400316: transform46
+    400318: transform47
+    400320: transform48
+    400322: transform49
+    400324: transform50
+    400326: transform51
+    400328: transform52
+    400330: transform53
+    400332: transform54
+    400334: transform55
+    400336: transform56
+    400338: transform57
+    400340: transform58
+    400342: transform59
+    400344: transform60
+    400346: transform61
+    400348: transform62
+    400350: transform63
+    400352: transform64
+    400354: transform65
+    400356: transform66
+    400358: transform67
+    400360: transform68
+    400362: transform69
+    400364: transform70
+    400366: transform71
+    400368: transform72
+    400370: transform73
+    400372: transform74
+    400374: transform75
+    400376: transform76
+    400378: transform77
+    400380: transform78
+    400382: transform79
+    400384: transform80
+    400386: transform81
+    400388: transform82
+    400390: transform82 1
+    400392: transform83
+    400394: transform84
+    400396: transform85
+    400398: transform86
+    400400: transform87
+    400402: transform88
+    400404: transform89
+    400406: transform90
+    400408: transform91
+    400410: transform92
+    400412: transform93
+    400414: transform94
+    400416: transform95
+    400418: transform96
+    400420: transform97
+    400422: transform98
+    400424: transform99
+    2300000: body 1
+    2300002: mirroredCutMesh3
+    2300004: mirroredCutMesh4
+    2300006: transform82
+    3300000: body 1
+    3300002: mirroredCutMesh3
+    3300004: mirroredCutMesh4
+    3300006: transform82
+    4300000: body
+    4300002: mirroredCutMesh3
+    4300004: mirroredCutMesh4
+    4300006: transform82
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
