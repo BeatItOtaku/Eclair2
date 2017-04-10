@@ -53,4 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: haretu
   playOnStart: 1
-  loop: 1
+  loop: 0

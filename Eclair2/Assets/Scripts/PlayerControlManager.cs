@@ -261,6 +261,7 @@ public class PlayerControlManager : MonoBehaviour {
 			transform.position += transform.forward * Time.deltaTime * speed;
 			anim.SetBool ("Run",runAnim);
 
+
 	}
 
 	void ShotMoveManagement(float horizontal, float vertical){
@@ -347,6 +348,7 @@ public class PlayerControlManager : MonoBehaviour {
 			if (Input.GetButtonDown ("LaunchBolt")) 
 			{
 				playerState_ = PlayerStates.Bolt;
+				eclairImmobile = true;
 				//cursorV = cursor.transform.position;
 				cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
@@ -361,6 +363,7 @@ public class PlayerControlManager : MonoBehaviour {
 				shot = true; //打ち出したことを判定する変数
 				anim.SetTrigger("Bolt");
 				audioSource.PlayOneShot (boltLaunchSound);
+				eclairImmobile = false;
 			}
 		
 			if (boltmanager != null) {				
