@@ -10,14 +10,13 @@ public class Bullet : MonoBehaviour {
 
 	public float lifeTime = 5; //弾の生存時間
 
-	private GameObject hitObject = null;
-	private Monument mon;
+	public GameObject effect;
 
 	// Use this for initialization
 	void Start () {
-		cursor = GameObject.Find ("Cursor");
-		cursorV = cursor.transform.position;
-		cursorRay = Camera.main.ScreenPointToRay (cursorV);
+		//cursor = GameObject.Find ("Cursor");
+		//cursorV = cursor.transform.position;
+		cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 	}
 	// Update is called once per frame
 	void Update () {
@@ -26,11 +25,12 @@ public class Bullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 			lifeTime -= Time.deltaTime;
-			gameObject.transform.position += cursorRay.direction * Time.deltaTime * speed;
+		gameObject.transform.position +=  cursorRay.direction * Time.deltaTime * speed;
 	}
 
 	private void OnCollisionEnter(Collision c)
 	{
+		Instantiate (effect, transform.position, transform.rotation);
 		
 		Destroy (gameObject);
 	}

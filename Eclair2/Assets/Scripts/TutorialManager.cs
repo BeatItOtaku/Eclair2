@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using wararyo.EclairCueMaker;
 /// <summary>
 /// チュートリアルについて記述。
 /// 内容は、 
@@ -24,7 +24,8 @@ public class TutorialManager : MonoBehaviour {
 
 	//チュートリアルで破壊するターゲット。
 	public GameObject gideTarget; //ターゲット説明時に出てくるターゲット。その後壊す。
-	public GameObject etoTarget; //ETOを使って3個一気に破壊するターゲット。
+
+	public CueScenePlayer csp;
 
 	// Use this for initialization
 	void Start () {
@@ -35,10 +36,9 @@ public class TutorialManager : MonoBehaviour {
 		pcm.isBolt = false; //エクレアはボルト射出ができない。
 		pcm.isEto = false; //エクレアはETOができない。
 		pcm.isAvoid = false; //エクレアは回避ができない。
+	
 
-		gideTarget.SetActive (false);
-		etoTarget.SetActive (false);
-
+		csp = gameObject.GetComponent<CueScenePlayer> ();
 	}
 	
 	// Update is called once per frame
@@ -63,12 +63,12 @@ public class TutorialManager : MonoBehaviour {
 
 		case 1:
 			//光っている地点まで歩いてみましょう。(WASDキー・・・移動。マウス操作・・・カメラ移動。スペースキー・・・ジャンプ）
+			//csp.Pause();
 			pcm.eclairImmobile = false;
 			break;
 
 		case 2:
 			//(移動が終了したら、ターゲットの説明。）
-			//よくできました！
 			//次に、ミニゲームの説明をします。
 			//このミニゲームでは、制限時間内にターゲットを全て破壊すればクリアとなります。
 			//ターゲットは、次の3種類です。
@@ -76,53 +76,41 @@ public class TutorialManager : MonoBehaviour {
 			//青のターゲットは、30点。（ここで青のモニュメントが登場）
 			//緑のターゲットは、50点、スコアに加算されます。（ここで緑のモニュメントが登場）
 			//得点の高いターゲットほど、破壊するのに時間がかかります。
-
+			csp.Play ();
 			pcm.eclairStopping = true;
+
 			break;
 
 		case 3:
 			//(ターゲットの説明がすんだら）ターゲットを破壊してみましょう！(ここで、遠距離攻撃解禁）
 			//左クリック・・・遠距離攻撃
-			pcm.eclairImmobile = false;
+			pcm.eclairStopping = false;
 			fm.isShot = true;
 			break;
 
 
 		case 4:
 			//(ターゲットをすべて破壊したら）
-			//よくできました！
 			//次に、『エトワール』という技を紹介します。
 			//『エトワール』は、エクレアが高速移動できる技です。
 			//まずは、エトワールをするために使う道具『ボルト』を出してみましょう。
 			//(ここでボルトが撃てるようになる）
 			//右クリック・・・ボルト射出
 			pcm.isBolt = true;
+			csp.Play ();
 			break;
 
 		case 5:
-			//よくできました！
 			//次に、エトワールをしてみましょう。
 			//スペースキー・・・エトワール
 			pcm.isEto = true;
-			break;
-
-		case 6:
-			//よくできました！
-			//エトワールを使えば、ジャンプで行けない場所や遠い場所に行けます。
-			//エトワールを使って、光っている地点まで行ってみましょう。
-			break;
-
-		case 7:
-			//よくできました！
-			//今度は、ETOを使ってターゲットを一気に3つ破壊してみましょう。
-			//（ここで、青ターゲットが3つ出る、3つ一気に壊せない場合、復活する）
+			csp.Invoke ();
 			break;
 		
-
-		case 8:
-		    //よくできました！
+		case 6:
 		    //これでチュートリアルは終了です。
 		    //光っている地点まで移動すると、ミニゲームが開始されます。
+			csp.Invoke();
 			break;
 		}
 	}

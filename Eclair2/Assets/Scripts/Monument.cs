@@ -5,8 +5,8 @@ public class Monument : MonoBehaviour {
 
 	public int hp; //モニュメントの耐久力
 	public int redHp = 10;
-	public int blueHp = 50;
-	public int greenHp = 100;
+	public int blueHp = 30;
+	public int greenHp = 50;
 
 	public int score; //モニュメントを壊して得られる得点
 	public int redScore = 10;
@@ -15,6 +15,9 @@ public class Monument : MonoBehaviour {
 
 	private GameObject gm_ = null; //ミニゲームのルールが書かれたスクリプトを格納しているオブジェクト
 	public GameManager gm = null; //ミニゲームのルールが書かれたクラス。
+
+	public GameObject effect;
+	private bool isEffect = false;//エフェクトを再生したかどうか
 
 	// Use this for initialization
 	void Start () {
@@ -56,12 +59,16 @@ public class Monument : MonoBehaviour {
 	void Update () {
 
 			if (hp <= 0) {
-			if (gm != null) {
-				//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
-				gm.score += score;
-				gm.monumentCount++;
+			if (!isEffect) {
+				Instantiate (effect, transform.position, transform.rotation);
+				if (gm != null) {
+					//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
+					gm.score += score;
+					gm.monumentCount++;
+				}
+				isEffect = true;
 			}
-				Destroy (gameObject);
+				Destroy (gameObject,0.1f);
 			}
 
 	}
@@ -72,12 +79,18 @@ public class Monument : MonoBehaviour {
 				hp -= 10;
 			}
 			if (col.gameObject.tag == "Bullet") {
-				hp -= 1;
+				hp -= 5;
 			}
 			if (col.gameObject.tag == "Bolt") {
 				hp -= 25;
 			}
-			if (col.gameObject.tag == "ETOEclair") {
+
+		}
+	}
+
+	private void OnColliderEnter(Collider coll){
+		if (hp > 0) {
+			if (coll.gameObject.tag == "ETOEclair") {
 				hp -= 100;
 			}
 		}

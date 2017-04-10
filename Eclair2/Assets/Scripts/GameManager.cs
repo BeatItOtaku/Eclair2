@@ -19,24 +19,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetKeyDown("escape")){
-			//ミニゲームをリタイアするかどうかのウィンドウが出る。
-		}
-
-		if (monumentCount != allMonument) {
-			if (time >= 0) {
-				time -= Time.deltaTime;
-				time = Mathf.Max (time, 0.0f);	
-			} else {
-				totalScore = score;
-				//ゲーム終了
-			}
-		}
-
-		if (monumentCount == allMonument) {			
-			remainingTime = time;
-			totalScore = score + remainingTime * 10;
-			//ゲーム終了
-		}
+	
 	}
 }

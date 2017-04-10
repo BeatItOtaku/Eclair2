@@ -200,10 +200,10 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012028248400}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: afe45737abd92e54e81f2c4c132e1b4c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -314,7 +314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchBolt: 0
-  speed: 30
+  speed: 50
+  boltLandSound: {fileID: 8300000, guid: 12d62c0b2c6a4f14c843c2ac686f0d3e, type: 3}
 --- !u!136 &136000013827786442
 CapsuleCollider:
   m_ObjectHideFlags: 1

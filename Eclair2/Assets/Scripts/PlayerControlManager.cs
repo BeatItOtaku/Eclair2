@@ -23,6 +23,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public GameObject cursor;//画面上に現れるカーソル
 
+	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
+
 	public  bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
 	public  bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
@@ -53,8 +55,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Fire
 	//Fireに関しては、別のFireManagerに詳細が記述されている。
-	public  bool isFire = true; //falseでエクレアは通常攻撃ができなくなる。
-	private FireManager fm;
+	public FireManager fm;
 
 
 	//Bolt
@@ -94,7 +95,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Jump
-	public float jumpHeight = 5.0f;
+	public float jumpHeight = 50.0f;
 
 
 	//Damage
@@ -127,6 +128,13 @@ public class PlayerControlManager : MonoBehaviour {
 	//アニメーション
 	private Animator anim;
 
+	//SE
+	public AudioSource audioSource;
+
+	public AudioClip boltLaunchSound;
+	public AudioClip etoileSound;
+
+
 
 	//エクレアのプレイヤーステイト
 	public enum PlayerStates
@@ -148,20 +156,17 @@ public class PlayerControlManager : MonoBehaviour {
 			anim = player.GetComponent<Animator> ();
 
 		//Move
-		hFloat = Animator.StringToHash("H");
-		vFloat = Animator.StringToHash("V");
+		//hFloat = Animator.StringToHash("H");
+		//vFloat = Animator.StringToHash("V");
 		groundedBool = Animator.StringToHash("Grounded");
 		distToGround = GetComponent<Collider>().bounds.extents.y;
-
-		//Fire
-		//fm.GetComponent<FireManager>();
 	
 	}
 
 	//設置判定
 	bool IsGrounded() 
 	{
-		return Physics.Raycast(transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.15f);
+		return Physics.Raycast(asimoto.transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.30f);
 
 	}
 
@@ -220,25 +225,25 @@ public class PlayerControlManager : MonoBehaviour {
 		} else {
 			anim.SetBool ("NewGrounded", false);
 		}
-
-		//Fire
-		if (isFire) 
-		{
-			//fm.FireManagement ();
-		}
+			
 	}
 
 	void FixedUpdate()
 	{
-		
 			//Move
+		if (fm.shotContinue == false) {
 			MoveManagement (horizontal, vertical);
+		} else {
+			transform.position += transform.forward *Time.deltaTime*0;
+			//ShotMoveManagement (horizontal, vertical);
+		}
+
 
 			//Jump
-			JumpManagement ();
+			//JumpManagement ();
 
 	}
-
+		
 	//Move
 	void MoveManagement(float horizontal, float vertical)
 	{
@@ -246,16 +251,24 @@ public class PlayerControlManager : MonoBehaviour {
 			isMoving = false;
 		}
 			if (isMoving) {
-				speed = 5;
+				speed = 3;
 				runAnim = true;
 			} else {
 				speed = 0;
 				runAnim = false;
 			}
-		
 			Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
 			anim.SetBool ("Run",runAnim);
+
+	}
+
+	void ShotMoveManagement(float horizontal, float vertical){
+		Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
+		float speed = 0.5f;
+		direction *= speed;
+
+		transform.position += Time.deltaTime*direction * speed;
 
 	}
 
@@ -284,11 +297,11 @@ public class PlayerControlManager : MonoBehaviour {
 			//lastDirection = targetDirection;
 		}
 		if (!(Mathf.Abs (horizontal) > 0.9 || Mathf.Abs (vertical) > 0.9)) {
-			Repositioning ();
+			if (!fm.shotContinue) {
+				Repositioning ();
+			}
 		}
-
 		return targetDirection;
-
 	}
 
 	private void Repositioning()
@@ -334,18 +347,20 @@ public class PlayerControlManager : MonoBehaviour {
 			if (Input.GetButtonDown ("LaunchBolt")) 
 			{
 				playerState_ = PlayerStates.Bolt;
-				cursorV = cursor.transform.position;
-				cursorRay = Camera.main.ScreenPointToRay (cursorV);
+				//cursorV = cursor.transform.position;
+				cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
 				//ボルトの複製と前に撃ったボルトの消去
 				if (preShot != null)
 					Destroy (preShot);
-				lastShot = (GameObject)Instantiate (bolt, muzzle.position, player.transform.rotation);//boltを打ち出す
+				lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
 				preShot = lastShot;
 				boltmanager = lastShot.GetComponent<Bolt> ();
 				shot = true; //打ち出したことを判定する変数
+				anim.SetTrigger("Bolt");
+				audioSource.PlayOneShot (boltLaunchSound);
 			}
 		
 			if (boltmanager != null) {				
@@ -363,14 +378,19 @@ public class PlayerControlManager : MonoBehaviour {
 	void EtoManagement(){
 		if (isEto) {
 			if (boltmanager.launchBolt == true) {//ボルトが着弾している状態
-				if (Input.GetButtonDown ("Space")) {						
-					playerState_ = PlayerStates.Eto;
-					transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
-					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-					eto.transform.position = player.transform.position;
-					etoOn = true;
-					eto.SetActive (true);				                       
-					player.SetActive (false);
+				if (lastShot != null) {
+					if (Input.GetButtonDown ("Space")) {						
+						playerState_ = PlayerStates.Eto;
+						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
+						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+						eto.transform.position = player.transform.position;
+						audioSource.PlayOneShot (etoileSound);
+						etoOn = true;
+						eto.SetActive (true);				                       
+						player.SetActive (false);
+					}
+				} else {
+					playerState_ = PlayerStates.Idle;
 				}
 			}
 	}
