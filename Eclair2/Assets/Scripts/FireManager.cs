@@ -11,7 +11,7 @@ public class FireManager : MonoBehaviour {
 	private bool fire = false; //攻撃を繰り出したかどうか
 
 	private bool shotOn = true;
-	private float shotCoolTime = 0.25f;
+	private float shotCoolTime = 0.10f;
 	private float shotCoolTime_;
 
 	private int fireCount = 0; //攻撃した回数

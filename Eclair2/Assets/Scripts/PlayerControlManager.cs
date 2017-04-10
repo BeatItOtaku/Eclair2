@@ -251,7 +251,7 @@ public class PlayerControlManager : MonoBehaviour {
 			isMoving = false;
 		}
 			if (isMoving) {
-				speed = 5;
+				speed = 3;
 				runAnim = true;
 			} else {
 				speed = 0;

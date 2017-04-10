@@ -24,7 +24,6 @@ public class TutorialManager : MonoBehaviour {
 
 	//チュートリアルで破壊するターゲット。
 	public GameObject gideTarget; //ターゲット説明時に出てくるターゲット。その後壊す。
-	public GameObject etoTarget; //ETOを使って3個一気に破壊するターゲット。
 
 	public CueScenePlayer csp;
 
@@ -38,6 +37,7 @@ public class TutorialManager : MonoBehaviour {
 		pcm.isEto = false; //エクレアはETOができない。
 		pcm.isAvoid = false; //エクレアは回避ができない。
 	
+
 		csp = gameObject.GetComponent<CueScenePlayer> ();
 	}
 	
