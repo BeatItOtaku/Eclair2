@@ -38,7 +38,6 @@ public class TutorialManager : MonoBehaviour {
 		pcm.isEto = false; //エクレアはETOができない。
 		pcm.isAvoid = false; //エクレアは回避ができない。
 	
-		etoTarget.SetActive (false);
 		csp = gameObject.GetComponent<CueScenePlayer> ();
 	}
 	

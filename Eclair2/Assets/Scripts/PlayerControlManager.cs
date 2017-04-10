@@ -23,6 +23,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public GameObject cursor;//画面上に現れるカーソル
 
+	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
+
 	public  bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
 	public  bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
@@ -164,7 +166,7 @@ public class PlayerControlManager : MonoBehaviour {
 	//設置判定
 	bool IsGrounded() 
 	{
-		return Physics.Raycast(transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.15f);
+		return Physics.Raycast(asimoto.transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.30f);
 
 	}
 
@@ -232,12 +234,13 @@ public class PlayerControlManager : MonoBehaviour {
 		if (fm.shotContinue == false) {
 			MoveManagement (horizontal, vertical);
 		} else {
-			ShotMoveManagement (horizontal, vertical);
+			transform.position += transform.forward *Time.deltaTime*0;
+			//ShotMoveManagement (horizontal, vertical);
 		}
 
 
 			//Jump
-			JumpManagement ();
+			//JumpManagement ();
 
 	}
 		

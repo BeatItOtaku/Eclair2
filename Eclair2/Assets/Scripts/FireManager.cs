@@ -38,6 +38,9 @@ public class FireManager : MonoBehaviour {
 				shotContinue = true;
 				if (shotOn == true) {
 					//StartCoroutine (ShotCoroutine ());
+					Ray cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
+					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
 					Instantiate (bullet, muzzle.position, muzzle.rotation);
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
