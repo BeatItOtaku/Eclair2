@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 5335157}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.23089409, g: 0.17919144, b: 0.14648673, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5529,6 +5529,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 297213042}
   m_Mesh: {fileID: 4300410, guid: e947eea53147948e087680f6753d6144, type: 3}
+--- !u!4 &304756223 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400080, guid: 5574d78f7e2cc414f91853dc67dfbdf6, type: 3}
+  m_PrefabInternal: {fileID: 1627709498}
 --- !u!1001 &311861873
 Prefab:
   m_ObjectHideFlags: 0
@@ -7827,7 +7831,7 @@ GameObject:
   - 222: {fileID: 412907338}
   - 114: {fileID: 412907337}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: GlassPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26872,7 +26876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1163130147
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34444,6 +34448,7 @@ GameObject:
   - 4: {fileID: 1564728418}
   - 114: {fileID: 1564728417}
   - 82: {fileID: 1564728419}
+  - 114: {fileID: 1564728420}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -34554,6 +34559,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1564728420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564728416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861d0d71e8440ae458f2dc580331d815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cueScene: {fileID: 11400000, guid: 3841730aab7fd4b909d8f08997bd14a1, type: 2}
+  playOnAwake: 1
+  loop: 0
 --- !u!1 &1567063690
 GameObject:
   m_ObjectHideFlags: 0
@@ -36249,10 +36268,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5574d78f7e2cc414f91853dc67dfbdf6, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1627709499 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1627709498}
 --- !u!1 &1628544736
 GameObject:
   m_ObjectHideFlags: 0
@@ -36485,6 +36500,8 @@ GameObject:
   - 114: {fileID: 1633070184}
   - 114: {fileID: 1633070188}
   - 114: {fileID: 1633070189}
+  - 95: {fileID: 1633070191}
+  - 114: {fileID: 1633070190}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -36607,6 +36624,34 @@ MonoBehaviour:
   cursorPosition: {fileID: 856887848}
   edgeTopF: 4
   edgeBottomF: 3
+--- !u!114 &1633070190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633070183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db664d849408c84c9f4dcbefcd6572d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1633070191
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633070183}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c7a4770363114d978a63855fb8c4547, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1638352161
 GameObject:
   m_ObjectHideFlags: 0
@@ -40621,7 +40666,7 @@ Transform:
   - {fileID: 1374854546}
   - {fileID: 666800407}
   - {fileID: 286575159}
-  - {fileID: 1627709499}
+  - {fileID: 304756223}
   m_Father: {fileID: 0}
   m_RootOrder: 10
 --- !u!1001 &1841906017
