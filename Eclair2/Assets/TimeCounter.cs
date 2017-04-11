@@ -14,6 +14,9 @@ public class TimeCounter : MonoBehaviour {
 
 	private bool isCounting = false;
 
+	//GameManagerで使ってるよ
+	public System.Action OnTimeUp;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -31,6 +34,7 @@ public class TimeCounter : MonoBehaviour {
 				GetComponent<UnityEngine.UI.Text>().text = ((int)time).ToString();
 			} else {
 				gm.totalScore = gm.score;
+				OnTimeUp ();
 				//ゲーム終了
 			}
 		}

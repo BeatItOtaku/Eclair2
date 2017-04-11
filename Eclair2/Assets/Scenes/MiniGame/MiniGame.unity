@@ -35195,6 +35195,9 @@ MonoBehaviour:
   totalScore: 0
   monumentCount: 0
   allMonument: 120
+  timeCounter: {fileID: 1378830150}
+  cueScenePlayer: {fileID: 1564728420}
+  TimeUpCueScene: {fileID: 11400000, guid: 1f873c27627d54efab4f699562843664, type: 2}
   time: 0
 --- !u!4 &1564728418
 Transform:
@@ -35294,7 +35297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861d0d71e8440ae458f2dc580331d815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cueScene: {fileID: 11400000, guid: 3841730aab7fd4b909d8f08997bd14a1, type: 2}
+  cueScene: {fileID: 11400000, guid: 1f873c27627d54efab4f699562843664, type: 2}
   playOnAwake: 1
   loop: 0
 --- !u!114 &1564728421

@@ -2,10 +2,13 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using wararyo.EclairCueMaker;
 
 public class TitleManager : MonoBehaviour {
 
     public AudioClip select;
+
+	public CueScenePlayer cueScenePlayer;
 
 	//public GameObject dontDestroy;
     //public Text loadingText;
@@ -28,8 +31,9 @@ public class TitleManager : MonoBehaviour {
     void Update () {
         if (Input.GetMouseButtonUp(0))
         {
-            GetComponent<AudioSource>().PlayOneShot(select);
-			NextLevel ();
+            //GetComponent<AudioSource>().PlayOneShot(select);
+			//NextLevel ();
+			cueScenePlayer.Play();
             //TODO: シーン切り替え動作
         }
     }
