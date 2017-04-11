@@ -31,7 +31,7 @@ MonoBehaviour:
     parameter: False
     paramObject: {fileID: 0}
     UUID: e8213aa0-6c8e-4827-b591-d2203e7bbebe
-  - time: 2
+  - time: 0
     gameObjectName: Canvas/Texts/Text
     cueEventID: zldifgseniccgisg
     parameter: True

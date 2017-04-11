@@ -596,10 +596,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShot: 1
   isAttack: 0
-  shotContinue: 0
+  shotEffect: {fileID: 0}
   bullet: {fileID: 1000010109845950, guid: 5ad3d96b8446c452db70bca8f5c73900, type: 2}
   close: {fileID: 100006, guid: ec6e75a3654374c7f9c1007063dcd249, type: 2}
   muzzle: {fileID: 1706133492}
+  muzzleFlash: {fileID: 0}
 --- !u!114 &191934529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +615,6 @@ MonoBehaviour:
   player: {fileID: 191934527}
   cursor: {fileID: 856887847}
   asimoto: {fileID: 0}
-  eclairImmobile: 0
   eclairStopping: 0
   cameraTransform: {fileID: 338940115}
   fm: {fileID: 191934528}
@@ -10006,7 +10006,6 @@ MonoBehaviour:
   player: {fileID: 1406541913}
   cursor: {fileID: 856887847}
   asimoto: {fileID: 2029237231}
-  eclairImmobile: 0
   eclairStopping: 0
   cameraTransform: {fileID: 338940115}
   fm: {fileID: 1406541919}
@@ -10038,10 +10037,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShot: 1
   isAttack: 0
-  shotContinue: 0
+  shotEffect: {fileID: 0}
   bullet: {fileID: 1000010109845950, guid: 5ad3d96b8446c452db70bca8f5c73900, type: 2}
   close: {fileID: 100006, guid: ec6e75a3654374c7f9c1007063dcd249, type: 2}
   muzzle: {fileID: 462312177}
+  muzzleFlash: {fileID: 0}
 --- !u!143 &1406541920
 CharacterController:
   m_ObjectHideFlags: 0
@@ -10882,7 +10882,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1633070183}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -13516,7 +13516,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: 611199576
+  randomSeed: 1595483795
   InitialModule:
     serializedVersion: 2
     enabled: 1
