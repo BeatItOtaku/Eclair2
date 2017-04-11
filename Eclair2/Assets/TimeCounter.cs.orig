@@ -4,19 +4,26 @@ using UnityEngine.UI;
 
 public class TimeCounter : MonoBehaviour {
 
+<<<<<<< .merge_file_6WlXJ2
+	public float time = 120;
+=======
 	public float defaultTime = 120;
 
 	[System.NonSerialized]
 	public float time;
+>>>>>>> .merge_file_ut182g
 	private float remainingTime;
 
 	public GameManager gm;
 
+<<<<<<< .merge_file_6WlXJ2
+=======
 	private bool isCounting = false;
 
 	//GameManagerで使ってるよ
 	public System.Action OnTimeUp;
 
+>>>>>>> .merge_file_ut182g
 	// Use this for initialization
 	void Start () {
 	
@@ -24,8 +31,11 @@ public class TimeCounter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< .merge_file_6WlXJ2
+=======
 		if (!isCounting)
 			return;
+>>>>>>> .merge_file_ut182g
 
 		if (gm.monumentCount != gm.allMonument) {
 			if (time >= 0) {
@@ -34,7 +44,10 @@ public class TimeCounter : MonoBehaviour {
 				GetComponent<UnityEngine.UI.Text>().text = ((int)time).ToString();
 			} else {
 				gm.totalScore = gm.score;
+<<<<<<< .merge_file_6WlXJ2
+=======
 				OnTimeUp ();
+>>>>>>> .merge_file_ut182g
 				//ゲーム終了
 			}
 		}
@@ -44,6 +57,9 @@ public class TimeCounter : MonoBehaviour {
 			gm.totalScore = gm.score + remainingTime * 10;
 			//ゲーム終了
 		}
+<<<<<<< .merge_file_6WlXJ2
+	
+=======
 	}
 
 	public void StartCount(){
@@ -54,5 +70,6 @@ public class TimeCounter : MonoBehaviour {
 	public void StopCount(){
 		isCounting = false;
 		time = 0;
+>>>>>>> .merge_file_ut182g
 	}
 }
