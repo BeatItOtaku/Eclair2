@@ -19,4 +19,10 @@ MonoBehaviour:
     parameter: Result
     paramObject: {fileID: 0}
     UUID: 
+  - time: 0
+    gameObjectName: SystemSE
+    cueEventID: 69s879arg784q9889u3raa
+    parameter: 7ff9e49af270508438aae2694572b0a6
+    paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
+    UUID: 
   Version: 1
