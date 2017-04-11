@@ -30,7 +30,7 @@ public class TutorialManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		pcm.eclairImmobile= false; //エクレアは動けない。
+		PlayerControlManager.eclairImmobile= false; //エクレアは動けない。
 		fm.isShot = false; //エクレアは射撃ができない。
 		fm.isAttack = false; //エクレアは打撃ができない。
 		pcm.isBolt = false; //エクレアはボルト射出ができない。
@@ -64,7 +64,7 @@ public class TutorialManager : MonoBehaviour {
 		case 1:
 			//光っている地点まで歩いてみましょう。(WASDキー・・・移動。マウス操作・・・カメラ移動。スペースキー・・・ジャンプ）
 			//csp.Pause();
-			pcm.eclairImmobile = false;
+			PlayerControlManager.eclairImmobile = false;
 			break;
 
 		case 2:

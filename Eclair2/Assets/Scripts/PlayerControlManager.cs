@@ -25,7 +25,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
 
-	public  bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
+	public static bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
 	public  bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
 	//Move
@@ -231,7 +231,7 @@ public class PlayerControlManager : MonoBehaviour {
 	void FixedUpdate()
 	{
 			//Move
-		if (fm.shotContinue == false) {
+		if (FireManager.shotContinue == false) {
 			MoveManagement (horizontal, vertical);
 		} else {
 			transform.position += transform.forward *Time.deltaTime*0;
@@ -297,10 +297,8 @@ public class PlayerControlManager : MonoBehaviour {
 			GetComponent<Rigidbody> ().MoveRotation (newRotation);
 			//lastDirection = targetDirection;
 		}
-		if (!(Mathf.Abs (horizontal) > 0.9 || Mathf.Abs (vertical) > 0.9)) {
-			if (!fm.shotContinue) {
+		if (!(Mathf.Abs (horizontal) > 0.9 || Mathf.Abs (vertical) > 0.9)) {			
 				Repositioning ();
-			}
 		}
 		return targetDirection;
 	}
@@ -363,7 +361,7 @@ public class PlayerControlManager : MonoBehaviour {
 				shot = true; //打ち出したことを判定する変数
 				anim.SetTrigger("Bolt");
 				audioSource.PlayOneShot (boltLaunchSound);
-				eclairImmobile = false;
+
 			}
 		
 			if (boltmanager != null) {				

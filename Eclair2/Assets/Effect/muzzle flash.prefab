@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011829967738}
   - 114: {fileID: 114000013567222178}
   m_Layer: 0
-  m_Name: MuzzleFlash
+  m_Name: muzzle flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50091075b6bce714bbcd73abc4eee722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: muzzleflash
+  effectName: muzzle flash
   playOnStart: 1
   loop: 0

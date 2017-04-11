@@ -6,7 +6,7 @@ public class FireManager : MonoBehaviour {
 	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
 	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
-	public bool shotContinue = false;//射撃している間、近接攻撃にならない
+	public static bool shotContinue = false;//射撃している間、近接攻撃にならない
 
 	private bool fire = false; //攻撃を繰り出したかどうか
 
@@ -61,8 +61,8 @@ public class FireManager : MonoBehaviour {
 	}
 		if (Input.GetButtonUp ("Fire")) 
 		{
-			shotContinue = false;
 			anim.SetBool ("Shot",false);
+			//shotContinue = false;
 			//CameraController.setCursor = false;
 		}
 	}
