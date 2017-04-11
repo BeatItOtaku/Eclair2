@@ -18,10 +18,12 @@ public class FireManager : MonoBehaviour {
 
 	private Animator anim;
 
+	public GameObject shotEffect;
 	//デバッグ用
 	public GameObject bullet;
 	public GameObject close;
 	public Transform muzzle;
+	public Transform muzzleFlash;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +44,7 @@ public class FireManager : MonoBehaviour {
 					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
 					Instantiate (bullet, muzzle.position, muzzle.rotation);
+					Instantiate (shotEffect, muzzleFlash.position, muzzleFlash.rotation);
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
 				}

@@ -5,25 +5,26 @@ using System.Collections.Generic;
 public class Naraku : MonoBehaviour {
 
 	public GameObject player;
-	private Vector3 playerPosition;
+	private float distance;
 
 	private GameObject[] restartPosition;
 
-	private List<Vector3> position = new List<Vector3>();
+	List<KeyValuePair<float, GameObject>> targetList = new List<KeyValuePair<float, GameObject>>();
 
 	// Use this for initialization
 	void Start () {
 
 		restartPosition = GameObject.FindGameObjectsWithTag ("RestartPosition");
 		foreach (GameObject rp in restartPosition) {
-			position.Add (rp.transform.position);
-		}
+			distance = Vector3.Distance (rp.transform.position, player.transform.position);
+			targetList.Add(new KeyValuePair<float, GameObject>(distance, rp));
+				}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-		playerPosition = player.transform.position;
+
 
 	}
 
@@ -32,12 +33,8 @@ public class Naraku : MonoBehaviour {
 		{
 			Anten.antenStart = true;
 
-			position.Sort ();
-
 		}
 
-
-
-
 	}
+		
 }
