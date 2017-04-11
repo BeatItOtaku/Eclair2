@@ -20,9 +20,15 @@ MonoBehaviour:
     paramObject: {fileID: 0}
     UUID: 
   - time: 4
+    gameObjectName: SystemSE
+    cueEventID: 69s879arg784q9889u3raa
+    parameter: eeec2f728f9e646ad8d2aab0f926d40e
+    paramObject: {fileID: 8300000, guid: eeec2f728f9e646ad8d2aab0f926d40e, type: 3}
+    UUID: 
+  - time: 3
     gameObjectName: GameManager
     cueEventID: 8g0d8dshdnfhgjs9h90h60909
-    parameter: 6c1401c20ff214e8f8c69348f959295c
-    paramObject: {fileID: 11400000, guid: 6c1401c20ff214e8f8c69348f959295c, type: 2}
+    parameter: 0da42e0252ccc4fad839f71543720cc4
+    paramObject: {fileID: 11400000, guid: 0da42e0252ccc4fad839f71543720cc4, type: 2}
     UUID: 
   Version: 1
