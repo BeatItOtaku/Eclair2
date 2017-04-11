@@ -28,18 +28,20 @@ public class TimeCounter : MonoBehaviour {
 			return;
 
 		if (gm.monumentCount != gm.allMonument) {
-			if (time >= 0) {
+			if (time > 0) {
 				time -= Time.deltaTime;
 				time = Mathf.Max (time, 0.0f);
 				GetComponent<UnityEngine.UI.Text>().text = ((int)time).ToString();
 			} else {
 				gm.totalScore = gm.score;
+				//Debug.Log ("TimeUp");
 				OnTimeUp ();
+				StopCount ();
 				//ゲーム終了
 			}
 		}
 
-		if (gm.monumentCount == gm.allMonument) {			
+		if (gm.monumentCount == gm.allMonument) {	
 			remainingTime = time;
 			gm.totalScore = gm.score + remainingTime * 10;
 			//ゲーム終了

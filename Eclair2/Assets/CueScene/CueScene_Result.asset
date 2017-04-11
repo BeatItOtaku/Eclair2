@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachedSceneGUID: 
   cueList:
-  - time: 0
+  - time: 1
     gameObjectName: Canvas
     cueEventID: 656f78s8f9d0n97d
     parameter: Result
@@ -23,6 +23,12 @@ MonoBehaviour:
     gameObjectName: SystemSE
     cueEventID: 69s879arg784q9889u3raa
     parameter: 7ff9e49af270508438aae2694572b0a6
+    paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
+    UUID: 
+  - time: 8
+    gameObjectName: GameManager
+    cueEventID: s69set9ltegw5uw59jses
+    parameter: Title
     paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
     UUID: 
   Version: 1

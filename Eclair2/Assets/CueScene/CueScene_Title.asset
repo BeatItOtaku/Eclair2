@@ -14,19 +14,19 @@ MonoBehaviour:
   attachedSceneGUID: 
   cueList:
   - time: 0
-    gameObjectName: TitleManager
+    gameObjectName: 
     cueEventID: 69s879arg784q9889u3raa
     parameter: f3432fc7c22072f4389ee06ab8a0f2bf
     paramObject: {fileID: 8300000, guid: f3432fc7c22072f4389ee06ab8a0f2bf, type: 3}
     UUID: 
   - time: 0
-    gameObjectName: Canvas/Black
+    gameObjectName: 
     cueEventID: 656f78s8f9d0n97d
     parameter: In
     paramObject: {fileID: 0}
     UUID: 
   - time: 0
-    gameObjectName: TitleManager
+    gameObjectName: 
     cueEventID: s69set9ltegw5uw59jses
     parameter: Tutorial
     paramObject: {fileID: 0}

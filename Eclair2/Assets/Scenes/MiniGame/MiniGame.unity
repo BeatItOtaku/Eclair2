@@ -31716,7 +31716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e149fbb9f9d334cd6bec1c5e99d2d372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTime: 120
+  defaultTime: 10
   gm: {fileID: 1564728417}
 --- !u!114 &1378830151
 MonoBehaviour:
@@ -35173,6 +35173,7 @@ GameObject:
   - 114: {fileID: 1564728422}
   - 114: {fileID: 1564728421}
   - 114: {fileID: 1564728423}
+  - 114: {fileID: 1564728424}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -35297,7 +35298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861d0d71e8440ae458f2dc580331d815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cueScene: {fileID: 11400000, guid: 1f873c27627d54efab4f699562843664, type: 2}
+  cueScene: {fileID: 11400000, guid: 3841730aab7fd4b909d8f08997bd14a1, type: 2}
   playOnAwake: 1
   loop: 0
 --- !u!114 &1564728421
@@ -35336,6 +35337,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2bd210ae4c9a408899d0c6a91ad8ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1564728424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564728416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aba09504c1814dbd87bdbf6d9287b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1567063690
