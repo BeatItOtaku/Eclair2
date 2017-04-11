@@ -4,10 +4,15 @@ using UnityEngine.UI;
 
 public class TimeCounter : MonoBehaviour {
 
-	public float time = 120;
+	public float defaultTime = 120;
+
+	[System.NonSerialized]
+	public float time;
 	private float remainingTime;
 
 	public GameManager gm;
+
+	private bool isCounting = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +21,8 @@ public class TimeCounter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!isCounting)
+			return;
 
 		if (gm.monumentCount != gm.allMonument) {
 			if (time >= 0) {
@@ -33,6 +40,15 @@ public class TimeCounter : MonoBehaviour {
 			gm.totalScore = gm.score + remainingTime * 10;
 			//ゲーム終了
 		}
-	
+	}
+
+	public void StartCount(){
+		isCounting = true;
+		time = defaultTime;
+	}
+
+	public void StopCount(){
+		isCounting = false;
+		time = 0;
 	}
 }

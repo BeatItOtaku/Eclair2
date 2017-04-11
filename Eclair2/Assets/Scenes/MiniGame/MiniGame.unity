@@ -31639,6 +31639,8 @@ GameObject:
   - 224: {fileID: 1378830147}
   - 222: {fileID: 1378830149}
   - 114: {fileID: 1378830148}
+  - 114: {fileID: 1378830150}
+  - 114: {fileID: 1378830151}
   m_Layer: 5
   m_Name: TimeCountText
   m_TagString: Untagged
@@ -31703,6 +31705,30 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378830146}
+--- !u!114 &1378830150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378830146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e149fbb9f9d334cd6bec1c5e99d2d372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultTime: 120
+  gm: {fileID: 1564728417}
+--- !u!114 &1378830151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378830146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b78ac3e0e0e548029a692d407ffa2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1381571237
 GameObject:
   m_ObjectHideFlags: 0
@@ -33504,6 +33530,7 @@ GameObject:
   - 224: {fileID: 1504681713}
   - 222: {fileID: 1504681715}
   - 114: {fileID: 1504681714}
+  - 114: {fileID: 1504681716}
   m_Layer: 5
   m_Name: TargetCountText
   m_TagString: Untagged
@@ -33568,6 +33595,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1504681712}
+--- !u!114 &1504681716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504681712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f41715a1f7745a5acdb0e95869e061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 1564728417}
 --- !u!1001 &1505191049
 Prefab:
   m_ObjectHideFlags: 0
@@ -35255,7 +35294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861d0d71e8440ae458f2dc580331d815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cueScene: {fileID: 11400000, guid: 0da42e0252ccc4fad839f71543720cc4, type: 2}
+  cueScene: {fileID: 11400000, guid: 3841730aab7fd4b909d8f08997bd14a1, type: 2}
   playOnAwake: 1
   loop: 0
 --- !u!114 &1564728421
@@ -42707,7 +42746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e149fbb9f9d334cd6bec1c5e99d2d372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 120
+  defaultTime: 120
   gm: {fileID: 1564728417}
 --- !u!1 &1900025755 stripped
 GameObject:
