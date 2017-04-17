@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FireManager : MonoBehaviour {
 
+	public PlayerControlManager pcm;
+
 	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
 	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
@@ -33,6 +35,8 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(pcm.eclairStopping == false){
 		if(Input.GetButton("Fire")){
 			if (isShot) {
 				//CameraController.setCursor = true;
@@ -65,6 +69,7 @@ public class FireManager : MonoBehaviour {
 			//shotContinue = false;
 			//CameraController.setCursor = false;
 		}
+	}
 	}
 	/*
 	//Fire

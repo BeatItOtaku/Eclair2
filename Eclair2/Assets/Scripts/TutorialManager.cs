@@ -95,19 +95,24 @@ public class TutorialManager : MonoBehaviour {
 			//『エトワール』は、エクレアが高速移動できる技です。
 			//まずは、エトワールをするために使う道具『ボルト』を出してみましょう。
 			//(ここでボルトが撃てるようになる）
-			//右クリック・・・ボルト射出
-			pcm.isBolt = true;
-			csp.Play ();
+			pcm.eclairStopping = true;
+			csp.Invoke ();
 			break;
 
 		case 5:
+			//右クリック・・・ボルト射出
+			pcm.isBolt = true;
+			csp.Play ();
+
+			break;
+		case 6:
 			//次に、エトワールをしてみましょう。
 			//スペースキー・・・エトワール
 			pcm.isEto = true;
 			csp.Invoke ();
 			break;
 		
-		case 6:
+		case 7:
 		    //これでチュートリアルは終了です。
 		    //光っている地点まで移動すると、ミニゲームが開始されます。
 			csp.Invoke();

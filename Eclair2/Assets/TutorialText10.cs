@@ -32,6 +32,7 @@ public class TutorialText10 : MonoBehaviour {
 			if (!red && !blue && !green) {
 				tm.TurotialCount ();
 				csp.Invoke ();
+				GetComponent<MaskableGraphic> ().enabled = false;
 				Ontutorial2 = true;
 			}
 		}
