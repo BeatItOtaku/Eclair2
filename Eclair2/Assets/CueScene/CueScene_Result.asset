@@ -13,17 +13,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachedSceneGUID: 
   cueList:
-  - time: 1
-    gameObjectName: Canvas
-    cueEventID: 656f78s8f9d0n97d
-    parameter: Result
-    paramObject: {fileID: 0}
+  - time: 0
+    gameObjectName: GameManager
+    cueEventID: 98hgk7f67j5a2lhg
+    parameter: 
+    paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
     UUID: 
   - time: 0
     gameObjectName: SystemSE
     cueEventID: 69s879arg784q9889u3raa
     parameter: 7ff9e49af270508438aae2694572b0a6
     paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
+    UUID: 
+  - time: 0
+    gameObjectName: Canvas
+    cueEventID: 656f78s8f9d0n97d
+    parameter: Result
+    paramObject: {fileID: 0}
     UUID: 
   - time: 8
     gameObjectName: GameManager
