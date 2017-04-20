@@ -14,16 +14,16 @@ MonoBehaviour:
   attachedSceneGUID: 
   cueList:
   - time: 0
-    gameObjectName: Canvas
-    cueEventID: 656f78s8f9d0n97d
-    parameter: TimeUp
-    paramObject: {fileID: 0}
-    UUID: 
-  - time: 4
     gameObjectName: SystemSE
     cueEventID: 69s879arg784q9889u3raa
     parameter: eeec2f728f9e646ad8d2aab0f926d40e
     paramObject: {fileID: 8300000, guid: eeec2f728f9e646ad8d2aab0f926d40e, type: 3}
+    UUID: 
+  - time: 0
+    gameObjectName: Canvas
+    cueEventID: 656f78s8f9d0n97d
+    parameter: TimeUp
+    paramObject: {fileID: 0}
     UUID: 
   - time: 3
     gameObjectName: GameManager

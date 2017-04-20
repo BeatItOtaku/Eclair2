@@ -18,7 +18,7 @@ public class Anten : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (alfa);
+		//Debug.Log (alfa);
 		if (antenStart) {
 			StartCoroutine (AntenCoroutine ());
 		}

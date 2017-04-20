@@ -9,32 +9,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04dd2b884f26a45868bcbd5da8c241b6, type: 3}
-  m_Name: CueScene_Result
+  m_Name: CueScene_Title
   m_EditorClassIdentifier: 
   attachedSceneGUID: 
   cueList:
   - time: 0
-    gameObjectName: GameManager
-    cueEventID: 98hgk7f67j5a2lhg
-    parameter: 
-    paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
-    UUID: 
-  - time: 0
-    gameObjectName: SystemSE
+    gameObjectName: TitleManager
     cueEventID: 69s879arg784q9889u3raa
-    parameter: 7ff9e49af270508438aae2694572b0a6
-    paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
+    parameter: f3432fc7c22072f4389ee06ab8a0f2bf
+    paramObject: {fileID: 8300000, guid: f3432fc7c22072f4389ee06ab8a0f2bf, type: 3}
     UUID: 
   - time: 0
-    gameObjectName: Canvas
+    gameObjectName: Canvas/Black
     cueEventID: 656f78s8f9d0n97d
-    parameter: Result
+    parameter: In
     paramObject: {fileID: 0}
     UUID: 
-  - time: 8
-    gameObjectName: GameManager
+  - time: 1
+    gameObjectName: TitleManager
     cueEventID: s69set9ltegw5uw59jses
-    parameter: Title
-    paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
+    parameter: Tutorial
+    paramObject: {fileID: 0}
     UUID: 
   Version: 1

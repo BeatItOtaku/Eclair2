@@ -60,11 +60,13 @@ namespace wararyo.EclairCueMaker
 
         public void Invoke()
         {
-			if (cueScene.cueList[cursor].gameObjectName != ""){
-                Cue.Invoke(cueScene.cueList[cursor]);
+			Cursor++;
+			//Debug.Log ("Cue#Invoke(" + cueScene.cueList[cursor].gameObjectName + ")");
+			if (cueScene.cueList[cursor - 1].gameObjectName != ""){
+                Cue.Invoke(cueScene.cueList[cursor - 1]);
 			}
             time = 0;
-            Cursor++;
+            //Cursor++; //ここでCursor++するとCueScene内でPlayCueSceneした時にCursorが1になる
         }
 
 		public void Play(){
