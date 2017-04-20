@@ -68,7 +68,7 @@ public class TutorialManager : MonoBehaviour {
 		case 1:
 			//光っている地点まで歩いてみましょう。(WASDキー・・・移動。マウス操作・・・カメラ移動。スペースキー・・・ジャンプ）
 			//csp.Pause();
-			PlayerControlManager.eclairImmobile = false;
+			PlayerControlManager.eclairImmobile = true;
 			break;
 
 		case 2:

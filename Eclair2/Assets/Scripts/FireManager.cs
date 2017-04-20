@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FireManager : MonoBehaviour {
 
+	private GameObject player;
 	public PlayerControlManager pcm;
 
 	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
@@ -35,7 +36,10 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (pcm == null) {
+			player = GameObject.FindGameObjectWithTag ("Player");
+			pcm = GetComponent<PlayerControlManager> ();
+		}
 		if(pcm.eclairStopping == false){
 		if(Input.GetButton("Fire")){
 			if (isShot) {

@@ -31,3 +31,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Credit.unity
   - enabled: 1
     path: Assets/Scenes/MiniGame/Tutorial.unity
+  - enabled: 1
+    path: Assets/Scenes/MiniGame/MiniGame.unity
