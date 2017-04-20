@@ -192,7 +192,7 @@ public class CameraController : MonoBehaviour
 
         float mDist = distance;//プレイヤーとカメラの間に物体があった時はmDistが小さくなる
         
-		Debug.Log (mDist);
+		//Debug.Log (mDist);
 		cameraOffset = new Vector3(0, 0, -mDist);
 		cameraOffset = Quaternion.Euler(angle, y, 0) * cameraOffset;
 

@@ -25,7 +25,7 @@ MonoBehaviour:
     parameter: In
     paramObject: {fileID: 0}
     UUID: 
-  - time: 0
+  - time: 1
     gameObjectName: TitleManager
     cueEventID: s69set9ltegw5uw59jses
     parameter: Tutorial
