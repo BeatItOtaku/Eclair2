@@ -26,6 +26,12 @@ MonoBehaviour:
     paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
     UUID: 
   - time: 0
+    gameObjectName: Canvas/CrossHair
+    cueEventID: zldifgseniccgisg
+    parameter: False
+    paramObject: {fileID: 8300000, guid: 7ff9e49af270508438aae2694572b0a6, type: 3}
+    UUID: a1d4f298-dcb8-4fad-96a5-38c7d7118c18
+  - time: 0
     gameObjectName: Canvas
     cueEventID: 656f78s8f9d0n97d
     parameter: Result
