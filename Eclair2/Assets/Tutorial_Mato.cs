@@ -16,7 +16,7 @@ public class Tutorial_Mato : MonoBehaviour {
 	
 	}
 	private void OnCollisionEnter(Collision col){
-		if (tm.tutorialCount == 4) {
+		if (tm.tutorialCount == 5) {
 			if (col.gameObject.tag == "Bolt") {
 				tm.TurotialCount ();
 			}
@@ -24,8 +24,8 @@ public class Tutorial_Mato : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider coll){
-		if(tm.tutorialCount == 5){
-			if(coll.gameObject.tag == "ETOEcliar"){
+		if(tm.tutorialCount == 6){
+			if(coll.gameObject.tag == "ETOEclair"){
 				tm.TurotialCount();
 			}
 		}

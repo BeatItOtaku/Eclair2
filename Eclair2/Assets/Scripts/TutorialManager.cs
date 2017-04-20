@@ -16,6 +16,8 @@ using wararyo.EclairCueMaker;
 /// </summary>
 public class TutorialManager : MonoBehaviour {
 
+	public GameObject eclair;
+
 	public PlayerControlManager pcm; //エクレアの操作が記述されたクラス。
 	public FireManager fm; //エクレアの攻撃操作が記述されたクラス。
 
@@ -27,16 +29,18 @@ public class TutorialManager : MonoBehaviour {
 
 	public CueScenePlayer csp;
 
+	private Animator anim;
 	// Use this for initialization
 	void Start () {
 		
-		pcm.eclairImmobile= false; //エクレアは動けない。
+		PlayerControlManager.eclairImmobile= false; //エクレアは動けない。
 		fm.isShot = false; //エクレアは射撃ができない。
 		fm.isAttack = false; //エクレアは打撃ができない。
 		pcm.isBolt = false; //エクレアはボルト射出ができない。
 		pcm.isEto = false; //エクレアはETOができない。
 		pcm.isAvoid = false; //エクレアは回避ができない。
 	
+		anim = eclair.GetComponent<Animator> ();
 
 		csp = gameObject.GetComponent<CueScenePlayer> ();
 	}
@@ -64,7 +68,7 @@ public class TutorialManager : MonoBehaviour {
 		case 1:
 			//光っている地点まで歩いてみましょう。(WASDキー・・・移動。マウス操作・・・カメラ移動。スペースキー・・・ジャンプ）
 			//csp.Pause();
-			pcm.eclairImmobile = false;
+			PlayerControlManager.eclairImmobile = false;
 			break;
 
 		case 2:
@@ -95,19 +99,25 @@ public class TutorialManager : MonoBehaviour {
 			//『エトワール』は、エクレアが高速移動できる技です。
 			//まずは、エトワールをするために使う道具『ボルト』を出してみましょう。
 			//(ここでボルトが撃てるようになる）
-			//右クリック・・・ボルト射出
-			pcm.isBolt = true;
+			anim.SetBool("Shot",false);
+			pcm.eclairStopping = true;
 			csp.Play ();
 			break;
 
 		case 5:
+			//右クリック・・・ボルト射出
+			pcm.isBolt = true;
+			pcm.eclairStopping = false;
+
+			break;
+		case 6:
 			//次に、エトワールをしてみましょう。
 			//スペースキー・・・エトワール
 			pcm.isEto = true;
 			csp.Invoke ();
 			break;
 		
-		case 6:
+		case 7:
 		    //これでチュートリアルは終了です。
 		    //光っている地点まで移動すると、ミニゲームが開始されます。
 			csp.Invoke();

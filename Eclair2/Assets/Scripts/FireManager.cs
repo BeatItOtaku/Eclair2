@@ -3,10 +3,12 @@ using System.Collections;
 
 public class FireManager : MonoBehaviour {
 
+	public PlayerControlManager pcm;
+
 	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
 	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
-	public bool shotContinue = false;//射撃している間、近接攻撃にならない
+	public static bool shotContinue = false;//射撃している間、近接攻撃にならない
 
 	private bool fire = false; //攻撃を繰り出したかどうか
 
@@ -18,10 +20,12 @@ public class FireManager : MonoBehaviour {
 
 	private Animator anim;
 
+	public GameObject shotEffect;
 	//デバッグ用
 	public GameObject bullet;
 	public GameObject close;
 	public Transform muzzle;
+	public Transform muzzleFlash;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +35,8 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(pcm.eclairStopping == false){
 		if(Input.GetButton("Fire")){
 			if (isShot) {
 				//CameraController.setCursor = true;
@@ -42,6 +48,7 @@ public class FireManager : MonoBehaviour {
 					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
 					Instantiate (bullet, muzzle.position, muzzle.rotation);
+					Instantiate (shotEffect, muzzleFlash.position, muzzleFlash.rotation);
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
 				}
@@ -58,10 +65,11 @@ public class FireManager : MonoBehaviour {
 	}
 		if (Input.GetButtonUp ("Fire")) 
 		{
-			shotContinue = false;
 			anim.SetBool ("Shot",false);
+			//shotContinue = false;
 			//CameraController.setCursor = false;
 		}
+	}
 	}
 	/*
 	//Fire
