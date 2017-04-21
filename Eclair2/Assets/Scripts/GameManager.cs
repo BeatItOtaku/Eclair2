@@ -4,6 +4,8 @@ using wararyo.EclairCueMaker;
 
 public class GameManager : MonoBehaviour {
 
+	public PlayerControlManager pcm;
+
 	public int score = 0;
 	public float totalScore;
 	public int monumentCount = 0;
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		pcm.eclairStopping = true;
 		timeCounter.OnTimeUp += OnTimeCounterTimeUp;
 	}
 	

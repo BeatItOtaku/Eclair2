@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Monument : MonoBehaviour {
 
+	private GameObject player;
+
 	public int hp; //モニュメントの耐久力
 	public int redHp = 10;
 	public int blueHp = 30;
@@ -19,11 +21,14 @@ public class Monument : MonoBehaviour {
 	public GameObject effect;
 	private bool isEffect = false;//エフェクトを再生したかどうか
 
+	public GameObject pointUI;//破壊時に現れるUI
+
 	// Use this for initialization
 	void Start () {
 
 		Animation anim = gameObject.GetComponent<Animation> ();
 		anim.Play ();
+		player = GameObject.FindGameObjectWithTag ("Player");
 
 		if (gameObject.tag == "RedMonument") {
 			
@@ -63,15 +68,20 @@ public class Monument : MonoBehaviour {
 				Instantiate (effect, transform.position, transform.rotation);
 				if (gm != null) {
 					//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
+					GameObject go = (GameObject)Instantiate(pointUI,transform.position,transform.rotation);
+					go.GetComponent<Score3D>().Score = 10;//または20または30
+					go.GetComponent<Score3D>().LookAt(player.transform.position);
 					gm.score += score;
 					gm.monumentCount++;
 				}
 				isEffect = true;
 			}
-				Destroy (gameObject,0.1f);
-			}
+			Destroy (gameObject,0.1f);
+		}
 
 	}
+
+			
 
 	private void OnCollisionEnter(Collision col){
 		if (hp > 0) {
