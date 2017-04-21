@@ -13,8 +13,9 @@ public class Score3D : MonoBehaviour {
 		}
 		set{
 			score = value;
-			if (scoreTex [value] != null)
-				GetComponentInChildren<Renderer> ().material.SetTexture ("Albedo",scoreTex.Find(x =>  x.score == value).texture);//ラムダ式を使ってみたよ
+			ScoreTexture st = scoreTex.Find (x => x.score == value);
+			if (st != null)
+				GetComponentInChildren<Renderer> ().material.SetTexture ("_MainTex",st.texture);//ラムダ式を使ってみたよ
 		}
 	}
 
