@@ -31460,7 +31460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e149fbb9f9d334cd6bec1c5e99d2d372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTime: 10
+  pcm: {fileID: 1406541918}
+  defaultTime: 20
   gm: {fileID: 1564728417}
 --- !u!114 &1378830151
 MonoBehaviour:
@@ -34950,6 +34951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b417d05992b26423d8a461ed775196c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pcm: {fileID: 1406541918}
   score: 0
   totalScore: 0
   monumentCount: 0

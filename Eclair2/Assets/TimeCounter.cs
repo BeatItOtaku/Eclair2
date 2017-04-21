@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class TimeCounter : MonoBehaviour {
 
+	public PlayerControlManager pcm;
+
 	public float defaultTime = 120;
 
 	[System.NonSerialized]
@@ -49,6 +51,7 @@ public class TimeCounter : MonoBehaviour {
 	}
 
 	public void StartCount(){
+		pcm.eclairStopping = false;
 		isCounting = true;
 		time = defaultTime;
 	}

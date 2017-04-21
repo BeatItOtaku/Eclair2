@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Score3D : MonoBehaviour {
 
 	public List<ScoreTexture> scoreTex;
-	public float autoDestroyTime = 2.0f;
+	public float autoDestroyTime = 0.8f;
 	private int score;
 	public int Score{
 		get{
@@ -26,7 +26,7 @@ public class Score3D : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Destroy (this, autoDestroyTime);
+		Destroy (gameObject, autoDestroyTime);
 	}
 
 	public void LookAt(Vector3 LookAt){
