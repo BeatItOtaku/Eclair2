@@ -69,7 +69,9 @@ public class Monument : MonoBehaviour {
 				if (gm != null) {
 					//チュートリアルで、GameManagerが見つからない場合はスコアを加算しない。
 					GameObject go = (GameObject)Instantiate(pointUI,transform.position,transform.rotation);
-					go.GetComponent<Score3D>().Score = 10;//または20または30
+					if(gameObject.tag == "RedMonument")go.GetComponent<Score3D>().Score = 10;//または20または30
+					if(gameObject.tag == "BlueMonument")go.GetComponent<Score3D>().Score = 20;//または20または30
+					if(gameObject.tag == "GreenMonument")go.GetComponent<Score3D>().Score = 30;//または20または30
 					go.GetComponent<Score3D>().LookAt(player.transform.position);
 					gm.score += score;
 					gm.monumentCount++;

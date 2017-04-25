@@ -12,13 +12,20 @@ public class Eto : MonoBehaviour {
 	private Bolt boltManager;
 
 	private float distance;//etoエクレアからボルトまでの距離
-	private float abs = 0.5f;//etoエクレアからボルトまでの距離で、ETOが解除される距離
+
+	private Vector3 startPosition;
+	private Vector3 endPosition;
+	private float startTime;
+
+	private float abs;
+
 	public float etoSpeed = 100;
 
 	public AudioClip etoileEndSound;
 
 	// Use this for initialization
 	void Start () {
+		
 		gameObject.SetActive (false);
 	}
 	
@@ -28,37 +35,47 @@ public class Eto : MonoBehaviour {
 		if (bolt == null) {
 			bolt = GameObject.FindGameObjectWithTag ("Bolt");
 			boltManager = bolt.GetComponent<Bolt> ();
+
+			distance = Vector3.Distance (gameObject.transform.position, pcm.lastShot.transform.position);
+			startPosition = gameObject.transform.position;
+			endPosition = pcm.lastShot.transform.position;
+			startTime = Time.time;
+
 		}
 
 		gameObject.transform.LookAt (pcm.lastShot.transform.position);//ボルトの方を向く。
-		transform.position += transform.forward * Time.deltaTime * etoSpeed;
 
-		distance = Vector3.Distance (gameObject.transform.position, pcm.lastShot.transform.position);
-		if (Mathf.Abs (distance) < abs) {//etoエクレアとボルトとの距離がabs以下ならETO解除
-			Instantiate (attackEffect, transform.position, transform.rotation);
-			pcm.etoOn = false;
-			player.transform.position = gameObject.transform.position;
-			Destroy (pcm.lastShot);//ボルトを消去
+		float distCovered = (Time.time - startTime) * etoSpeed;
+		float fracJourney = distCovered / distance;
 
-			player.SetActive (true);
-			gameObject.SetActive (false);
+		transform.position = Vector3.Lerp (startPosition, endPosition,fracJourney );
+		//transform.position += transform.forward * Time.deltaTime * etoSpeed;
 
+		abs = Mathf.Abs (Vector3.Distance (gameObject.transform.position, pcm.lastShot.transform.position));
+
+		if (abs < 1.0f) {
+			EtoEnd ();
 		}
-	
+
+			
 	}
 
-	private void OnCollisitonEnter(Collider col){
-		if (col.gameObject.tag == ("Bolt")) {
-			Instantiate (attackEffect, transform.position, transform.rotation);
-			bolt = null;  //ETOの目標となるボルトを消す
-			boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
-			boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
-			pcm.isEto = false; //ボルトが消えたため、ETOをできない状態に戻す
-			pcm.etoOn = false; //ETOが終了した
-			GetComponent<AudioSource> ().PlayOneShot (etoileEndSound);
-			player.SetActive (true);
-			gameObject.SetActive (false);
+	private void EtoEnd(){
+		//GetComponent<AudioSource> ().PlayOneShot (etoileEndSound);
+		Instantiate (attackEffect, transform.position, transform.rotation);
+		player.transform.position = endPosition;
+		boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
+		boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
+		Destroy (bolt);
+		pcm.etoOn = false; //ETOが終了した
+		player.SetActive (true);
+		gameObject.SetActive (false);
 
+
+	}
+	private void OnTriggerEnter(Collider col){
+		if (col.gameObject.tag == "Terrain") {
+			EtoEnd ();
 		}
 	}
 }
