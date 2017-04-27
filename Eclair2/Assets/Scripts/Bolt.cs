@@ -5,7 +5,7 @@ public class Bolt : MonoBehaviour {
 
 	public bool launchBolt = false; //ボルトが着弾したことを判定する変数
 
-	public float speed = 50;
+	public float speed = 80;
 
 	private PlayerControlManager pcm;
 	private GameObject player;
@@ -17,6 +17,8 @@ public class Bolt : MonoBehaviour {
 	private float journeyLength;//ボルトが出現した位置からぶつかる場所までの距離
 	private float startTime;//ボルトが出現したときの時刻
 
+	private bool trueEnd; //ボルトの進む向きに出したRayが、何かにぶつかったときtrueを返す
+	private int layerMask;
 	private GameObject parent = null;//ボルトが当たったオブジェクトを親オブジェクトとし、親オブジェクトが動いてもボルトも同期して動くようにする
 
 
@@ -30,11 +32,17 @@ public class Bolt : MonoBehaviour {
 
 		startPosition = gameObject.transform.position;
 		startTime = Time.time;
-		direction = pcm.cursorRay;//new Ray (transform.position, transform.forward);
-		if(Physics.Raycast(direction,out hit,Mathf.Infinity)){
+		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
+		direction =new Ray (transform.position, transform.forward); //pcm.cursorRay;
+		layerMask = ~((1 << 8) +(1<<13));//PlayerとBoltとEclairKeepOut以外全部
+		if (Physics.Raycast (direction, out hit, Mathf.Infinity, layerMask)) {
 			endPosition = hit.point;
-		}
+			trueEnd = true;
 			journeyLength = Vector3.Distance (startPosition, endPosition);
+		} else {
+			trueEnd = false;
+		}
+			
 	
 
 
@@ -44,21 +52,24 @@ public class Bolt : MonoBehaviour {
 	void Update () {
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
 
-		if (PlayerControlManager.shot == true) {
-			
-
-			float distCovered = (Time.time - startTime) * speed;
-			float fracJourney = distCovered / journeyLength;
-
-			transform.position = Vector3.Lerp (startPosition, endPosition,fracJourney );
-
-		}
-		if (launchBolt) {
-			transform.position = endPosition;
-			if (parent != null) {
-				transform.SetParent (parent.transform, true);
+		if (trueEnd) {
+			if (PlayerControlManager.shot == true) {
+				float distCovered = (Time.time - startTime) * speed;
+				float fracJourney = distCovered / journeyLength;
+				transform.position = Vector3.Lerp (startPosition, endPosition, fracJourney);
 			}
+
+			if (gameObject.transform.position == endPosition) {
+				GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
+				launchBolt = true;
+			}
+		} else {
+			transform.position += transform.forward * Time.deltaTime * speed;
 		}
+			/*if (parent != null) {
+				transform.SetParent (parent.transform, true);
+			}*/
+
 	}
 
 	private void OnCollisionEnter(Collision col){

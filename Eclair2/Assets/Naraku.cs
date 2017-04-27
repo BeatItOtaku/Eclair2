@@ -5,23 +5,24 @@ using System.Collections.Generic;
 public class Naraku : MonoBehaviour {
 
 	public GameObject player;
-	private float distance;
+	//private float distance; 
 
-	private GameObject[] restartPosition;
+	private GameObject[] restartPosition; //[restartPosition]というタグがついたGameObjectの配列
 
 	List<GameObject> targetList = new List<GameObject>();
+
+	public GameObject position = null; //エクレアが移動する、一番近いrestartPosition
 
 	// Use this for initialization
 	void Start () {
 
-		/*restartPosition = GameObject.FindGameObjectsWithTag ("RestartPosition");
-		foreach (GameObject rp in restartPosition) {
-			distance = Vector3.Distance (rp.transform.position, player.transform.position);
-			targetList.Add(new KeyValuePair<float, GameObject>(distance, rp));
-		}
-		targetList.Sort ();
-		player.transform.position = targetList[0].Value.transform.position;
-*/
+
+	}
+
+
+	// Update is called once per frame
+	void Update () {
+
 
 	}
 
@@ -34,22 +35,14 @@ public class Naraku : MonoBehaviour {
 		else//delta < 0
 			return -1;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-
-
-	}
 
 	private void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player" || col.gameObject.tag == "ETOEclair")
 		{
 			targetList = new List<GameObject>(GameObject.FindGameObjectsWithTag("RestartPosition"));
 			targetList.Sort (CompareRestartPosition);
-			player.transform.position = targetList[0].transform.position;
-			Debug.Log (player.transform.position);
-			Debug.Log (targetList [0].transform.position);
+			//player.transform.position = targetList[0].transform.position;
+			position = targetList[0];//.transform.position;
 			Anten.antenStart = true;
 
 		}

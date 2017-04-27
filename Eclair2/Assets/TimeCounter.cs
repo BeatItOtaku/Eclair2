@@ -6,7 +6,7 @@ public class TimeCounter : MonoBehaviour {
 
 	public PlayerControlManager pcm;
 
-	public float defaultTime = 99999;
+	public float defaultTime = 180;
 
 	[System.NonSerialized]
 	public float time;
@@ -46,6 +46,8 @@ public class TimeCounter : MonoBehaviour {
 		if (gm.monumentCount == gm.allMonument) {	
 			remainingTime = time;
 			gm.totalScore = gm.score + remainingTime * 10;
+			OnTimeUp ();
+			StopCount ();
 			//ゲーム終了
 		}
 	}

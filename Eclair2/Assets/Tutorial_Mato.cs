@@ -15,17 +15,16 @@ public class Tutorial_Mato : MonoBehaviour {
 	void Update () {
 	
 	}
-	private void OnCollisionEnter(Collision col){
+
+
+	private void OnTriggerEnter(Collider col){
 		if (tm.tutorialCount == 5) {
 			if (col.gameObject.tag == "Bolt") {
 				tm.TurotialCount ();
 			}
 		}
-	}
-
-	private void OnTriggerEnter(Collider coll){
 		if(tm.tutorialCount == 6){
-			if(coll.gameObject.tag == "ETOEclair"){
+			if(col.gameObject.tag == "ETOEclair"){
 				tm.TurotialCount();
 			}
 		}

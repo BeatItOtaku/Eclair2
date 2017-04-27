@@ -21,6 +21,7 @@ public class Eto : MonoBehaviour {
 
 	public float etoSpeed = 100;
 
+	public AudioSource audioSource;
 	public AudioClip etoileEndSound;
 
 	// Use this for initialization
@@ -36,14 +37,14 @@ public class Eto : MonoBehaviour {
 			bolt = GameObject.FindGameObjectWithTag ("Bolt");
 			boltManager = bolt.GetComponent<Bolt> ();
 
-			distance = Vector3.Distance (gameObject.transform.position, pcm.lastShot.transform.position);
+			distance = Vector3.Distance (gameObject.transform.position, bolt.transform.position);
 			startPosition = gameObject.transform.position;
-			endPosition = pcm.lastShot.transform.position;
+			endPosition = bolt.transform.position;
 			startTime = Time.time;
 
 		}
 
-		gameObject.transform.LookAt (pcm.lastShot.transform.position);//ボルトの方を向く。
+		gameObject.transform.LookAt (bolt.transform.position);//ボルトの方を向く。
 
 		float distCovered = (Time.time - startTime) * etoSpeed;
 		float fracJourney = distCovered / distance;
@@ -61,7 +62,7 @@ public class Eto : MonoBehaviour {
 	}
 
 	private void EtoEnd(){
-		//GetComponent<AudioSource> ().PlayOneShot (etoileEndSound);
+		audioSource.PlayOneShot (etoileEndSound);
 		Instantiate (attackEffect, transform.position, transform.rotation);
 		player.transform.position = endPosition;
 		boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す

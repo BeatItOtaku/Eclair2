@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
 	private RaycastHit hit;
 	private Vector3 hitPoint;
 	private Vector3 cameraPosition;
-	private float height = 0.5f;
+	private float height = 500.0f;
 
 
 	public static bool setCursor = false; //ボルト射出準備か、遠距離攻撃をしたときのみtrueを返す。trueで動的カーソルになる。
@@ -117,16 +117,13 @@ public class CameraController : MonoBehaviour
 		if (IsGrounded ()) {//カメラがTerrainに埋まらないようにする
 			ground = new Ray (transform.position, Vector3.down);
 			cameraPosition = gameObject.transform.position;
-			PlayerControlManager.isGround = true;
 			if (Physics.Raycast (ground, out hit, Mathf.Infinity, 16)) {//レイヤー16はTerrain
 				hitPoint = hit.point;
 			}
 			cameraPosition.y = hitPoint.y + height;
 			gameObject.transform.position = cameraPosition;
 
-		} else {
-			PlayerControlManager.isGround = false;
-		}
+		} 
 		
 	}
 

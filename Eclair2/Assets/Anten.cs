@@ -11,6 +11,10 @@ public class Anten : MonoBehaviour {
 
 	public static bool antenStart = false;
 
+	public Naraku naraku;
+
+	public GameObject player;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -33,6 +37,7 @@ public class Anten : MonoBehaviour {
 				black = true;
 			}
 		} else {
+			player.transform.position = naraku.position.transform.position;
 			alfa -= antenSpeed;
 			if (alfa <= 0) {
 				alfa = 0;
