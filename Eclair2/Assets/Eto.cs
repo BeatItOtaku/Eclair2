@@ -22,6 +22,7 @@ public class Eto : MonoBehaviour {
 	public float etoSpeed = 100;
 
 	public AudioSource audioSource;
+	public AudioClip etoileSound;
 	public AudioClip etoileEndSound;
 
 	// Use this for initialization
@@ -42,6 +43,8 @@ public class Eto : MonoBehaviour {
 			endPosition = bolt.transform.position;
 			startTime = Time.time;
 
+			audioSource.PlayOneShot (etoileSound);
+
 		}
 
 		gameObject.transform.LookAt (bolt.transform.position);//ボルトの方を向く。
@@ -55,6 +58,8 @@ public class Eto : MonoBehaviour {
 		abs = Mathf.Abs (Vector3.Distance (gameObject.transform.position, pcm.lastShot.transform.position));
 
 		if (abs < 1.0f) {
+			audioSource.Stop ();
+			audioSource.PlayOneShot (etoileEndSound);
 			EtoEnd ();
 		}
 

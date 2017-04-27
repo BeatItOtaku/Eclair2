@@ -385,7 +385,7 @@ public class PlayerControlManager : MonoBehaviour {
 						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 						eto.transform.position = player.transform.position;
-						audioSource.PlayOneShot (etoileSound);
+						//audioSource.PlayOneShot (etoileSound);
 						etoOn = true;
 						eto.SetActive (true);				                       
 						player.SetActive (false);

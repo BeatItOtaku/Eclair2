@@ -5,7 +5,7 @@ public class Tutorial_Mato : MonoBehaviour {
 
 	public TutorialManager tm;
 	public CueScenePlayer csp;
-
+	public PlayerControlManager pcm;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,6 +14,9 @@ public class Tutorial_Mato : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		if (tm.tutorialCount == 6 && pcm.etoOn == true) {
+			tm.TurotialCount ();
+		}
 	}
 
 
@@ -21,11 +24,6 @@ public class Tutorial_Mato : MonoBehaviour {
 		if (tm.tutorialCount == 5) {
 			if (col.gameObject.tag == "Bolt") {
 				tm.TurotialCount ();
-			}
-		}
-		if(tm.tutorialCount == 6){
-			if(col.gameObject.tag == "ETOEclair"){
-				tm.TurotialCount();
 			}
 		}
 	}

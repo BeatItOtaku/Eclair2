@@ -61,6 +61,7 @@ public class Bolt : MonoBehaviour {
 
 			if (gameObject.transform.position == endPosition) {
 				GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
+				boltLandSound = null;
 				launchBolt = true;
 			}
 		} else {
@@ -75,7 +76,7 @@ public class Bolt : MonoBehaviour {
 	private void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag != "RedMonument") {
 			launchBolt = true;
-			GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
+			//GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
 			if (col.gameObject.tag == "BlueMonument" || col.gameObject.tag == "GreenMonument") {
 				parent = col.gameObject;
 			} 
