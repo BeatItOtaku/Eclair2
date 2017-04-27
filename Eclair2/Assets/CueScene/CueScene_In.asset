@@ -19,7 +19,7 @@ MonoBehaviour:
     parameter: Title
     paramObject: {fileID: 0}
     UUID: 
-  - time: 5
+  - time: 1
     gameObjectName: Canvas
     cueEventID: 656f78s8f9d0n97d
     parameter: In

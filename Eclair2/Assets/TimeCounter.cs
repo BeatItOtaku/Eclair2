@@ -6,7 +6,7 @@ public class TimeCounter : MonoBehaviour {
 
 	public PlayerControlManager pcm;
 
-	public float defaultTime = 120;
+	public float defaultTime = 99999;
 
 	[System.NonSerialized]
 	public float time;

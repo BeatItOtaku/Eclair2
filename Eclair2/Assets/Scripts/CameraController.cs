@@ -115,15 +115,17 @@ public class CameraController : MonoBehaviour
 	void Update()
 	{
 		if (IsGrounded ()) {//カメラがTerrainに埋まらないようにする
-			ground =   new Ray (transform.position, Vector3.down);
-			cameraPosition =  gameObject.transform.position;
-			
+			ground = new Ray (transform.position, Vector3.down);
+			cameraPosition = gameObject.transform.position;
+			PlayerControlManager.isGround = true;
 			if (Physics.Raycast (ground, out hit, Mathf.Infinity, 16)) {//レイヤー16はTerrain
 				hitPoint = hit.point;
 			}
 			cameraPosition.y = hitPoint.y + height;
 			gameObject.transform.position = cameraPosition;
 
+		} else {
+			PlayerControlManager.isGround = false;
 		}
 		
 	}

@@ -23,6 +23,12 @@ public class Monument : MonoBehaviour {
 
 	public GameObject pointUI;//破壊時に現れるUI
 
+	public AudioSource audioSource;
+
+	public AudioClip shotSound;
+	public AudioClip breakSound;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -78,6 +84,7 @@ public class Monument : MonoBehaviour {
 				}
 				isEffect = true;
 			}
+			audioSource.PlayOneShot (breakSound);
 			Destroy (gameObject,0.1f);
 		}
 
@@ -91,6 +98,8 @@ public class Monument : MonoBehaviour {
 				hp -= 10;
 			}
 			if (col.gameObject.tag == "Bullet") {
+				audioSource.PlayOneShot (shotSound);
+
 				hp -= 5;
 			}
 			if (col.gameObject.tag == "Bolt") {

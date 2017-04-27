@@ -14,7 +14,7 @@ public class FireManager : MonoBehaviour {
 	private bool fire = false; //攻撃を繰り出したかどうか
 
 	private bool shotOn = true;
-	private float shotCoolTime = 0.10f;
+	private float shotCoolTime = 0.05f;
 	private float shotCoolTime_;
 
 	private int fireCount = 0; //攻撃した回数
@@ -27,6 +27,10 @@ public class FireManager : MonoBehaviour {
 	public GameObject close;
 	public Transform muzzle;
 	public Transform muzzleFlash;
+
+	public AudioSource audioSource;
+
+	public AudioClip shotSound;
 
 	// Use this for initialization
 	void Start () {
@@ -53,6 +57,7 @@ public class FireManager : MonoBehaviour {
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
 					Instantiate (bullet, muzzle.position, muzzle.rotation);
 					Instantiate (shotEffect, muzzleFlash.position, muzzleFlash.rotation);
+						audioSource.PlayOneShot (shotSound);
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
 				}

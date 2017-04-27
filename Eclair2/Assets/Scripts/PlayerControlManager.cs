@@ -66,6 +66,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public  bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public static bool shot = false; //ボルトを打ち出したことを判定する
+	public static bool isGround;
 
 	private Vector3 cursorV;//カーソルの位置ベクトル
 	public Ray cursorRay;
@@ -348,7 +349,9 @@ public class PlayerControlManager : MonoBehaviour {
 				playerState_ = PlayerStates.Bolt;
 				eclairImmobile = true;
 				//cursorV = cursor.transform.position;
-				cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+				if (isGround == false) {
+					cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+				}
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 

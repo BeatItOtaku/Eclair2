@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 	private GameObject cursor; //画面上のカーソル
 	private Vector3 cursorV;
 	private Ray cursorRay;
-	public float speed = 20f; //弾の速度
+	public float speed = 60f; //弾の速度
 
 	public float lifeTime = 5; //弾の生存時間
 
