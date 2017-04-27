@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4382017, g: 0.48618025, b: 0.5663936, a: 1}
+  m_IndirectSpecularColor: {r: 0.43820158, g: 0.48618054, b: 0.5663937, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -409,6 +409,7 @@ GameObject:
   - 114: {fileID: 181363315}
   - 114: {fileID: 181363317}
   - 82: {fileID: 181363318}
+  - 114: {fileID: 181363319}
   m_Layer: 0
   m_Name: TutorialManager
   m_TagString: Untagged
@@ -483,9 +484,9 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -535,6 +536,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &181363319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 181363314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf61e071d181bd46ab30c22a3b653ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intro: {fileID: 8300000, guid: 32b38883a0e0b4752b2e8943a4a8f127, type: 3}
+  loop: {fileID: 8300000, guid: de7311d7774264dd2aaf4f67e00b99bf, type: 3}
+  PlayOnAwake: 1
+  defaultVolume: 1
+  volumeSmoothFactor: 0.5
 --- !u!1 &189085796
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +620,8 @@ MonoBehaviour:
   close: {fileID: 100006, guid: ec6e75a3654374c7f9c1007063dcd249, type: 2}
   muzzle: {fileID: 1706133492}
   muzzleFlash: {fileID: 0}
+  audioSource: {fileID: 0}
+  shotSound: {fileID: 0}
 --- !u!114 &191934529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,7 +841,7 @@ Transform:
   m_LocalScale: {x: 5, y: 0.1, z: 5}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children:
-  - {fileID: 344568378}
+  - {fileID: 470483041}
   m_Father: {fileID: 0}
   m_RootOrder: 10
 --- !u!114 &198528923
@@ -1409,10 +1428,6 @@ Transform:
   - {fileID: 1312706150}
   m_Father: {fileID: 976357979}
   m_RootOrder: 0
---- !u!4 &344568378 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400004, guid: 95d1909189cb6451cba4e4baa74abc7a, type: 3}
-  m_PrefabInternal: {fileID: 470483040}
 --- !u!1 &357787018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2238,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95d1909189cb6451cba4e4baa74abc7a, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &470483041 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 470483040}
 --- !u!1 &480359164
 GameObject:
   m_ObjectHideFlags: 0
@@ -8882,7 +8901,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1163513162}
-  serializedVersion: 4
+  serializedVersion: 2
   lengthInSec: 1
   startDelay:
     scalar: 0
@@ -8920,13 +8939,12 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
+  randomSeed: 2165065650
   looping: 1
   prewarm: 0
   playOnAwake: 1
   moveWithTransform: 1
-  autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -2129901646
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -11865,6 +11883,8 @@ MonoBehaviour:
   close: {fileID: 100006, guid: ec6e75a3654374c7f9c1007063dcd249, type: 2}
   muzzle: {fileID: 462312177}
   muzzleFlash: {fileID: 462312177}
+  audioSource: {fileID: 0}
+  shotSound: {fileID: 0}
 --- !u!143 &1406541920
 CharacterController:
   m_ObjectHideFlags: 0
