@@ -31,4 +31,10 @@ MonoBehaviour:
     parameter: Tutorial
     paramObject: {fileID: 0}
     UUID: 
+  - time: 0
+    gameObjectName: Canvas/LoadingIcon
+    cueEventID: zldifgseniccgisg
+    parameter: True
+    paramObject: {fileID: 0}
+    UUID: 4ec4542c-d261-417d-b5aa-e0497c188a81
   Version: 1
