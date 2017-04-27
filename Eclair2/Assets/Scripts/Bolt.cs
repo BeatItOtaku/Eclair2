@@ -59,9 +59,8 @@ public class Bolt : MonoBehaviour {
 				transform.position = Vector3.Lerp (startPosition, endPosition, fracJourney);
 			}
 
-			if (gameObject.transform.position == endPosition) {
+			if (gameObject.transform.position == endPosition && !launchBolt) {
 				GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
-				boltLandSound = null;
 				launchBolt = true;
 			}
 		} else {
