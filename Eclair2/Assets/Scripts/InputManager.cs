@@ -110,7 +110,6 @@ public class InputManager : MonoBehaviour {
 		}
 		playerState_ = PlayerStates.Idle;
 		player.GetComponent<LockOn> ().endLockOn ();
-		crossHair.isLockOn = false;
 		camControl.StopLockOn ();
 		PlayerControl.fly = false;
 		anim.SetBool ("SBTStopToEnd", false);
@@ -301,8 +300,6 @@ public class InputManager : MonoBehaviour {
 	void onLockOnSwitched (GameObject target)
 	{
 		if (target != null) {
-			crossHair.target = target.transform.position;//player.GetComponent<LockOn> ().getCurrentTarget ().transform.position;
-			crossHair.isLockOn = true;
 			audioSource.PlayOneShot (lockOnSound);
 			camControl.StartLockOn (target);
 		}
