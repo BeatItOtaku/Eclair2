@@ -7,6 +7,8 @@ public class TutorialPass : MonoBehaviour {
 
 	public CueScenePlayer csp;
 
+	public AudioClip PassedSE;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -24,6 +26,9 @@ public class TutorialPass : MonoBehaviour {
 				//csp.Play ();
 				csp.Invoke();
 			}
+			GameObject se = new GameObject ("PassedSE", typeof(AudioSource));
+			se.GetComponent<AudioSource>().clip = PassedSE;
+			Instantiate (se, transform.position,new Quaternion(0,0,0,0));
 			Destroy (gameObject);
 		}
 	}

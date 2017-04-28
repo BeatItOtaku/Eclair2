@@ -13,7 +13,7 @@ public class ResultManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (gm.score);
-		GetComponent<UnityEngine.UI.Text>().text = ((int)gm.totalScore).ToString();
+		GetComponent<UnityEngine.UI.Text>().text = ((int)gm.totalScore).ToString() + " P";
 
 	}
 }
