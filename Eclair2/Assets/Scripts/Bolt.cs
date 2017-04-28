@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class Bolt : MonoBehaviour {
@@ -6,6 +7,8 @@ public class Bolt : MonoBehaviour {
 	public bool launchBolt = false; //ボルトが着弾したことを判定する変数
 
 	public float speed = 80;
+
+	public UnityEvent OnLanded;
 
 	private PlayerControlManager pcm;
 	private GameObject player;
@@ -20,6 +23,7 @@ public class Bolt : MonoBehaviour {
 	private bool trueEnd; //ボルトの進む向きに出したRayが、何かにぶつかったときtrueを返す
 	private int layerMask;
 	private GameObject parent = null;//ボルトが当たったオブジェクトを親オブジェクトとし、親オブジェクトが動いてもボルトも同期して動くようにする
+
 
 
 	public AudioClip boltLandSound;
@@ -61,6 +65,7 @@ public class Bolt : MonoBehaviour {
 
 			if (gameObject.transform.position == endPosition && !launchBolt) {
 				GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
+				OnLanded.Invoke ();
 				launchBolt = true;
 			}
 		} else {
@@ -75,7 +80,8 @@ public class Bolt : MonoBehaviour {
 	private void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag != "RedMonument") {
 			launchBolt = true;
-			//GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
+			GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
+			OnLanded.Invoke ();
 			if (col.gameObject.tag == "BlueMonument" || col.gameObject.tag == "GreenMonument") {
 				parent = col.gameObject;
 			} 
