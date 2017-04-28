@@ -52,10 +52,11 @@ public class FireManager : MonoBehaviour {
 				shotContinue = true;
 				if (shotOn == true) {
 					//StartCoroutine (ShotCoroutine ());
-					Ray cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+					Ray cursorRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
-					Instantiate (bullet, muzzle.position, muzzle.rotation);
+						GameObject bulletInstance = (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
+						bulletInstance.GetComponent<Bullet> ().CursorRay = cursorRay;
 					Instantiate (shotEffect, muzzleFlash.position, muzzleFlash.rotation);
 						audioSource.PlayOneShot (shotSound);
 					Vector3 cameraDirection = Camera.main.transform.forward;

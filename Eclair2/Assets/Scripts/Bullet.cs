@@ -6,18 +6,27 @@ public class Bullet : MonoBehaviour {
 	private GameObject cursor; //画面上のカーソル
 	private Vector3 cursorV;
 	private Ray cursorRay;
+
+
 	public float speed = 60f; //弾の速度
 
 	public float lifeTime = 5; //弾の生存時間
 
 	public GameObject effect;
 
+	public Ray CursorRay {
+		set {
+			cursorRay = value;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		//cursor = GameObject.Find ("Cursor");
 		//cursorV = cursor.transform.position;
-		cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+		//cursorRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 	}
+
 	// Update is called once per frame
 	void Update () {
 
