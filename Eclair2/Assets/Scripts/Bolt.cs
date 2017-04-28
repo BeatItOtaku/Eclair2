@@ -8,7 +8,7 @@ public class Bolt : MonoBehaviour {
 
 	public float speed = 80;
 
-	public UnityEvent OnLanded;
+	//public UnityEvent OnLanded;//悲しい
 
 	private PlayerControlManager pcm;
 	private GameObject player;
@@ -65,7 +65,8 @@ public class Bolt : MonoBehaviour {
 
 			if (gameObject.transform.position == endPosition && !launchBolt) {
 				GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
-				OnLanded.Invoke ();
+				//OnLanded.Invoke ();
+				GameObject.Find("Canvas/BoltLand").GetComponent<BoltLandUI>().Instantiate(gameObject);
 				launchBolt = true;
 			}
 		} else {
@@ -81,7 +82,7 @@ public class Bolt : MonoBehaviour {
 		if (col.gameObject.tag != "RedMonument") {
 			launchBolt = true;
 			GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
-			OnLanded.Invoke ();
+			//OnLanded.Invoke ();
 			if (col.gameObject.tag == "BlueMonument" || col.gameObject.tag == "GreenMonument") {
 				parent = col.gameObject;
 			} 
