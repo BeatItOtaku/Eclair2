@@ -17,7 +17,7 @@ public class CrossHairController : MonoBehaviour {
 	}
 
 	void Update(){
-		Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
+		Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.6f,0));
 		ray.origin = muzzle.position;
 		RaycastHit hit;
 		if (Physics.Raycast (ray, out hit,float.PositiveInfinity,layerMask)) {
