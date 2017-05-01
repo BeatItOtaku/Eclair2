@@ -178,7 +178,7 @@ public class PlayerControlManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (playerState_);
+		//Debug.Log (playerState_);
 
 		//Move
 		horizontal = Input.GetAxis("Horizontal"); //左右方向の移動
