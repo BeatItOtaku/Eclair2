@@ -159,9 +159,9 @@ public class CameraController : MonoBehaviour
 					//Debug.Log(deltaY + "," + deltaAngle);
 					float deltaYAbs = Mathf.Abs (deltaY);
 					float deltaAngleAbs = Mathf.Abs (deltaAngle);
-					if (0.1 < deltaYAbs && deltaYAbs < 120)
+				if (0.1 < deltaYAbs && deltaYAbs < 120)
 						targetY += deltaY;
-					if (0.1 < deltaAngleAbs && deltaAngleAbs < 90)
+				if (0.1 < deltaAngleAbs && deltaAngleAbs < 90)
 						targetAngle -= deltaAngle;
 				//}
 			}
