@@ -17,8 +17,6 @@ public class FireManager : MonoBehaviour {
 	private float shotCoolTime = 0.05f;
 	private float shotCoolTime_;
 
-	private int fireCount = 0; //攻撃した回数
-
 	private Animator anim;
 
 	public GameObject shotEffect;
@@ -40,10 +38,12 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (pcm == null) {
+		if (pcm == null) {//pcmがない場合、取得
 			player = GameObject.FindGameObjectWithTag ("Player");
 			pcm = GetComponent<PlayerControlManager> ();
 		}
+
+
 		if(pcm.eclairStopping == false){
 		if(Input.GetButton("Fire")){
 			if (isShot) {
