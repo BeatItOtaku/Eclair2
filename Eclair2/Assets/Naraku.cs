@@ -11,7 +11,7 @@ public class Naraku : MonoBehaviour {
 
 	List<GameObject> targetList = new List<GameObject>();
 
-	public GameObject position = null; //エクレアが移動する、一番近いrestartPosition
+	//public GameObject position = null; //エクレアが移動する、一番近いrestartPosition
 
 	// Use this for initialization
 	void Start () {
@@ -41,10 +41,8 @@ public class Naraku : MonoBehaviour {
 		{
 			targetList = new List<GameObject>(GameObject.FindGameObjectsWithTag("RestartPosition"));
 			targetList.Sort (CompareRestartPosition);
-			//player.transform.position = targetList[0].transform.position;
-			position = targetList[0];//.transform.position;
-			Anten.antenStart = true;
-
+			player.transform.position = targetList[0].transform.position;
+			//position = targetList[0];//.transform.position;
 		}
 
 	}
