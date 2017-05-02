@@ -19,7 +19,7 @@ using System.Collections.Generic;
 public class PlayerControlManager : MonoBehaviour {
 
 	//汎用系
-	//public GameObject player;
+	public GameObject player;
 
 	public GameObject cursor;//画面上に現れるカーソル
 
@@ -67,7 +67,8 @@ public class PlayerControlManager : MonoBehaviour {
 	public  bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public static bool shot = false; //ボルトを打ち出したことを判定する
 
-	public Ray cursorRay;//ボルトを打ち出す方向のRay
+	private Vector3 cursorV;//カーソルの位置ベクトル
+	public Ray cursorRay;
 
 	private Bolt boltmanager;//Boltオブジェクト内のBoltというスクリプト
 
@@ -81,10 +82,7 @@ public class PlayerControlManager : MonoBehaviour {
 			boltQuaternionOffset = Quaternion.Euler (boltRotationOffset);
 		}
 	}
-		
-	private float boltButtonTime = 0;//右クリック（ボルト）のボタンを押している長さ。
-	public GameObject attackBolt1;
-	public GameObject attackBoltMuzzle;
+
 
 	//Avoid
 	public  bool isAvoid = true; //falseでエクレアは回避ができなくなる。
@@ -155,7 +153,7 @@ public class PlayerControlManager : MonoBehaviour {
 	void Awake(){
 
 			//アニメーション関係
-			anim =GetComponent<Animator> ();
+			anim = player.GetComponent<Animator> ();
 
 		//Move
 		//hFloat = Animator.StringToHash("H");
@@ -348,39 +346,27 @@ public class PlayerControlManager : MonoBehaviour {
 			if (Input.GetButtonDown ("LaunchBolt")) 
 			{
 				playerState_ = PlayerStates.Bolt;
-				eclairImmobile = true; //ボルト射出が終了するまでエクレアは動けなくなる。
+				eclairImmobile = true;
 				//cursorV = cursor.transform.position;
 				cursorRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.6f, 0f));			
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 
 				//ボルトの複製と前に撃ったボルトの消去
-				if (preShot != null)Destroy (preShot);//前に撃ったボルトの消去
+				if (preShot != null)
+					Destroy (preShot);
 				lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
 				preShot = lastShot;
 				boltmanager = lastShot.GetComponent<Bolt> ();
 				shot = true; //打ち出したことを判定する変数
 				anim.SetTrigger("Bolt");
 				audioSource.PlayOneShot (boltLaunchSound);
-			}		
+
+			}
+		
 			if (boltmanager != null) {				
 					isEto = true;
-				//ETOが使用可能になる。
 					//ボルトまでの距離を表示するようなUIを出す？
-			}
-
-			if(Input.GetButton("LaunchBolt")){
-				boltButtonTime += Time.deltaTime;
-				//右クリックを押している時間により、攻撃が変化する。
-
-			}
-
-			if(Input.GetButtonUp("LaunchBolt")){
-				if (boltButtonTime >= 1.0f) {
-					Instantiate (attackBolt1, attackBoltMuzzle.transform.position, attackBoltMuzzle.transform.rotation);
-				}
-				boltButtonTime = 0;
-
 			}
 			}
 		}
@@ -398,11 +384,11 @@ public class PlayerControlManager : MonoBehaviour {
 						playerState_ = PlayerStates.Eto;
 						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-						eto.transform.position = gameObject.transform.position;
+						eto.transform.position = player.transform.position;
 						//audioSource.PlayOneShot (etoileSound);
 						etoOn = true;
 						eto.SetActive (true);				                       
-						gameObject.SetActive (false);
+						player.SetActive (false);
 					}
 				} else {
 					playerState_ = PlayerStates.Idle;

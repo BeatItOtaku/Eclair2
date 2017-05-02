@@ -1,12 +1,43 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
-using wararyo.EclairCueMaker;
 using System;
+using wararyo.EclairCueMaker;
 
-public class CueEvent_AttackBolt1 : CueEventBase {
+[RequireComponent(typeof(Animator))]
+public class CueEvent_UIInAndOut2 : CueEventBase {
 
+	private bool isStaged = false;
+
+	public float time = 2f;
+
+	// Use this for initialization
 	void Start () {
+		if(GetComponent<MaskableGraphic>())GetComponent<MaskableGraphic>().enabled = false;
+		ChildIsEnabled = false;
 
+	}
+
+
+	void Update(){
+		Debug.Log (isStaged);
+		if (isStaged == true) {
+		time -= Time.deltaTime;
+			time = Mathf.Max (time, 0);
+		if (time <= 0) {
+				gameObject.SetActive (false);
+				//GetComponent<Animator> ().Play ("Out");
+				isStaged = false;
+			}
+		}
+	}
+
+	private bool ChildIsEnabled {
+		set{
+			foreach (MaskableGraphic g in gameObject.GetComponentsInChildren<MaskableGraphic>()) {
+				g.enabled = value;
+			}
+		}
 	}
 
 	/// <summary>
@@ -16,7 +47,7 @@ public class CueEvent_AttackBolt1 : CueEventBase {
 	{
 		get
 		{
-			return "AttackBolt1";
+			return "UI In and Out";
 		}
 	}
 
@@ -30,7 +61,7 @@ public class CueEvent_AttackBolt1 : CueEventBase {
 	{
 		get
 		{
-			return "lwefaiugv3qoabejw";
+			return "wefosbdvzfcysvei";
 		}
 	}
 
@@ -41,19 +72,29 @@ public class CueEvent_AttackBolt1 : CueEventBase {
 	/// string
 	/// int
 	/// float
-	/// GameObject
+	/// GameObjectなどのUnityEngine.Object継承型
 	/// </summary>
 	public override Type ParamType
 	{
 		get
 		{
-			return typeof(bool);
+			return typeof(void);
 		}
 	}
 
 
 	public override void Cue(object param)
 	{
-		AttackBolt1.attack = true;
+		//Debug.Log ("aho");
+		if (isStaged) {//アウトのアニメーション
+			GetComponent<Animator>().Play("Out");
+		} else {//インのアニメーション
+			if(GetComponent<MaskableGraphic>())GetComponent<MaskableGraphic>().enabled = true;
+			ChildIsEnabled = true;
+			isStaged = true;
+			GetComponent<Animator>().Play("In");
+		}
 	}
+
+
 }
