@@ -41,6 +41,10 @@ public class PlayerControlManager : MonoBehaviour {
 	private bool isMoving = false; //trueでエクレアが動いている、falseで止まっている。
 	private bool runAnim;
 
+	private float runTime = 0;
+	private bool dash;
+	private bool dashChange;
+
 
 	//Rotate
 	public Transform cameraTransform;   // 操作するカメラ
@@ -248,15 +252,40 @@ public class PlayerControlManager : MonoBehaviour {
 	//Move
 	void MoveManagement(float horizontal, float vertical)
 	{
+		if(Input.GetKeyDown(KeyCode.Q)){
+			dashChange = !dashChange;
+		}
 		if (eclairImmobile || eclairStopping) {
 			isMoving = false;
 		}
 			if (isMoving) {
-				speed = 6;
-				runAnim = true;
+			Debug.Log (dashChange);
+			Debug.Log (dash);
+
+			if (dashChange) {
+				
+				//ダッシュボタン（スペースキー）押している間ダッシュ
+				if (Input.GetButton ("Space"))dash = true;
+				if (Input.GetButtonUp ("Space"))dash = false;
+
+			} else {
+				
+				//一定時間移動するとダッシュ
+				runTime += Time.deltaTime;
+				if (runTime >= 2.0f) {
+					dash = true;
+
+				}
+			}
+			if(dash)speed = 12;
+			if(!dash)speed = 6;
+			runAnim = true;
+
 			} else {
 			speed = 0;
 			runAnim = false;
+			runTime = 0;
+			dash = false;
 		}
 		Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
