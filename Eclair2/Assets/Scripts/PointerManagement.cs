@@ -52,16 +52,16 @@ public class PointerManagement : MonoBehaviour {
 	void Update ()
 	{
 		
-		if (CameraController.setCursor == true) {//動的カーソル
+		//if (CameraController.setCursor == true) {//動的カーソル
 			cursor.x += Input.GetAxis ("Camera X") * Time.deltaTime * sensitivity;
 			cursor.y += Input.GetAxis ("Camera Y") * Time.deltaTime * sensitivity;
 			cursor_ = new Vector3 (mouseX, mouseY, cursor.z);
 			cursorPosition.position = cursor_;
 			cursorSenter = false;
-		} else {			
+		//} else {			
 				cursor.x = Screen.width / 2;
 				cursor.y = Screen.height / 2;				
-		}
+		//}
 }
 }
 

@@ -56,6 +56,7 @@ public class PlayerControlManager : MonoBehaviour {
 	//Fire
 	//Fireに関しては、別のFireManagerに詳細が記述されている。
 	public FireManager fm;
+	private Vector3 direction;//shot中の移動に使う
 
 
 	//Bolt
@@ -234,8 +235,8 @@ public class PlayerControlManager : MonoBehaviour {
 		if (FireManager.shotContinue == false) {
 			MoveManagement (horizontal, vertical);
 		} else {
-			transform.position += transform.forward *Time.deltaTime*0;
-			//ShotMoveManagement (horizontal, vertical);
+			//transform.position += transform.forward *Time.deltaTime*0;
+			ShotMoveManagement ();
 		}
 
 
@@ -251,25 +252,30 @@ public class PlayerControlManager : MonoBehaviour {
 			isMoving = false;
 		}
 			if (isMoving) {
-				speed = 3;
+				speed = 6;
 				runAnim = true;
 			} else {
-				speed = 0;
-				runAnim = false;
-			}
-			Rotating (horizontal, vertical);
+			speed = 0;
+			runAnim = false;
+		}
+		Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
 			anim.SetBool ("Run",runAnim);
 
 
 	}
 
-	void ShotMoveManagement(float horizontal, float vertical){
-		Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
-		float speed = 0.5f;
-		direction *= speed;
+	void ShotMoveManagement(){
 
-		transform.position += Time.deltaTime*direction * speed;
+		if (horizontal != 0 || vertical != 0) {			
+			direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
+		} else {
+			direction = Vector3.zero;
+		}
+
+		float speed = 1f;
+
+		transform.position +=Time.deltaTime * direction * speed;
 
 	}
 
@@ -294,7 +300,7 @@ public class PlayerControlManager : MonoBehaviour {
 			Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
 
 			Quaternion newRotation = Quaternion.Slerp (GetComponent<Rigidbody> ().rotation, targetRotation, finalTurnSmoothing * Time.deltaTime*20);
-			GetComponent<Rigidbody> ().MoveRotation (newRotation);
+				GetComponent<Rigidbody> ().MoveRotation (newRotation);
 			//lastDirection = targetDirection;
 		}
 		if (!(Mathf.Abs (horizontal) > 0.9 || Mathf.Abs (vertical) > 0.9)) {			

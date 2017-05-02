@@ -76,7 +76,7 @@ public class FireManager : MonoBehaviour {
 		if (Input.GetButtonUp ("Fire")) 
 		{
 			anim.SetBool ("Shot",false);
-			//shotContinue = false;
+			shotContinue = false;
 			//CameraController.setCursor = false;
 		}
 	}

@@ -9,14 +9,19 @@ public class CameraController : MonoBehaviour
 {
 	public PlayerControlManager pcm;
 	public GameObject player;
+	public GameObject cameraParent;
 
 	public  GameObject LookAt {
 		get {
 			if (pcm.etoOn == true) {
 				return pcm.eto;
+			}
+			else if (LookAtObject.lookAt == true) {
+				return cameraParent;
 			} else {
 				return player;
 			}
+				
 		}
 	}
 
@@ -30,9 +35,6 @@ public class CameraController : MonoBehaviour
 	private Vector3 hitPoint;
 	private Vector3 cameraPosition;
 	private float height = 500.0f;
-
-
-	public static bool setCursor = false; //ボルト射出準備か、遠距離攻撃をしたときのみtrueを返す。trueで動的カーソルになる。
 
 	public Transform cameraTransform;   // 操作するカメラ
 	public float mouseSensitivity = 300.0f;  // マウス感度

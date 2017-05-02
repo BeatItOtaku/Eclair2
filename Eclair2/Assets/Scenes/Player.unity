@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 130829110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcm: {fileID: 1406541918}
   player: {fileID: 638925083}
+  cameraParent: {fileID: 130829110}
   cameraTransform: {fileID: 338940115}
   mouseSensitivity: 300
   defaultDistance: 1.8
@@ -248,7 +249,7 @@ MonoBehaviour:
   cm: {fileID: 338940116}
   mainCamera: {fileID: 338940110}
   player: {fileID: 1406541913}
-  cameraParent: {fileID: 130829110}
+  cameraParent: {fileID: 1406541913}
 --- !u!82 &338940118
 AudioSource:
   m_ObjectHideFlags: 0
