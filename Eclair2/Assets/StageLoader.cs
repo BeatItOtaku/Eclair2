@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class StageLoader : MonoBehaviour {
 
+	public string sceneName;
+
 	// Use this for initialization
 	void Start () {
-	
+		SceneManager.LoadSceneAsync (sceneName,LoadSceneMode.Additive);
 	}
 	
 	// Update is called once per frame
