@@ -125,7 +125,7 @@ MonoBehaviour:
         tint: 0
         hueShift: 0
         saturation: 0.946
-        contrast: 1.163
+        contrast: 1
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
@@ -148,13 +148,18 @@ MonoBehaviour:
             m_Curve:
             - time: 0
               value: 0
-              inSlope: 1
-              outSlope: 1
+              inSlope: 0.48587075
+              outSlope: 0.48587075
+              tangentMode: 0
+            - time: 0.5
+              value: 0.4650206
+              inSlope: 1.3251033
+              outSlope: 1.3251033
               tangentMode: 0
             - time: 1
               value: 1
               inSlope: 1
-              outSlope: 1
+              outSlope: 0
               tangentMode: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
