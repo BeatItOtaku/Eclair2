@@ -38,11 +38,9 @@ public class LookAtObject : MonoBehaviour {
 			pcm.eclairStopping = !pcm.eclairStopping; //エクレアの動作を停止、再開させる
 			cameraParent.transform.position = player.transform.position;
 			cameraParent.transform.rotation = player.transform.rotation;
-			mainCamera.transform.parent = cameraParent.transform;
 			Debug.Log ("Tab");
 			if (!lookAt) {
 				cc.distance = cc.defaultDistance;
-			//Destroy (cameraParent_);
 			}
 		}
 	
@@ -52,7 +50,7 @@ public class LookAtObject : MonoBehaviour {
 			vertical = Input.GetAxis("Vertical"); //上下方向の移動
 
 			if (cc.distance <= 0f) {
-				mouseScroll = Mathf.Min(0, Input.GetAxis("Mouse ScrollWheel"));
+				mouseScroll = Mathf.Min(0, Input.GetAxis("Mouse ScrollWheel"));//カメラがエクレアを通り越してズームイン、アウトしない設定
 			} else {
 				mouseScroll = Input.GetAxis("Mouse ScrollWheel");//マウススクロールの移動
 			}
