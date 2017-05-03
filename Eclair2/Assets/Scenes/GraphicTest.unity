@@ -165,10 +165,10 @@ LensFlare:
   m_Flare: {fileID: 12100000, guid: 28f1e8eff353b4e69941c036ea093e73, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Brightness: 2
-  m_FadeSpeed: 3
+  m_FadeSpeed: 8
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 6
+    m_Bits: 4294730446
   m_Directional: 1
 --- !u!1001 &6818423
 Prefab:
