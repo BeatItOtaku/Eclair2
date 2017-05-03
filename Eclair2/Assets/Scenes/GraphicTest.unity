@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 5335157}
-  m_IndirectSpecularColor: {r: 1.2548764, g: 1.1356372, b: 0.5889297, a: 1}
+  m_IndirectSpecularColor: {r: 0.33904654, g: 0.27485967, b: 0.09807113, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -131,8 +131,8 @@ Light:
     m_NormalBias: 3
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
-  m_Flare: {fileID: 12100000, guid: 3ca3d4e332e9641439d689a9005a1813, type: 2}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -162,7 +162,7 @@ LensFlare:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 5335156}
   m_Enabled: 1
-  m_Flare: {fileID: 12100000, guid: 3ca3d4e332e9641439d689a9005a1813, type: 2}
+  m_Flare: {fileID: 12100000, guid: 28f1e8eff353b4e69941c036ea093e73, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Brightness: 2
   m_FadeSpeed: 3
