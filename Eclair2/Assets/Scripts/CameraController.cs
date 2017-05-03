@@ -67,7 +67,7 @@ public class CameraController : MonoBehaviour
 	private float targetAngle;
 	private float currentY;
 	private float currentAngle;
-	private float distance;
+	public float distance;
 	private Vector3 cameraOffset;
 
 	private bool isLockOn = false;

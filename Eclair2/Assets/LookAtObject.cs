@@ -22,6 +22,8 @@ public class LookAtObject : MonoBehaviour {
 	private float vertical;
 	private float speed = 20;
 
+	private int num;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -37,27 +39,34 @@ public class LookAtObject : MonoBehaviour {
 			if (!lookAt) {
 				pcm.eclairStopping = false;
 				cm.enabled = true;
+				cm.distance = 1.8f;
 			}
 		}
 	
 		if (lookAt) {
 			pcm.eclairStopping = true;//エクレアが動かなくなり、操作はカメラに移る。
-			//cm.enabled = false;
+			mainCamera.transform.parent = cameraParent.transform;
 
 			horizontal = Input.GetAxis("Horizontal"); //左右方向の移動
 			vertical = Input.GetAxis("Vertical"); //上下方向の移動
 
-			if (Input.GetKeyDown (KeyCode.Alpha1)) {
-				//キーボードの1キーを押すと、カメラの水平移動
-				cameraParent.transform.position += (Vector3.right * horizontal + Vector3.up * vertical) * speed * Time.deltaTime;
-				Debug.Log("alpha1");
-			}
+			if (Input.GetKeyDown (KeyCode.Alpha1))num = 1;
+			if (Input.GetKeyDown (KeyCode.Alpha2))num = 2;
 
-			if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			switch (num) {
+			case 1:
+				//キーボードの1キーを押すと、カメラの水平移動
+				cameraParent.transform.position += (cameraParent.transform.right * horizontal + cameraParent.transform.up * vertical) * speed * Time.deltaTime;
+				Debug.Log("alpha1");
+				break;
+
+			case 2:
 				//キーボードの2キーを押すと、カメラのズームイン、アウト
 				Debug.Log("alpha2");
-				cameraParent.transform.LookAt(player.transform);
-				cameraParent.transform.position += (Vector3.up * vertical) * speed * Time.deltaTime;
+				cm.distance += vertical * Time.deltaTime;
+				break;
+				
+
 			}
 		}
 	}
