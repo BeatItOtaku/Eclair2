@@ -126,7 +126,7 @@ Material:
       second: 1
     - first:
         name: _Outline_Width
-      second: 0.5
+      second: 1.01
     - first:
         name: _Parallax
       second: 0.02
