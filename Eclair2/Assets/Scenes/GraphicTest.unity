@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000002, guid: 15e1a845314e0734bbcba5ea617a7d3f,
+  m_LightingDataAsset: {fileID: 112000001, guid: 15e1a845314e0734bbcba5ea617a7d3f,
     type: 2}
   m_RuntimeCPUUsage: 50
 --- !u!196 &4
@@ -137,7 +137,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1.79
   m_ShadowRadius: 0
@@ -400,8 +400,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 13617110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: -118, z: 297}
-  m_LocalScale: {x: 1500, y: 20, z: 1500}
+  m_LocalPosition: {x: 17, y: -121.6, z: 297}
+  m_LocalScale: {x: 1500, y: 43.25421, z: 1500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 871623668}
@@ -470,7 +470,7 @@ MonoBehaviour:
   cueEventID: 8g0d8dshdnfhgjs9h90h60909
   parameter: 4d9730344e75342489ebc7f596d07a02
   paramObject: {fileID: 11400000, guid: 4d9730344e75342489ebc7f596d07a02, type: 2}
-  singleUse: 1
+  singleUse: 0
   wayEnabled: 1
 --- !u!1 &20031221
 GameObject:
@@ -1961,7 +1961,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &270797559
 Transform:
@@ -8833,7 +8833,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871623667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01072, y: 6.237, z: -0.19981}
+  m_LocalPosition: {x: -0.01288, y: 2.841, z: -0.19505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
