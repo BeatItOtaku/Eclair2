@@ -9,19 +9,27 @@ public class CameraController : MonoBehaviour
 {
 	public PlayerControlManager pcm;
 	public GameObject player;
-	public GameObject cameraParent;
+
+	private GameObject Debug {
+		get {
+			return GameObject.Find ("DebugSceneManager");
+		}
+	}
+	private LookAtObject Lao {//エクレアじろじろシステム
+		get {
+			return Debug.GetComponent<LookAtObject> ();
+		}
+	}
 
 	public  GameObject LookAt {
 		get {
 			if (pcm.etoOn == true) {
 				return pcm.eto;
-			}
-			else if (LookAtObject.lookAt == true) {
-				return cameraParent;
+			} else if (Lao.lookAt == true) {
+				return Lao.cameraParent;
 			} else {
 				return player;
 			}
-				
 		}
 	}
 
@@ -38,7 +46,7 @@ public class CameraController : MonoBehaviour
 
 	public Transform cameraTransform;   // 操作するカメラ
 	public float mouseSensitivity = 300.0f;  // マウス感度
-	public float defaultDistance = 3.0f;
+	public float defaultDistance = 1.8f;
 	public float defaultAngle = 30.0f;//degree
 	public float defaultY = 0.0f;
 

@@ -91,34 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &130829110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 130829111}
-  m_Layer: 8
-  m_Name: cameraParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &130829111
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 130829110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.196, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1406541917}
-  m_RootOrder: 20
 --- !u!1 &338940110
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +105,6 @@ GameObject:
   - 81: {fileID: 338940111}
   - 114: {fileID: 338940116}
   - 82: {fileID: 338940118}
-  - 114: {fileID: 338940117}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -222,7 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcm: {fileID: 1406541918}
   player: {fileID: 638925083}
-  cameraParent: {fileID: 130829110}
   cameraTransform: {fileID: 338940115}
   mouseSensitivity: 300
   defaultDistance: 1.8
@@ -234,22 +204,7 @@ MonoBehaviour:
   cameraVerticalAngleOffset: 15
   cameraVerticalAngleOffsetWhenLockOn: 45
   lockOnFOV: 50
---- !u!114 &338940117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338940110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6460165550bb24bf9ad997ff14178960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pcm: {fileID: 1406541918}
-  cm: {fileID: 338940116}
-  mainCamera: {fileID: 338940110}
-  player: {fileID: 1406541913}
-  cameraParent: {fileID: 1406541913}
+  distance: 0
 --- !u!82 &338940118
 AudioSource:
   m_ObjectHideFlags: 0
