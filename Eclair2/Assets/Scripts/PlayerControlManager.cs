@@ -252,23 +252,21 @@ public class PlayerControlManager : MonoBehaviour {
 	//Move
 	void MoveManagement(float horizontal, float vertical)
 	{
-		if(Input.GetKeyDown(KeyCode.Q)){
+		/*if(Input.GetKeyDown(KeyCode.Q)){
 			dashChange = !dashChange;
-		}
+		}*/
 		if (eclairImmobile || eclairStopping) {
 			isMoving = false;
 		}
-			if (isMoving) {
-			Debug.Log (dashChange);
-			Debug.Log (dash);
+		if (isMoving) {
 
-			if (dashChange) {
+			/*if (dashChange) {
 				
 				//ダッシュボタン（スペースキー）押している間ダッシュ
 				if (Input.GetButton ("Space"))dash = true;
 				if (Input.GetButtonUp ("Space"))dash = false;
 
-			} else {
+			} else {*/
 				
 				//一定時間移動するとダッシュ
 				runTime += Time.deltaTime;
@@ -276,7 +274,7 @@ public class PlayerControlManager : MonoBehaviour {
 					dash = true;
 
 				}
-			}
+			//}
 			if(dash)speed = 12;
 			if(!dash)speed = 6;
 			runAnim = true;
