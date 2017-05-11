@@ -8,12 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7a4f1ed102fff48bfcc99aaffa7e33, type: 3}
-  m_Name: InputTypes 1
+  m_Script: {fileID: 11500000, guid: a938e0878139d4bccba2b59a00a80534, type: 3}
+  m_Name: KeyboardKeyConfig
   m_EditorClassIdentifier: 
-  inputTypes:
-  - Camera
-  - Move
-  - Shot
-  - ETO
-  - Avoid

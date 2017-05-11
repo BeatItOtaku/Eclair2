@@ -9,15 +9,15 @@ namespace wararyo.EclairInput {
 	/// </summary>
 	public static class EclairInput {
 
-		public static List<InputDevice> Controllers;
+		public static List<InputDevice> InputDevices;
 
 		static EclairInput(){
-			Controllers = new List<InputDevice>();
+			InputDevices = new List<InputDevice>();
 		}
 	}
 
 	public abstract class InputDevice {
-		private string deviceName;
+		protected string deviceName = "";
 		public string DeviceName{ get { return deviceName; } }
 
 		public Action<InputEvent> OnInput;
