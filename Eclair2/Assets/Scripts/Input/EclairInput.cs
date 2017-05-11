@@ -9,6 +9,8 @@ namespace wararyo.EclairInput {
 	/// </summary>
 	public static class EclairInput {
 
+		public static InputTypes inputTypes;
+
 		public static List<InputDevice> InputDevices;
 
 		static EclairInput(){

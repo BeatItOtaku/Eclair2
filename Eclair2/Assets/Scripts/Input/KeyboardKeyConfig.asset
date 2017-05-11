@@ -11,3 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a938e0878139d4bccba2b59a00a80534, type: 3}
   m_Name: KeyboardKeyConfig
   m_EditorClassIdentifier: 
+  keyConfig:
+  - keyCode: 0
+    inputType: 
+  - keyCode: 0
+    inputType: 
+  - keyCode: 0
+    inputType: 
+  - keyCode: 0
+    inputType: 
+  - keyCode: 0
+    inputType: 
+  mouse: 
+  axis: 

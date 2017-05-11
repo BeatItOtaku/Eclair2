@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e7a4f1ed102fff48bfcc99aaffa7e33, type: 3}
-  m_Name: InputTypes 1
+  m_Name: InputTypes
   m_EditorClassIdentifier: 
   inputTypes:
   - Camera

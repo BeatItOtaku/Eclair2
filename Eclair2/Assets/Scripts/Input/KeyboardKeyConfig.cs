@@ -2,21 +2,29 @@
 using System.Collections;
 using System.Collections.Generic;
 
-/// <summary>
-/// キーボードのキーとInputTypeを紐づける情報
-/// </summary>
-[CreateAssetMenu (fileName = "KeyboardKeyConfig.asset", menuName = "EclairInput/KeyboardKeyConfig", order = 383)]
-public class KeyboardKeyConfig : ScriptableObject {
-	public List<KeyboardKeyInputTypePair> keyConfig;
+namespace wararyo.EclairInput {
 
-	public string mouse;
-	public string axis;
-	public KeyboardKeyConfig(){
+	/// <summary>
+	/// キーボードのキーとInputTypeを紐づける情報
+	/// </summary>
+	[CreateAssetMenu (fileName = "KeyboardKeyConfig.asset", menuName = "EclairInput/KeyboardKeyConfig", order = 383)]
+	public class KeyboardKeyConfig : ScriptableObject {
+		[InputType]
+		public string mouse;
+		[InputType]
+		public string axis;
+
+		public List<KeyboardKeyInputTypePair> keyConfig;
+		public KeyboardKeyConfig(){
+		}
 	}
-}
 
-[System.Serializable]
-public class KeyboardKeyInputTypePair{
-	public int keyCode;
-	public string inputType;
+	[System.Serializable]
+	public class KeyboardKeyInputTypePair{
+		public KeyCode keyCode;
+		[InputType]
+		public string inputType;
+	}
+
+
 }
