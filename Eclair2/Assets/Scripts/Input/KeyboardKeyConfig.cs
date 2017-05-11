@@ -9,11 +9,20 @@ namespace wararyo.EclairInput {
 	/// </summary>
 	[CreateAssetMenu (fileName = "KeyboardKeyConfig.asset", menuName = "EclairInput/KeyboardKeyConfig", order = 383)]
 	public class KeyboardKeyConfig : ScriptableObject {
+		
 		[InputType]
-		public string mouse;
+		public string mouseMove;
 		[InputType]
+		public string mouseRight;
+		[InputType]
+		public string mouseLeft;
+		[InputType]
+		public string mouseWheel;
+
+		[InputType,SpaceAttribute]
 		public string axis;
 
+		[Space]
 		public List<KeyboardKeyInputTypePair> keyConfig;
 		public KeyboardKeyConfig(){
 		}

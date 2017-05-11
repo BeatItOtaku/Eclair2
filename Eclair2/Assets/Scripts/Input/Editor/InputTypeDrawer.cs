@@ -15,10 +15,14 @@ namespace wararyo.EclairInput {
 
 			if (property.propertyType == SerializedPropertyType.String) {
 				if (EclairInput.inputTypes == null)
-					EditorGUI.LabelField (position, "InputTypes is not set");
+					EditorGUI.LabelField (position, label.text,"InputTypes is not set");
 				else {
 					//いよいよ描画していくよ
-					List<string> inputTypes = EclairInput.inputTypes.inputTypes;
+					List<string> inputTypes = new List<string>(EclairInput.inputTypes.inputTypes);
+
+					//Noneを足す
+					inputTypes.Insert(0, "None");
+
 					int[] inputTypeNumbers = GenerateOptionValues(inputTypes.Count);
 
 					if (!string.IsNullOrEmpty (property.stringValue)) {
@@ -28,9 +32,11 @@ namespace wararyo.EclairInput {
 					inputTypeAttribute.selectedValue = EditorGUI.IntPopup(position,
 						label.text,
 						inputTypeAttribute.selectedValue,
-						EclairInput.inputTypes.inputTypes.ToArray(),
+						inputTypes.ToArray(),
 						inputTypeNumbers);
-					property.stringValue = inputTypes[inputTypeAttribute.selectedValue];
+					if (inputTypeAttribute.selectedValue == -1)
+						property.stringValue = "";
+					else property.stringValue = inputTypes[inputTypeAttribute.selectedValue];
 				}
 			} else {
 				EditorGUI.PropertyField (position, property);
@@ -43,7 +49,7 @@ namespace wararyo.EclairInput {
 			int[] numbers = new int[count];
 
 			for (int i = 0; i < count; i++) {
-				numbers [i] = i;
+				numbers [i] = i - 1; //Noneが-1になるように
 			}
 			return numbers;
 		}
