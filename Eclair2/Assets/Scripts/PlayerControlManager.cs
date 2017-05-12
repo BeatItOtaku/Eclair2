@@ -39,11 +39,14 @@ public class PlayerControlManager : MonoBehaviour {
 	private int groundedBool;
 
 	private bool isMoving = false; //trueでエクレアが動いている、falseで止まっている。
-	private bool runAnim;
+	private bool runAnim;//アニメーションのRunに対する変数。trueでRunアニメーションが再生される。
 
-	private float runTime = 0;
+
+	private float runTime = 0;//ダッシュに関する変数群
 	private bool dash;
 	private bool dashChange;
+
+	private float stopTime = 0;//アニメーションのRun→RunToIdleに遷移するのを調整する変数。
 
 
 	//Rotate
@@ -263,29 +266,33 @@ public class PlayerControlManager : MonoBehaviour {
 		if (isMoving) {
 
 			/*if (dashChange) {
-				
 				//ダッシュボタン（スペースキー）押している間ダッシュ
 				if (Input.GetButton ("Space"))dash = true;
 				if (Input.GetButtonUp ("Space"))dash = false;
-
 			} else {*/
 				
 				//一定時間移動するとダッシュ
 				runTime += Time.deltaTime;
-				if (runTime >= 2.0f) {
-					dash = true;
+				if (runTime >= 2.0f)dash = true;
 
-				}
+			//ストップタイムの初期化
+				stopTime = 0;
 			//}
 			if(dash)speed = 12;
 			if(!dash)speed = 6;
 			runAnim = true;
 
 			} else {
+
+			//移動キーを離しても、一定時間以内までにもう一度移動キーが押されれば、アニメーションのステートはRunからRunToIdleに向かわず走り続ける
+			stopTime += Time.deltaTime;
+			if (stopTime <= 0.5f)runAnim = false;
+
 			speed = 0;
-			runAnim = false;
 			runTime = 0;
 			dash = false;
+			//runAnim = false;
+
 		}
 		Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
