@@ -3081,7 +3081,7 @@ MonoBehaviour:
   isEto: 0
   etoOn: 0
   eto: {fileID: 852047924}
-  jumpHeight: 5
+  jumpHeight: 20
   HPGauge: {fileID: 0}
   audioSource: {fileID: 1406541916}
   boltLaunchSound: {fileID: 8300000, guid: afe45737abd92e54e81f2c4c132e1b4c, type: 3}

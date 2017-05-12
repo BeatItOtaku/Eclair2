@@ -100,7 +100,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Jump
-	public float jumpHeight = 50.0f;
+	public float jumpHeight = 100.0f;
 
 
 	//Damage
@@ -200,8 +200,7 @@ public class PlayerControlManager : MonoBehaviour {
 				//Eto
 				EtoManagement ();
 
-				//Avoid
-				AvoidManagement ();
+
 
 
 			}
@@ -242,6 +241,9 @@ public class PlayerControlManager : MonoBehaviour {
 			//transform.position += transform.forward *Time.deltaTime*0;
 			ShotMoveManagement ();
 		}
+
+		//Avoid
+		AvoidManagement ();
 
 
 			//Jump
@@ -358,6 +360,9 @@ public class PlayerControlManager : MonoBehaviour {
 			if(Input.GetButtonDown("Avoid")){
 				playerState_ = PlayerStates.Avoid;
 				if (isMoving) {
+					Vector3 horizontalV = gameObject.transform.right * horizontal;
+					Vector3 verticalV = gameObject.transform.forward * vertical;
+					GetComponent<Rigidbody> ().AddForce(horizontalV + verticalV,ForceMode.Impulse);
 					anim.SetFloat ("Horizontal", horizontal);
 					anim.SetFloat ("Vertical", vertical);
 				} else {
@@ -441,8 +446,9 @@ public class PlayerControlManager : MonoBehaviour {
 			if (Input.GetButtonDown ("Space"))
 			{				
 				playerState_ = PlayerStates.Jump;
+				//anim.SetTrigger ("Jump");
 				GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
-				anim.SetTrigger ("Jump");
+
 			}
 		}
 	}
