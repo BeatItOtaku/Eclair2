@@ -17,6 +17,8 @@ namespace wararyo.EclairInput {
 		[InputType]
 		public string mouseLeft;
 		[InputType]
+		public string mouseMiddle;
+		[InputType]
 		public string mouseWheel;
 
 		[InputType,SpaceAttribute]

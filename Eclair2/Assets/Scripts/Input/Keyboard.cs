@@ -11,14 +11,51 @@ namespace wararyo.EclairInput{
 		}
 
 		public KeyboardKeyConfig keyConfig;
+		public string mouseXAxisName = "Camera X";
+		public string mouseYAxisName = "Camera Y";
+		public float MouseThreshold = 0.2f;
 
+		//InputDeviceはMonoDevelopを継承してないからこのUpdateは自動で呼ばれない
+		//だからEclairInputDriverから実行することで疑似的にUpdateを再現する
 		public override void Update ()
 		{
-			foreach (KeyboardKeyInputTypePair p in keyConfig.keyConfig) {
-				if(Input.GetKeyDown((KeyCode)p.keyCode)){
-
-				}
+			//マウス移動
+			float mouseX = Input.GetAxis (mouseXAxisName);
+			float mouseY = Input.GetAxis (mouseYAxisName);
+			if (Mathf.Pow (mouseX, 2) + Mathf.Pow (mouseY, 2) >= MouseThreshold) {
+				onInput (keyConfig.mouseMove, InputEvent.EventState.Move, new Vector2 (mouseX, mouseY));
 			}
+			//ひだりクリ
+			if (Input.GetMouseButtonDown (0))
+				onInput (keyConfig.mouseLeft, InputEvent.EventState.Down);
+			if (Input.GetMouseButtonUp (0))
+				onInput (keyConfig.mouseLeft, InputEvent.EventState.Up);
+			//ホイールクリ
+			if (Input.GetMouseButtonDown (1))
+				onInput (keyConfig.mouseMiddle, InputEvent.EventState.Down);
+			if (Input.GetMouseButtonUp (1))
+				onInput (keyConfig.mouseMiddle, InputEvent.EventState.Up);
+			//みぎクリ
+			if (Input.GetMouseButtonDown (2))
+				onInput (keyConfig.mouseRight, InputEvent.EventState.Down);
+			if (Input.GetMouseButtonUp (2))
+				onInput (keyConfig.mouseRight, InputEvent.EventState.Up);
+			//ホイール
+			if(Input.mouseScrollDelta.magnitude > MouseThreshold)
+				onInput(keyConfig.mouseWheel, InputEvent.EventState.Move, Input.mouseScrollDelta);
+
+			foreach (KeyboardKeyInputTypePair p in keyConfig.keyConfig) {
+				if(Input.GetKeyDown((KeyCode)p.keyCode))	onInput (p.inputType, InputEvent.EventState.Down, Vector2.zero);
+				if(Input.GetKeyUp((KeyCode)p.keyCode))		onInput (p.inputType, InputEvent.EventState.Up, Vector2.zero);
+			}
+		}
+
+		public void onInput(string t, InputEvent.EventState s){
+			onInput (t, s, Vector2.zero);
+		}
+
+		public void onInput(string t,InputEvent.EventState s, Vector2 d){
+			OnInput (new InputEvent (t, s, d));
 		}
 	}
 

@@ -15,6 +15,7 @@ namespace wararyo.EclairInput {
 
 		static EclairInput(){
 			InputDevices = new List<InputDevice>();
+			InputDevices.Add (new Keyboard ("キーボードとマウス"));
 		}
 	}
 
@@ -33,14 +34,24 @@ namespace wararyo.EclairInput {
 
 	public class InputEvent {
 
-		public int Type;
+		public string type;
+		public enum EventState
+		{
+			Down,
+			Move,
+			Up
+		}
+		public EventState eventState;
+		public Vector2 delta;
 
 		public InputEvent(){
 
 		}
 
-		public InputEvent(int type){
-			Type = type;
+		public InputEvent(string type,EventState state,Vector2 delta){
+			this.type = type;
+			this.eventState = state;
+			this.delta = delta;
 		}
 	}
 

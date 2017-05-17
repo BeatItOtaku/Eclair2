@@ -9,12 +9,14 @@ namespace wararyo.EclairInput {
 
 		// Use this for initialization
 		void Start () {
-		
+			
 		}
 		
 		// Update is called once per frame
 		void Update () {
-		
+			foreach (InputDevice d in EclairInput.InputDevices) {
+				d.Update ();
+			}
 		}
 	}
 
