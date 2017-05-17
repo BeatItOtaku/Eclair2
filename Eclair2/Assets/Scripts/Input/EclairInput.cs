@@ -15,7 +15,18 @@ namespace wararyo.EclairInput {
 
 		static EclairInput(){
 			InputDevices = new List<InputDevice>();
-			InputDevices.Add (new Keyboard ("キーボードとマウス"));
+			AddInputDevice (new Keyboard ("キーボードとマウス"));
+		}
+
+		public static Action<InputEvent> any;
+
+		/// <summary>
+		/// InputDevices.Addは行わなず、こちらを用いてください。
+		/// </summary>
+		/// <param name="d">追加するInputDevice</param>
+		public static void AddInputDevice(InputDevice d){
+			InputDevices.Add (d);
+			d.OnInput += any;
 		}
 	}
 
