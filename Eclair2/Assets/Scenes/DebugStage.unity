@@ -809,6 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputTypes: {fileID: 11400000, guid: c93c19ef773d447639a1ce7fb06f85e3, type: 2}
+  keyboardKeyConfig: {fileID: 11400000, guid: 8d7d0ca0eaeb743fb8ee2ed9e52ae946, type: 2}
 --- !u!1 &402311409
 GameObject:
   m_ObjectHideFlags: 0

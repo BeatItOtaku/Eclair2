@@ -7,12 +7,14 @@ namespace wararyo.EclairInput{
 
 		public Keyboard(string name) : base(name){
 			
-			deviceName = "Keyboard";
+			deviceName = name;
 		}
 
 		public KeyboardKeyConfig keyConfig;
 		public string mouseXAxisName = "Camera X";
 		public string mouseYAxisName = "Camera Y";
+		public string keyboardXAxisName = "Horizontal";
+		public string keyboardYAxisName = "Vertical";
 		public float MouseThreshold = 0.2f;
 
 		//InputDeviceはMonoDevelopを継承してないからこのUpdateは自動で呼ばれない
@@ -43,6 +45,13 @@ namespace wararyo.EclairInput{
 			//ホイール
 			if(Input.mouseScrollDelta.magnitude > MouseThreshold)
 				onInput(keyConfig.mouseWheel, InputState.Move, Input.mouseScrollDelta);
+
+			//キーボード移動
+			float keyX = Input.GetAxis (keyboardXAxisName);
+			float keyY = Input.GetAxis (keyboardYAxisName);
+			if (Mathf.Pow (keyX, 2) + Mathf.Pow (keyY, 2) > 0) {
+				onInput (keyConfig.axis, InputState.Move, new Vector2 (keyX, keyY));
+			}
 
 			foreach (KeyboardKeyInputTypePair p in keyConfig.keyConfig) {
 				if(Input.GetKeyDown((KeyCode)p.keyCode))	onInput (p.inputType, InputState.Down, Vector2.zero);
