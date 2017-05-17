@@ -35,7 +35,7 @@ public class Bolt : MonoBehaviour {
 		startPosition = gameObject.transform.position;
 		startTime = Time.time;
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
-		direction =new Ray (transform.position, transform.forward); //pcm.cursorRay;
+		direction =new Ray (transform.position, transform.forward); 
 		layerMask = ~((1 << 8) +(1<<13));//PlayerとBoltとEclairKeepOut以外全部
 
 		if (Physics.Raycast (direction, out hit, Mathf.Infinity, layerMask)) {

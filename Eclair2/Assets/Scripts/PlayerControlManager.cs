@@ -96,12 +96,12 @@ public class PlayerControlManager : MonoBehaviour {
 	private float boltTime = 0;//Boltキーを押し続けることで加算されていく時間。
 	public GameObject attackBolt1;//攻撃に使用するボルトそのもの
 	private Vector3 hitPosition;//攻撃する地点
-	public AudioClip boltLandSound;
+
 
 
 	//Avoid
 	public  bool isAvoid = true; //falseでエクレアは回避ができなくなる。
-
+	private float avoidSpeed;
 
 	//Eto
 	public  bool isEto = false; //falseでエクレアはETOができなくなる。
@@ -148,6 +148,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public AudioClip boltLaunchSound;
 	public AudioClip etoileSound;
+	public AudioClip boltLandSound;
 
 
 
@@ -209,17 +210,12 @@ public class PlayerControlManager : MonoBehaviour {
 
 				//Eto
 				EtoManagement ();
-
-
-
-
 			}
 			//Damage
 			//DamageManagement ();
 
 			//Muteki
 			mutekiManagement ();
-
 		}
 			
 		//Death
@@ -254,10 +250,8 @@ public class PlayerControlManager : MonoBehaviour {
 		//Avoid
 		AvoidManagement ();
 
-
 			//Jump
 			//JumpManagement ();
-
 	}
 		
 	//Move
@@ -277,16 +271,16 @@ public class PlayerControlManager : MonoBehaviour {
 				if (Input.GetButtonUp ("Space"))dash = false;
 			} else {*/
 				
-				//一定時間移動するとダッシュ
-				runTime += Time.deltaTime;
-				if (runTime >= 2.0f)dash = true;
+					//一定時間移動するとダッシュ
+					runTime += Time.deltaTime;
+					if (runTime >= 2.0f)dash = true;
 
-			//ストップタイムの初期化
-				stopTime = 0;
-			//}
-			if(dash)speed = 12;
-			if(!dash)speed = 6;
-			runAnim = true;
+				//ストップタイムの初期化
+					stopTime = 0;
+				//}
+				if(dash)speed = 12;
+				if(!dash)speed = 6;
+				runAnim = true;
 
 			} else {
 
@@ -308,17 +302,14 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 
 	void KaniMove(){
-
+ 	//射撃時とボルトチャージ時のカニ歩き。向きを固定したまま前後左右に動く
 		if (horizontal != 0 || vertical != 0) {			
 			direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
 		} else {
 			direction = Vector3.zero;
 		}
-
 		float speed = 1f;
-
 		transform.position +=Time.deltaTime * direction * speed;
-
 	}
 
 
@@ -364,6 +355,7 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
+
 	//Avoid
 	/// <summary>
 	/// 移動していない状態で左Shiftキーを押すとその場回避、移動している状態で左Shiftキーを押すと移動している方向に回避。
@@ -373,13 +365,12 @@ public class PlayerControlManager : MonoBehaviour {
 			if(Input.GetButtonDown("Avoid")){
 				playerState_ = PlayerStates.Avoid;
 				if (isMoving) {
-					Vector3 horizontalV = gameObject.transform.right * horizontal;
-					Vector3 verticalV = gameObject.transform.forward * vertical;
-					GetComponent<Rigidbody> ().AddForce(horizontalV + verticalV,ForceMode.Impulse);
+					avoidSpeed = 200;
+					Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
+					Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;
+					transform.position = Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
 					anim.SetFloat ("Horizontal", horizontal);
 					anim.SetFloat ("Vertical", vertical);
-				} else {
-					anim.SetTrigger ("IdleAvoid");
 				}
 				playerState_ = PlayerStates.Idle;
 			}
@@ -474,7 +465,6 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>	
 	void JumpManagement()
 	{
-
 		if(playerState_ == PlayerStates.Idle){
 			if (Input.GetButtonDown ("Space"))
 			{				
