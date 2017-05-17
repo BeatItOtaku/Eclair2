@@ -180,6 +180,9 @@ public class PlayerControlManager : MonoBehaviour {
 		if (!eclairStopping) {
 			if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
 				switch (e.type) {
+				case "Move":
+					MoveManagement (e.delta);
+					break;
 				case "Bolt":
 					BoltManagement (e);
 					break;
@@ -236,12 +239,12 @@ public class PlayerControlManager : MonoBehaviour {
 	void FixedUpdate()
 	{
 			//Move
-		if (FireManager.shotContinue == false) {
-			MoveManagement (horizontal, vertical);
-		} else {
-			transform.position += transform.forward *Time.deltaTime*0;
-			//ShotMoveManagement (horizontal, vertical);
-		}
+		//if (FireManager.shotContinue == false) {
+		//	MoveManagement (horizontal, vertical);
+		//} else {
+		//	transform.position += transform.forward *Time.deltaTime*0;
+		//	//ShotMoveManagement (horizontal, vertical);
+		//}
 
 
 			//Jump
@@ -249,24 +252,26 @@ public class PlayerControlManager : MonoBehaviour {
 
 	}
 		
+	void MoveManagement(Vector2 delta){
+		MoveManagement (delta.x, delta.y);
+	}
 	//Move
-	void MoveManagement(float horizontal, float vertical)
+	void MoveManagement (float horizontal, float vertical)
 	{
 		if (eclairImmobile || eclairStopping) {
 			isMoving = false;
+		} else
+			isMoving = Mathf.Abs (horizontal) > 0.1 || Mathf.Abs (vertical) > 0.1;
+		if (isMoving) {
+			speed = 3;
+			runAnim = true;
+		} else {
+			speed = 0;
+			runAnim = false;
 		}
-			if (isMoving) {
-				speed = 3;
-				runAnim = true;
-			} else {
-				speed = 0;
-				runAnim = false;
-			}
-			Rotating (horizontal, vertical);
-			transform.position += transform.forward * Time.deltaTime * speed;
-			anim.SetBool ("Run",runAnim);
-
-
+		Rotating (horizontal, vertical);
+		transform.position += transform.forward * Time.deltaTime * speed;
+		anim.SetBool ("Run", runAnim);
 	}
 
 	void ShotMoveManagement(float horizontal, float vertical){

@@ -33,14 +33,14 @@ namespace wararyo.EclairInput{
 			if (Input.GetMouseButtonUp (0))
 				onInput (keyConfig.mouseLeft, InputState.Up);
 			//ホイールクリ
-			if (Input.GetMouseButtonDown (1))
+			if (Input.GetMouseButtonDown (2))
 				onInput (keyConfig.mouseMiddle, InputState.Down);
-			if (Input.GetMouseButtonUp (1))
+			if (Input.GetMouseButtonUp (2))
 				onInput (keyConfig.mouseMiddle, InputState.Up);
 			//みぎクリ
-			if (Input.GetMouseButtonDown (2))
+			if (Input.GetMouseButtonDown (1))
 				onInput (keyConfig.mouseRight, InputState.Down);
-			if (Input.GetMouseButtonUp (2))
+			if (Input.GetMouseButtonUp (1))
 				onInput (keyConfig.mouseRight, InputState.Up);
 			//ホイール
 			if(Input.mouseScrollDelta.magnitude > MouseThreshold)

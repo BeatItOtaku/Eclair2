@@ -18,25 +18,24 @@ namespace wararyo.EclairInput {
 					EditorGUI.LabelField (position, label.text,"InputTypes is not set");
 				else {
 					//いよいよ描画していくよ
-					List<string> inputTypes = new List<string>(EclairInput.inputTypes.inputTypes);
+					List<string> displayInputTypes = new List<string>(EclairInput.inputTypes.inputTypes);
 
 					//Noneを足す
-					inputTypes.Insert(0, "None");
+					displayInputTypes.Insert(0, " - ");
 
-					int[] inputTypeNumbers = GenerateOptionValues(inputTypes.Count);
+					int[] inputTypeNumbers = GenerateOptionValues(displayInputTypes.Count);
 
-					if (!string.IsNullOrEmpty (property.stringValue)) {
-						inputTypeAttribute.selectedValue = inputTypes.IndexOf (property.stringValue);
-					}
+					if (string.IsNullOrEmpty (property.stringValue)) inputTypeAttribute.selectedValue = -1;
+					else inputTypeAttribute.selectedValue = EclairInput.inputTypes.inputTypes.IndexOf (property.stringValue);
 
 					inputTypeAttribute.selectedValue = EditorGUI.IntPopup(position,
 						label.text,
 						inputTypeAttribute.selectedValue,
-						inputTypes.ToArray(),
+						displayInputTypes.ToArray(),
 						inputTypeNumbers);
 					if (inputTypeAttribute.selectedValue == -1)
 						property.stringValue = "";
-					else property.stringValue = inputTypes[inputTypeAttribute.selectedValue];
+					else property.stringValue = EclairInput.inputTypes.inputTypes[inputTypeAttribute.selectedValue];
 				}
 			} else {
 				EditorGUI.PropertyField (position, property);

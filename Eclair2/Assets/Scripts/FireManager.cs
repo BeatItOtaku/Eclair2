@@ -5,12 +5,12 @@ public class FireManager : MonoBehaviour {
 
 	private GameObject player;
 
-	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
+	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。//canShotかisShottableか
 	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
 	private bool isShotting = false;
 
-	public static bool shotContinue = false;//射撃している間、近接攻撃にならない
+	public static bool shotContinue = false;//射撃している間、近接攻撃にならない//変数のネーミングセンスが絶望的にない
 
 	private bool fire = false; //攻撃を繰り出したかどうか
 
