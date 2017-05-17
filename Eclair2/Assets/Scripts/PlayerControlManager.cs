@@ -258,6 +258,8 @@ public class PlayerControlManager : MonoBehaviour {
 	//Move
 	void MoveManagement (float horizontal, float vertical)
 	{
+		this.horizontal = horizontal;
+		this.vertical = vertical;
 		if (eclairImmobile || eclairStopping) {
 			isMoving = false;
 		} else
@@ -304,8 +306,8 @@ public class PlayerControlManager : MonoBehaviour {
 			Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
 
 			Quaternion newRotation = Quaternion.Slerp (GetComponent<Rigidbody> ().rotation, targetRotation, finalTurnSmoothing * Time.deltaTime*20);
-			GetComponent<Rigidbody> ().MoveRotation (newRotation);
-			//lastDirection = targetDirection;
+			GetComponent<Rigidbody> ().MoveRotation (targetRotation);
+			lastDirection = targetDirection;
 		}
 		if (!(Mathf.Abs (horizontal) > 0.9 || Mathf.Abs (vertical) > 0.9)) {			
 				Repositioning ();
