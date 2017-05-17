@@ -91,6 +91,13 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
+	//Boltキーを押し続けたときのボルト攻撃用変数
+	private bool boltButton;
+	private float boltTime = 0;//Boltキーを押し続けることで加算されていく時間。
+	public GameObject attackBolt1;//攻撃に使用するボルトそのもの
+	private Vector3 hitPosition;//攻撃する地点
+	public AudioClip boltLandSound;
+
 
 	//Avoid
 	public  bool isAvoid = true; //falseでエクレアは回避ができなくなる。
@@ -238,11 +245,10 @@ public class PlayerControlManager : MonoBehaviour {
 	void FixedUpdate()
 	{
 			//Move
-		if (FireManager.shotContinue == false) {
-			MoveManagement (horizontal, vertical);
+		if (FireManager.shotContinue == true || boltButton == true) {
+			KaniMove ();
 		} else {
-			//transform.position += transform.forward *Time.deltaTime*0;
-			ShotMoveManagement ();
+			MoveManagement (horizontal, vertical);
 		}
 
 		//Avoid
@@ -301,7 +307,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	}
 
-	void ShotMoveManagement(){
+	void KaniMove(){
 
 		if (horizontal != 0 || vertical != 0) {			
 			direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
@@ -387,34 +393,54 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	void BoltManagement()
 	{
-		if (isBolt) {	
-			if (Input.GetButtonDown ("LaunchBolt")) 
-			{
-				playerState_ = PlayerStates.Bolt;
-				eclairImmobile = true;
-				//cursorV = cursor.transform.position;
-				cursorRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.6f, 0f));			
+		if (isBolt) {
+			Debug.Log (boltTime);
+			if (Input.GetButton ("LaunchBolt")) {
+				boltTime += Time.deltaTime;
+				boltButton = true;
+				cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
 				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-
-				//ボルトの複製と前に撃ったボルトの消去
-				if (preShot != null)
-					Destroy (preShot);
-				lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
-				preShot = lastShot;
-				boltmanager = lastShot.GetComponent<Bolt> ();
-				shot = true; //打ち出したことを判定する変数
-				anim.SetTrigger("Bolt");
-				audioSource.PlayOneShot (boltLaunchSound);
+				anim.SetBool("Run",false);
 
 			}
+				if (Input.GetButtonUp ("LaunchBolt")) {
+					//boltTimeの値、つまりBoltキーを押し続けた時間によって攻撃が変わる。
+					boltButton = false;
+
+					if (boltTime <= 0.5f) {//ETO用ボルト射出
+						playerState_ = PlayerStates.Bolt;
+						eclairImmobile = true;//ボルトを撃つとき一瞬止まる
+									
+						//ボルトの複製と前に撃ったボルトの消去
+						if (preShot != null)Destroy (preShot);//前に撃ったボルトが存在する場合、そのボルトを消す
+						lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
+						preShot = lastShot;
+						boltmanager = lastShot.GetComponent<Bolt> ();
+						shot = true; //打ち出したことを判定する変数
+						anim.SetTrigger ("Bolt");
+						audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
+
+					}else{//0.5秒以上boltキーを押すことで出せる技
+					
+					hitPosition = cursorRay.GetPoint (5);//カメラから一定の距離
+					GameObject go = (GameObject)Instantiate (attackBolt1, hitPosition, transform.rotation);
+					audioSource.PlayOneShot (boltLaunchSound);
+					audioSource.clip = boltLandSound;
+					audioSource.PlayDelayed (0.8f);
+						Destroy (go, 1.0f);
+					}
+
+				boltTime = 0;//ボルトを押し続けた時間の初期化
+				}
 		
-			if (boltmanager != null) {				
+				if (boltmanager != null) {				
 					isEto = true;
 					//ボルトまでの距離を表示するようなUIを出す？
+				}
 			}
 			}
-		}
+		
 
 
 	//Eto

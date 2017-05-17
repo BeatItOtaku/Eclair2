@@ -24,8 +24,6 @@ public class Bolt : MonoBehaviour {
 	private int layerMask;
 	private GameObject parent = null;//ボルトが当たったオブジェクトを親オブジェクトとし、親オブジェクトが動いてもボルトも同期して動くようにする
 
-
-
 	public AudioClip boltLandSound;
 
 	// Use this for initialization
@@ -39,11 +37,14 @@ public class Bolt : MonoBehaviour {
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
 		direction =new Ray (transform.position, transform.forward); //pcm.cursorRay;
 		layerMask = ~((1 << 8) +(1<<13));//PlayerとBoltとEclairKeepOut以外全部
+
 		if (Physics.Raycast (direction, out hit, Mathf.Infinity, layerMask)) {
+			//ボルトの先からRayを飛ばし、何かに当たった場合はその位置まで一定時間で移動する。
 			endPosition = hit.point;
 			trueEnd = true;
 			journeyLength = Vector3.Distance (startPosition, endPosition);
 		} else {
+			//Rayが何にも当たらなかった場合は、ボルトはただ直進する。
 			trueEnd = false;
 		}
 			
@@ -57,6 +58,7 @@ public class Bolt : MonoBehaviour {
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
 
 		if (trueEnd) {
+			//ボルトの先から出たRayにオブジェクトが当たったため、その位置までボルトが一定時間で移動する。
 			if (PlayerControlManager.shot == true) {
 				float distCovered = (Time.time - startTime) * speed;
 				float fracJourney = distCovered / journeyLength;
@@ -64,12 +66,15 @@ public class Bolt : MonoBehaviour {
 			}
 
 			if (gameObject.transform.position == endPosition && !launchBolt) {
+				//ボルトが着弾したとき
 				GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
 				//OnLanded.Invoke ();
 				GameObject.Find("Canvas/BoltLand").GetComponent<BoltLandUI>().Instantiate(gameObject);
 				launchBolt = true;
 			}
 		} else {
+			
+			//ボルトの先から出たRayに何も当たらなかったので、ボルトは直進
 			transform.position += transform.forward * Time.deltaTime * speed;
 		}
 			/*if (parent != null) {
