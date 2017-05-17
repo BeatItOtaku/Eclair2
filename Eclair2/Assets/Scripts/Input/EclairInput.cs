@@ -46,24 +46,25 @@ namespace wararyo.EclairInput {
 	public class InputEvent {
 
 		public string type;
-		public enum EventState
-		{
-			Down,
-			Move,
-			Up
-		}
-		public EventState eventState;
+		public InputState eventState;
 		public Vector2 delta;
 
 		public InputEvent(){
 
 		}
 
-		public InputEvent(string type,EventState state,Vector2 delta){
+		public InputEvent(string type,InputState state,Vector2 delta){
 			this.type = type;
 			this.eventState = state;
 			this.delta = delta;
 		}
+	}
+
+	public enum InputState
+	{
+		Down,
+		Move,
+		Up
 	}
 
 }

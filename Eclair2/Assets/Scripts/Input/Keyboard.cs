@@ -23,38 +23,38 @@ namespace wararyo.EclairInput{
 			float mouseX = Input.GetAxis (mouseXAxisName);
 			float mouseY = Input.GetAxis (mouseYAxisName);
 			if (Mathf.Pow (mouseX, 2) + Mathf.Pow (mouseY, 2) >= MouseThreshold) {
-				onInput (keyConfig.mouseMove, InputEvent.EventState.Move, new Vector2 (mouseX, mouseY));
+				onInput (keyConfig.mouseMove, InputState.Move, new Vector2 (mouseX, mouseY));
 			}
 			//ひだりクリ
 			if (Input.GetMouseButtonDown (0))
-				onInput (keyConfig.mouseLeft, InputEvent.EventState.Down);
+				onInput (keyConfig.mouseLeft, InputState.Down);
 			if (Input.GetMouseButtonUp (0))
-				onInput (keyConfig.mouseLeft, InputEvent.EventState.Up);
+				onInput (keyConfig.mouseLeft, InputState.Up);
 			//ホイールクリ
 			if (Input.GetMouseButtonDown (1))
-				onInput (keyConfig.mouseMiddle, InputEvent.EventState.Down);
+				onInput (keyConfig.mouseMiddle, InputState.Down);
 			if (Input.GetMouseButtonUp (1))
-				onInput (keyConfig.mouseMiddle, InputEvent.EventState.Up);
+				onInput (keyConfig.mouseMiddle, InputState.Up);
 			//みぎクリ
 			if (Input.GetMouseButtonDown (2))
-				onInput (keyConfig.mouseRight, InputEvent.EventState.Down);
+				onInput (keyConfig.mouseRight, InputState.Down);
 			if (Input.GetMouseButtonUp (2))
-				onInput (keyConfig.mouseRight, InputEvent.EventState.Up);
+				onInput (keyConfig.mouseRight, InputState.Up);
 			//ホイール
 			if(Input.mouseScrollDelta.magnitude > MouseThreshold)
-				onInput(keyConfig.mouseWheel, InputEvent.EventState.Move, Input.mouseScrollDelta);
+				onInput(keyConfig.mouseWheel, InputState.Move, Input.mouseScrollDelta);
 
 			foreach (KeyboardKeyInputTypePair p in keyConfig.keyConfig) {
-				if(Input.GetKeyDown((KeyCode)p.keyCode))	onInput (p.inputType, InputEvent.EventState.Down, Vector2.zero);
-				if(Input.GetKeyUp((KeyCode)p.keyCode))		onInput (p.inputType, InputEvent.EventState.Up, Vector2.zero);
+				if(Input.GetKeyDown((KeyCode)p.keyCode))	onInput (p.inputType, InputState.Down, Vector2.zero);
+				if(Input.GetKeyUp((KeyCode)p.keyCode))		onInput (p.inputType, InputState.Up, Vector2.zero);
 			}
 		}
 
-		public void onInput(string t, InputEvent.EventState s){
+		public void onInput(string t, InputState s){
 			onInput (t, s, Vector2.zero);
 		}
 
-		public void onInput(string t,InputEvent.EventState s, Vector2 d){
+		public void onInput(string t,InputState s, Vector2 d){
 			OnInput (new InputEvent (t, s, d));
 		}
 	}
