@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using wararyo.EclairInput;
 
 /// <summary>
 /// PlayerControlManagerに書かれることは、エクレアの動作全般。アニメーションも含む。
@@ -135,7 +136,6 @@ public class PlayerControlManager : MonoBehaviour {
 	public AudioClip etoileSound;
 
 
-
 	//エクレアのプレイヤーステイト
 	public enum PlayerStates
 	{
@@ -173,37 +173,42 @@ public class PlayerControlManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		EclairInput.any += OnInput;
+	}
+
+	void OnInput(InputEvent e){
+		if (!eclairStopping) {
+			if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
+				switch (e.type) {
+				case "Bolt":
+					BoltManagement (e);
+					break;
+				case "ETO":
+					EtoManagement (e);
+					break;
+				case "Avoid":
+					AvoidManagement (e);
+					break;
+				case "Shot":
+					if (e.eventState == InputState.Down)
+						fm.StartShot ();
+					else
+						fm.StopShot ();
+					break;
+				}
+			}
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log (playerState_);
-
 		//Move
-		horizontal = Input.GetAxis("Horizontal"); //左右方向の移動
-		vertical = Input.GetAxis("Vertical"); //前後方向の移動
-		isMoving = Mathf.Abs(horizontal) > 0.1 || Mathf.Abs(vertical) > 0.1;
+		//isMoving = Mathf.Abs(horizontal) > 0.1 || Mathf.Abs(vertical) > 0.1;//この発想いいね！
 
 		if (!eclairStopping) {
-			if (!eclairImmobile) {
-				//Bolt
-				BoltManagement ();
-				//発射間隔を設定する
-				//shotInterval += Time.deltaTime;
-
-				//Eto
-				EtoManagement ();
-
-				//Avoid
-				AvoidManagement ();
-
-
-			}
 			//Damage
 			//DamageManagement ();
 
-			//Muteki
 			mutekiManagement ();
 
 		}
@@ -320,9 +325,9 @@ public class PlayerControlManager : MonoBehaviour {
 	/// <summary>
 	/// 移動していない状態で左Shiftキーを押すとその場回避、移動している状態で左Shiftキーを押すと移動している方向に回避。
 	/// </summary>
-	void AvoidManagement(){
+	void AvoidManagement(InputEvent e){
 		if(isAvoid){		
-			if(Input.GetButtonDown("Avoid")){
+			if(e.eventState == InputState.Down){
 				playerState_ = PlayerStates.Avoid;
 				if (isMoving) {
 					anim.SetFloat ("Horizontal", horizontal);
@@ -340,10 +345,10 @@ public class PlayerControlManager : MonoBehaviour {
 	/// <summary>
 	/// 最終的に、このエクレアのPlayerControlManagerスクリプトとボルトのBoltスクリプトだけで完結するようにする。
 	/// </summary>
-	void BoltManagement()
+	void BoltManagement(InputEvent e)
 	{
 		if (isBolt) {	
-			if (Input.GetButtonDown ("LaunchBolt")) 
+			if (e.eventState == InputState.Down) 
 			{
 				playerState_ = PlayerStates.Bolt;
 				eclairImmobile = true;
@@ -376,11 +381,11 @@ public class PlayerControlManager : MonoBehaviour {
 	/// <summary>
 	/// 最終的にエクレアのPlayerControlManagerスクリプトとEtoエクレアのEtoスクリプトで完結するようにする。
 	/// </summary>
-	void EtoManagement(){
+	void EtoManagement(InputEvent e){
 		if (isEto) {
 			if (boltmanager.launchBolt == true) {//ボルトが着弾している状態
 				if (lastShot != null) {
-					if (Input.GetButtonDown ("Space")) {						
+					if (e.eventState == InputState.Down) {						
 						playerState_ = PlayerStates.Eto;
 						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
@@ -394,7 +399,7 @@ public class PlayerControlManager : MonoBehaviour {
 					playerState_ = PlayerStates.Idle;
 				}
 			}
-	}
+		}
 	}
 
 	//Jump

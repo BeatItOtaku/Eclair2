@@ -14,7 +14,8 @@ MonoBehaviour:
   mouseMove: None
   mouseRight: Move
   mouseLeft: Avoid
-  mouseWheel: 
+  mouseMiddle: 
+  mouseWheel: None
   axis: Camera
   keyConfig:
   - keyCode: 32
