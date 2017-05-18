@@ -4,12 +4,13 @@ using System.Collections;
 public class FireManager : MonoBehaviour {
 
 	private GameObject player;
-	public PlayerControlManager pcm;
 
-	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。
+	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。//canShotかisShottableか
 	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
-	public static bool shotContinue = false;//射撃している間、近接攻撃にならない
+	private bool isShotting = false;
+
+	public static bool shotContinue = false;//射撃している間、近接攻撃にならない//変数のネーミングセンスが絶望的にない
 
 	private bool fire = false; //攻撃を繰り出したかどうか
 
@@ -37,28 +38,32 @@ public class FireManager : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		shotCoolTime_ = shotCoolTime;
 	}
+
+	public void StartShot(){
+		isShotting = true;
+	}
+
+	public void StopShot(){
+		isShotting = false;
+		anim.SetBool ("Shot", false);
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (pcm == null) {
-			player = GameObject.FindGameObjectWithTag ("Player");
-			pcm = GetComponent<PlayerControlManager> ();
-		}
-		if(pcm.eclairStopping == false){
-		if(Input.GetButton("Fire")){
+		if (isShotting) {
 			if (isShot) {
 				//CameraController.setCursor = true;
-				anim.SetBool ("Shot",true);
+				anim.SetBool ("Shot", true);
 				shotContinue = true;
 				if (shotOn == true) {
 					//StartCoroutine (ShotCoroutine ());
-					Ray cursorRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.6f, 0f));
+					Ray cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
 					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
-						GameObject bulletInstance = (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
-						bulletInstance.GetComponent<Bullet> ().CursorRay = cursorRay;
+					GameObject bulletInstance = (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
+					bulletInstance.GetComponent<Bullet> ().CursorRay = cursorRay;
 					Instantiate (shotEffect, muzzleFlash.position, muzzleFlash.rotation);
-						audioSource.PlayOneShot (shotSound);
+					audioSource.PlayOneShot (shotSound);
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
 				}
@@ -68,18 +73,10 @@ public class FireManager : MonoBehaviour {
 					shotCoolTime_ = shotCoolTime;
 				}
 			}
-			if (isAttack) 
-			{
+			if (isAttack) {
 				Instantiate (close, muzzle.position, muzzle.rotation);
 			}
-	}
-		if (Input.GetButtonUp ("Fire")) 
-		{
-			anim.SetBool ("Shot",false);
-			//shotContinue = false;
-			//CameraController.setCursor = false;
 		}
-	}
 	}
 	/*
 	//Fire
@@ -126,7 +123,7 @@ public class FireManager : MonoBehaviour {
 			//transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 			
 
-		yield return new WaitForSeconds (60f);
+		yield return new WaitForSeconds (60f);//なんで60秒待つの
 		shotOn = true;
 	}
 		
