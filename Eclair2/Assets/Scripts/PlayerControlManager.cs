@@ -181,7 +181,8 @@ public class PlayerControlManager : MonoBehaviour {
 			if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
 				switch (e.type) {
 				case "Move":
-					MoveManagement (e.delta);
+					horizontal = e.delta.x;
+					vertical = e.delta.y;
 					break;
 				case "Bolt":
 					BoltManagement (e);
@@ -238,13 +239,13 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-			//Move
-		//if (FireManager.shotContinue == false) {
-		//	MoveManagement (horizontal, vertical);
-		//} else {
-		//	transform.position += transform.forward *Time.deltaTime*0;
-		//	//ShotMoveManagement (horizontal, vertical);
-		//}
+		//Move
+		if (FireManager.shotContinue == false) {
+			MoveManagement (horizontal, vertical);
+		} else {
+			transform.position += transform.forward *Time.deltaTime*0;
+			//ShotMoveManagement (horizontal, vertical);
+		}
 
 
 			//Jump
@@ -258,8 +259,6 @@ public class PlayerControlManager : MonoBehaviour {
 	//Move
 	void MoveManagement (float horizontal, float vertical)
 	{
-		this.horizontal = horizontal;
-		this.vertical = vertical;
 		if (eclairImmobile || eclairStopping) {
 			isMoving = false;
 		} else
