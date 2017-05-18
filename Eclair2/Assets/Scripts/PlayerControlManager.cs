@@ -262,7 +262,7 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 
 		//Avoid
-		AvoidManagement ();
+		//AvoidManagement ();
 
 			//Jump
 			//JumpManagement ();
