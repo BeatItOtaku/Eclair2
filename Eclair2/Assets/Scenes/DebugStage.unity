@@ -834,11 +834,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 306392913}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 6460165550bb24bf9ad997ff14178960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: 0
   cameraParent: {fileID: 130829110}
+=======
+  m_Script: {fileID: 11500000, guid: a5338bbd1f5428d478d515dbc59a5fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputTypes: {fileID: 11400000, guid: c93c19ef773d447639a1ce7fb06f85e3, type: 2}
+  keyboardKeyConfig: {fileID: 11400000, guid: 8d7d0ca0eaeb743fb8ee2ed9e52ae946, type: 2}
+>>>>>>> master
 --- !u!1 &402311409
 GameObject:
   m_ObjectHideFlags: 0
