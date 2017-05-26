@@ -34,8 +34,8 @@ public class TutorialManager : MonoBehaviour {
 	void Start () {
 		
 		PlayerControlManager.eclairImmobile= false; //エクレアは動けない。
-		fm.isShot = false; //エクレアは射撃ができない。
-		fm.isAttack = false; //エクレアは打撃ができない。
+		fm.canShot = false; //エクレアは射撃ができない。
+		fm.canAttack = false; //エクレアは打撃ができない。
 		pcm.isBolt = false; //エクレアはボルト射出ができない。
 		pcm.isEto = false; //エクレアはETOができない。
 		pcm.isAvoid = false; //エクレアは回避ができない。
@@ -89,7 +89,7 @@ public class TutorialManager : MonoBehaviour {
 			//(ターゲットの説明がすんだら）ターゲットを破壊してみましょう！(ここで、遠距離攻撃解禁）
 			//左クリック・・・遠距離攻撃
 			pcm.eclairStopping = false;
-			fm.isShot = true;
+			fm.canShot = true;
 			break;
 
 

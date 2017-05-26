@@ -22,8 +22,6 @@ public class PlayerControlManager : MonoBehaviour {
 	//汎用系
 	public GameObject player;
 
-	public GameObject cursor;//画面上に現れるカーソル
-
 	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
 
 	public static bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
@@ -33,19 +31,13 @@ public class PlayerControlManager : MonoBehaviour {
 	private float speed;
 	private float horizontal;
 	private float vertical;
-	private float distToGround;
-
-	private int hFloat;
-	private int vFloat;
-	private int groundedBool;
 
 	private bool isMoving = false; //trueでエクレアが動いている、falseで止まっている。
 	private bool runAnim;//アニメーションのRunに対する変数。trueでRunアニメーションが再生される。
 
-
-	private float runTime = 0;//ダッシュに関する変数群
+	//ダッシュに関する変数群
+	private float runTime = 0;
 	private bool dash;
-	private bool dashChange;
 
 	private float stopTime = 0;//アニメーションのRun→RunToIdleに遷移するのを調整する変数。
 
@@ -55,7 +47,6 @@ public class PlayerControlManager : MonoBehaviour {
 
 	private float turnSmoothing = 3.0f;
 	private float finalTurnSmoothing;
-
 
 	private Vector3 lastDirection;
 	private Vector3 targetDirection;
@@ -74,30 +65,17 @@ public class PlayerControlManager : MonoBehaviour {
 	public GameObject lastShot = null; //最後に打ち出したボルト
 
 	public  bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
-	public static bool shot = false; //ボルトを打ち出したことを判定する
+	public static bool boltShot = false; //ボルトを打ち出したことを判定する
 
-	private Vector3 cursorV;//カーソルの位置ベクトル
-	public Ray cursorRay;
+	public Ray cursorRay;//カメラから照準に向かって進むRay
 
 	private Bolt boltmanager;//Boltオブジェクト内のBoltというスクリプト
-
-	public Vector3 boltRotationOffset;//unityのインスペクタ上で編集できる。
-	private Quaternion boltQuaternionOffset;//ボルトの角度を補正する。
-	private Quaternion BoltQuaternionOffset{
-		get{
-			return boltQuaternionOffset;
-		}
-		set{
-			boltQuaternionOffset = Quaternion.Euler (boltRotationOffset);
-		}
-	}
 
 	//Boltキーを押し続けたときのボルト攻撃用変数
 	private bool boltButton;
 	private float boltTime = 0;//Boltキーを押し続けることで加算されていく時間。
 	public GameObject attackBolt1;//攻撃に使用するボルトそのもの
 	private Vector3 hitPosition;//攻撃する地点
-
 
 
 	//Avoid
@@ -166,18 +144,6 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 	public PlayerStates playerState_ = PlayerStates.Idle;
 
-	void Awake(){
-
-			//アニメーション関係
-			anim = player.GetComponent<Animator> ();
-
-		//Move
-		//hFloat = Animator.StringToHash("H");
-		//vFloat = Animator.StringToHash("V");
-		groundedBool = Animator.StringToHash("Grounded");
-		distToGround = GetComponent<Collider>().bounds.extents.y;
-	
-	}
 
 	//設置判定
 	bool IsGrounded() 
@@ -190,8 +156,12 @@ public class PlayerControlManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		EclairInput.any += OnInput;
+
+		//アニメーション関係
+		anim = player.GetComponent<Animator> ();
 	}
 
+	//インプットシステム
 	void OnInput(InputEvent e){
 		if (!eclairStopping) {
 			if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
@@ -242,12 +212,12 @@ public class PlayerControlManager : MonoBehaviour {
 		//設置判定
 		if (IsGrounded())
 		{
-			anim.SetBool ("NewGrounded", true);
+			anim.SetBool ("Grounded", true);
 			if (playerState_ == PlayerStates.Jump || playerState_ == PlayerStates.Eto) {
 				playerState_ = PlayerStates.Idle;
 			}
 		} else {
-			anim.SetBool ("NewGrounded", false);
+			anim.SetBool ("Grounded", false);
 		}
 			
 	}
@@ -267,16 +237,15 @@ public class PlayerControlManager : MonoBehaviour {
 			//Jump
 			//JumpManagement ();
 	}
-		
+
+	//Move	
 	void MoveManagement(Vector2 delta){
 		MoveManagement (delta.x, delta.y);
 	}
-	//Move
+
 	void MoveManagement (float horizontal, float vertical)
 	{
-		/*if(Input.GetKeyDown(KeyCode.Q)){
-			dashChange = !dashChange;
-		}*/
+
 		if (eclairImmobile || eclairStopping) {
 			isMoving = false;
 		} else
@@ -290,19 +259,13 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 		if (isMoving) {
 
-			/*if (dashChange) {
-				//ダッシュボタン（スペースキー）押している間ダッシュ
-				if (Input.GetButton ("Space"))dash = true;
-				if (Input.GetButtonUp ("Space"))dash = false;
-			} else {*/
-				
-					//一定時間移動するとダッシュ
-					runTime += Time.deltaTime;
-					if (runTime >= 2.0f)dash = true;
+				//一定時間移動するとダッシュ
+				runTime += Time.deltaTime;
+				if (runTime >= 2.0f)dash = true;
 
 				//ストップタイムの初期化
 					stopTime = 0;
-				//}
+				
 				if(dash)speed = 12;
 				if(!dash)speed = 6;
 				runAnim = true;
@@ -433,7 +396,7 @@ public class PlayerControlManager : MonoBehaviour {
 						lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
 						preShot = lastShot;
 						boltmanager = lastShot.GetComponent<Bolt> ();
-						shot = true; //打ち出したことを判定する変数
+						boltShot = true; //打ち出したことを判定する変数
 						anim.SetTrigger ("Bolt");
 						audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
 

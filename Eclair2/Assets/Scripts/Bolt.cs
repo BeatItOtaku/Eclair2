@@ -59,7 +59,7 @@ public class Bolt : MonoBehaviour {
 
 		if (trueEnd) {
 			//ボルトの先から出たRayにオブジェクトが当たったため、その位置までボルトが一定時間で移動する。
-			if (PlayerControlManager.shot == true) {
+			if (PlayerControlManager.boltShot == true) {
 				float distCovered = (Time.time - startTime) * speed;
 				float fracJourney = distCovered / journeyLength;
 				transform.position = Vector3.Lerp (startPosition, endPosition, fracJourney);
@@ -91,7 +91,7 @@ public class Bolt : MonoBehaviour {
 			if (col.gameObject.tag == "BlueMonument" || col.gameObject.tag == "GreenMonument") {
 				parent = col.gameObject;
 			} 
-			PlayerControlManager.shot = false;
+			PlayerControlManager.boltShot = false;
 		}
 	}
 }

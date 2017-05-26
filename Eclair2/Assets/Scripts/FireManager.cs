@@ -1,36 +1,40 @@
 using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// エクレアの、マウス左クリック（初期配置）で繰り出す攻撃に関するスクリプト。
+/// エクレアは通常時に左クリックをすると射撃モードとなる。
+/// 敵や攻撃できるオブジェクト（以下攻撃対象）との距離が一定以下になると、打撃モードとなる。
+/// 攻撃対象にはあらかじめ球状のコライダーが用意されており、それとエクレアが接触している間は攻撃方法が打撃モードとなる。
+/// 
+/// 現在は射撃モードのみ記述している。
+/// </summary>
 public class FireManager : MonoBehaviour {
 
+	//オブジェクト
 	private GameObject player;
+	public GameObject bullet;//射撃モードで使う弾
+	public Transform muzzle;//射撃モードで使う銃口の位置
+	public Transform effectMuzzle;//マズルフラッシュが出る用の銃口
+	public GameObject muzzleFlash;//銃口から出るマズルフラッシュ
 
-	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。//canShotかisShottableか
-	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
+	//射撃、打撃ができるかどうかの判定
+	public  bool canShot = true; //falseでエクレアは射撃ができなくなる。
+	public  bool canAttack = false; //falseでエクレアは近接攻撃ができなくなる。
+
 
 	private bool isShotting = false;
 
 	public static bool shotContinue = false;//射撃している間、近接攻撃にならない//変数のネーミングセンスが絶望的にない
 
-	private bool fire = false; //攻撃を繰り出したかどうか
 
 	private bool shotOn = true;
 	private float shotCoolTime = 0.05f;
 	private float shotCoolTime_;
 
-	private int fireCount = 0; //攻撃した回数
-
 	private Animator anim;
 
-	public GameObject shotEffect;
-	//デバッグ用
-	public GameObject bullet;
-	public GameObject close;
-	public Transform muzzle;
-	public Transform muzzleFlash;
-
+	//SE
 	public AudioSource audioSource;
-
 	public AudioClip shotSound;
 
 	// Use this for initialization
@@ -50,8 +54,17 @@ public class FireManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//射撃モード
+		Syageki ();
+		//打撃モード
+		Dageki();
+	}
+
+
+	//射撃モード
+	void Syageki(){
 		if (isShotting) {
-			if (isShot) {
+			if (canShot) {
 				//CameraController.setCursor = true;
 				anim.SetBool ("Shot", true);
 				shotContinue = true;
@@ -62,7 +75,7 @@ public class FireManager : MonoBehaviour {
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
 					GameObject bulletInstance = (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
 					bulletInstance.GetComponent<Bullet> ().CursorRay = cursorRay;
-					Instantiate (shotEffect, muzzleFlash.position, muzzleFlash.rotation);
+					Instantiate (muzzleFlash, effectMuzzle.position, effectMuzzle.rotation);
 					audioSource.PlayOneShot (shotSound);
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
@@ -73,78 +86,28 @@ public class FireManager : MonoBehaviour {
 					shotCoolTime_ = shotCoolTime;
 				}
 			}
-			if (isAttack) {
-				Instantiate (close, muzzle.position, muzzle.rotation);
-			}
-		}
-	}
-	/*
-	//Fire
-	public void FireManagement(){
-			StartCoroutine (fireCountCoroutine ());
-			switch (fireCount) {
-
-			case 1:
-				anim.SetBool ("Fire1",true);
-				break;
-			case 2:
-				anim.SetBool ("Fire2",true);
-				break;
-			case 3:
-				anim.SetBool ("Fire3",true);
-				break;
-			case 4:
-				anim.SetBool ("Fire4",true);
-				break;
 		}
 	}
 
-	IEnumerator fireCountCoroutine(){
-		if (Input.GetButtonDown ("Fire")) {
-			if (fireCount <= 4)
-			{
-				fireCount++;
-			}
-			if(!fire)
-				anim.SetBool ("Fire",true);
-			
-			fire = true;
-			yield return new WaitForSeconds (1);
-			fire = false;
-		}
-	}*/
+	//打撃モード
+	void Dageki(){
 
-	IEnumerator ShotCoroutine()
-	{
-		shotOn = false;
-			Instantiate (bullet, muzzle.position, muzzle.rotation);
-			Vector3 cameraDirection = Camera.main.transform.forward;
-			//transform.rotation = Quaternion.LookRotation (cameraDirection);//カーソルがある方向にエクレアが回転
-			//transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-			
-
-		yield return new WaitForSeconds (60f);//なんで60秒待つの
-		shotOn = true;
 	}
-		
-		
 
-	private void OnTriggerStay(Collider col){
-
+	//ここからのOnTriggerStay,OnTriggerExitで射撃モード、打撃モードの判定を行う。
+	private void OnTriggerStay(Collider col){//打撃モードになる。
 		if (shotContinue == false) {
 			if (col.gameObject.tag == "Enemy") {
-				isShot = false;
-				isAttack = true;
+				canShot = false;
+				canAttack = true;
 			}
 		}
 	}
 
-	private void OnTriggerExit(Collider col){
-		
+	private void OnTriggerExit(Collider col){//射撃モードになる。
 		if(col.gameObject.tag == "Enemy"){
-			isShot = true;
-			isAttack = false;
+			canShot = true;
+			canAttack = false;
 		}
 	}
-
 }
