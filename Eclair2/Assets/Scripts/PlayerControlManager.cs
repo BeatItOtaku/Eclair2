@@ -28,16 +28,17 @@ public class PlayerControlManager : MonoBehaviour {
 	public  bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
 
 	//Move
-	private float speed;
+	private float speed;//移動の速さ
 	private float horizontal;
 	private float vertical;
+	private float downSpeed = -13f;//落下時のスピード、カニ歩きでゆっくり降下してしまう現象を解消する。
 
 	private bool isMoving = false; //trueでエクレアが動いている、falseで止まっている。
 	private bool runAnim;//アニメーションのRunに対する変数。trueでRunアニメーションが再生される。
 
 	//ダッシュに関する変数群
-	private float runTime = 0;
-	private bool dash;
+	private float runTime = 0;//runTimeは走っている時間、一定時間以上になると移動速度が速くなる。
+	private bool dash;//ダッシュ状態かどうか
 
 	private float stopTime = 0;//アニメーションのRun→RunToIdleに遷移するのを調整する変数。
 
@@ -266,8 +267,8 @@ public class PlayerControlManager : MonoBehaviour {
 				//ストップタイムの初期化
 					stopTime = 0;
 				
-				if(dash)speed = 12;
-				if(!dash)speed = 6;
+				if(dash)speed = 6;//ダッシュ時のスピード
+				if(!dash)speed = 3;//非ダッシュ時のスピード
 				runAnim = true;
 
 			} else {
@@ -291,13 +292,15 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void KaniMove(){
  	//射撃時とボルトチャージ時のカニ歩き。向きを固定したまま前後左右に動く
-		if (horizontal != 0 || vertical != 0) {			
+		if (horizontal != 0 || vertical != 0) {
 			direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
+			direction.y = downSpeed;
 		} else {
 			direction = Vector3.zero;
 		}
 		float speed = 1f;
 		transform.position +=Time.deltaTime * direction * speed;
+
 	}
 
 
