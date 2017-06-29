@@ -247,32 +247,26 @@ public class PlayerControlManager : MonoBehaviour {
 	void MoveManagement (float horizontal, float vertical)
 	{
 
-		if (eclairImmobile || eclairStopping) {
+		if (eclairImmobile || eclairStopping) {//エクレアが移動してはいけない時
 			isMoving = false;
-		} else
+		} else {
 			isMoving = Mathf.Abs (horizontal) > 0.1 || Mathf.Abs (vertical) > 0.1;
-		if (isMoving) {
-			speed = 3;
+		}
+
+		if (isMoving) {//エクレアが移動できるとき、移動スピードと走りのアニメーションを決定する。
+			
+			//一定時間移動するとダッシュ
+			runTime += Time.deltaTime;
+			if (runTime >= 2.0f)dash = true;
+
+			//ストップタイムの初期化
+			stopTime = 0;
+
+			if(dash)speed = 6;//ダッシュ時のスピード
+			if(!dash)speed = 3;//非ダッシュ時のスピード
 			runAnim = true;
 		} else {
-			speed = 0;
-			runAnim = false;
-		}
-		if (isMoving) {
-
-				//一定時間移動するとダッシュ
-				runTime += Time.deltaTime;
-				if (runTime >= 2.0f)dash = true;
-
-				//ストップタイムの初期化
-					stopTime = 0;
-				
-				if(dash)speed = 6;//ダッシュ時のスピード
-				if(!dash)speed = 3;//非ダッシュ時のスピード
-				runAnim = true;
-
-			} else {
-
+			
 			//移動キーを離しても、一定時間以内までにもう一度移動キーが押されれば、アニメーションのステートはRunからRunToIdleに向かわず走り続ける
 			stopTime += Time.deltaTime;
 			if (stopTime <= 0.5f)runAnim = false;
@@ -280,26 +274,29 @@ public class PlayerControlManager : MonoBehaviour {
 			speed = 0;
 			runTime = 0;
 			dash = false;
-			//runAnim = false;
-
 		}
+
 		Rotating (horizontal, vertical);
 			transform.position += transform.forward * Time.deltaTime * speed;
-			anim.SetBool ("Run",runAnim);
 
-
+		if (IsGrounded()) {
+			runAnim = true;
+		} else {
+			runAnim = false;
+		}
+		anim.SetBool ("Run", runAnim);
 	}
 
 	void KaniMove(){
  	//射撃時とボルトチャージ時のカニ歩き。向きを固定したまま前後左右に動く
-		if (horizontal != 0 || vertical != 0) {
+		if (Mathf.Abs (horizontal) > 0.05f || Mathf.Abs (vertical) > 0.05f) {
 			direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
 			direction.y = downSpeed;
 		} else {
 			direction = Vector3.zero;
 		}
 		float speed = 1f;
-		transform.position +=Time.deltaTime * direction * speed;
+		transform.position += direction * Time.deltaTime * speed;
 
 	}
 
