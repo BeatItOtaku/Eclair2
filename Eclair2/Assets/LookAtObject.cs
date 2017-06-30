@@ -31,8 +31,8 @@ public class LookAtObject : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (cc.distance);
-		Debug.Log (lookAt);
+		//Debug.Log (cc.distance);
+		//Debug.Log (lookAt);
 		if(Input.GetKeyDown(KeyCode.Tab)){
 			lookAt = !lookAt; //エクレアじろじろシステムの切り替え
 			pcm.eclairStopping = !pcm.eclairStopping; //エクレアの動作を停止、再開させる
