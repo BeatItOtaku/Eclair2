@@ -194,7 +194,7 @@ public class PlayerControlManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Move
-		//isMoving = Mathf.Abs(horizontal) > 0.1 || Mathf.Abs(vertical) > 0.1;//この発想いいね！
+
 
 		if (!eclairStopping) {
 			//Damage
@@ -219,6 +219,7 @@ public class PlayerControlManager : MonoBehaviour {
 			}
 		} else {
 			anim.SetBool ("Grounded", false);
+			player.transform.position += new Vector3(0,-12f,0)* Time.deltaTime;
 		}
 			
 	}
@@ -240,13 +241,12 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 
 	//Move	
-	void MoveManagement(Vector2 delta){
+	/*void MoveManagement(Vector2 delta){
 		MoveManagement (delta.x, delta.y);
-	}
+	}*/
 
 	void MoveManagement (float horizontal, float vertical)
 	{
-
 		if (eclairImmobile || eclairStopping) {//エクレアが移動してはいけない時
 			isMoving = false;
 		} else {
@@ -274,16 +274,15 @@ public class PlayerControlManager : MonoBehaviour {
 			speed = 0;
 			runTime = 0;
 			dash = false;
+
+		}
+		if (!IsGrounded ()) {
+			runAnim = false;
 		}
 
 		Rotating (horizontal, vertical);
-			transform.position += transform.forward * Time.deltaTime * speed;
+			player.transform.position += transform.forward * Time.deltaTime * speed;
 
-		if (IsGrounded()) {
-			runAnim = true;
-		} else {
-			runAnim = false;
-		}
 		anim.SetBool ("Run", runAnim);
 	}
 
@@ -296,7 +295,7 @@ public class PlayerControlManager : MonoBehaviour {
 			direction = Vector3.zero;
 		}
 		float speed = 1f;
-		transform.position += direction * Time.deltaTime * speed;
+		player.transform.position += direction * Time.deltaTime * speed;
 
 	}
 
