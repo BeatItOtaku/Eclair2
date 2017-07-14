@@ -180,9 +180,9 @@ public class PlayerControlManager : MonoBehaviour {
 					break;
 				case "Shot":
 					if (e.eventState == InputState.Down)
-						fm.StartShot ();
+						fm.SyagekiStart ();
 					else
-						fm.StopShot ();
+						fm.SyagekiStop ();
 					break;
 				}
 		}
@@ -191,7 +191,6 @@ public class PlayerControlManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (playerState_);
-		Debug.Log (eclairImmobile);
 
 		//Death
 		if (HP <= 0) {

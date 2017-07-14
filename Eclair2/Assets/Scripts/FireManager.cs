@@ -5,7 +5,6 @@ using System.Collections;
 /// エクレアは通常時に左クリックをすると射撃モードとなる。
 /// 敵や攻撃できるオブジェクト（以下攻撃対象）との距離が一定以下になると、打撃モードとなる。
 /// 攻撃対象にはあらかじめ球状のコライダーが用意されており、それとエクレアが接触している間は攻撃方法が打撃モードとなる。
-/// 
 /// 現在は射撃モードのみ記述している。
 /// </summary>
 public class FireManager : MonoBehaviour {
@@ -21,15 +20,12 @@ public class FireManager : MonoBehaviour {
 	public  bool canShot = true; //falseでエクレアは射撃ができなくなる。
 	public  bool canAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
-
-	private bool isShotting = false;
-
 	public static bool shotContinue = false;//射撃している間、近接攻撃にならない//変数のネーミングセンスが絶望的にない
 
 
 	private bool shotOn = true;
-	private float shotCoolTime = 0.05f;
-	private float shotCoolTime_;
+	private float shotCoolTime = 0.05f;//次の弾を打ち出すまでにかかる時間
+	private float shotingTime;//射撃ボタンを押してから経過した時間
 
 	private Animator anim;
 
@@ -40,36 +36,33 @@ public class FireManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		shotCoolTime_ = shotCoolTime;
+		shotingTime = shotCoolTime;
 	}
 
-	public void StartShot(){
+	/*public void StartShot(){
 		isShotting = true;
 	}
 
 	public void StopShot(){
 		isShotting = false;
 		anim.SetBool ("Shot", false);
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update () {
 		//射撃モード
-		Syageki ();
+		//SyagekiStart ();
 		//打撃モード
 		Dageki();
 	}
 
 
 	//射撃モード
-	void Syageki(){
-		if (isShotting) {
+	public void SyagekiStart(){
 			if (canShot) {
-				//CameraController.setCursor = true;
 				anim.SetBool ("Shot", true);
 				shotContinue = true;
 				if (shotOn == true) {
-					//StartCoroutine (ShotCoroutine ());
 					Ray cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
 					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
@@ -80,17 +73,21 @@ public class FireManager : MonoBehaviour {
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
 				}
-				shotCoolTime_ -= Time.deltaTime;
-				if (shotCoolTime_ <= 0) {
+				shotingTime -= Time.deltaTime;
+				if (shotingTime <= 0) {
 					shotOn = true;
-					shotCoolTime_ = shotCoolTime;
+					shotingTime = shotCoolTime;
 				}
 			}
-		}
+	}
+
+	public void SyagekiStop(){
+		anim.SetBool ("Shot", false);
+		shotingTime = shotCoolTime;
 	}
 
 	//打撃モード
-	void Dageki(){
+	public void Dageki(){
 
 	}
 
