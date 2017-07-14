@@ -71,6 +71,7 @@ public class Bolt : MonoBehaviour {
 				//OnLanded.Invoke ();
 				GameObject.Find("Canvas/BoltLand").GetComponent<BoltLandUI>().Instantiate(gameObject);
 				launchBolt = true;
+				pcm.isEto = true;
 			}
 		} else {
 			

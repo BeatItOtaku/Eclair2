@@ -24,8 +24,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
 
-	public static bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
-	public  bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
+	public static bool eclairImmobile = false; //trueでエクレア全ての動作ができなくなる。
 
 	//Move
 	private float speed;//移動の速さ
@@ -164,7 +163,6 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//インプットシステム
 	void OnInput(InputEvent e){
-		if (!eclairStopping) {
 			if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
 				switch (e.type) {
 				case "Move":
@@ -187,13 +185,13 @@ public class PlayerControlManager : MonoBehaviour {
 						fm.StopShot ();
 					break;
 				}
-			}
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (playerState_);
+		Debug.Log (eclairImmobile);
 
 		//Death
 		if (HP <= 0) {
@@ -239,9 +237,8 @@ public class PlayerControlManager : MonoBehaviour {
 
 	void MoveManagement (float horizontal, float vertical)
 	{
-		Debug.Log (isMoving);
 
-		if (eclairImmobile || eclairStopping) {//エクレアが移動してはいけない時
+		if (eclairImmobile) {//エクレアが移動してはいけない時
 			isMoving = false;
 		} else {
 			isMoving = Mathf.Abs (horizontal) > 0.1 || Mathf.Abs (vertical) > 0.1;

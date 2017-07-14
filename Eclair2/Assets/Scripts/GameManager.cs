@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		pcm.eclairStopping = true;
+		//pcm.eclairStopping = true;
 		timeCounter.OnTimeUp += OnTimeCounterTimeUp;
 	}
 	

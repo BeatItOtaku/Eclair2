@@ -14,6 +14,12 @@ MonoBehaviour:
   attachedSceneGUID: 
   cueList:
   - time: 0
+    gameObjectName: Eclair_forGUIDANCE 1
+    cueEventID: aweubsdvnesrio
+    parameter: False
+    paramObject: {fileID: 0}
+    UUID: 
+  - time: 0
     gameObjectName: Canvas/Black
     cueEventID: 656f78s8f9d0n97d
     parameter: In
@@ -29,6 +35,12 @@ MonoBehaviour:
     gameObjectName: Canvas/Black
     cueEventID: 656f78s8f9d0n97d
     parameter: Out
+    paramObject: {fileID: 0}
+    UUID: 
+  - time: 0.1
+    gameObjectName: Eclair_forGUIDANCE 1
+    cueEventID: fqwubeadjsncoeiw
+    parameter: False
     paramObject: {fileID: 0}
     UUID: 
   Version: 1
