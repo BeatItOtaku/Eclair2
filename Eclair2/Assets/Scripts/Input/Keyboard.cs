@@ -17,6 +17,9 @@ namespace wararyo.EclairInput{
 		public string keyboardYAxisName = "Vertical";
 		public float MouseThreshold = 0.2f;
 
+		float lastKeyX = 0;
+		float lastKeyY = 0;
+
 		//InputDeviceはMonoDevelopを継承してないからこのUpdateは自動で呼ばれない
 		//だからEclairInputDriverから実行することで疑似的にUpdateを再現する
 		public override void Update ()
@@ -49,9 +52,12 @@ namespace wararyo.EclairInput{
 			//キーボード移動
 			float keyX = Input.GetAxis (keyboardXAxisName);
 			float keyY = Input.GetAxis (keyboardYAxisName);
-			if (Mathf.Pow (keyX, 2) + Mathf.Pow (keyY, 2) > 0) {
-				onInput (keyConfig.axis, InputState.Move, new Vector2 (keyX, keyY));
-			}
+			float delta = (lastKeyX - keyX) + (lastKeyY - keyY);
+
+			if(delta != 0) onInput (keyConfig.axis, InputState.Move, new Vector2 (keyX, keyY));
+
+			lastKeyX = keyX;
+			lastKeyY = keyY;
 
 			foreach (KeyboardKeyInputTypePair p in keyConfig.keyConfig) {
 				if(Input.GetKeyDown((KeyCode)p.keyCode))	onInput (p.inputType, InputState.Down, Vector2.zero);
