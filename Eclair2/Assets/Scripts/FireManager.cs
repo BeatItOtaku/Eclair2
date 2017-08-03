@@ -22,7 +22,11 @@ public class FireManager : MonoBehaviour {
 
 	public static bool shotContinue = false;//射撃している間、近接攻撃にならない//変数のネーミングセンスが絶望的にない
 
+	//打撃に関する変数
+	public static bool firstAttack = false;//打撃キーを一回目に押したときtrueになる。
+	public static int attackCount = 0;//打撃キーを押した回数。
 
+	//射撃に関する変数
 	private bool shotOn = true;
 	private float shotCoolTime = 0.05f;//次の弾を打ち出すまでにかかる時間
 	private float shotingTime;//射撃ボタンを押してから経過した時間
@@ -56,10 +60,18 @@ public class FireManager : MonoBehaviour {
 		Dageki();
 	}
 
+	//canShot変数により、攻撃キーが入力されたとき打撃を出すか射撃を出すかを判別する。
+	public void SyagekiOrDageki(){
+		if (canShot) {
+			SyagekiStart ();
+		} else {
+			Dageki ();
+		}
+	}
+
 
 	//射撃モード
 	public void SyagekiStart(){
-			if (canShot) {
 				anim.SetBool ("Shot", true);
 				shotContinue = true;
 				if (shotOn == true) {
@@ -78,7 +90,6 @@ public class FireManager : MonoBehaviour {
 					shotOn = true;
 					shotingTime = shotCoolTime;
 				}
-			}
 	}
 
 	public void SyagekiStop(){
@@ -88,7 +99,9 @@ public class FireManager : MonoBehaviour {
 
 	//打撃モード
 	public void Dageki(){
-
+		firstAttack = true;
+		anim.SetBool ("Dageki", true);
+		attackCount++;
 	}
 
 	//ここからのOnTriggerStay,OnTriggerExitで射撃モード、打撃モードの判定を行う。

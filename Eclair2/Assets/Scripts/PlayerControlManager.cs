@@ -180,7 +180,7 @@ public class PlayerControlManager : MonoBehaviour {
 					break;
 				case "Shot":
 					if (e.eventState == InputState.Down)
-						fm.SyagekiStart ();
+					fm.SyagekiOrDageki();
 					else
 						fm.SyagekiStop ();
 					break;
