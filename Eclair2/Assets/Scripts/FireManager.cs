@@ -23,8 +23,8 @@ public class FireManager : MonoBehaviour {
 	public static bool shotContinue = false;//射撃している間、近接攻撃にならない//変数のネーミングセンスが絶望的にない
 
 	//打撃に関する変数
-	public static bool firstAttack = false;//打撃キーを一回目に押したときtrueになる。
-	public static int attackCount = 0;//打撃キーを押した回数。
+	public static bool attacked = false;//攻撃したかどうか
+	public static int attackCount = 0;//攻撃した回数
 
 	//射撃に関する変数
 	private bool shotOn = true;
@@ -99,9 +99,8 @@ public class FireManager : MonoBehaviour {
 
 	//打撃モード
 	public void Dageki(){
-		firstAttack = true;
+		attacked = true;
 		anim.SetBool ("Dageki", true);
-		attackCount++;
 	}
 
 	//ここからのOnTriggerStay,OnTriggerExitで射撃モード、打撃モードの判定を行う。
