@@ -14,7 +14,12 @@ public class DagekiTrantsition : StateMachineBehaviour {
 
 	 //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		bool dageki01, dageki02, dageki03 = false;
+
+		if (FireManager.attacked == false) {
+			animator.SetBool ("Dageki", false);
+		}
+
+		/*bool dageki01, dageki02, dageki03 = false;
 	
 		if (stateInfo.IsName ("Base Layer.dageki00")) {
 			if (FireManager.attacked == true) {
@@ -44,7 +49,7 @@ public class DagekiTrantsition : StateMachineBehaviour {
 			} else {
 				animator.SetBool ("Dageki", false);
 			}
-}
+}*/
 }
 
 

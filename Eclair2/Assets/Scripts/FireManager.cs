@@ -57,7 +57,7 @@ public class FireManager : MonoBehaviour {
 		//射撃モード
 		//SyagekiStart ();
 		//打撃モード
-		Dageki();
+		//Dageki();
 	}
 
 	//canShot変数により、攻撃キーが入力されたとき打撃を出すか射撃を出すかを判別する。
