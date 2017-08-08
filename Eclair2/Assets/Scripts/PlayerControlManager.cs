@@ -24,7 +24,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
 
-	public static bool eclairImmobile = false; //trueでエクレア全ての動作ができなくなる。
+	public static bool eclairImmobile = false; //trueでエクレアは動けなくなる。
 
 	//Move
 	private float speed;//移動の速さ
@@ -163,7 +163,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//インプットシステム
 	void OnInput(InputEvent e){
-			if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
+			//if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
 				switch (e.type) {
 				case "Move":
 					horizontal = e.delta.x;
@@ -184,7 +184,7 @@ public class PlayerControlManager : MonoBehaviour {
 					else
 						fm.SyagekiStop ();
 					break;
-				}
+				//}
 		}
 	}
 	
@@ -216,10 +216,12 @@ public class PlayerControlManager : MonoBehaviour {
 	void FixedUpdate()
 	{
 			//Move
-		if (FireManager.shotContinue == true ) {
+		if (FireManager.shotContinue == true) {
 			KaniMove ();
 		} else {
-			MoveManagement (horizontal, vertical);
+			//if (!eclairImmobile) {
+				MoveManagement (horizontal, vertical);
+			//}
 		}
 
 		//Avoid
