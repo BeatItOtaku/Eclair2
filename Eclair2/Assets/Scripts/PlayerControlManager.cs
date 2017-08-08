@@ -163,7 +163,6 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//インプットシステム
 	void OnInput(InputEvent e){
-			//if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
 				switch (e.type) {
 				case "Move":
 					horizontal = e.delta.x;
@@ -184,7 +183,6 @@ public class PlayerControlManager : MonoBehaviour {
 					else
 						fm.SyagekiStop ();
 					break;
-				//}
 		}
 	}
 	
@@ -219,9 +217,7 @@ public class PlayerControlManager : MonoBehaviour {
 		if (FireManager.shotContinue == true) {
 			KaniMove ();
 		} else {
-			//if (!eclairImmobile) {
 				MoveManagement (horizontal, vertical);
-			//}
 		}
 
 		//Avoid
