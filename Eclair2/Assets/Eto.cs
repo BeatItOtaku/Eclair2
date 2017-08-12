@@ -70,6 +70,7 @@ public class Eto : MonoBehaviour {
 		audioSource.PlayOneShot (etoileEndSound);
 		Instantiate (attackEffect, transform.position, transform.rotation);
 		player.transform.position = endPosition;
+		PlayerControlManager.eclairImmobile = false;
 		boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
 		boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
 		Destroy (bolt);

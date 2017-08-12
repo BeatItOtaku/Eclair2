@@ -189,7 +189,6 @@ public class PlayerControlManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (playerState_);
-
 		//Death
 		if (HP <= 0) {
 			DeathManagement ();
@@ -231,6 +230,14 @@ public class PlayerControlManager : MonoBehaviour {
 	/*void MoveManagement(Vector2 delta){
 		MoveManagement (delta.x, delta.y);
 	}*/
+
+
+	void LookAtRayFromCamera(){
+		cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
+		transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
+		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+		}
+
 
 	void MoveManagement (float horizontal, float vertical)
 	{
@@ -284,9 +291,7 @@ public class PlayerControlManager : MonoBehaviour {
 			speed = 0;
 		}
 		player.transform.position += direction * Time.deltaTime * speed;
-		cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
-		transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
-		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+		LookAtRayFromCamera ();
 	}
 
 
@@ -341,13 +346,16 @@ public class PlayerControlManager : MonoBehaviour {
 		if(isAvoid){		
 			if(e.eventState == InputState.Down){
 				playerState_ = PlayerStates.Avoid;
+				LookAtRayFromCamera ();
 				if (isMoving) {
-					avoidSpeed = 200;
-					Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
+					
+
+					//avoidSpeed = 1;
+					/*Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
 					Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;
-					transform.position = Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
+					transform.position += Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
 					anim.SetFloat ("Horizontal", horizontal);
-					anim.SetFloat ("Vertical", vertical);
+					anim.SetFloat ("Vertical", vertical);*/
 				}
 				playerState_ = PlayerStates.Idle;
 			}
@@ -379,9 +387,7 @@ public class PlayerControlManager : MonoBehaviour {
 						playerState_ = PlayerStates.Bolt;
 						eclairImmobile = true;//ボルトを撃つとき一瞬止まる
 
-						cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
-						transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
-						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+						LookAtRayFromCamera ();
 						anim.SetBool("Run",false);
 									
 						//ボルトの複製と前に撃ったボルトの消去
