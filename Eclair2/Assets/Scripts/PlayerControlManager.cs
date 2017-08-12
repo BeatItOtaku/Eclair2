@@ -284,6 +284,9 @@ public class PlayerControlManager : MonoBehaviour {
 			speed = 0;
 		}
 		player.transform.position += direction * Time.deltaTime * speed;
+		cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
+		transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
+		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 	}
 
 
