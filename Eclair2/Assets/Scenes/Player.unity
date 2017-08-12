@@ -3136,11 +3136,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70426c7113044402ab266c4228c0e37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1406541913}
   bullet: {fileID: 1000010109845950, guid: 5ad3d96b8446c452db70bca8f5c73900, type: 2}
   muzzle: {fileID: 462312177}
   effectMuzzle: {fileID: 462312177}
   muzzleFlash: {fileID: 1000012884428902, guid: 24daba883ff0d43d0b789acc023d6650,
     type: 2}
+  enemies: []
   canShot: 1
   canAttack: 0
   audioSource: {fileID: 1406541916}
