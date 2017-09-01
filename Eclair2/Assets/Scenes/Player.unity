@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 338940117}
   - component: {fileID: 338940119}
   - component: {fileID: 338940120}
-  - component: {fileID: 338940122}
   - component: {fileID: 338940121}
   m_Layer: 0
   m_Name: Main Camera
@@ -220,7 +219,7 @@ MonoBehaviour:
   player: {fileID: 638925083}
   cameraTransform: {fileID: 338940115}
   mouseSensitivity: 300
-  defaultDistance: 1.8
+  defaultDistance: 2.4
   defaultAngle: 30
   defaultY: 0
   maxAngle: 80
@@ -382,26 +381,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!320 &338940122
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338940110}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 4a0dcf6e217a94e03bf5bebe47468d73, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 0}
-    value: {fileID: 338940110}
-  - key: {fileID: 0}
-    value: {fileID: 0}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &409418853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,11 +3248,11 @@ PlayableDirector:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1377637649}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: b6407c758b28b4de28ebf32eaab304a1, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
