@@ -10,10 +10,23 @@ public class CameraController : MonoBehaviour
 	public PlayerControlManager pcm;
 	public GameObject player;
 
+	private GameObject Debug {
+		get {
+			return GameObject.Find ("DebugSceneManager");
+		}
+	}
+	private LookAtObject Lao {//エクレアじろじろシステム
+		get {
+			return Debug.GetComponent<LookAtObject> ();
+		}
+	}
+
 	public  GameObject LookAt {
 		get {
 			if (pcm.etoOn == true) {
 				return pcm.eto;
+			} else if (Lao.lookAt == true) {
+				return Lao.cameraParent;
 			} else {
 				return player;
 			}
@@ -31,12 +44,9 @@ public class CameraController : MonoBehaviour
 	private Vector3 cameraPosition;
 	private float height = 500.0f;
 
-
-	public static bool setCursor = false; //ボルト射出準備か、遠距離攻撃をしたときのみtrueを返す。trueで動的カーソルになる。
-
 	public Transform cameraTransform;   // 操作するカメラ
 	public float mouseSensitivity = 300.0f;  // マウス感度
-	public float defaultDistance = 3.0f;
+	public float defaultDistance = 1.8f;
 	public float defaultAngle = 30.0f;//degree
 	public float defaultY = 0.0f;
 
@@ -65,7 +75,7 @@ public class CameraController : MonoBehaviour
 	private float targetAngle;
 	private float currentY;
 	private float currentAngle;
-	private float distance;
+	public float distance;
 	private Vector3 cameraOffset;
 
 	private bool isLockOn = false;

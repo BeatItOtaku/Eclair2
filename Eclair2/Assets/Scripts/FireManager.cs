@@ -1,150 +1,154 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// エクレアの、マウス左クリック（初期配置）で繰り出す攻撃に関するスクリプト。
+/// エクレアは通常時に左クリックをすると射撃モードとなる。
+/// 敵や攻撃できるオブジェクト（以下攻撃対象）との距離が一定以下になると、打撃モードとなる。
+/// 攻撃対象にはあらかじめ球状のコライダーが用意されており、それとエクレアが接触している間は攻撃方法が打撃モードとなる。
+/// 現在は射撃モードのみ記述している。
+/// </summary>
 public class FireManager : MonoBehaviour {
 
-	private GameObject player;
+	//オブジェクト
+	public GameObject player;
+	public GameObject bullet;//射撃モードで使う弾
+	public Transform muzzle;//射撃モードで使う銃口の位置
+	public Transform effectMuzzle;//マズルフラッシュが出る用の銃口
+	public GameObject muzzleFlash;//銃口から出るマズルフラッシュ
 
-	public  bool isShot = true; //falseでエクレアは射撃ができなくなる。//canShotかisShottableか
-	public  bool isAttack = false; //falseでエクレアは近接攻撃ができなくなる。
+	public GameObject[] enemies;
 
-	private bool isShotting = false;
+	//射撃、打撃ができるかどうかの判定
+	public  bool canShot = true; //falseでエクレアは射撃ができなくなる。
+	public  bool canAttack = false; //falseでエクレアは近接攻撃ができなくなる。
 
 	public static bool shotContinue = false;//射撃している間、近接攻撃にならない//変数のネーミングセンスが絶望的にない
 
-	private bool fire = false; //攻撃を繰り出したかどうか
+	//打撃に関する変数
+	public static bool attacked = false;//攻撃したかどうか
+	public static int attackCount = 0;//攻撃した回数
 
+	//射撃に関する変数
 	private bool shotOn = true;
-	private float shotCoolTime = 0.05f;
-	private float shotCoolTime_;
-
-	private int fireCount = 0; //攻撃した回数
+	private float shotCoolTime = 0.05f;//次の弾を打ち出すまでにかかる時間
+	private float shotingTime;//射撃ボタンを押してから経過した時間
 
 	private Animator anim;
 
-	public GameObject shotEffect;
-	//デバッグ用
-	public GameObject bullet;
-	public GameObject close;
-	public Transform muzzle;
-	public Transform muzzleFlash;
-
+	//SE
 	public AudioSource audioSource;
-
 	public AudioClip shotSound;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		shotCoolTime_ = shotCoolTime;
+		shotingTime = shotCoolTime;
 	}
 
-	public void StartShot(){
+	/*public void StartShot(){
 		isShotting = true;
 	}
 
 	public void StopShot(){
 		isShotting = false;
 		anim.SetBool ("Shot", false);
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update () {
-		if (isShotting) {
-			if (isShot) {
-				//CameraController.setCursor = true;
+		//打撃と射撃の切り替え
+		SwitchDagekiOrSyageki ();
+		Debug.Log (canAttack);
+	}
+
+	//canShot変数により、攻撃キーが入力されたとき打撃を出すか射撃を出すかを判別する。
+	public void SyagekiOrDageki(){
+		if (canShot) {
+			SyagekiStart ();
+		} else {
+			Dageki ();
+		}
+	}
+
+
+	//射撃モード
+	public void SyagekiStart(){
 				anim.SetBool ("Shot", true);
 				shotContinue = true;
 				if (shotOn == true) {
-					//StartCoroutine (ShotCoroutine ());
 					Ray cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
 					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
 					GameObject bulletInstance = (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
 					bulletInstance.GetComponent<Bullet> ().CursorRay = cursorRay;
-					Instantiate (shotEffect, muzzleFlash.position, muzzleFlash.rotation);
+					Instantiate (muzzleFlash, effectMuzzle.position, effectMuzzle.rotation);
 					audioSource.PlayOneShot (shotSound);
 					Vector3 cameraDirection = Camera.main.transform.forward;
 					shotOn = false;
 				}
-				shotCoolTime_ -= Time.deltaTime;
-				if (shotCoolTime_ <= 0) {
+				shotingTime -= Time.deltaTime;
+				if (shotingTime <= 0) {
 					shotOn = true;
-					shotCoolTime_ = shotCoolTime;
+					shotingTime = shotCoolTime;
 				}
-			}
-			if (isAttack) {
-				Instantiate (close, muzzle.position, muzzle.rotation);
-			}
-		}
-	}
-	/*
-	//Fire
-	public void FireManagement(){
-			StartCoroutine (fireCountCoroutine ());
-			switch (fireCount) {
-
-			case 1:
-				anim.SetBool ("Fire1",true);
-				break;
-			case 2:
-				anim.SetBool ("Fire2",true);
-				break;
-			case 3:
-				anim.SetBool ("Fire3",true);
-				break;
-			case 4:
-				anim.SetBool ("Fire4",true);
-				break;
-		}
 	}
 
-	IEnumerator fireCountCoroutine(){
-		if (Input.GetButtonDown ("Fire")) {
-			if (fireCount <= 4)
-			{
-				fireCount++;
-			}
-			if(!fire)
-				anim.SetBool ("Fire",true);
-			
-			fire = true;
-			yield return new WaitForSeconds (1);
-			fire = false;
-		}
-	}*/
-
-	IEnumerator ShotCoroutine()
-	{
-		shotOn = false;
-			Instantiate (bullet, muzzle.position, muzzle.rotation);
-			Vector3 cameraDirection = Camera.main.transform.forward;
-			//transform.rotation = Quaternion.LookRotation (cameraDirection);//カーソルがある方向にエクレアが回転
-			//transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-			
-
-		yield return new WaitForSeconds (60f);//なんで60秒待つの
-		shotOn = true;
+	public void SyagekiStop(){
+		anim.SetBool ("Shot", false);
+		shotingTime = shotCoolTime;
 	}
+
+	//打撃モード
+	public void Dageki(){//Animatorに組み込んであるDagekiTransitionスクリプトも併用している。
+		attacked = true;
+		anim.SetBool ("Dageki", true);
+	}
+
+
+	//打撃と射撃の自動切り替え
+	void SwitchDagekiOrSyageki(){
 		
-		
+		enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 
-	private void OnTriggerStay(Collider col){
+		int i = 0; 
+		int length = enemies.Length;
+		float distance = 0;
+		float threshold = 2.0f;
 
+		Debug.Log (length);
+
+		while (i < length) {
+			distance = Vector3.Distance (enemies [i].transform.position, player.transform.position);
+			if (distance <= threshold) {
+				canAttack = true;
+				canShot = false;
+				break;
+			} 
+			i++;
+		}
+		if (canAttack == true) {
+			if (distance > threshold || enemies [i] == null) {
+				canAttack = false;
+				canShot = true;
+			}
+		}
+	}
+
+
+	//ここからのOnTriggerStay,OnTriggerExitで射撃モード、打撃モードの判定を行う。
+	/*private void OnTriggerStay(Collider col){//打撃モードになる。
 		if (shotContinue == false) {
 			if (col.gameObject.tag == "Enemy") {
-				isShot = false;
-				isAttack = true;
+				canShot = false;
+				canAttack = true;
 			}
 		}
 	}
 
-	private void OnTriggerExit(Collider col){
-		
+	private void OnTriggerExit(Collider col){//射撃モードになる。
 		if(col.gameObject.tag == "Enemy"){
-			isShot = true;
-			isAttack = false;
+			canShot = true;
+			canAttack = false;
 		}
-	}
-
+	}*/
 }

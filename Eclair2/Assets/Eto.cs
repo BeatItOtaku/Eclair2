@@ -8,7 +8,7 @@ public class Eto : MonoBehaviour {
 
 	public GameObject attackEffect;
 
-	private GameObject bolt;
+	private GameObject bolt = null;
 	private Bolt boltManager;
 
 	private float distance;//etoエクレアからボルトまでの距離
@@ -33,6 +33,7 @@ public class Eto : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (bolt);
 		if (bolt == null) {
 			bolt = GameObject.FindGameObjectWithTag ("Bolt");
 			boltManager = bolt.GetComponent<Bolt> ();
@@ -69,6 +70,7 @@ public class Eto : MonoBehaviour {
 		audioSource.PlayOneShot (etoileEndSound);
 		Instantiate (attackEffect, transform.position, transform.rotation);
 		player.transform.position = endPosition;
+		PlayerControlManager.eclairImmobile = false;
 		boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
 		boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
 		Destroy (bolt);

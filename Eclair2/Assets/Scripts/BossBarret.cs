@@ -16,7 +16,7 @@ public class BossBarret : MonoBehaviour {
 			player = GameObject.FindGameObjectWithTag ("ETOEclair");
 			transform.LookAt (player.transform);
 		} else {
-			transform.LookAt (player.transform.FindChild ("Muzzle"));
+			transform.LookAt (player.transform.Find ("Muzzle"));
 		}
 
 	}

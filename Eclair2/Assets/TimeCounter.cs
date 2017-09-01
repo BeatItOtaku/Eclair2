@@ -53,7 +53,7 @@ public class TimeCounter : MonoBehaviour {
 	}
 
 	public void StartCount(){
-		pcm.eclairStopping = false;
+		//pcm.eclairStopping = false;
 		isCounting = true;
 		time = defaultTime;
 	}
