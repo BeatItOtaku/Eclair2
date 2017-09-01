@@ -123,9 +123,6 @@ GameObject:
   - component: {fileID: 338940111}
   - component: {fileID: 338940116}
   - component: {fileID: 338940118}
-  - component: {fileID: 338940117}
-  - component: {fileID: 338940119}
-  - component: {fileID: 338940120}
   - component: {fileID: 338940121}
   m_Layer: 0
   m_Name: Main Camera
@@ -229,21 +226,6 @@ MonoBehaviour:
   cameraVerticalAngleOffsetWhenLockOn: 45
   lockOnFOV: 50
   distance: 1.8
---- !u!114 &338940117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338940110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457b37c1d14074d79a080608fe79e395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsCamera: 0
-  rotation: 0
-  mainCamera: {fileID: 338940110}
-  cc: {fileID: 338940116}
 --- !u!82 &338940118
 AudioSource:
   m_ObjectHideFlags: 0
@@ -324,34 +306,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &338940119
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338940110}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffe100926019348778a39a4a41ebbcd1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &338940120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338940110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f5637311cb04e2192e1d5908bb1ba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &338940121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3412,7 +3366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1406541913}
   asimoto: {fileID: 2029237231}
-  eclairStopping: 0
   cameraTransform: {fileID: 338940115}
   fm: {fileID: 1406541919}
   bolt: {fileID: 1000012028248400, guid: 27e61d77ce08c4e6f9661f0a5b0426c8, type: 2}
@@ -3443,11 +3396,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70426c7113044402ab266c4228c0e37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   bullet: {fileID: 1000010109845950, guid: 5ad3d96b8446c452db70bca8f5c73900, type: 2}
   muzzle: {fileID: 462312177}
   effectMuzzle: {fileID: 462312177}
   muzzleFlash: {fileID: 1000012884428902, guid: 24daba883ff0d43d0b789acc023d6650,
     type: 2}
+  enemies: []
   canShot: 1
   canAttack: 0
   audioSource: {fileID: 1406541916}
