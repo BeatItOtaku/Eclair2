@@ -25,17 +25,17 @@ public class LookAtObject : MonoBehaviour {
 	void Start () {
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
 		player = GameObject.FindGameObjectWithTag ("Player");
-		pcm = player.GetComponent<PlayerControlManager> ();
+		//pcm = player.GetComponent<PlayerControlManager> ();
 		cc = mainCamera.GetComponent<CameraController> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (cc.distance);
-		Debug.Log (lookAt);
+		//Debug.Log (cc.distance);
+		//Debug.Log (lookAt);
 		if(Input.GetKeyDown(KeyCode.Tab)){
 			lookAt = !lookAt; //エクレアじろじろシステムの切り替え
-			pcm.eclairStopping = !pcm.eclairStopping; //エクレアの動作を停止、再開させる
+			PlayerControlManager.eclairImmobile = !PlayerControlManager.eclairImmobile;
 			cameraParent.transform.position = player.transform.position;
 			cameraParent.transform.rotation = player.transform.rotation;
 			Debug.Log ("Tab");

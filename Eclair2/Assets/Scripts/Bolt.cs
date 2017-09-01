@@ -47,10 +47,6 @@ public class Bolt : MonoBehaviour {
 			//Rayが何にも当たらなかった場合は、ボルトはただ直進する。
 			trueEnd = false;
 		}
-			
-	
-
-
 	}
 
 	// Update is called once per frame
@@ -71,6 +67,7 @@ public class Bolt : MonoBehaviour {
 				//OnLanded.Invoke ();
 				GameObject.Find("Canvas/BoltLand").GetComponent<BoltLandUI>().Instantiate(gameObject);
 				launchBolt = true;
+				pcm.isEto = true;
 			}
 		} else {
 			

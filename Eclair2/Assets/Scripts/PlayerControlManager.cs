@@ -24,22 +24,22 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
 
-	public static bool eclairImmobile = false; //trueでエクレアが移動、回転ができなくなる。
-	public  bool eclairStopping = false; //trueでエクレアのアニメーション含む全ての動作ができなくなる。
+	public static bool eclairImmobile = false; //trueでエクレアは動けなくなる。
 
 	//Move
-	private float speed;
-	private float horizontal;
-	private float vertical;
+	private float speed;//移動の速さ
+	private float horizontal;//水平方向の移動量。
+	private float vertical;//前後方向の移動量。
+	private float downSpeed = -13f;//落下時のスピード。落下中に射撃をするとゆっくり落ちてしまう現象を解消するため。
 
 	private bool isMoving = false; //trueでエクレアが動いている、falseで止まっている。
 	private bool runAnim;//アニメーションのRunに対する変数。trueでRunアニメーションが再生される。
 
 	//ダッシュに関する変数群
-	private float runTime = 0;
-	private bool dash;
+	private float runTime = 0;//runTimeは走っている時間、一定時間以上になると移動速度が速くなる。
+	private bool dash;//ダッシュ状態かどうか
 
-	private float stopTime = 0;//アニメーションのRun→RunToIdleに遷移するのを調整する変数。
+	private float stopTime = 0;//エクレアが止まっている時間。アニメーションのRun→RunToIdleに遷移するのを調整する変数。
 
 
 	//Rotate
@@ -163,8 +163,6 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//インプットシステム
 	void OnInput(InputEvent e){
-		if (!eclairStopping) {
-			if (!eclairImmobile) {//eclairStoppingとeclairImmobileの違いが分からん
 				switch (e.type) {
 				case "Move":
 					horizontal = e.delta.x;
@@ -181,43 +179,33 @@ public class PlayerControlManager : MonoBehaviour {
 					break;
 				case "Shot":
 					if (e.eventState == InputState.Down)
-						fm.StartShot ();
+					fm.SyagekiOrDageki();
 					else
-						fm.StopShot ();
+						fm.SyagekiStop ();
 					break;
-				}
-			}
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Move
-		//isMoving = Mathf.Abs(horizontal) > 0.1 || Mathf.Abs(vertical) > 0.1;//この発想いいね！
-
-		if (!eclairStopping) {
-			//Damage
-			//DamageManagement ();
-
-			mutekiManagement ();
-		}
-			
+		Debug.Log (playerState_);
 		//Death
 		if (HP <= 0) {
 			DeathManagement ();
 			death = true;
 		}
 
-
 		//設置判定
 		if (IsGrounded())
 		{
 			anim.SetBool ("Grounded", true);
-			if (playerState_ == PlayerStates.Jump || playerState_ == PlayerStates.Eto) {
+			if (playerState_ == PlayerStates.Eto) {//ETO終了後地面にいる場合、プレイヤーステイトをidleにする。
 				playerState_ = PlayerStates.Idle;
 			}
 		} else {
 			anim.SetBool ("Grounded", false);
+			player.transform.position += new Vector3(0,-12f,0)* Time.deltaTime;
+			//エクレアが地面にいない場合、常に下向きにエクレアの座標を移動させている。
 		}
 			
 	}
@@ -225,10 +213,10 @@ public class PlayerControlManager : MonoBehaviour {
 	void FixedUpdate()
 	{
 			//Move
-		if (FireManager.shotContinue == true || boltButton == true) {
+		if (FireManager.shotContinue == true) {
 			KaniMove ();
 		} else {
-			MoveManagement (horizontal, vertical);
+				MoveManagement (horizontal, vertical);
 		}
 
 		//Avoid
@@ -239,39 +227,41 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 
 	//Move	
-	void MoveManagement(Vector2 delta){
+	/*void MoveManagement(Vector2 delta){
 		MoveManagement (delta.x, delta.y);
-	}
+	}*/
+
+
+	void LookAtRayFromCamera(){
+		cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
+		transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
+		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+		}
+
 
 	void MoveManagement (float horizontal, float vertical)
 	{
 
-		if (eclairImmobile || eclairStopping) {
+		if (eclairImmobile) {//エクレアが移動してはいけない時
 			isMoving = false;
-		} else
+		} else {
 			isMoving = Mathf.Abs (horizontal) > 0.1 || Mathf.Abs (vertical) > 0.1;
-		if (isMoving) {
-			speed = 3;
+		}
+
+		if (isMoving) {//エクレアが移動できるとき、移動スピードと走りのアニメーションを決定する。
+			
+			//一定時間移動するとダッシュ
+			runTime += Time.deltaTime;
+			if (runTime >= 2.0f)dash = true;
+			if(dash)speed = 6;//ダッシュ時のスピード
+			if(!dash)speed = 3;//非ダッシュ時のスピード
+
+			//ストップタイム（エクレアが停止している時間）の初期化
+			stopTime = 0;
+
 			runAnim = true;
 		} else {
-			speed = 0;
-			runAnim = false;
-		}
-		if (isMoving) {
-
-				//一定時間移動するとダッシュ
-				runTime += Time.deltaTime;
-				if (runTime >= 2.0f)dash = true;
-
-				//ストップタイムの初期化
-					stopTime = 0;
-				
-				if(dash)speed = 12;
-				if(!dash)speed = 6;
-				runAnim = true;
-
-			} else {
-
+			
 			//移動キーを離しても、一定時間以内までにもう一度移動キーが押されれば、アニメーションのステートはRunからRunToIdleに向かわず走り続ける
 			stopTime += Time.deltaTime;
 			if (stopTime <= 0.5f)runAnim = false;
@@ -279,25 +269,29 @@ public class PlayerControlManager : MonoBehaviour {
 			speed = 0;
 			runTime = 0;
 			dash = false;
-			//runAnim = false;
 
 		}
+		if (!IsGrounded ()) {//落下中は走るモーションにならない。
+			runAnim = false;
+		}
+
 		Rotating (horizontal, vertical);
-			transform.position += transform.forward * Time.deltaTime * speed;
-			anim.SetBool ("Run",runAnim);
+			player.transform.position += transform.forward * Time.deltaTime * speed;
 
-
+		anim.SetBool ("Run", runAnim);
 	}
 
 	void KaniMove(){
  	//射撃時とボルトチャージ時のカニ歩き。向きを固定したまま前後左右に動く
-		if (horizontal != 0 || vertical != 0) {			
+		if (Mathf.Abs (horizontal) > 0.1f || Mathf.Abs (vertical) > 0.1f) {
 			direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
+			direction.y = downSpeed;
+			speed = 1f;
 		} else {
-			direction = Vector3.zero;
+			speed = 0;
 		}
-		float speed = 1f;
-		transform.position +=Time.deltaTime * direction * speed;
+		player.transform.position += direction * Time.deltaTime * speed;
+		LookAtRayFromCamera ();
 	}
 
 
@@ -352,13 +346,16 @@ public class PlayerControlManager : MonoBehaviour {
 		if(isAvoid){		
 			if(e.eventState == InputState.Down){
 				playerState_ = PlayerStates.Avoid;
+				LookAtRayFromCamera ();
 				if (isMoving) {
-					avoidSpeed = 200;
-					Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
+					
+
+					//avoidSpeed = 1;
+					/*Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
 					Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;
-					transform.position = Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
+					transform.position += Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
 					anim.SetFloat ("Horizontal", horizontal);
-					anim.SetFloat ("Vertical", vertical);
+					anim.SetFloat ("Vertical", vertical);*/
 				}
 				playerState_ = PlayerStates.Idle;
 			}
@@ -373,8 +370,7 @@ public class PlayerControlManager : MonoBehaviour {
 	void BoltManagement(InputEvent e)
 	{
 		if (isBolt) {
-			Debug.Log (boltTime);
-			if (Input.GetButton ("LaunchBolt")) {
+			/*if (Input.GetButton ("LaunchBolt")) {
 				boltTime += Time.deltaTime;
 				boltButton = true;
 				cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
@@ -382,14 +378,17 @@ public class PlayerControlManager : MonoBehaviour {
 				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
 				anim.SetBool("Run",false);
 
-			}
-				if (Input.GetButtonUp ("LaunchBolt")) {
+			}*/
+				if (Input.GetButtonDown ("LaunchBolt")) {
 					//boltTimeの値、つまりBoltキーを押し続けた時間によって攻撃が変わる。
-					boltButton = false;
+					//boltButton = false;
 
-					if (boltTime <= 0.5f) {//ETO用ボルト射出
+					//if (boltTime <= 0.5f) {//ETO用ボルト射出
 						playerState_ = PlayerStates.Bolt;
 						eclairImmobile = true;//ボルトを撃つとき一瞬止まる
+
+						LookAtRayFromCamera ();
+						anim.SetBool("Run",false);
 									
 						//ボルトの複製と前に撃ったボルトの消去
 						if (preShot != null)Destroy (preShot);//前に撃ったボルトが存在する場合、そのボルトを消す
@@ -400,7 +399,7 @@ public class PlayerControlManager : MonoBehaviour {
 						anim.SetTrigger ("Bolt");
 						audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
 
-					}else{//0.5秒以上boltキーを押すことで出せる技
+					/*}else{//0.5秒以上boltキーを押すことで出せる技
 					
 					hitPosition = cursorRay.GetPoint (5);//カメラから一定の距離
 					GameObject go = (GameObject)Instantiate (attackBolt1, hitPosition, transform.rotation);
@@ -408,14 +407,9 @@ public class PlayerControlManager : MonoBehaviour {
 					audioSource.clip = boltLandSound;
 					audioSource.PlayDelayed (0.8f);
 						Destroy (go, 1.0f);
-					}
+					}*/
 
-				boltTime = 0;//ボルトを押し続けた時間の初期化
-				}
-		
-				if (boltmanager != null) {				
-					isEto = true;
-					//ボルトまでの距離を表示するようなUIを出す？
+				//boltTime = 0;//ボルトを押し続けた時間の初期化
 				}
 			}
 			}
@@ -440,9 +434,7 @@ public class PlayerControlManager : MonoBehaviour {
 						eto.SetActive (true);				                       
 						player.SetActive (false);
 					}
-				} else {
-					playerState_ = PlayerStates.Idle;
-				}
+				} 
 			}
 		}
 	}

@@ -81,14 +81,14 @@ public class TutorialManager : MonoBehaviour {
 			//緑のターゲットは、50点、スコアに加算されます。（ここで緑のモニュメントが登場）
 			//得点の高いターゲットほど、破壊するのに時間がかかります。
 			csp.Play ();
-			pcm.eclairStopping = true;
+			//pcm.eclairStopping = true;
 
 			break;
 
 		case 3:
 			//(ターゲットの説明がすんだら）ターゲットを破壊してみましょう！(ここで、遠距離攻撃解禁）
 			//左クリック・・・遠距離攻撃
-			pcm.eclairStopping = false;
+			//pcm.eclairStopping = false;
 			fm.canShot = true;
 			break;
 
@@ -100,14 +100,14 @@ public class TutorialManager : MonoBehaviour {
 			//まずは、エトワールをするために使う道具『ボルト』を出してみましょう。
 			//(ここでボルトが撃てるようになる）
 			anim.SetBool("Shot",false);
-			pcm.eclairStopping = true;
+			//pcm.eclairStopping = true;
 			csp.Play ();
 			break;
 
 		case 5:
 			//右クリック・・・ボルト射出
 			pcm.isBolt = true;
-			pcm.eclairStopping = false;
+			//pcm.eclairStopping = false;
 
 			break;
 		case 6:

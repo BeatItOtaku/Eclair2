@@ -8,13 +8,11 @@ TagManager:
   - EclairKeepOut
   - ETOEclair
   - TutorialUI
-  - RedMonument
-  - BlueMonument
-  - GreenMonument
   - Sword
   - Bullet
   - Boss
   - RestartPosition
+  - Enemy
   layers:
   - Default
   - TransparentFX
