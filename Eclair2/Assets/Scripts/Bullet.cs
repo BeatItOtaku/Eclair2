@@ -38,9 +38,14 @@ public class Bullet : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter(Collision c)
-	{
+	{//敵にダメージを与えて、弾は消滅
+		int damage = 1;
+		Vector3 direction = (gameObject.transform.position - c.gameObject.transform.position);
 		Instantiate (effect, transform.position, transform.rotation);
-		
+		if (c.gameObject.tag == "Enemy") {
+			c.gameObject.GetComponent<EnemyBase> ().Damage (damage,direction);
+		}
+
 		Destroy (gameObject);
 	}
 }

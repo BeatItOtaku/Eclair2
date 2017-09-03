@@ -92,11 +92,14 @@ public class PlayerControlManager : MonoBehaviour {
 	public float jumpHeight = 100.0f;
 
 
-	//Damage
+	//HP,Damage,muteki
+	public int currentHp = MaxHP;
+	const int MaxHP = 100;
 
+	private bool attackFromForward;//エクレアが前から攻撃を受けたかどうか
+	private string forwardOrBack;//アニメーションのパラメータに使うための変数。
 
-	//HP
-	public HPGaugeController HPGauge;
+	/*public HPGaugeController HPGauge;
 
 	private int hp_ = MaxHP;
 	public int HP{
@@ -109,6 +112,7 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 	const int MaxHP = 100;
+*/
 
 	//無敵
 	private float mutekiTime = 2.0f;
@@ -190,11 +194,7 @@ public class PlayerControlManager : MonoBehaviour {
 	void Update () {
 		Debug.Log (playerState_);
 		//Death
-		if (HP <= 0) {
-			DeathManagement ();
-			death = true;
-		}
-
+		Debug.Log (currentHp);
 		//設置判定
 		if (IsGrounded())
 		{
@@ -232,7 +232,7 @@ public class PlayerControlManager : MonoBehaviour {
 	}*/
 
 
-	void LookAtRayFromCamera(){
+	void LookAtRayFromCamera(){//エクレアが何か動作をしたときにカメラの向いてる方向に向くメソッド
 		cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
 		transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
@@ -456,9 +456,38 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
+	///<summary>>
+	/// Damage&HPに関するコルーチン。PlayerControlManager.cs内ではなく、敵にアタッチしてあるスクリプトから呼び出し、ダメージを与える。
+	///ダメージ受けたあと、一定時間無敵になる。directionの方向にエクレアが仰け反る。
+	/// EclairDamageCroutineはエクレアがダメージを受けたときの処理であり、敵のスクリプト内で実行させる。
+	/// EnemyDamageCroutineは敵がダメージを受けたときの処理であり、エクレアのスクリプト内で実行させる。
+	/// </summary>
 
-	//Damage&HP
-	void DamageManagement(){
+	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
+		//if (isMuteki)yield break;
+
+		currentHp -= damage;
+		eclairImmobile = true;
+
+		if (currentHp <= 0) {
+			//死亡
+			StartCoroutine(DeathCoroutine());
+			yield break;
+		}
+
+		if (Vector3.Angle (gameObject.transform.forward, direction) <= 90) {
+			//エクレアが前後どちらから攻撃を受けたか
+			forwardOrBack = "forward";
+		} else {
+			forwardOrBack = "back";
+		}
+
+		anim.SetTrigger (forwardOrBack);
+		yield return new WaitForSeconds(1.0f);
+		eclairImmobile = false;
+	}
+
+	/*void DamageManagement(){
 		playerState_ = PlayerStates.Damaging;
 	}
 
@@ -508,10 +537,19 @@ public class PlayerControlManager : MonoBehaviour {
 			}
 		}
 	}
-
+*/
 
 	//Death
-	void DeathManagement(){
+	/// <summary>
+	/// エクレアの体力が0になったときの状態
+	/// </summary>
+	public IEnumerator DeathCoroutine(){
+		anim.SetTrigger ("Death");
+		yield return new WaitForSeconds (2.0f);
+		//ゲームを終了させる処理
+	}
+
+	/*void DeathManagement(){
 
 		if (death) {
 			playerState_ = PlayerStates.Death;
@@ -519,6 +557,6 @@ public class PlayerControlManager : MonoBehaviour {
 			eclairImmobile = true;
 			death = false;
 		}
-	}
+	}*/
 
 }
