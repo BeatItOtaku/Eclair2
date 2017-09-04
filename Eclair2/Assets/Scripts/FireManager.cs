@@ -16,7 +16,7 @@ public class FireManager : MonoBehaviour {
 	public Transform effectMuzzle;//マズルフラッシュが出る用の銃口
 	public GameObject muzzleFlash;//銃口から出るマズルフラッシュ
 
-	public GameObject[] enemies;
+	//private GameObject[] enemies;
 
 	//射撃、打撃ができるかどうかの判定
 	public  bool canShot = true; //falseでエクレアは射撃ができなくなる。

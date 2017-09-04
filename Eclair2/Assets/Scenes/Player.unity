@@ -3174,7 +3174,6 @@ MonoBehaviour:
   isEto: 0
   etoOn: 0
   eto: {fileID: 852047924}
-  jumpHeight: 20
   currentHp: 100
   audioSource: {fileID: 1406541916}
   boltLaunchSound: {fileID: 8300000, guid: afe45737abd92e54e81f2c4c132e1b4c, type: 3}
@@ -3198,7 +3197,6 @@ MonoBehaviour:
   effectMuzzle: {fileID: 462312177}
   muzzleFlash: {fileID: 1000012884428902, guid: 24daba883ff0d43d0b789acc023d6650,
     type: 2}
-  enemies: []
   canShot: 1
   canAttack: 0
   audioSource: {fileID: 1406541916}
@@ -3231,6 +3229,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db978dc33b18d514facf28fbcc1b8d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1406541923
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1406541913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 0.3237515
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.16000001, z: 0}
 --- !u!1 &1555592608
 GameObject:
   m_ObjectHideFlags: 0

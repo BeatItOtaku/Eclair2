@@ -90,7 +90,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Jump
-	public float jumpHeight = 100.0f;
+	//public float jumpHeight = 100.0f;
 
 
 	//HP,Damage,muteki
@@ -121,8 +121,6 @@ public class PlayerControlManager : MonoBehaviour {
 	}
 	const int MaxHP = 100;
 */
-
-
 
 
 	//死亡
@@ -228,17 +226,9 @@ public class PlayerControlManager : MonoBehaviour {
 				MoveManagement (horizontal, vertical);
 		}
 
-		//Avoid
-		//AvoidManagement ();
-
 			//Jump
 			//JumpManagement ();
 	}
-
-	//Move	
-	/*void MoveManagement(Vector2 delta){
-		MoveManagement (delta.x, delta.y);
-	}*/
 
 
 	void LookAtRayFromCamera(){//エクレアが何か動作をしたときにカメラの向いてる方向に向くメソッド
@@ -460,7 +450,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// <summary>
 	/// Boltを射出していない状態でspaceキーを押すとジャンプする。
 	/// </summary>	
-	void JumpManagement()
+	/*void JumpManagement()
 	{
 		if(playerState_ == PlayerStates.Idle){
 			if (Input.GetButtonDown ("Space"))
@@ -471,7 +461,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 			}
 		}
-	}
+	}*/
 
 	///<summary>>
 	/// Damage&HPに関するコルーチン。PlayerControlManager.cs内ではなく、敵にアタッチしてあるスクリプトから呼び出し、ダメージを与える。
