@@ -56,7 +56,7 @@ namespace wararyo.TaskGround
 			trelloCopiedBoardId = EditorUserSettings.GetConfigValue(Trello.KEY_COPIEDBOARD);
 			#endif
 
-			WWW www = new WWW(string.Format(APIURL_CARDS,trelloBoardId,Trello.APIKEY,trelloToken));
+			WWW www = new WWW(string.Format(APIURL_CARDS,trelloCopiedBoardId,Trello.APIKEY,trelloToken));
 			yield return www;
 			if (!string.IsNullOrEmpty (www.error)) {
 				Debug.Log (www.error);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -11,6 +12,8 @@ namespace wararyo.TaskGround
 	public class TaskPin : EnemyBase
 	{
 
+		const string APIURL_DELETECARD = "https://api.trello.com/1/cards/{0}?key={1}&token={2}&closed=true";
+
         public float size = 1;
         public float scaleFactor = 0.1f;
         public float minSize = 0.2f;
@@ -19,6 +22,7 @@ namespace wararyo.TaskGround
 		public AudioClip hit;
 
         public TextMesh titleText;
+		[SerializeField,HideInInspector]
         private Task m_task;
 		public Task task{
 			get{
@@ -77,11 +81,31 @@ namespace wararyo.TaskGround
 		public override void EnemyDamage (int damage, Vector3 direction)
 		{
 			currentHp -= damage;
-			if (currentHp < 0)
-				Destroy (gameObject);
 			audiosource.PlayOneShot (hit);
-			Debug.Log ("aho");
-			
+			if (currentHp < 0) {
+				StartCoroutine (TrelloDelete ());
+				Destroy (gameObject);
+			}
+		}
+
+		IEnumerator TrelloDelete(){
+			string trelloToken = "";
+			#if UNITY_EDITOR
+			trelloToken = EditorUserSettings.GetConfigValue(Trello.KEY_TOKEN);
+			#endif
+			UnityWebRequest www = UnityWebRequest.Put(string.Format(APIURL_DELETECARD,task.ID,Trello.APIKEY,trelloToken),"hogehoge");
+			Debug.Log ("wei");
+			www.Send();
+			while (!www.isDone) yield return null;
+			Debug.Log ("soiya");
+			if (!string.IsNullOrEmpty (www.error)) {
+				Debug.Log (www.error);
+			} else if (!string.IsNullOrEmpty (www.downloadHandler.text)) {
+				Debug.Log (www.downloadHandler.text);
+			} else {
+				Debug.Log ("nanndeyanenn");
+			}
+			yield return null;
 		}
     }
 

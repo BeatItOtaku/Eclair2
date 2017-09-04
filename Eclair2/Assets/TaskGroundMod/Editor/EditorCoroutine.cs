@@ -3,6 +3,7 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Networking;
 
 namespace wararyo.TaskGround {
 
@@ -41,6 +42,11 @@ public sealed class EditorCoroutine {
 				WWW www = pair.Key.Current as WWW;
 				if(www != null){
 					if(!www.isDone) continue; 
+				}
+				UnityWebRequest wreq = pair.Key.Current as UnityWebRequest;
+				if (wreq != null) {
+						if (!wreq.isDone)
+							continue;
 				}
 				//これ以上MoveNextできなければ終了 
 				if(!pair.Key.MoveNext()){
