@@ -481,7 +481,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 
 	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
-		if (isMuteki)yield break;
+		if (isMuteki|| death)yield break;
 		StartCoroutine (MutekiCoroutine ());
 
 		currentHp -= damage;
