@@ -647,6 +647,7 @@ MonoBehaviour:
   breakedTask: {fileID: 335205666}
   start: {fileID: 113598147}
   timeUp: {fileID: 212963234}
+  moji: 1
 --- !u!1 &1262843845
 GameObject:
   m_ObjectHideFlags: 0
