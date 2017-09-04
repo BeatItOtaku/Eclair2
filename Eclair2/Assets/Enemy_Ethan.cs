@@ -7,6 +7,8 @@ public class Enemy_Ethan :EnemyBase {
 
 	private string forwardOrBack;
 
+	public GasshukuMiniGameManager gmgm;
+
 	// Use this for initialization
 	void Start () {
 		MaxHP = 100;
@@ -36,12 +38,15 @@ public class Enemy_Ethan :EnemyBase {
 
 	private void OnCollisionEnter(Collision c){
 
-	if (c.gameObject.tag == "Player") {
+	/*if (c.gameObject.tag == "Player") {
 			int damage = 10;
 			Vector3 direction = gameObject.transform.position - player.transform.position;
 			StartCoroutine(c.gameObject.GetComponent<PlayerControlManager> ().EclairDamageCoroutine (damage,direction));
-	}
-
+	}*/
+		if (c.gameObject.tag == "Player"&& TimeCounter.countStart == false) {
+			TimeCounter.countStart = true;
+			gmgm.gameStart.enabled = false;
+		}
 
 	}
 }

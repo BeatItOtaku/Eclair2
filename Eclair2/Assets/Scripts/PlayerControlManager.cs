@@ -173,27 +173,27 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//インプットシステム
 	void OnInput(InputEvent e){
-				switch (e.type) {
-				case "Move":
-					horizontal = e.delta.x;
-					vertical = e.delta.y;
-					break;
-				case "Bolt":
-					BoltManagement (e);
-					break;
-				case "ETO":
-					EtoManagement (e);
-					break;
-				case "Avoid":
+			switch (e.type) {
+			case "Move":
+				horizontal = e.delta.x;
+				vertical = e.delta.y;
+				break;
+			case "Bolt":
+				BoltManagement (e);
+				break;
+			case "ETO":
+				EtoManagement (e);
+				break;
+			case "Avoid":
 				StartCoroutine (AvoidCoroutine (e));
-					break;
-				case "Shot":
-					if (e.eventState == InputState.Down)
-					fm.SyagekiOrDageki();
-					else
-						fm.SyagekiStop ();
-					break;
-		}
+				break;
+			case "Shot":
+				if (e.eventState == InputState.Down)
+					fm.SyagekiOrDageki ();
+				else
+					fm.SyagekiStop ();
+				break;
+			}
 	}
 	
 	// Update is called once per frame
@@ -201,7 +201,6 @@ public class PlayerControlManager : MonoBehaviour {
 		Debug.Log (playerState_);
 		//Death
 		Debug.Log(currentHp);
-		Debug.Log (isMuteki);
 		//設置判定
 		if (IsGrounded())
 		{
@@ -282,16 +281,19 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	void KaniMove(){
- 	//射撃時とボルトチャージ時のカニ歩き。向きを固定したまま前後左右に動く
-		if (Mathf.Abs (horizontal) > 0.1f || Mathf.Abs (vertical) > 0.1f) {
-			direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
-			direction.y = downSpeed;
-			speed = 1f;
-		} else {
-			speed = 0;
+		//射撃時とボルトチャージ時のカニ歩き。向きを固定したまま前後左右に動く
+
+		if (eclairImmobile == false) {
+			if (Mathf.Abs (horizontal) > 0.1f || Mathf.Abs (vertical) > 0.1f) {
+				direction = gameObject.transform.right * horizontal + gameObject.transform.forward * vertical;
+				direction.y = downSpeed;
+				speed = 1f;
+			} else {
+				speed = 0;
+			}
+			player.transform.position += direction * Time.deltaTime * speed;
+			LookAtRayFromCamera ();
 		}
-		player.transform.position += direction * Time.deltaTime * speed;
-		LookAtRayFromCamera ();
 	}
 
 
@@ -346,7 +348,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	public IEnumerator AvoidCoroutine(InputEvent e){
-		if(isAvoid){		
+		if(isAvoid && eclairImmobile == false){		
 			if(e.eventState == InputState.Down){
 				if (isMuteki)yield break;
 				isMuteki = true;
@@ -378,7 +380,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	void BoltManagement(InputEvent e)
 	{
-		if (isBolt) {
+		if (isBolt && eclairImmobile == false) {
 			/*if (Input.GetButton ("LaunchBolt")) {
 				boltTime += Time.deltaTime;
 				boltButton = true;

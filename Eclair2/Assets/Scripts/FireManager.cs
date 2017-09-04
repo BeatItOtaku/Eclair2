@@ -66,7 +66,7 @@ public class FireManager : MonoBehaviour {
 
 	private IEnumerator SyagekiCoroutine(){
 
-		while (shotContinue) {
+		while (shotContinue && PlayerControlManager.eclairImmobile == false) {
 			anim.SetBool ("Shot", true);
 
 				Ray cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
