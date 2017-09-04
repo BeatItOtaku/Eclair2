@@ -64,6 +64,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 		yield break;
 	}
 
+
 	public IEnumerator GameStartAndTimeUp(){
 		if (TimeCounter.countStart == true) {
 			image = start;
