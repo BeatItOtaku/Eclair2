@@ -68,7 +68,7 @@ namespace wararyo.TaskGround
 			Object prefab = AssetDatabase.LoadAssetAtPath<Object>(prefabPath);
 
 			GameObject go = Instantiate<GameObject>((GameObject)prefab,parent);
-			go.transform.position = task.position;
+			go.transform.localPosition = task.position;
 			TaskPin tp = go.GetComponent<TaskPin>();
 			tp.task = task;
 			tp.player = player;
