@@ -33,7 +33,7 @@ public class Eto : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (bolt);
+		//Debug.Log (bolt);
 		if (bolt == null) {
 			bolt = GameObject.FindGameObjectWithTag ("Bolt");
 			boltManager = bolt.GetComponent<Bolt> ();

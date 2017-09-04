@@ -22,6 +22,8 @@ namespace wararyo.TaskGround
 		public AudioClip hit;
 
 		public GameObject effect;
+		private GameObject breakTask;
+		private BreakedTask bt;
 
         public TextMesh titleText;
 		[SerializeField,HideInInspector]
@@ -43,6 +45,8 @@ namespace wararyo.TaskGround
 			currentHp = MaxHP;
 
 			audiosource = GetComponent<AudioSource> ();
+			breakTask = GameObject.Find ("BreakedTask");
+			bt = breakTask.GetComponent<BreakedTask> ();
         }
 
         // Update is called once per frame
@@ -82,12 +86,20 @@ namespace wararyo.TaskGround
 
 		public override void EnemyDamage (int damage, Vector3 direction)
 		{
-			currentHp -= damage;
+			if (TimeCounter.countStart == true) {
+				currentHp -= damage;
+			}
 			audiosource.PlayOneShot (hit);
 			if (currentHp < 0) {
 				StartCoroutine (TrelloDelete ());
-				Instantiate (effect, transform.position, transform.rotation);
-				Destroy (gameObject);
+				Instantiate (effect, transform.position + new Vector3(0,3,0), effect.transform.rotation);
+				bt.breakedTask++;
+				gameObject.SetActive (false);
+				//Destroy (gameObject);
+
+				if (TimeCounter.countStart == false) {
+					gameObject.SetActive (true);
+				}
 			}
 		}
 
@@ -97,16 +109,16 @@ namespace wararyo.TaskGround
 			trelloToken = EditorUserSettings.GetConfigValue(Trello.KEY_TOKEN);
 			#endif
 			UnityWebRequest www = UnityWebRequest.Put(string.Format(APIURL_DELETECARD,task.ID,Trello.APIKEY,trelloToken),"hogehoge");
-			Debug.Log ("wei");
+			//Debug.Log ("wei");
 			www.Send();
 			while (!www.isDone) yield return null;
-			Debug.Log ("soiya");
+			//Debug.Log ("soiya");
 			if (!string.IsNullOrEmpty (www.error)) {
-				Debug.Log (www.error);
+				//Debug.Log (www.error);
 			} else if (!string.IsNullOrEmpty (www.downloadHandler.text)) {
-				Debug.Log (www.downloadHandler.text);
+				//Debug.Log (www.downloadHandler.text);
 			} else {
-				Debug.Log ("nanndeyanenn");
+				//Debug.Log ("nanndeyanenn");
 			}
 			yield return null;
 		}

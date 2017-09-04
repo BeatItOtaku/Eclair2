@@ -7,14 +7,14 @@ using UnityEngine;
 public class TimeCounter : MonoBehaviour {
 
 	public GasshukuMiniGameManager gmgm;
+	public BreakedTask bt;
 
 	public float maxTime = 100;
 	public float currentTime;
 
 	public static bool countStart = false;//trueで制限時間スタート
 
-	private int task;
-	private int maxTask = 31;
+
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +24,7 @@ public class TimeCounter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (countStart);
+		//Debug.Log (countStart);
 
 		if (countStart == true) {
 			
@@ -36,9 +36,7 @@ public class TimeCounter : MonoBehaviour {
 		}
 
 		if (currentTime <= 0) {
-			if (task == maxTask) {
 				StartCoroutine(gmgm.GameRestartCoroutine ());
-			}
 		}
 	}
 }

@@ -33,7 +33,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (moji);
+		//Debug.Log (moji);
 		if (moji == true) {
 			if (Input.GetKeyDown (KeyCode.F1)) {
 				gameStart.enabled = !gameStart.enabled;
