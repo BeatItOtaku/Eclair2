@@ -96,10 +96,6 @@ namespace wararyo.TaskGround
 				bt.breakedTask++;
 				gameObject.SetActive (false);
 				//Destroy (gameObject);
-
-				if (TimeCounter.countStart == false) {
-					gameObject.SetActive (true);
-				}
 			}
 		}
 
