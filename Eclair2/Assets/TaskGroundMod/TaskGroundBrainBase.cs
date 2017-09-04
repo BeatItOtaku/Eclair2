@@ -15,7 +15,7 @@ namespace wararyo.TaskGround
         [SerializeField, HideInInspector]
         List<Change> changes;//変更のキュー
 
-		public Transform player;
+		public GameObject player;
 		[Range(0.1f,4)]
 		public float size = 1;
 		[Range(-0.2f,0.2f)]
