@@ -34,7 +34,7 @@ public abstract class EnemyBase : MonoBehaviour {
 	/// </summary>
 	/// <param name="damage">Damage.</param>
 	public void Damage (int damage){
-		Damage (damage, new Vector3 (0, 0, 0));
+		EnemyDamage (damage, new Vector3 (0, 0, 0));
 	}
 
 	/// <summary>
@@ -43,5 +43,5 @@ public abstract class EnemyBase : MonoBehaviour {
 	/// </summary>
 	/// <param name="damage">ダメージ値</param>
 	/// <param name="direction">どの方向へ攻撃を食らったか</param>
-	public abstract void Damage (int damage, Vector3 direction);
+	public abstract void EnemyDamage (int damage, Vector3 direction);
 }

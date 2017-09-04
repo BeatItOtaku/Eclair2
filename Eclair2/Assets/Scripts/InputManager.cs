@@ -289,7 +289,7 @@ public class InputManager : MonoBehaviour {
 			//Destroy (c.gameObject);
 			if (enemy != null) {//エクレアと衝突したオブジェクトにはEnemyBaseが含まれている、すなわちそれは敵である
 				Debug.Log (c.name);
-				enemy.Damage (15, target.transform.position - player.transform.position);
+				enemy.EnemyDamage (15, target.transform.position - player.transform.position);
 			} else {
 				//Debug.Log (colliders.Length);
 			}

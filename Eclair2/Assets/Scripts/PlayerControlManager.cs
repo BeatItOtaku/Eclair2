@@ -99,6 +99,8 @@ public class PlayerControlManager : MonoBehaviour {
 	private bool attackFromForward;//エクレアが前から攻撃を受けたかどうか
 	private string forwardOrBack;//アニメーションのパラメータに使うための変数。
 
+	private Renderer[] meshes;//エクレアの子オブジェクトでメッシュが含まれるもの。エクレアの点滅に使う
+
 	/*public HPGaugeController HPGauge;
 
 	private int hp_ = MaxHP;
@@ -163,6 +165,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 		//アニメーション関係
 		anim = player.GetComponent<Animator> ();
+
+		//無敵関係
+		meshes = GetComponentsInChildren<Renderer>();
 	}
 
 	//インプットシステム
@@ -194,7 +199,8 @@ public class PlayerControlManager : MonoBehaviour {
 	void Update () {
 		Debug.Log (playerState_);
 		//Death
-		Debug.Log (currentHp);
+		Debug.Log(currentHp);
+		Debug.Log (meshes.Length);
 		//設置判定
 		if (IsGrounded())
 		{
@@ -464,10 +470,10 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 
 	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
-		//if (isMuteki)yield break;
+		if (isMuteki)yield break;
 
 		currentHp -= damage;
-		eclairImmobile = true;
+		//eclairImmobile = true;
 
 		if (currentHp <= 0) {
 			//死亡
@@ -483,61 +489,17 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 
 		anim.SetTrigger (forwardOrBack);
-		yield return new WaitForSeconds(1.0f);
-		eclairImmobile = false;
-	}
 
-	/*void DamageManagement(){
-		playerState_ = PlayerStates.Damaging;
-	}
-
-	public void Damage(int damage)
-	{
-		Damage(damage, new Vector3(0, 0, 0));
-	}
-
-	public void Damage(int damage,Vector3 direction){
-		if (isMuteki)
-		{
-		}
-		else
-		{
-			if(!direction.Equals(new Vector3(0,0,0))) transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Quaternion.LookRotation(-direction).eulerAngles.y, transform.rotation.eulerAngles.z);
-			HP -= damage;
-			StartCoroutine(whenAttacked("BigAttacked", 1.3f));
-		}
-	}
-
-	IEnumerator whenAttacked(string parameter,float time)
-	{
-		startMuteki();
-		eclairImmobile = true;
-		anim.SetBool(parameter, true);
-		yield return new WaitForSeconds(time);
-		anim.SetBool(parameter, false);
-		eclairImmobile = false;
-	}
-
-
-	void startMuteki()
-	{
-		isMuteki = true;
-		mutekiTimeCursor = 0;
-	}
-
-
-	private void mutekiManagement()
-	{
-		if (isMuteki) {
-			mutekiTimeCursor += Time.deltaTime;
-			if(mutekiTimeCursor > mutekiTime)
-			{
-				isMuteki = false;
-				mutekiTimeCursor = 0;
+		for (int i = 0; i < 10; i++) {
+			isMuteki = true;
+			foreach (Renderer mesh in meshes) {
+				mesh.enabled = !mesh.enabled;
 			}
+			yield return new WaitForSeconds(0.1f);
 		}
+		isMuteki = false;
+		//eclairImmobile = false;
 	}
-*/
 
 	//Death
 	/// <summary>
@@ -548,15 +510,4 @@ public class PlayerControlManager : MonoBehaviour {
 		yield return new WaitForSeconds (2.0f);
 		//ゲームを終了させる処理
 	}
-
-	/*void DeathManagement(){
-
-		if (death) {
-			playerState_ = PlayerStates.Death;
-			anim.SetTrigger ("Death");
-			eclairImmobile = true;
-			death = false;
-		}
-	}*/
-
 }

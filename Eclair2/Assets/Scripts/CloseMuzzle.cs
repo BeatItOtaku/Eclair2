@@ -19,7 +19,7 @@ public class CloseMuzzle : MonoBehaviour {
 			//if (col.gameObject.tag == "Enemy") {
 				EnemyBase enemy = col.gameObject.GetComponent<EnemyBase> ();
 				if (enemy != null) {
-					enemy.Damage (30, player.transform.forward);
+					enemy.EnemyDamage (30, player.transform.forward);
 				//}
 			}
 		}

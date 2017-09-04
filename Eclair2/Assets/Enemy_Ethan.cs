@@ -20,7 +20,7 @@ public class Enemy_Ethan :EnemyBase {
 
 	}
 
-	public override void Damage(int damage,Vector3 direction){
+	public override void EnemyDamage(int damage,Vector3 direction){
 		currentHp -= damage;
 
 		if (Vector3.Angle (gameObject.transform.forward, direction) <= 90) {

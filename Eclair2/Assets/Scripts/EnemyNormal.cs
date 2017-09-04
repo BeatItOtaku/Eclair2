@@ -62,7 +62,7 @@ public class EnemyNormal : EnemyBase {
         }
 	}
 
-	public override void Damage(int damage,Vector3 direction){
+	public override void EnemyDamage(int damage,Vector3 direction){
         if (isMuteki) return;
 		HP -= damage;
 		GetComponent<Rigidbody>().velocity = (-transform.forward * damageReaction);

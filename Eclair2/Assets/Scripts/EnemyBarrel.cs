@@ -15,7 +15,7 @@ public class EnemyBarrel : EnemyBase {
 	
 	}
 
-	public override void Damage (int damage, Vector3 direction)
+	public override void EnemyDamage (int damage, Vector3 direction)
 	{
 		Debug.Log ("BarrelDamaged" + damage);
 		gameObject.GetComponent<Rigidbody> ().AddForce (direction.normalized * damage * futtobiFactor,ForceMode.Impulse);

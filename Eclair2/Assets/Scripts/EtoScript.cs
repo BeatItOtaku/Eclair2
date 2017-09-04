@@ -86,7 +86,7 @@ public class EtoScript : MonoBehaviour {
 		} else {
 			EnemyBase enemy = collider.gameObject.GetComponent<EnemyBase>();
 			if (enemy != null) {
-				enemy.Damage (30, target.transform.position - transform.position);
+				enemy.EnemyDamage (30, target.transform.position - transform.position);
 				TimeManager.Instance.theWorld (0.2f);
 				Camera.main.GetComponent<RadialBlur> ().Shock (2);
 			}
