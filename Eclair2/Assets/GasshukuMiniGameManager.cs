@@ -19,6 +19,8 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 
 	private Image image = null;
 
+	public bool moji = true;//イーサンにぶつかって〜と制限時間の文字をつけ消しする
+
 	// Use this for initialization
 	void Start () {
 		kowashitaTask.enabled = false;
@@ -31,7 +33,8 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (TimeCounter.countStart == false) {
+		Debug.Log (moji);
+		if (moji == true) {
 			if (Input.GetKeyDown (KeyCode.F1)) {
 				gameStart.enabled = !gameStart.enabled;
 				time.enabled = !time.enabled;
@@ -61,6 +64,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 		maxTask.enabled = false;
 		breakedTask.enabled = false;
 		gameStart.enabled = true;
+		moji = true;
 		yield break;
 	}
 
@@ -75,7 +79,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 		image.enabled = true;
 		yield return new WaitForSeconds (2.0f);
 		image.enabled = false;
-
+		yield break;
 	}
 
 }

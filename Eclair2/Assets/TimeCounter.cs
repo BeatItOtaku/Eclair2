@@ -8,13 +8,13 @@ public class TimeCounter : MonoBehaviour {
 
 	public GasshukuMiniGameManager gmgm;
 
-	public float maxTime = 5;
+	public float maxTime = 100;
 	public float currentTime;
 
 	public static bool countStart = false;//trueで制限時間スタート
 
-	private int task = 7;
-	private int maxTask = 7;
+	private int task;
+	private int maxTask = 31;
 
 	// Use this for initialization
 	void Start () {
