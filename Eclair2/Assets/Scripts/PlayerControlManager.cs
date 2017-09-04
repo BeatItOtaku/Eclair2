@@ -81,6 +81,7 @@ public class PlayerControlManager : MonoBehaviour {
 	//Avoid
 	public  bool isAvoid = true; //falseでエクレアは回避ができなくなる。
 	private float avoidSpeed;
+	private float mutekiTime = 2.0f;//回避時の無敵時間
 
 	//Eto
 	public  bool isEto = false; //falseでエクレアはETOができなくなる。
@@ -99,7 +100,12 @@ public class PlayerControlManager : MonoBehaviour {
 	private bool attackFromForward;//エクレアが前から攻撃を受けたかどうか
 	private string forwardOrBack;//アニメーションのパラメータに使うための変数。
 
+
 	private Renderer[] meshes;//エクレアの子オブジェクトでメッシュが含まれるもの。エクレアの点滅に使う
+	private bool isMuteki = false;//無敵かどうか
+	private int tenmetsuCount = 20;//無敵時に何回点滅するか
+	private float mutekiTimeInterval = 0.1f;//点滅の間隔
+
 
 	/*public HPGaugeController HPGauge;
 
@@ -116,11 +122,8 @@ public class PlayerControlManager : MonoBehaviour {
 	const int MaxHP = 100;
 */
 
-	//無敵
-	private float mutekiTime = 2.0f;
-	private float mutekiTimeCursor = 0;
 
-	private bool isMuteki = false;//無敵かどうか
+
 
 	//死亡
 	private bool death = false;//死んだかどうか
@@ -184,7 +187,7 @@ public class PlayerControlManager : MonoBehaviour {
 					EtoManagement (e);
 					break;
 				case "Avoid":
-					AvoidManagement (e);
+				StartCoroutine (AvoidCoroutine (e));
 					break;
 				case "Shot":
 					if (e.eventState == InputState.Down)
@@ -200,7 +203,7 @@ public class PlayerControlManager : MonoBehaviour {
 		Debug.Log (playerState_);
 		//Death
 		Debug.Log(currentHp);
-		Debug.Log (meshes.Length);
+		Debug.Log (isMuteki);
 		//設置判定
 		if (IsGrounded())
 		{
@@ -287,6 +290,7 @@ public class PlayerControlManager : MonoBehaviour {
 		anim.SetBool ("Run", runAnim);
 	}
 
+
 	void KaniMove(){
  	//射撃時とボルトチャージ時のカニ歩き。向きを固定したまま前後左右に動く
 		if (Mathf.Abs (horizontal) > 0.1f || Mathf.Abs (vertical) > 0.1f) {
@@ -347,14 +351,18 @@ public class PlayerControlManager : MonoBehaviour {
 	//Avoid
 	/// <summary>
 	/// 移動していない状態で左Shiftキーを押すとその場回避、移動している状態で左Shiftキーを押すと移動している方向に回避。
+	/// 回避中は無敵時間がある。
 	/// </summary>
-	void AvoidManagement(InputEvent e){
+
+
+	public IEnumerator AvoidCoroutine(InputEvent e){
 		if(isAvoid){		
 			if(e.eventState == InputState.Down){
+				if (isMuteki)yield break;
+				isMuteki = true;
 				playerState_ = PlayerStates.Avoid;
 				LookAtRayFromCamera ();
 				if (isMoving) {
-					
 
 					//avoidSpeed = 1;
 					/*Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
@@ -362,7 +370,12 @@ public class PlayerControlManager : MonoBehaviour {
 					transform.position += Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
 					anim.SetFloat ("Horizontal", horizontal);
 					anim.SetFloat ("Vertical", vertical);*/
+				} else {
+
+
 				}
+				yield return new WaitForSeconds (mutekiTime);
+				isMuteki = false;
 				playerState_ = PlayerStates.Idle;
 			}
 		}
@@ -379,9 +392,7 @@ public class PlayerControlManager : MonoBehaviour {
 			/*if (Input.GetButton ("LaunchBolt")) {
 				boltTime += Time.deltaTime;
 				boltButton = true;
-				cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
-				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
-				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+				LookAtRayFromCamera ();
 				anim.SetBool("Run",false);
 
 			}*/
@@ -471,6 +482,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
 		if (isMuteki)yield break;
+		StartCoroutine (MutekiCoroutine ());
 
 		currentHp -= damage;
 		//eclairImmobile = true;
@@ -483,22 +495,27 @@ public class PlayerControlManager : MonoBehaviour {
 
 		if (Vector3.Angle (gameObject.transform.forward, direction) <= 90) {
 			//エクレアが前後どちらから攻撃を受けたか
-			forwardOrBack = "forward";
+			forwardOrBack = "DamageFromForward";
 		} else {
-			forwardOrBack = "back";
+			forwardOrBack = "DamageFromBack";
 		}
 
 		anim.SetTrigger (forwardOrBack);
 
-		for (int i = 0; i < 10; i++) {
-			isMuteki = true;
+
+		//eclairImmobile = false;
+	}
+
+
+	public IEnumerator MutekiCoroutine(){
+		isMuteki = true;
+		for (int i = 0; i < tenmetsuCount; i++) {
 			foreach (Renderer mesh in meshes) {
 				mesh.enabled = !mesh.enabled;
 			}
-			yield return new WaitForSeconds(0.1f);
+			yield return new WaitForSeconds(mutekiTimeInterval);
 		}
 		isMuteki = false;
-		//eclairImmobile = false;
 	}
 
 	//Death
@@ -507,6 +524,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	public IEnumerator DeathCoroutine(){
 		anim.SetTrigger ("Death");
+		death = true;
 		yield return new WaitForSeconds (2.0f);
 		//ゲームを終了させる処理
 	}

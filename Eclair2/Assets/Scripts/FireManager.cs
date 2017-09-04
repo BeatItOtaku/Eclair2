@@ -49,7 +49,7 @@ public class FireManager : MonoBehaviour {
 	void Update () {
 		//打撃と射撃の切り替え
 		//SwitchDagekiOrSyageki ();
-		Debug.Log (canAttack);
+		//Debug.Log (canAttack);
 	}
 
 	//canShot変数により、攻撃キーが入力されたとき打撃を出すか射撃を出すかを判別する。
