@@ -198,9 +198,9 @@ public class PlayerControlManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (playerState_);
+		//Debug.Log (playerState_);
 		//Death
-		Debug.Log(currentHp);
+		//Debug.Log(currentHp);
 		//設置判定
 		if (IsGrounded())
 		{

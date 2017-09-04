@@ -9,11 +9,14 @@ namespace wararyo.TaskGround
 {
 
 	public class TaskPin : EnemyBase
-    {
-        public Transform player;
+	{
+
         public float size = 1;
         public float scaleFactor = 0.1f;
         public float minSize = 0.2f;
+
+		private AudioSource audiosource;
+		public AudioClip hit;
 
         public TextMesh titleText;
         private Task m_task;
@@ -30,14 +33,17 @@ namespace wararyo.TaskGround
         // Use this for initialization
         void Start()
         {
-			
+			MaxHP = 10;
+			currentHp = MaxHP;
+
+			audiosource = GetComponent<AudioSource> ();
         }
 
         // Update is called once per frame
         void Update()
         {
 			if (player == null)
-				player = GameObject.FindWithTag ("Player").transform;
+				player = GameObject.FindWithTag ("Player");
 
             //ずっとこっち向く
             Vector3 target = Camera.main.transform.position;
@@ -45,12 +51,12 @@ namespace wararyo.TaskGround
             this.transform.LookAt(target);
 
             //遠くに行くほど大きくなるか小さくなる
-            float distance = Vector3.Distance(player.position, transform.position);
+			float distance = Vector3.Distance(player.transform.position, transform.position);
             float scale = Mathf.Max(minSize,size + (scaleFactor * distance));
             transform.localScale = new Vector3(scale, scale, scale);
         }
 
-        public static void Instantiate(Transform parent, Task task, Transform player, float size, float scaleFactor, float minSize)
+		public static void Instantiate(Transform parent, Task task, GameObject player, float size, float scaleFactor, float minSize)
         {
 #if UNITY_EDITOR
             const string PrefabGUID = "a0a7bc9fda6e3194ea8fa6d188e3f802";
@@ -71,6 +77,11 @@ namespace wararyo.TaskGround
 		public override void EnemyDamage (int damage, Vector3 direction)
 		{
 			currentHp -= damage;
+			if (currentHp < 0)
+				Destroy (gameObject);
+			audiosource.PlayOneShot (hit);
+			Debug.Log ("aho");
+			
 		}
     }
 
