@@ -21,6 +21,8 @@ namespace wararyo.TaskGround
 		private AudioSource audiosource;
 		public AudioClip hit;
 
+		public GameObject effect;
+
         public TextMesh titleText;
 		[SerializeField,HideInInspector]
         private Task m_task;
@@ -84,6 +86,7 @@ namespace wararyo.TaskGround
 			audiosource.PlayOneShot (hit);
 			if (currentHp < 0) {
 				StartCoroutine (TrelloDelete ());
+				Instantiate (effect, transform.position, transform.rotation);
 				Destroy (gameObject);
 			}
 		}
