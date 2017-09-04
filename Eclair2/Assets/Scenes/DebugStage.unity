@@ -823,6 +823,8 @@ GameObject:
   - component: {fileID: 306392916}
   - component: {fileID: 306392917}
   - component: {fileID: 306392918}
+  - component: {fileID: 306392920}
+  - component: {fileID: 306392919}
   m_Layer: 0
   m_Name: DebugSceneManager
   m_TagString: Untagged
@@ -895,6 +897,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputTypes: {fileID: 11400000, guid: c93c19ef773d447639a1ce7fb06f85e3, type: 2}
   keyboardKeyConfig: {fileID: 11400000, guid: 8d7d0ca0eaeb743fb8ee2ed9e52ae946, type: 2}
+--- !u!95 &306392919
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306392913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!320 &306392920
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306392913}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: f41065ae630144e7fa205e82bf258c9e, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 114188805054103962, guid: f41065ae630144e7fa205e82bf258c9e, type: 2}
+    value: {fileID: 306392913}
+  m_ExposedReferences:
+    m_References:
+    - dad2c9ef79a9646c68c7ddf583d365a6: {fileID: 0}
 --- !u!1 &402311409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2119,7 +2157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2104710202
 Transform:
   m_ObjectHideFlags: 0
