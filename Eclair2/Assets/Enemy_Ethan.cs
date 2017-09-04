@@ -46,6 +46,7 @@ public class Enemy_Ethan :EnemyBase {
 		if (c.gameObject.tag == "Player"&& TimeCounter.countStart == false) {
 			TimeCounter.countStart = true;
 			gmgm.gameStart.enabled = false;
+			StartCoroutine (gmgm.GameStartAndTimeUp ());
 		}
 
 	}
