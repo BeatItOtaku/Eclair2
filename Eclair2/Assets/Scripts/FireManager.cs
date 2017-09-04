@@ -16,7 +16,7 @@ public class FireManager : MonoBehaviour {
 	public Transform effectMuzzle;//マズルフラッシュが出る用の銃口
 	public GameObject muzzleFlash;//銃口から出るマズルフラッシュ
 
-	public GameObject[] enemies;
+	//private GameObject[] enemies;
 
 	//射撃、打撃ができるかどうかの判定
 	public  bool canShot = true; //falseでエクレアは射撃ができなくなる。
@@ -42,60 +42,52 @@ public class FireManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		shotingTime = shotCoolTime;
+
 	}
 
-	/*public void StartShot(){
-		isShotting = true;
-	}
-
-	public void StopShot(){
-		isShotting = false;
-		anim.SetBool ("Shot", false);
-	}*/
-	
 	// Update is called once per frame
 	void Update () {
 		//打撃と射撃の切り替え
-		SwitchDagekiOrSyageki ();
-		Debug.Log (canAttack);
+		//SwitchDagekiOrSyageki ();
+		//Debug.Log (canAttack);
 	}
 
 	//canShot変数により、攻撃キーが入力されたとき打撃を出すか射撃を出すかを判別する。
 	public void SyagekiOrDageki(){
 		if (canShot) {
-			SyagekiStart ();
+			shotContinue = true;
+
+			StartCoroutine (SyagekiCoroutine());
+			//SyagekiStart ();
 		} else {
 			Dageki ();
 		}
 	}
 
+	private IEnumerator SyagekiCoroutine(){
 
-	//射撃モード
-	public void SyagekiStart(){
-				anim.SetBool ("Shot", true);
-				shotContinue = true;
-				if (shotOn == true) {
-					Ray cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
-					transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
-					transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
-					GameObject bulletInstance = (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
-					bulletInstance.GetComponent<Bullet> ().CursorRay = cursorRay;
-					Instantiate (muzzleFlash, effectMuzzle.position, effectMuzzle.rotation);
-					audioSource.PlayOneShot (shotSound);
-					Vector3 cameraDirection = Camera.main.transform.forward;
-					shotOn = false;
-				}
-				shotingTime -= Time.deltaTime;
-				if (shotingTime <= 0) {
-					shotOn = true;
-					shotingTime = shotCoolTime;
-				}
+		while (shotContinue) {
+			anim.SetBool ("Shot", true);
+
+				Ray cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
+				transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
+				transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);
+				GameObject bulletInstance = (GameObject)Instantiate (bullet, muzzle.position, muzzle.rotation);
+				bulletInstance.GetComponent<Bullet> ().CursorRay = cursorRay;
+				Instantiate (muzzleFlash, effectMuzzle.position, effectMuzzle.rotation);
+				audioSource.PlayOneShot (shotSound);
+				Vector3 cameraDirection = Camera.main.transform.forward;
+
+			yield return new WaitForSeconds (0.1f);  
+		}
+
 	}
 
 	public void SyagekiStop(){
 		anim.SetBool ("Shot", false);
-		shotingTime = shotCoolTime;
+
+		shotContinue = false;
+
 	}
 
 	//打撃モード
@@ -106,7 +98,7 @@ public class FireManager : MonoBehaviour {
 
 
 	//打撃と射撃の自動切り替え
-	void SwitchDagekiOrSyageki(){
+	/*void SwitchDagekiOrSyageki(){
 		
 		enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 
@@ -132,11 +124,11 @@ public class FireManager : MonoBehaviour {
 				canShot = true;
 			}
 		}
-	}
+	}*/
 
 
 	//ここからのOnTriggerStay,OnTriggerExitで射撃モード、打撃モードの判定を行う。
-	/*private void OnTriggerStay(Collider col){//打撃モードになる。
+	private void OnTriggerStay(Collider col){//打撃モードになる。
 		if (shotContinue == false) {
 			if (col.gameObject.tag == "Enemy") {
 				canShot = false;
@@ -150,5 +142,5 @@ public class FireManager : MonoBehaviour {
 			canShot = true;
 			canAttack = false;
 		}
-	}*/
+	}
 }
