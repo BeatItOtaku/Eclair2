@@ -36,7 +36,7 @@ public class Bolt : MonoBehaviour {
 		startTime = Time.time;
 		transform.rotation = Quaternion.LookRotation (pcm.cursorRay.direction);//カーソルがある方向にボルトが回転
 		direction =new Ray (transform.position, transform.forward); 
-		layerMask = ~((1 << 8) +(1<<13));//PlayerとBoltとEclairKeepOut以外全部
+		layerMask = ~((1 << 8) +(1<<13)+(1<<19));//PlayerとBoltとEclairKeepOut以外全部
 
 		if (Physics.Raycast (direction, out hit, Mathf.Infinity, layerMask)) {
 			//ボルトの先からRayを飛ばし、何かに当たった場合はその位置まで一定時間で移動する。
