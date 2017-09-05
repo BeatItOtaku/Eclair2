@@ -93,7 +93,7 @@ namespace wararyo.TaskGround
 			if (currentHp < 0) {
 				StartCoroutine (TrelloDelete ());
 				Instantiate (effect, transform.position + new Vector3(0,3,0), effect.transform.rotation);
-				bt.breakedTask++;
+				bt.currentBreakedTask++;
 				gameObject.SetActive (false);
 				//Destroy (gameObject);
 			}
