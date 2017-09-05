@@ -16,6 +16,8 @@ public class FireManager : MonoBehaviour {
 	public Transform effectMuzzle;//マズルフラッシュが出る用の銃口
 	public GameObject muzzleFlash;//銃口から出るマズルフラッシュ
 
+	public PlayerControlManager pcm;
+
 	//private GameObject[] enemies;
 
 	//射撃、打撃ができるかどうかの判定
@@ -57,7 +59,9 @@ public class FireManager : MonoBehaviour {
 		if (canShot) {
 			shotContinue = true;
 
-			StartCoroutine (SyagekiCoroutine());
+			if (pcm.etoOn == false) {
+				StartCoroutine (SyagekiCoroutine ());
+			}
 			//SyagekiStart ();
 		} else {
 			Dageki ();

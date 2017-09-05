@@ -3153,6 +3153,7 @@ MonoBehaviour:
   effectMuzzle: {fileID: 462312177}
   muzzleFlash: {fileID: 1000012884428902, guid: 24daba883ff0d43d0b789acc023d6650,
     type: 2}
+  pcm: {fileID: 1406541918}
   canShot: 1
   canAttack: 0
   audioSource: {fileID: 1406541916}

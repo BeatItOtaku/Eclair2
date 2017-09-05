@@ -82,6 +82,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 			image = timeUp;
 		}
 		audioSource.PlayOneShot (gameStartAndStop);
+		sunadokei.enabled = true;
 		time.enabled = true;
 		image.enabled = true;
 		yield return new WaitForSeconds (2.0f);
