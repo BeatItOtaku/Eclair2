@@ -16,10 +16,14 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 	public Text breakedTask;
 	public Image start;
 	public Image timeUp;
+	public Image sunadokei;
 
 	private Image image = null;
 
 	public bool moji = true;//イーサンにぶつかって〜と制限時間の文字をつけ消しする
+
+	public AudioSource audioSource;
+	public AudioClip gameStartAndStop;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +33,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 		gameStart.enabled = true;
 		start.enabled = false;
 		timeUp.enabled = false;
+		audioSource = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +43,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.F1)) {
 				gameStart.enabled = !gameStart.enabled;
 				time.enabled = !time.enabled;
+				sunadokei.enabled = !sunadokei.enabled;
 
 			}
 		}
@@ -75,6 +81,7 @@ public class GasshukuMiniGameManager : MonoBehaviour {
 		} else {
 			image = timeUp;
 		}
+		audioSource.PlayOneShot (gameStartAndStop);
 		time.enabled = true;
 		image.enabled = true;
 		yield return new WaitForSeconds (2.0f);

@@ -9,10 +9,12 @@ public class Enemy_Ethan :EnemyBase {
 
 	public GasshukuMiniGameManager gmgm;
 
+
 	// Use this for initialization
 	void Start () {
 		MaxHP = 100;
 		currentHp = MaxHP;
+
 	}
 	
 	// Update is called once per frame
