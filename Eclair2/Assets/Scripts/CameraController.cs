@@ -15,18 +15,18 @@ public class CameraController : MonoBehaviour
 			return GameObject.Find ("DebugSceneManager");
 		}
 	}
-	private LookAtObject Lao {//エクレアじろじろシステム
+	/*private LookAtObject Lao {//エクレアじろじろシステム
 		get {
-			return Debug.GetComponent<LookAtObject> ();
+			return //Debug.GetComponent<LookAtObject> ();
 		}
-	}
+	}*/
 
 	public  GameObject LookAt {
 		get {
 			if (pcm.etoOn == true) {
 				return pcm.eto;
-			} else if (Lao.lookAt == true) {
-				return Lao.cameraParent;
+			/*} else if (Lao.lookAt == true) {
+				return Lao.cameraParent;*/
 			} else {
 				return player;
 			}
