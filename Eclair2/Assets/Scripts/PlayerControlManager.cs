@@ -64,7 +64,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private GameObject preShot = null;//既に打ち出したボルト
 	public GameObject lastShot = null; //最後に打ち出したボルト
 
-	public  bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
+	public  bool canBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public static bool boltShot = false; //ボルトを打ち出したことを判定する
 
 	public Ray cursorRay;//カメラから照準に向かって進むRay
@@ -378,19 +378,9 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 	void BoltManagement(InputEvent e)
 	{
-		if (isBolt) {
-			/*if (Input.GetButton ("LaunchBolt")) {
-				boltTime += Time.deltaTime;
-				boltButton = true;
-				LookAtRayFromCamera ();
-				anim.SetBool("Run",false);
-
-			}*/
+		if (canBolt) {
+			
 				if (Input.GetButtonDown ("LaunchBolt")) {
-					//boltTimeの値、つまりBoltキーを押し続けた時間によって攻撃が変わる。
-					//boltButton = false;
-
-					//if (boltTime <= 0.5f) {//ETO用ボルト射出
 						playerState_ = PlayerStates.Bolt;
 						eclairImmobile = true;//ボルトを撃つとき一瞬止まる
 
@@ -405,18 +395,6 @@ public class PlayerControlManager : MonoBehaviour {
 						boltShot = true; //打ち出したことを判定する変数
 						anim.SetTrigger ("Bolt");
 						audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
-
-					/*}else{//0.5秒以上boltキーを押すことで出せる技
-					
-					hitPosition = cursorRay.GetPoint (5);//カメラから一定の距離
-					GameObject go = (GameObject)Instantiate (attackBolt1, hitPosition, transform.rotation);
-					audioSource.PlayOneShot (boltLaunchSound);
-					audioSource.clip = boltLandSound;
-					audioSource.PlayDelayed (0.8f);
-						Destroy (go, 1.0f);
-					}*/
-
-				//boltTime = 0;//ボルトを押し続けた時間の初期化
 				}
 			}
 			}

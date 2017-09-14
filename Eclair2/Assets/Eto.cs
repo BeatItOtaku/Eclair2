@@ -71,11 +71,13 @@ public class Eto : MonoBehaviour {
 		Instantiate (attackEffect, transform.position, transform.rotation);
 		player.transform.position = endPosition;
 		PlayerControlManager.eclairImmobile = false;
+
 		boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
 		boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
 		Destroy (bolt);
 		pcm.etoOn = false; //ETOが終了した
 		player.SetActive (true);
+		player.GetComponent<Rigidbody>().velocity = new Vector3(0, 30, 0);
 		gameObject.SetActive (false);
 
 
