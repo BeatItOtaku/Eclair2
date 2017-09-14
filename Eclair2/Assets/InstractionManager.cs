@@ -30,6 +30,7 @@ public class InstractionManager : MonoBehaviour {
 
 
 	public void TutorialDisplay(int num){
+		tutorials [num].gameObject.SetActive = true;
 
 	}
 }
