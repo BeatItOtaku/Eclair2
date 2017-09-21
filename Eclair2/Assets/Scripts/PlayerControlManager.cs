@@ -379,24 +379,24 @@ public class PlayerControlManager : MonoBehaviour {
 	void BoltManagement(InputEvent e)
 	{
 		if (canBolt) {
-			
 				if (Input.GetButtonDown ("LaunchBolt")) {
-						playerState_ = PlayerStates.Bolt;
-						eclairImmobile = true;//ボルトを撃つとき一瞬止まる
+					playerState_ = PlayerStates.Bolt;
+					eclairImmobile = true;//ボルトを撃つとき一瞬止まる
 
-						LookAtRayFromCamera ();
-						anim.SetBool("Run",false);
+					LookAtRayFromCamera ();
+					anim.SetBool ("Run", false);
 									
-						//ボルトの複製と前に撃ったボルトの消去
-						if (preShot != null)Destroy (preShot);//前に撃ったボルトが存在する場合、そのボルトを消す
-						lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
-						preShot = lastShot;
-						boltmanager = lastShot.GetComponent<Bolt> ();
-						boltShot = true; //打ち出したことを判定する変数
-						anim.SetTrigger ("Bolt");
-						audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
+					//ボルトの複製と前に撃ったボルトの消去
+					if (preShot != null)
+						Destroy (preShot);//前に撃ったボルトが存在する場合、そのボルトを消す
+					lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
+					preShot = lastShot;
+					boltmanager = lastShot.GetComponent<Bolt> ();
+					boltShot = true; //打ち出したことを判定する変数
+					anim.SetTrigger ("Bolt");
+					audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
 				}
-			}
+		}
 			}
 		
 
@@ -417,7 +417,7 @@ public class PlayerControlManager : MonoBehaviour {
 						//audioSource.PlayOneShot (etoileSound);
 						etoOn = true;
 						eto.SetActive (true);				                       
-						player.SetActive (false);
+						EclairTenmetsu ();
 					}
 				} 
 			}
@@ -449,7 +449,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 
 	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
-		if (isMuteki|| death)yield break;
+		if (isMuteki|| death || etoOn)yield break;
 		StartCoroutine (MutekiCoroutine ());
 
 		currentHp -= damage;
@@ -478,12 +478,16 @@ public class PlayerControlManager : MonoBehaviour {
 	public IEnumerator MutekiCoroutine(){
 		isMuteki = true;
 		for (int i = 0; i < tenmetsuCount; i++) {
-			foreach (Renderer mesh in meshes) {
-				mesh.enabled = !mesh.enabled;
-			}
+			EclairTenmetsu ();
 			yield return new WaitForSeconds(mutekiTimeInterval);
 		}
 		isMuteki = false;
+	}
+
+	public void EclairTenmetsu(){
+		foreach (Renderer mesh in meshes) {
+			mesh.enabled = !mesh.enabled;
+		}
 	}
 
 	//Death
