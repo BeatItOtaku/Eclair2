@@ -79,9 +79,10 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Avoid
-	public  bool isAvoid = true; //falseでエクレアは回避ができなくなる。
-	private float avoidSpeed;
-	private float mutekiTime = 2.0f;//回避時の無敵時間
+	public  bool canAvoid = true; //falseでエクレアは回避ができなくなる。
+	private float avoidSpeed = 1;
+	private float mutekiTime = 0.5f;//回避時の無敵時間
+	private int avoidCount = 3;//Avoidメソッド中のfor文で使う変数
 
 	//Eto
 	public  bool canEto = false; //falseでエクレアはETOができなくなる。
@@ -348,26 +349,27 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	public IEnumerator AvoidCoroutine(InputEvent e){
-		if(isAvoid){		
+		if(canAvoid){		
 			if(e.eventState == InputState.Down){
 				if (isMuteki)yield break;
 				isMuteki = true;
 				playerState_ = PlayerStates.Avoid;
-				LookAtRayFromCamera ();
-				if (isMoving) {
+				LookAtRayFromCamera ();//エクレアがカメラの方を向く
 
-					//avoidSpeed = 1;
-					/*Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
-					Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;
-					transform.position += Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
-					anim.SetFloat ("Horizontal", horizontal);
-					anim.SetFloat ("Vertical", vertical);*/
-				} else {
+				Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
+				Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;
 
 
+					eclairImmobile = true;
+				for(int i= 0;i <avoidCount;i++){
+					transform.Translate (horizontalV + verticalV,Space.World);//world座標内で、エクレアをavoidCountの回数だけ移動させている
+					yield return new WaitForSeconds (0.01f);
 				}
+					eclairImmobile = false;
+
 				yield return new WaitForSeconds (mutekiTime);
 				isMuteki = false;
+		
 				playerState_ = PlayerStates.Idle;
 			}
 		}
