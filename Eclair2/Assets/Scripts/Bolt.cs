@@ -42,7 +42,7 @@ public class Bolt : MonoBehaviour {
 			//ボルトの先からRayを飛ばし、何かに当たった場合はその位置まで一定時間で移動する。
 			endPosition = hit.point;
 			trueEnd = true;
-			journeyLength = Vector3.Distance (startPosition, endPosition);
+			journeyLength = hit.distance; 
 		} else {
 			//Rayが何にも当たらなかった場合は、ボルトはただ直進する。
 			trueEnd = false;

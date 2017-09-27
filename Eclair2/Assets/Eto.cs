@@ -20,7 +20,7 @@ public class Eto : MonoBehaviour {
 
 	public float etoSpeed = 100;
 
-	public float jumpheight = 40;//ETO終了後のジャンプする高さ
+	public float jumpheight = 30;//ETO終了後のジャンプする高さ
 
 	public AudioSource audioSource;
 	public AudioClip etoileSound;

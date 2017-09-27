@@ -83,6 +83,9 @@ public class PlayerControlManager : MonoBehaviour {
 	private float avoidSpeed = 1;
 	private float mutekiTime = 0.5f;//回避時の無敵時間
 	private int avoidCount = 3;//Avoidメソッド中のfor文で使う変数
+	private Ray avoidDirection;
+	private RaycastHit avoidHit;
+	private float rayDistance;
 
 	//Eto
 	public  bool canEto = false; //falseでエクレアはETOができなくなる。
@@ -356,25 +359,32 @@ public class PlayerControlManager : MonoBehaviour {
 				playerState_ = PlayerStates.Avoid;
 				LookAtRayFromCamera ();//エクレアがカメラの方を向く
 
-				Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
-				Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;
+				Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;//左右方向の移動量
+				Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;//前後方向の移動量
 
+				//エクレアの正面から出るRayが何かにぶつかるかどうか
+				avoidDirection = new Ray (transform.position, transform.forward);
+				if (Physics.Raycast (avoidDirection, out avoidHit,Mathf.Infinity)) {
+					rayDistance = avoidHit.distance;
+				}
 
 					eclairImmobile = true;
 				for(int i= 0;i <avoidCount;i++){
+					if (rayDistance>1f) {
 					transform.Translate (horizontalV + verticalV,Space.World);//world座標内で、エクレアをavoidCountの回数だけ移動させている
+					}
+					//エクレアの目の前に障害物がある場合移動しない。
 					yield return new WaitForSeconds (0.01f);
 				}
 					eclairImmobile = false;
 
 				yield return new WaitForSeconds (mutekiTime);
 				isMuteki = false;
-		
+
 				playerState_ = PlayerStates.Idle;
 			}
 		}
 	}
-
 
 	//Bolt
 	/// <summary>
