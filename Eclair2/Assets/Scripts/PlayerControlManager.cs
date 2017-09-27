@@ -22,7 +22,7 @@ public class PlayerControlManager : MonoBehaviour {
 	//汎用系
 	public GameObject player;
 
-	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
+	public GameObject ashimoto;//設置判定をするための足元におくオブジェクト
 
 	public static bool eclairImmobile = false; //trueでエクレアは動けなくなる。
 
@@ -93,9 +93,17 @@ public class PlayerControlManager : MonoBehaviour {
 	public GameObject eto;
 
 
-	//Jump
-	//public float jumpHeight = 100.0f;
+	//Climb
+	public GameObject head;//エクレアの頭頂部
+	private Ray headRay;//headから前方に出るRay
+	private RaycastHit headHit;
 
+	private Ray ashimotoRay;//ashimotoから前方に出るRay
+	private RaycastHit ashimotoHit;
+
+	private float rayLength = 1f;//Rayの長さ
+	private float climbHeight = 10;
+	private bool obstacle = false; //エクレアが
 
 	//HP,Damage,muteki
 	public int currentHp = MaxHP;
@@ -159,7 +167,7 @@ public class PlayerControlManager : MonoBehaviour {
 	//設置判定
 	bool IsGrounded() 
 	{
-		return Physics.Raycast(asimoto.transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.30f);
+		return Physics.Raycast(ashimoto.transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.30f);
 
 	}
 
@@ -220,7 +228,6 @@ public class PlayerControlManager : MonoBehaviour {
 			player.transform.position += new Vector3(0,-12f,0)* Time.deltaTime;
 			//エクレアが地面にいない場合、常に下向きにエクレアの座標を移動させている。
 		}
-			
 	}
 
 	void FixedUpdate()
@@ -280,11 +287,40 @@ public class PlayerControlManager : MonoBehaviour {
 			runAnim = false;
 		}
 
+		StartCoroutine(ClimbManagement ());
+
 		Rotating (horizontal, vertical);
 			player.transform.position += transform.forward * Time.deltaTime * speed;
 
 		anim.SetBool ("Run", runAnim);
 	}
+
+
+	//Climb
+	/// <summary>
+	/// 目の前にエクレアよりも小さい段差がある場合、自動で乗り越える。
+	/// </summary>	
+
+	public IEnumerator ClimbManagement(){
+
+		headRay = new Ray (head.transform.position, player.transform.forward);
+		ashimotoRay = new Ray (ashimoto.transform.position, player.transform.forward);
+
+		if (IsGrounded ()) {
+			if(Physics.Raycast(ashimotoRay, out ashimotoHit,rayLength)){
+				Debug.Log ("hi");
+				if (!Physics.Raycast (headRay, out headHit,rayLength)) {
+					//エクレアはオブジェクトを乗り越える
+					Debug.Log ("ie");
+					for (int i = 0; i < 5; i++) {
+						player.GetComponent<Rigidbody> ().AddForce (player.transform.up * 10);
+							yield return new WaitForSeconds (0.01f);
+					}
+				}
+			}
+		}
+	}
+
 
 
 	void KaniMove(){
@@ -346,11 +382,9 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Avoid
 	/// <summary>
-	/// 移動していない状態で左Shiftキーを押すとその場回避、移動している状態で左Shiftキーを押すと移動している方向に回避。
+	/// 移動している状態で左Shiftキーを押すと移動している方向に回避。
 	/// 回避中は無敵時間がある。
 	/// </summary>
-
-
 	public IEnumerator AvoidCoroutine(InputEvent e){
 		if(canAvoid){		
 			if(e.eventState == InputState.Down){
@@ -385,6 +419,7 @@ public class PlayerControlManager : MonoBehaviour {
 			}
 		}
 	}
+
 
 	//Bolt
 	/// <summary>
@@ -438,22 +473,7 @@ public class PlayerControlManager : MonoBehaviour {
 		}
 	}
 
-	//Jump
-	/// <summary>
-	/// Boltを射出していない状態でspaceキーを押すとジャンプする。
-	/// </summary>	
-	/*void JumpManagement()
-	{
-		if(playerState_ == PlayerStates.Idle){
-			if (Input.GetButtonDown ("Space"))
-			{				
-				playerState_ = PlayerStates.Jump;
-				//anim.SetTrigger ("Jump");
-				GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
 
-			}
-		}
-	}*/
 
 	///<summary>>
 	/// Damage&HPに関するコルーチン。PlayerControlManager.cs内ではなく、敵にアタッチしてあるスクリプトから呼び出し、ダメージを与える。
