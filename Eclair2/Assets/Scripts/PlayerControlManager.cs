@@ -84,8 +84,8 @@ public class PlayerControlManager : MonoBehaviour {
 	private float mutekiTime = 2.0f;//回避時の無敵時間
 
 	//Eto
-	public  bool isEto = false; //falseでエクレアはETOができなくなる。
-	public  bool etoOn = false;
+	public  bool canEto = false; //falseでエクレアはETOができなくなる。
+	public  bool isEto = false; //ETO中にOnになる変数
 	public GameObject eto;
 
 
@@ -179,7 +179,7 @@ public class PlayerControlManager : MonoBehaviour {
 					vertical = e.delta.y;
 					break;
 				case "Bolt":
-					BoltManagement (e);
+			if(!isEto)BoltManagement (e);
 					break;
 				case "ETO":
 					EtoManagement (e);
@@ -187,11 +187,13 @@ public class PlayerControlManager : MonoBehaviour {
 				case "Avoid":
 				StartCoroutine (AvoidCoroutine (e));
 					break;
-				case "Shot":
-					if (e.eventState == InputState.Down)
-					fm.SyagekiOrDageki();
-					else
-						fm.SyagekiStop ();
+		case "Shot":
+			if (!isEto) {
+				if (e.eventState == InputState.Down)
+					fm.SyagekiOrDageki ();
+				else
+					fm.SyagekiStop ();
+			}
 					break;
 		}
 	}
@@ -406,18 +408,18 @@ public class PlayerControlManager : MonoBehaviour {
 	/// 最終的にエクレアのPlayerControlManagerスクリプトとEtoエクレアのEtoスクリプトで完結するようにする。
 	/// </summary>
 	void EtoManagement(InputEvent e){
-		if (isEto) {
+		if (canEto) {
 			if (boltmanager.launchBolt == true) {//ボルトが着弾している状態
 				if (lastShot != null) {
 					if (e.eventState == InputState.Down) {						
 						playerState_ = PlayerStates.Eto;
 						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-						eto.transform.position = player.transform.position;
+						eto.transform.position = player.transform.position;//ETOエクレアをエクレアと同じ座標に移動させている。
 						//audioSource.PlayOneShot (etoileSound);
-						etoOn = true;
+						isEto = true;//ETO中にtrueになる変数
 						eto.SetActive (true);				                       
-						EclairTenmetsu ();
+						EclairTenmetsu ();//エクレアのメッシュがすべて非表示になる。
 					}
 				} 
 			}
@@ -449,7 +451,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// </summary>
 
 	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
-		if (isMuteki|| death || etoOn)yield break;
+		if (isMuteki|| death || isEto)yield break;
 		StartCoroutine (MutekiCoroutine ());
 
 		currentHp -= damage;
@@ -484,6 +486,10 @@ public class PlayerControlManager : MonoBehaviour {
 		isMuteki = false;
 	}
 
+	/// <summary>
+	/// ダメージを受けたときにエクレアが点滅するためや、ETO中にエクレアを消すために使う。
+	/// このメソッド自体ではエクレアのメッシュの表示、非常時を切り替えているだけである。
+	/// </summary>
 	public void EclairTenmetsu(){
 		foreach (Renderer mesh in meshes) {
 			mesh.enabled = !mesh.enabled;
