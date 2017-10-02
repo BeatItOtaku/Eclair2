@@ -17,7 +17,6 @@ public class Eto : MonoBehaviour {
 	private Vector3 endPosition;//ETO終了地点
 	private float startTime;
 
-
 	public float etoSpeed = 100;
 
 	public float jumpheight = 30;//ETO終了後のジャンプする高さ
@@ -48,7 +47,7 @@ public class Eto : MonoBehaviour {
 			startTime = Time.time;
 
 			audioSource.PlayOneShot (etoileSound);
-
+			pcm.EclairMeshSwicher();//エクレアのメッシュをすべて非表示にする。
 		}
 		distance =  Mathf.Abs (Vector3.Distance (gameObject.transform.position, pcm.lastShot.transform.position));;//ボルトまでの距離
 
@@ -74,20 +73,19 @@ public class Eto : MonoBehaviour {
 		Instantiate (attackEffect, transform.position, transform.rotation);//ETOでぶつかった時に表示するエフェクト
 		player.transform.position = endPosition;//エクレアをETO終了地点に移動させる。
 		PlayerControlManager.eclairImmobile = false;
-
 		boltManager.launchBolt = false; //ボルトが着弾したという判定を戻す
 		boltManager = null;//ETOの目標となるボルトにあるboltManagerスクリプトを消す
 		Destroy (bolt);
+		pcm.EclairMeshSwicher();
+		player.GetComponent<Rigidbody> ().velocity = new Vector3 (0, jumpheight, 0);
 		pcm.isEto = false; //ETOが終了した
-		pcm.EclairTenmetsu();
-		player.GetComponent<Rigidbody>().velocity = new Vector3(0, jumpheight, 0);
 		gameObject.SetActive (false);
 
 
 	}
-	private void OnTriggerEnter(Collider col){
+	/*private void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Terrain") {
 			EtoEnd ();
 		}
-	}
+	}*/
 }

@@ -267,7 +267,6 @@ public class PlayerControlManager : MonoBehaviour {
 			if (runTime >= 2.0f)dash = true;
 			if(dash)speed = 6;//ダッシュ時のスピード
 			if(!dash)speed = 3;//非ダッシュ時のスピード
-
 			//ストップタイム（エクレアが停止している時間）の初期化
 			stopTime = 0;
 
@@ -466,7 +465,7 @@ public class PlayerControlManager : MonoBehaviour {
 						//audioSource.PlayOneShot (etoileSound);
 						isEto = true;//ETO中にtrueになる変数
 						eto.SetActive (true);				                       
-						EclairTenmetsu ();//エクレアのメッシュがすべて非表示になる。
+
 					}
 				} 
 			}
@@ -512,7 +511,7 @@ public class PlayerControlManager : MonoBehaviour {
 	public IEnumerator MutekiCoroutine(){
 		isMuteki = true;
 		for (int i = 0; i < tenmetsuCount; i++) {
-			EclairTenmetsu ();
+			EclairMeshSwicher ();
 			yield return new WaitForSeconds(mutekiTimeInterval);
 		}
 		isMuteki = false;
@@ -522,7 +521,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// ダメージを受けたときにエクレアが点滅するためや、ETO中にエクレアを消すために使う。
 	/// このメソッド自体ではエクレアのメッシュの表示、非常時を切り替えているだけである。
 	/// </summary>
-	public void EclairTenmetsu(){
+	public void EclairMeshSwicher(){
 		foreach (Renderer mesh in meshes) {
 			mesh.enabled = !mesh.enabled;
 		}
