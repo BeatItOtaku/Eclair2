@@ -19,6 +19,48 @@ using wararyo.EclairInput;
 
 public class PlayerControlManager : MonoBehaviour {
 
+	
+
+	/// <summary>
+	/// このメソッドは実行されることはない。
+	/// PlayerControlManager.cs内にあるメソッドを列挙し、アクセスしやすくする。・・・はず。
+	/// </summary>
+	//MethodList用の仮の変数。
+	private InputEvent e_;
+	private int damage_;
+	private Vector3 direction_;
+	private bool bannedUsing = true;
+
+	private void MethodList(){
+		if (bannedUsing == false) {
+			//エクレアがカメラの向いている方向を向く。
+					LookAtRayFromCamera ();
+			//エクレアの移動
+					MoveManagement (horizontal, vertical);
+			//小さい段差を自動で乗り越えるメソッド。未完成。
+					ClimbManagement ();
+			//射撃時のカニ歩きをするメソッド。
+					KaniMove ();
+			//回避に関するコルーチン。
+					AvoidCoroutine (e_);
+			//ボルト射出に関するメソッド。
+					BoltManagement (e_);
+			//ETOに関するメソッド。
+					EtoManagement (e_);
+			//エクレアがダメージを受けた時のコルーチン。未完成。
+					EclairDamageCoroutine (damage_, direction_);
+			//エクレアが無敵になるときのコルーチン。
+					MutekiCoroutine ();
+			//エクレアのメッシュの表示を切り替えるメソッド。
+					EclairMeshSwicher ();
+			//エクレアが倒されたときのコルーチン。未完成。
+					DeathCoroutine ();
+		}
+	}
+
+
+
+	//ここから変数群
 	//汎用系
 	public GameObject player;
 
@@ -174,6 +216,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		EclairInput.any += OnInput;
 
 		//アニメーション関係
@@ -245,9 +288,14 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	void LookAtRayFromCamera(){//エクレアが何か動作をしたときにカメラの向いてる方向に向くメソッド
+		
 		cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
 		transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+
+		//メソッドリスト
+		MethodList();
+
 		}
 
 
@@ -299,7 +347,6 @@ public class PlayerControlManager : MonoBehaviour {
 	/// <summary>
 	/// 目の前にエクレアよりも小さい段差がある場合、自動で乗り越える。
 	/// </summary>	
-
 	public IEnumerator ClimbManagement(){
 
 		headRay = new Ray (head.transform.position, player.transform.forward);
@@ -422,7 +469,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Bolt
 	/// <summary>
-	/// 最終的に、このエクレアのPlayerControlManagerスクリプトとボルトのBoltスクリプトだけで完結するようにする。
+	/// 最終的に、このエクレアのPlayerControlManager.csとボルトのBolt.csだけで完結するようにする。
 	/// </summary>
 	void BoltManagement(InputEvent e)
 	{
@@ -451,7 +498,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Eto
 	/// <summary>
-	/// 最終的にエクレアのPlayerControlManagerスクリプトとEtoエクレアのEtoスクリプトで完結するようにする。
+	/// 最終的にエクレアのPlayerControlManager.csとEtoエクレアのEto.csで完結するようにする。
 	/// </summary>
 	void EtoManagement(InputEvent e){
 		if (canEto) {
@@ -480,7 +527,6 @@ public class PlayerControlManager : MonoBehaviour {
 	/// EclairDamageCroutineはエクレアがダメージを受けたときの処理であり、敵のスクリプト内で実行させる。
 	/// EnemyDamageCroutineは敵がダメージを受けたときの処理であり、エクレアのスクリプト内で実行させる。
 	/// </summary>
-
 	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
 		if (isMuteki|| death || isEto)yield break;
 		StartCoroutine (MutekiCoroutine ());
