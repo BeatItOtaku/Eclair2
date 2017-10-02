@@ -22,7 +22,7 @@ public class Bolt : MonoBehaviour {
 
 	private bool trueEnd; //ボルトの進む向きに出したRayが、何かにぶつかったときtrueを返す
 	private int layerMask;
-	private GameObject parent = null;//ボルトが当たったオブジェクトを親オブジェクトとし、親オブジェクトが動いてもボルトも同期して動くようにする
+	//private GameObject parent = null;//ボルトが当たったオブジェクトを親オブジェクトとし、親オブジェクトが動いてもボルトも同期して動くようにする
 
 	public AudioClip boltLandSound;
 
@@ -86,7 +86,7 @@ public class Bolt : MonoBehaviour {
 			GetComponent<AudioSource> ().PlayOneShot (boltLandSound);
 			//OnLanded.Invoke ();
 			if (col.gameObject.tag == "BlueMonument" || col.gameObject.tag == "GreenMonument") {
-				parent = col.gameObject;
+				//parent = col.gameObject;
 			} 
 			PlayerControlManager.boltShot = false;
 		}

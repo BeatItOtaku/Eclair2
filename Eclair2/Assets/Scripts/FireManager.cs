@@ -29,8 +29,8 @@ public class FireManager : MonoBehaviour {
 	public static int attackCount = 0;//攻撃した回数
 
 	//射撃に関する変数
-	private bool shotOn = true;
-	private float shotCoolTime = 0.05f;//次の弾を打ち出すまでにかかる時間
+	//private bool shotOn = true;
+	//private float shotCoolTime = 0.05f;//次の弾を打ち出すまでにかかる時間
 	private float shotingTime;//射撃ボタンを押してから経過した時間
 
 	private Animator anim;
