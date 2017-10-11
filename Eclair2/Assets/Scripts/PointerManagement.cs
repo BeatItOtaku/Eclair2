@@ -40,7 +40,7 @@ public class PointerManagement : MonoBehaviour {
 	private float topEdge = Screen.height * 9 / 10;
 	private float bottomEdge = Screen.height / 10;
 
-	private bool cursorSenter = true; //カーソルが画面中央にあるかどうか
+	//private bool cursorSenter = true; //カーソルが画面中央にあるかどうか
 
 	// Use this for initialization
 	void Start () {
@@ -57,7 +57,7 @@ public class PointerManagement : MonoBehaviour {
 			cursor.y += Input.GetAxis ("Camera Y") * Time.deltaTime * sensitivity;
 			cursor_ = new Vector3 (mouseX, mouseY, cursor.z);
 			cursorPosition.position = cursor_;
-			cursorSenter = false;
+			//cursorSenter = false;
 		//} else {			
 				cursor.x = Screen.width / 2;
 				cursor.y = Screen.height / 2;				

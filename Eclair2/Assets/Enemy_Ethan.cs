@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_Ethan :EnemyBase {
 
 
-	private string forwardOrBack;
+	//private string forwardOrBack =null;
 
 	// Use this for initialization
 	void Start () {
@@ -25,9 +25,9 @@ public class Enemy_Ethan :EnemyBase {
 
 		if (Vector3.Angle (gameObject.transform.forward, direction) <= 90) {
 			//エクレアが前後どちらから攻撃を受けたか
-			forwardOrBack = "forward";
+			//forwardOrBack = "forward";
 		} else {
-			forwardOrBack = "back";
+			//forwardOrBack = "back";
 		}
 		Debug.Log (currentHp);
 		//anim.SetTrigger (forwardOrBack);

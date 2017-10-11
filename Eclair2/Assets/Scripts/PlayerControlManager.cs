@@ -26,8 +26,8 @@ public class PlayerControlManager : MonoBehaviour {
 	/// PlayerControlManager.cs内にあるメソッドを列挙し、アクセスしやすくする。・・・はず。
 	/// </summary>
 	//MethodList用の仮の変数。
-	private InputEvent e_;
-	private int damage_;
+	private InputEvent e_ = null;
+	private int damage_ = 0;
 	private Vector3 direction_;
 	private bool bannedUsing = true;
 
@@ -38,7 +38,7 @@ public class PlayerControlManager : MonoBehaviour {
 			//エクレアの移動
 					MoveManagement (horizontal, vertical);
 			//小さい段差を自動で乗り越えるメソッド。未完成。
-					ClimbManagement ();
+					//ClimbManagement ();
 			//射撃時のカニ歩きをするメソッド。
 					KaniMove ();
 			//回避に関するコルーチン。
@@ -69,17 +69,17 @@ public class PlayerControlManager : MonoBehaviour {
 	public static bool eclairImmobile = false; //trueでエクレアは動けなくなる。
 
 	//Move
-	private float speed;//移動の速さ
-	private float horizontal;//水平方向の移動量。
-	private float vertical;//前後方向の移動量。
+	private float speed = 0;//移動の速さ
+	private float horizontal = 0;//水平方向の移動量。
+	private float vertical = 0;//前後方向の移動量。
 	private float downSpeed = -13f;//落下時のスピード。落下中に射撃をするとゆっくり落ちてしまう現象を解消するため。
 
 	private bool isMoving = false; //trueでエクレアが動いている、falseで止まっている。
-	private bool runAnim;//アニメーションのRunに対する変数。trueでRunアニメーションが再生される。
+	private bool runAnim = false;//アニメーションのRunに対する変数。trueでRunアニメーションが再生される。
 
 	//ダッシュに関する変数群
 	private float runTime = 0;//runTimeは走っている時間、一定時間以上になると移動速度が速くなる。
-	private bool dash;//ダッシュ状態かどうか
+	private bool dash = false;//ダッシュ状態かどうか
 
 	private float stopTime = 0;//エクレアが止まっている時間。アニメーションのRun→RunToIdleに遷移するのを調整する変数。
 
@@ -88,7 +88,7 @@ public class PlayerControlManager : MonoBehaviour {
 	public Transform cameraTransform;   // 操作するカメラ
 
 	private float turnSmoothing = 3.0f;
-	private float finalTurnSmoothing;
+	//private float finalTurnSmoothing = 0;
 
 	private Vector3 lastDirection;
 	private Vector3 targetDirection;
@@ -115,7 +115,7 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Boltキーを押し続けたときのボルト攻撃用変数
 	private bool boltButton;
-	private float boltTime = 0;//Boltキーを押し続けることで加算されていく時間。
+	//private float boltTime = 0;//Boltキーを押し続けることで加算されていく時間。
 	public GameObject attackBolt1;//攻撃に使用するボルトそのもの
 	private Vector3 hitPosition;//攻撃する地点
 
@@ -138,14 +138,14 @@ public class PlayerControlManager : MonoBehaviour {
 	//Climb
 	public GameObject head;//エクレアの頭頂部
 	private Ray headRay;//headから前方に出るRay
-	private RaycastHit headHit;
+	//private RaycastHit headHit;
 
 	private Ray ashimotoRay;//ashimotoから前方に出るRay
-	private RaycastHit ashimotoHit;
+	//private RaycastHit ashimotoHit;
 
-	private float rayLength = 1f;//Rayの長さ
-	private float climbHeight = 10;
-	private bool obstacle = false; //エクレアが
+	//private float rayLength = 1f;//Rayの長さ
+	//private float climbHeight = 10;
+	//private bool obstacle = false; //エクレアが
 
 	//HP,Damage,muteki
 	public int currentHp = MaxHP;
@@ -334,7 +334,7 @@ public class PlayerControlManager : MonoBehaviour {
 			runAnim = false;
 		}
 
-		StartCoroutine(ClimbManagement ());
+		//StartCoroutine(ClimbManagement ());
 
 		Rotating (horizontal, vertical);
 			player.transform.position += transform.forward * Time.deltaTime * speed;
@@ -347,7 +347,7 @@ public class PlayerControlManager : MonoBehaviour {
 	/// <summary>
 	/// 目の前にエクレアよりも小さい段差がある場合、自動で乗り越える。
 	/// </summary>	
-	public IEnumerator ClimbManagement(){
+	/*public IEnumerator ClimbManagement(){
 
 		headRay = new Ray (head.transform.position, player.transform.forward);
 		ashimotoRay = new Ray (ashimoto.transform.position, player.transform.forward);
@@ -366,7 +366,7 @@ public class PlayerControlManager : MonoBehaviour {
 			}
 		}
 	}
-
+*/
 
 
 	void KaniMove(){

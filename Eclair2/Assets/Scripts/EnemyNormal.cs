@@ -14,16 +14,16 @@ public class EnemyNormal : EnemyBase {
 
     public GameObject effectWhenDied;
 
-	public GameObject player;
+	//public GameObject player;
 
     public AudioClip damaged;
     public AudioClip death;
 
-    private Animator anim;
+    //private Animator anim;
 
     private bool isMuteki;
 
-    private AudioSource audio;
+    //private AudioSource audio;
 
 	private GameObject em;
 	/// <summary>
@@ -115,7 +115,7 @@ public class EnemyNormal : EnemyBase {
 		//Debug.Log ("kougeki");
 		if(col.gameObject.CompareTag("Player")){
             anim.SetTrigger("Attack");
-			col.gameObject.GetComponent<PlayerControl> ().Damage (2);
+			//col.gameObject.GetComponent<PlayerControl> ().Damage (2);
             audio.PlayOneShot(damaged);
 			GetComponent<Rigidbody>().velocity = (-transform.forward * attackReaction);
 		}

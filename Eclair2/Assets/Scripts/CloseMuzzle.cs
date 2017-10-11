@@ -15,13 +15,13 @@ public class CloseMuzzle : MonoBehaviour {
 	
 	}
 	private void OnCollisonEnter(Collision col){
-		if (InputManager.close == true) {
+		/*if (InputManager.close == true) {
 			//if (col.gameObject.tag == "Enemy") {
 				EnemyBase enemy = col.gameObject.GetComponent<EnemyBase> ();
 				if (enemy != null) {
 					enemy.EnemyDamage (30, player.transform.forward);
 				//}
 			}
-		}
+		}*/
 	}
 }

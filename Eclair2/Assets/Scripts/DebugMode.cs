@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class DebugMode : MonoBehaviour {
 
     private Text textBox;
-    public InputManager inputManager;
+    //public InputManager inputManager;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +14,6 @@ public class DebugMode : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(textBox != null) textBox.text = inputManager.getDebugString();
+		//if(textBox != null) textBox.text = inputManager.getDebugString();
 	}
 }

@@ -30,7 +30,7 @@ namespace wararyo.EclairCueMaker {
 		}
 
         [SerializeField]
-		private int Version = 1;
+		//private int Version = 1;
 
 		public void Awake(){
 			
