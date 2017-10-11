@@ -29,8 +29,8 @@ public class FireManager : MonoBehaviour {
 	public static int attackCount = 0;//攻撃した回数
 
 	//射撃に関する変数
-	private bool shotOn = true;
-	private float shotCoolTime = 0.05f;//次の弾を打ち出すまでにかかる時間
+	//private bool shotOn = true;
+	//private float shotCoolTime = 0.05f;//次の弾を打ち出すまでにかかる時間
 	private float shotingTime;//射撃ボタンを押してから経過した時間
 
 	private Animator anim;
@@ -47,8 +47,6 @@ public class FireManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//打撃と射撃の切り替え
-		//SwitchDagekiOrSyageki ();
 		//Debug.Log (canAttack);
 	}
 
@@ -95,36 +93,6 @@ public class FireManager : MonoBehaviour {
 		attacked = true;
 		anim.SetBool ("Dageki", true);
 	}
-
-
-	//打撃と射撃の自動切り替え
-	/*void SwitchDagekiOrSyageki(){
-		
-		enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-
-		int i = 0; 
-		int length = enemies.Length;
-		float distance = 0;
-		float threshold = 2.0f;
-
-		Debug.Log (length);
-
-		while (i < length) {
-			distance = Vector3.Distance (enemies [i].transform.position, player.transform.position);
-			if (distance <= threshold) {
-				canAttack = true;
-				canShot = false;
-				break;
-			} 
-			i++;
-		}
-		if (canAttack == true) {
-			if (distance > threshold || enemies [i] == null) {
-				canAttack = false;
-				canShot = true;
-			}
-		}
-	}*/
 
 
 	//ここからのOnTriggerStay,OnTriggerExitで射撃モード、打撃モードの判定を行う。

@@ -5,31 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Title.unity
-  - enabled: 0
-    path: Assets/Scenes/Loading.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Player.unity
-  - enabled: 0
-    path: Assets/Scenes/tougou.unity
-  - enabled: 0
-    path: Assets/Scenes/Boss Map.unity
-  - enabled: 0
-    path: Assets/Scenes/BiO Map.unity
-  - enabled: 0
-    path: Assets/Scenes/Result.unity
-  - enabled: 0
-    path: Assets/Scenes/Stage1.unity
-  - enabled: 0
-    path: Assets/Scenes/ZakoMap.unity
-  - enabled: 0
-    path: Assets/Scenes/GameOver.unity
+    guid: adfaa7d8208908c408ccd641a755e615
   - enabled: 1
-    path: Assets/Scenes/MiniGame/Title.unity
-  - enabled: 0
-    path: Assets/Scenes/Credit.unity
-  - enabled: 1
-    path: Assets/Scenes/MiniGame/Tutorial.unity
-  - enabled: 1
-    path: Assets/Scenes/MiniGame/MiniGame.unity
+    path: Assets/Scenes/DebugStage.unity
+    guid: b847127f9a7bcbf42a7a9e1a4bca1a78

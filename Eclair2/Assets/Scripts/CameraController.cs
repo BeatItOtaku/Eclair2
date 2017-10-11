@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
 	public  GameObject LookAt {
 		get {
-			if (pcm.etoOn == true) {
+			if (pcm.isEto == true) {
 				return pcm.eto;
 			} else if (Lao.lookAt == true) {
 				return Lao.cameraParent;

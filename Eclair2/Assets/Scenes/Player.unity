@@ -169,7 +169,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 10
   m_Depth: 20
@@ -597,6 +597,7 @@ MonoBehaviour:
   attackEffect: {fileID: 1000011330532556, guid: ccc295824ee954351837300945d6580a,
     type: 2}
   etoSpeed: 100
+  jumpheight: 40
   audioSource: {fileID: 338940118}
   etoileSound: {fileID: 8300000, guid: f6f82f460603c1349879c683862ef991, type: 3}
   etoileEndSound: {fileID: 8300000, guid: aabd5ac4b0946d74497d754c6e0ebd18, type: 3}
@@ -1406,15 +1407,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: a9f55e86cdff746dbbf0d0ad7ab2dc1b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: a9f55e86cdff746dbbf0d0ad7ab2dc1b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: a9f55e86cdff746dbbf0d0ad7ab2dc1b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400268, guid: a9f55e86cdff746dbbf0d0ad7ab2dc1b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3161,19 +3162,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1406541913}
-  asimoto: {fileID: 2029237231}
+  ashimoto: {fileID: 2029237231}
   cameraTransform: {fileID: 338940115}
   fm: {fileID: 1406541919}
   bolt: {fileID: 1000012028248400, guid: 27e61d77ce08c4e6f9661f0a5b0426c8, type: 2}
   muzzle: {fileID: 462312177}
   lastShot: {fileID: 0}
-  isBolt: 1
+  canBolt: 1
   attackBolt1: {fileID: 1000013052217444, guid: 08e89c8c7f0c24264a287e54eec1e3c2,
     type: 2}
-  isAvoid: 1
+  canAvoid: 1
+  canEto: 0
   isEto: 0
-  etoOn: 0
   eto: {fileID: 852047924}
+  head: {fileID: 1442541885}
   currentHp: 100
   audioSource: {fileID: 1406541916}
   boltLaunchSound: {fileID: 8300000, guid: afe45737abd92e54e81f2c4c132e1b4c, type: 3}
@@ -3242,6 +3244,34 @@ CapsuleCollider:
   m_Height: 0.3237515
   m_Direction: 1
   m_Center: {x: 0, y: 0.16000001, z: 0}
+--- !u!1 &1442541885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1442541886}
+  m_Layer: 8
+  m_Name: Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1442541886
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442541885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.265, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1406541917}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1555592608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,7 +3958,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029237231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1406541917}

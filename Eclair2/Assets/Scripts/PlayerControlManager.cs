@@ -19,10 +19,52 @@ using wararyo.EclairInput;
 
 public class PlayerControlManager : MonoBehaviour {
 
+	
+
+	/// <summary>
+	/// このメソッドは実行されることはない。
+	/// PlayerControlManager.cs内にあるメソッドを列挙し、アクセスしやすくする。・・・はず。
+	/// </summary>
+	//MethodList用の仮の変数。
+	private InputEvent e_;
+	private int damage_;
+	private Vector3 direction_;
+	private bool bannedUsing = true;
+
+	private void MethodList(){
+		if (bannedUsing == false) {
+			//エクレアがカメラの向いている方向を向く。
+					LookAtRayFromCamera ();
+			//エクレアの移動
+					MoveManagement (horizontal, vertical);
+			//小さい段差を自動で乗り越えるメソッド。未完成。
+					ClimbManagement ();
+			//射撃時のカニ歩きをするメソッド。
+					KaniMove ();
+			//回避に関するコルーチン。
+					AvoidCoroutine (e_);
+			//ボルト射出に関するメソッド。
+					BoltManagement (e_);
+			//ETOに関するメソッド。
+					EtoManagement (e_);
+			//エクレアがダメージを受けた時のコルーチン。未完成。
+					EclairDamageCoroutine (damage_, direction_);
+			//エクレアが無敵になるときのコルーチン。
+					MutekiCoroutine ();
+			//エクレアのメッシュの表示を切り替えるメソッド。
+					EclairMeshSwicher ();
+			//エクレアが倒されたときのコルーチン。未完成。
+					DeathCoroutine ();
+		}
+	}
+
+
+
+	//ここから変数群
 	//汎用系
 	public GameObject player;
 
-	public GameObject asimoto;//設置判定をするための足元におくオブジェクト
+	public GameObject ashimoto;//設置判定をするための足元におくオブジェクト
 
 	public static bool eclairImmobile = false; //trueでエクレアは動けなくなる。
 
@@ -64,7 +106,7 @@ public class PlayerControlManager : MonoBehaviour {
 	private GameObject preShot = null;//既に打ち出したボルト
 	public GameObject lastShot = null; //最後に打ち出したボルト
 
-	public  bool isBolt = true; //falseでエクレアはボルトが撃てなくなる。
+	public  bool canBolt = true; //falseでエクレアはボルトが撃てなくなる。
 	public static bool boltShot = false; //ボルトを打ち出したことを判定する
 
 	public Ray cursorRay;//カメラから照準に向かって進むRay
@@ -79,19 +121,31 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	//Avoid
-	public  bool isAvoid = true; //falseでエクレアは回避ができなくなる。
-	private float avoidSpeed;
-	private float mutekiTime = 2.0f;//回避時の無敵時間
+	public  bool canAvoid = true; //falseでエクレアは回避ができなくなる。
+	private float avoidSpeed = 1;
+	private float mutekiTime = 0.5f;//回避時の無敵時間
+	private int avoidCount = 3;//Avoidメソッド中のfor文で使う変数
+	private Ray avoidDirection;
+	private RaycastHit avoidHit;
+	private float rayDistance;
 
 	//Eto
-	public  bool isEto = false; //falseでエクレアはETOができなくなる。
-	public  bool etoOn = false;
+	public  bool canEto = false; //falseでエクレアはETOができなくなる。
+	public  bool isEto = false; //ETO中にOnになる変数
 	public GameObject eto;
 
 
-	//Jump
-	//public float jumpHeight = 100.0f;
+	//Climb
+	public GameObject head;//エクレアの頭頂部
+	private Ray headRay;//headから前方に出るRay
+	private RaycastHit headHit;
 
+	private Ray ashimotoRay;//ashimotoから前方に出るRay
+	private RaycastHit ashimotoHit;
+
+	private float rayLength = 1f;//Rayの長さ
+	private float climbHeight = 10;
+	private bool obstacle = false; //エクレアが
 
 	//HP,Damage,muteki
 	public int currentHp = MaxHP;
@@ -155,13 +209,14 @@ public class PlayerControlManager : MonoBehaviour {
 	//設置判定
 	bool IsGrounded() 
 	{
-		return Physics.Raycast(asimoto.transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.30f);
+		return Physics.Raycast(ashimoto.transform.position + new Vector3(0,0.1f,0), -Vector3.up,  0.30f);
 
 	}
 
 
 	// Use this for initialization
 	void Start () {
+
 		EclairInput.any += OnInput;
 
 		//アニメーション関係
@@ -179,7 +234,7 @@ public class PlayerControlManager : MonoBehaviour {
 					vertical = e.delta.y;
 					break;
 				case "Bolt":
-					BoltManagement (e);
+			if(!isEto)BoltManagement (e);
 					break;
 				case "ETO":
 					EtoManagement (e);
@@ -187,11 +242,13 @@ public class PlayerControlManager : MonoBehaviour {
 				case "Avoid":
 				StartCoroutine (AvoidCoroutine (e));
 					break;
-				case "Shot":
-					if (e.eventState == InputState.Down)
-					fm.SyagekiOrDageki();
-					else
-						fm.SyagekiStop ();
+		case "Shot":
+			if (!isEto) {
+				if (e.eventState == InputState.Down)
+					fm.SyagekiOrDageki ();
+				else
+					fm.SyagekiStop ();
+			}
 					break;
 		}
 	}
@@ -214,7 +271,6 @@ public class PlayerControlManager : MonoBehaviour {
 			player.transform.position += new Vector3(0,-12f,0)* Time.deltaTime;
 			//エクレアが地面にいない場合、常に下向きにエクレアの座標を移動させている。
 		}
-			
 	}
 
 	void FixedUpdate()
@@ -232,9 +288,14 @@ public class PlayerControlManager : MonoBehaviour {
 
 
 	void LookAtRayFromCamera(){//エクレアが何か動作をしたときにカメラの向いてる方向に向くメソッド
+		
 		cursorRay = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.6f, 0f));
 		transform.rotation = Quaternion.LookRotation (cursorRay.direction);//カーソルがある方向にエクレアが回転
 		transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
+
+		//メソッドリスト
+		MethodList();
+
 		}
 
 
@@ -254,7 +315,6 @@ public class PlayerControlManager : MonoBehaviour {
 			if (runTime >= 2.0f)dash = true;
 			if(dash)speed = 6;//ダッシュ時のスピード
 			if(!dash)speed = 3;//非ダッシュ時のスピード
-
 			//ストップタイム（エクレアが停止している時間）の初期化
 			stopTime = 0;
 
@@ -274,11 +334,39 @@ public class PlayerControlManager : MonoBehaviour {
 			runAnim = false;
 		}
 
+		StartCoroutine(ClimbManagement ());
+
 		Rotating (horizontal, vertical);
 			player.transform.position += transform.forward * Time.deltaTime * speed;
 
 		anim.SetBool ("Run", runAnim);
 	}
+
+
+	//Climb
+	/// <summary>
+	/// 目の前にエクレアよりも小さい段差がある場合、自動で乗り越える。
+	/// </summary>	
+	public IEnumerator ClimbManagement(){
+
+		headRay = new Ray (head.transform.position, player.transform.forward);
+		ashimotoRay = new Ray (ashimoto.transform.position, player.transform.forward);
+
+		if (IsGrounded ()) {
+			if(Physics.Raycast(ashimotoRay, out ashimotoHit,rayLength)){
+				Debug.Log ("hi");
+				if (!Physics.Raycast (headRay, out headHit,rayLength)) {
+					//エクレアはオブジェクトを乗り越える
+					Debug.Log ("ie");
+					for (int i = 0; i < 5; i++) {
+						player.GetComponent<Rigidbody> ().AddForce (player.transform.up * 10);
+							yield return new WaitForSeconds (0.01f);
+					}
+				}
+			}
+		}
+	}
+
 
 
 	void KaniMove(){
@@ -340,32 +428,39 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Avoid
 	/// <summary>
-	/// 移動していない状態で左Shiftキーを押すとその場回避、移動している状態で左Shiftキーを押すと移動している方向に回避。
+	/// 移動している状態で左Shiftキーを押すと移動している方向に回避。
 	/// 回避中は無敵時間がある。
 	/// </summary>
-
-
 	public IEnumerator AvoidCoroutine(InputEvent e){
-		if(isAvoid){		
+		if(canAvoid){		
 			if(e.eventState == InputState.Down){
 				if (isMuteki)yield break;
 				isMuteki = true;
 				playerState_ = PlayerStates.Avoid;
-				LookAtRayFromCamera ();
-				if (isMoving) {
+				LookAtRayFromCamera ();//エクレアがカメラの方を向く
 
-					//avoidSpeed = 1;
-					/*Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;
-					Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;
-					transform.position += Vector3.MoveTowards (transform.position, horizontalV + verticalV, Time.deltaTime);
-					anim.SetFloat ("Horizontal", horizontal);
-					anim.SetFloat ("Vertical", vertical);*/
-				} else {
+				Vector3 horizontalV = gameObject.transform.right * horizontal * avoidSpeed;//左右方向の移動量
+				Vector3 verticalV = gameObject.transform.forward * vertical * avoidSpeed;//前後方向の移動量
 
-
+				//エクレアの正面から出るRayが何かにぶつかるかどうか
+				avoidDirection = new Ray (transform.position, transform.forward);
+				if (Physics.Raycast (avoidDirection, out avoidHit,Mathf.Infinity)) {
+					rayDistance = avoidHit.distance;
 				}
+
+					eclairImmobile = true;
+				for(int i= 0;i <avoidCount;i++){
+					if (rayDistance>1f) {
+					transform.Translate (horizontalV + verticalV,Space.World);//world座標内で、エクレアをavoidCountの回数だけ移動させている
+					}
+					//エクレアの目の前に障害物がある場合移動しない。
+					yield return new WaitForSeconds (0.01f);
+				}
+					eclairImmobile = false;
+
 				yield return new WaitForSeconds (mutekiTime);
 				isMuteki = false;
+
 				playerState_ = PlayerStates.Idle;
 			}
 		}
@@ -374,94 +469,57 @@ public class PlayerControlManager : MonoBehaviour {
 
 	//Bolt
 	/// <summary>
-	/// 最終的に、このエクレアのPlayerControlManagerスクリプトとボルトのBoltスクリプトだけで完結するようにする。
+	/// 最終的に、このエクレアのPlayerControlManager.csとボルトのBolt.csだけで完結するようにする。
 	/// </summary>
 	void BoltManagement(InputEvent e)
 	{
-		if (isBolt) {
-			/*if (Input.GetButton ("LaunchBolt")) {
-				boltTime += Time.deltaTime;
-				boltButton = true;
-				LookAtRayFromCamera ();
-				anim.SetBool("Run",false);
-
-			}*/
+		if (canBolt) {
 				if (Input.GetButtonDown ("LaunchBolt")) {
-					//boltTimeの値、つまりBoltキーを押し続けた時間によって攻撃が変わる。
-					//boltButton = false;
+					playerState_ = PlayerStates.Bolt;
+					eclairImmobile = true;//ボルトを撃つとき一瞬止まる
 
-					//if (boltTime <= 0.5f) {//ETO用ボルト射出
-						playerState_ = PlayerStates.Bolt;
-						eclairImmobile = true;//ボルトを撃つとき一瞬止まる
-
-						LookAtRayFromCamera ();
-						anim.SetBool("Run",false);
+					LookAtRayFromCamera ();
+					anim.SetBool ("Run", false);
 									
-						//ボルトの複製と前に撃ったボルトの消去
-						if (preShot != null)Destroy (preShot);//前に撃ったボルトが存在する場合、そのボルトを消す
-						lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
-						preShot = lastShot;
-						boltmanager = lastShot.GetComponent<Bolt> ();
-						boltShot = true; //打ち出したことを判定する変数
-						anim.SetTrigger ("Bolt");
-						audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
-
-					/*}else{//0.5秒以上boltキーを押すことで出せる技
-					
-					hitPosition = cursorRay.GetPoint (5);//カメラから一定の距離
-					GameObject go = (GameObject)Instantiate (attackBolt1, hitPosition, transform.rotation);
-					audioSource.PlayOneShot (boltLaunchSound);
-					audioSource.clip = boltLandSound;
-					audioSource.PlayDelayed (0.8f);
-						Destroy (go, 1.0f);
-					}*/
-
-				//boltTime = 0;//ボルトを押し続けた時間の初期化
+					//ボルトの複製と前に撃ったボルトの消去
+					if (preShot != null)
+						Destroy (preShot);//前に撃ったボルトが存在する場合、そのボルトを消す
+					lastShot = (GameObject)Instantiate (bolt, muzzle.position, transform.rotation);//boltを打ち出す
+					preShot = lastShot;
+					boltmanager = lastShot.GetComponent<Bolt> ();
+					boltShot = true; //打ち出したことを判定する変数
+					anim.SetTrigger ("Bolt");
+					audioSource.PlayOneShot (boltLaunchSound);//ボルトを打ち出した音
 				}
-			}
+		}
 			}
 		
 
 
 	//Eto
 	/// <summary>
-	/// 最終的にエクレアのPlayerControlManagerスクリプトとEtoエクレアのEtoスクリプトで完結するようにする。
+	/// 最終的にエクレアのPlayerControlManager.csとEtoエクレアのEto.csで完結するようにする。
 	/// </summary>
 	void EtoManagement(InputEvent e){
-		if (isEto) {
+		if (canEto) {
 			if (boltmanager.launchBolt == true) {//ボルトが着弾している状態
 				if (lastShot != null) {
 					if (e.eventState == InputState.Down) {						
 						playerState_ = PlayerStates.Eto;
 						transform.rotation = Quaternion.LookRotation (lastShot.transform.position);//マウスポインタがある方向にエクレアが回転
 						transform.rotation = new Quaternion (0, transform.rotation.y, 0, transform.rotation.w);//回転をエクレアがいる平面に補正
-						eto.transform.position = player.transform.position;
+						eto.transform.position = player.transform.position;//ETOエクレアをエクレアと同じ座標に移動させている。
 						//audioSource.PlayOneShot (etoileSound);
-						etoOn = true;
+						isEto = true;//ETO中にtrueになる変数
 						eto.SetActive (true);				                       
-						player.SetActive (false);
+
 					}
 				} 
 			}
 		}
 	}
 
-	//Jump
-	/// <summary>
-	/// Boltを射出していない状態でspaceキーを押すとジャンプする。
-	/// </summary>	
-	/*void JumpManagement()
-	{
-		if(playerState_ == PlayerStates.Idle){
-			if (Input.GetButtonDown ("Space"))
-			{				
-				playerState_ = PlayerStates.Jump;
-				//anim.SetTrigger ("Jump");
-				GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
 
-			}
-		}
-	}*/
 
 	///<summary>>
 	/// Damage&HPに関するコルーチン。PlayerControlManager.cs内ではなく、敵にアタッチしてあるスクリプトから呼び出し、ダメージを与える。
@@ -469,9 +527,8 @@ public class PlayerControlManager : MonoBehaviour {
 	/// EclairDamageCroutineはエクレアがダメージを受けたときの処理であり、敵のスクリプト内で実行させる。
 	/// EnemyDamageCroutineは敵がダメージを受けたときの処理であり、エクレアのスクリプト内で実行させる。
 	/// </summary>
-
 	public IEnumerator EclairDamageCoroutine(int damage, Vector3 direction){
-		if (isMuteki|| death)yield break;
+		if (isMuteki|| death || isEto)yield break;
 		StartCoroutine (MutekiCoroutine ());
 
 		currentHp -= damage;
@@ -500,12 +557,20 @@ public class PlayerControlManager : MonoBehaviour {
 	public IEnumerator MutekiCoroutine(){
 		isMuteki = true;
 		for (int i = 0; i < tenmetsuCount; i++) {
-			foreach (Renderer mesh in meshes) {
-				mesh.enabled = !mesh.enabled;
-			}
+			EclairMeshSwicher ();
 			yield return new WaitForSeconds(mutekiTimeInterval);
 		}
 		isMuteki = false;
+	}
+
+	/// <summary>
+	/// ダメージを受けたときにエクレアが点滅するためや、ETO中にエクレアを消すために使う。
+	/// このメソッド自体ではエクレアのメッシュの表示、非常時を切り替えているだけである。
+	/// </summary>
+	public void EclairMeshSwicher(){
+		foreach (Renderer mesh in meshes) {
+			mesh.enabled = !mesh.enabled;
+		}
 	}
 
 	//Death
