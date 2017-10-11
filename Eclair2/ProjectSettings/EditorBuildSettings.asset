@@ -5,51 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Title.unity
-    guid: 5bce740499fd9406da07662b07fea812
-  - enabled: 0
-    path: Assets/Scenes/Loading.unity
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Player.unity
     guid: adfaa7d8208908c408ccd641a755e615
-  - enabled: 0
-    path: Assets/Scenes/tougou.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Boss Map.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/BiO Map.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Result.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Stage1.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/ZakoMap.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/GameOver.unity
-    guid: f55b43163dc625e4a80196d2d082321f
-  - enabled: 0
-    path: Assets/Scenes/MiniGame/Title.unity
-    guid: 24f7216a193ee46a8aa807e104c90513
-  - enabled: 0
-    path: Assets/Scenes/Credit.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/MiniGame/Tutorial.unity
-    guid: 488cfdd5b62c24b938b26d4f8342c0ce
-  - enabled: 0
-    path: Assets/Scenes/MiniGame/MiniGame.unity
-    guid: 3fbcf6b27d05e47a1bae3ce28d1cc376
   - enabled: 1
     path: Assets/Scenes/DebugStage.unity
     guid: b847127f9a7bcbf42a7a9e1a4bca1a78
-  - enabled: 0
-    path: Assets/Scenes/UI(Kari).unity
-    guid: d8afc7f285fa743ea83caf653820add1
